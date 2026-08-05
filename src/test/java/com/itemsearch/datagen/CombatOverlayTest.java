@@ -102,4 +102,23 @@ public class CombatOverlayTest
         assertTrue(seeded.get(7706).needsReview);          // new gap stubbed
         assertEquals("typeless", seeded.get(7706).attacks.get(0).style);
     }
+    @Test
+    public void prayStyleAndVariantsSurviveOverlayParseAndApply()
+    {
+        String json = "{\"42\":{\"needsReview\":false,\"attacks\":[{"
+            + "\"style\":\"magic\",\"prayStyle\":\"ranged\","
+            + "\"maxHit\":15,\"maxHitMax\":15,\"speed\":4,\"speedMax\":4,"
+            + "\"variants\":[{\"label\":\"Insulated boots\",\"kind\":\"GEAR\","
+            + "\"maxHit\":8,\"maxHitMax\":8}]}]}}";
+        CombatOverlayJson ov = MonsterTransform.parseCombatOverlay(new Gson(), json).get(42);
+        OutputCombat result = MonsterTransform.applyCombatOverlay(
+            combat(new OutputAttack("typeless", 0, 10)), ov);
+        OutputAttack a = result.attacks.get(0);
+        assertEquals("ranged", a.prayStyle);
+        assertEquals(1, a.variants.size());
+        assertEquals("Insulated boots", a.variants.get(0).label);
+        assertEquals("GEAR", a.variants.get(0).kind);
+        assertEquals(8, a.variants.get(0).maxHit);
+    }
+
 }
