@@ -124,6 +124,35 @@ public class ShopTransformTest
     }
 
     @Test
+    public void mapCoordinatesCarryThroughToOutput()
+    {
+        Map<String, ShopPageJson> pages = new TreeMap<>();
+        ShopPageJson ground = page("Zaff", "Varrock", table(null, null, line("Pot", "1", null, null)));
+        ground.mapX = "3203";
+        ground.mapY = "3434";
+        pages.put("Zaff", ground);
+        ShopPageJson upstairs = page("Upstairs", null, table(null, null, line("Jug", "1", null, null)));
+        upstairs.mapX = "3100";
+        upstairs.mapY = "3300";
+        upstairs.mapPlane = "1";
+        pages.put("Upstairs", upstairs);
+        pages.put("Nowhere", page("Nowhere", null, table(null, null, line("Pot", "1", null, null))));
+
+        List<OutputShop> shops = ShopTransform.transform(pages,
+            Collections.emptyMap(), Collections.emptyMap());
+        assertEquals("Nowhere", shops.get(0).name);
+        assertNull(shops.get(0).x);
+        assertNull(shops.get(0).plane);
+        assertEquals("Upstairs", shops.get(1).name);
+        assertEquals(Integer.valueOf(3100), shops.get(1).x);
+        assertEquals(Integer.valueOf(3300), shops.get(1).y);
+        assertEquals(Integer.valueOf(1), shops.get(1).plane);
+        assertEquals("Zaff", shops.get(2).name);
+        assertEquals(Integer.valueOf(3203), shops.get(2).x);
+        assertEquals(Integer.valueOf(0), shops.get(2).plane); // coords present -> ground level
+    }
+
+    @Test
     public void multiTablePagesBecomeNumberedShopsAndSortByName()
     {
         Map<String, ShopPageJson> pages = new TreeMap<>();

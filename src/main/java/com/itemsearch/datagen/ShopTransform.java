@@ -60,6 +60,15 @@ public final class ShopTransform
                 shop.location = page.location;
                 shop.currency = table.currency == null || table.currency.isEmpty()
                     ? "Coins" : table.currency;
+                Integer mapX = parseInt(page.mapX);
+                Integer mapY = parseInt(page.mapY);
+                if (mapX != null && mapY != null)
+                {
+                    shop.x = mapX;
+                    shop.y = mapY;
+                    Integer plane = parseInt(page.mapPlane);
+                    shop.plane = plane != null ? plane : 0;
+                }
                 Integer multiplier = parseInt(table.sellMultiplier);
                 for (ShopLineJson line : table.lines)
                 {

@@ -32,5 +32,10 @@ public class OutputShop
     public String name;
     public String location;
     public String currency;
+    // world-map coordinates from the shop infobox's {{Map}} template; all null when the
+    // page has none. plane is 0 (ground) whenever coordinates are present but unstated.
+    public Integer x;
+    public Integer y;
+    public Integer plane;
     public List<OutputShopItem> items = new ArrayList<>();
 }

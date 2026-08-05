@@ -56,6 +56,11 @@ public final class WikiShopFetch
     // exclusively by the TzHaar city shops (Tokkul currency), with the same param names.
     private static final Pattern STORE_LINE =
         Pattern.compile("\\{\\{(?:StoreLine|Tzhaar shop row)\\|(.*?)\\}\\}");
+    // first "x,y" coordinate pair inside a {{Map|...}} template (whole match spans the template
+    // body up to the pair, so a plane= param before the pair is captured by MAP_PLANE)
+    private static final Pattern MAP_COORDS =
+        Pattern.compile("\\{\\{Map[^}]*?(\\d{3,5})\\s*,\\s*(\\d{3,5})[^}]*");
+    private static final Pattern MAP_PLANE = Pattern.compile("plane\\s*=\\s*(\\d+)");
     private static final int BATCH = 50;
 
     private WikiShopFetch()
@@ -73,7 +78,21 @@ public final class WikiShopFetch
         Matcher infobox = INFOBOX_SHOP.matcher(wikitext);
         if (infobox.find())
         {
-            page.location = stripLinks(params(infobox.group(1)).get("location"));
+            String body = infobox.group(1);
+            page.location = stripLinks(params(body).get("location"));
+            // the |map= value nests a {{Map|x,y|...}} template whose pipes defeat params();
+            // pull the first coordinate pair (and optional plane) straight from the body
+            Matcher map = MAP_COORDS.matcher(body);
+            if (map.find())
+            {
+                page.mapX = map.group(1);
+                page.mapY = map.group(2);
+                Matcher plane = MAP_PLANE.matcher(map.group(0));
+                if (plane.find())
+                {
+                    page.mapPlane = plane.group(1);
+                }
+            }
         }
         Matcher head = STORE_TABLE_HEAD.matcher(wikitext);
         while (head.find())

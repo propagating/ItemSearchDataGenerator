@@ -31,5 +31,9 @@ public class ShopPageJson
 {
     public String pageTitle;
     public String location; // from {{Infobox Shop}} |location=, wiki links stripped; may be null
+    // first {{Map|x,y|...}} coordinate pair in the infobox's |map= value; null when absent
+    public String mapX;
+    public String mapY;
+    public String mapPlane; // {{Map}}'s plane= param; null means ground level
     public List<ShopTableJson> tables = new ArrayList<>();
 }

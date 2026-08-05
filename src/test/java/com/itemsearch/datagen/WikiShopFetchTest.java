@@ -32,7 +32,8 @@ import static org.junit.Assert.assertNull;
 public class WikiShopFetchTest
 {
     private static final String ZAFF =
-        "{{Infobox Shop\n|name = Zaff's Superior Staffs\n|location = [[Varrock]]\n|members = No\n}}\n"
+        "{{Infobox Shop\n|name = Zaff's Superior Staffs\n|location = [[Varrock]]\n|members = No\n"
+        + "|map = {{Map|name=Zaff's Superior Staffs!|3203,3434|mtype=rectangle|rectX=4|rectY=7}}\n}}\n"
         + "Some prose.\n"
         + "{{StoreTableHead|sellmultiplier=1000|buymultiplier=550|delta=2}}\n"
         + "{{StoreLine|name=Staff|stock=5|restock=100}}\n"
@@ -48,6 +49,9 @@ public class WikiShopFetchTest
         ShopPageJson page = WikiShopFetch.extract("Zaff's Superior Staffs", ZAFF);
         assertEquals("Zaff's Superior Staffs", page.pageTitle);
         assertEquals("Varrock", page.location);
+        assertEquals("3203", page.mapX);
+        assertEquals("3434", page.mapY);
+        assertNull(page.mapPlane);
         assertEquals(1, page.tables.size());
         assertEquals("1000", page.tables.get(0).sellMultiplier);
         // nameless row dropped: 4 lines survive
@@ -82,6 +86,7 @@ public class WikiShopFetchTest
             + "{{StoreLine|name=Jug|stock=2|restock=10}}\n{{StoreTableBottom}}\n";
         ShopPageJson page = WikiShopFetch.extract("General Store", two);
         assertEquals("Al-Kharid", page.location);
+        assertNull("no map template -> no coords", page.mapX);
         assertEquals(2, page.tables.size());
         assertEquals("standard", page.tables.get(0).nameNotes);
         assertEquals("Jug", page.tables.get(1).lines.get(0).name);
@@ -145,4 +150,17 @@ public class WikiShopFetchTest
         assertEquals(java.util.Arrays.asList("Zaff's Superior Staffs", "Aubury's Rune Shop"),
             WikiShopFetch.titlesFrom(response));
     }
+    @Test
+    public void parsesMapPlaneWhenPresent()
+    {
+        String upstairs = "{{Infobox Shop\n|location = [[Somewhere]]\n"
+            + "|map = {{Map|3100,3300|plane=1}}\n}}\n"
+            + "{{StoreTableHead|sellmultiplier=1000}}\n"
+            + "{{StoreLine|name=Pot|stock=1|restock=10}}\n{{StoreTableBottom}}";
+        ShopPageJson page = WikiShopFetch.extract("Upstairs Shop", upstairs);
+        assertEquals("3100", page.mapX);
+        assertEquals("3300", page.mapY);
+        assertEquals("1", page.mapPlane);
+    }
+
 }
