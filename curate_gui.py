@@ -24,16 +24,61 @@ import curate_combat as core
 
 # offered in the style dropdown; the combobox stays editable for anything unusual
 STYLES = ["stab", "slash", "crush", "melee", "ranged", "magic",
-          "dragonfire", "metallic dragonfire", "icy breath", "typeless"]
+          "dragonfire", "metallic dragonfire", "icy breath", "typeless",
+          # hybrids: FIRST word is the accuracy roll, SECOND is what you pray against
+          "magic ranged", "magic melee", "ranged melee",
+          "ranged magic", "melee magic", "melee ranged"]
+
+HYBRID_WORDS = {"melee", "ranged", "magic"}
+VARIANT_KINDS = {"gear", "prayer", "consumable", "combo"}
+
+
+def parse_variants(text):
+    """'8 @ Insulated boots (gear); 12-14 @ Antifire (consumable)' ->
+    (variants_list_or_None_if_empty, error_or_None). Kind defaults to gear."""
+    import re as _re
+    text = (text or "").strip()
+    if not text:
+        return None, None
+    out = []
+    for part in text.split(";"):
+        part = part.strip()
+        if not part:
+            continue
+        m = _re.match(r"^(\d+)(?:-(\d+))?\s*@\s*(.+?)(?:\s*\((\w+)\))?$", part)
+        if not m:
+            return None, "Bad conditional max hit '{}' (use: N @ Label (kind); ...)".format(part)
+        lo = int(m.group(1))
+        hi = int(m.group(2)) if m.group(2) else lo
+        label = m.group(3).strip()
+        kind = (m.group(4) or "gear").lower()
+        if kind not in VARIANT_KINDS:
+            return None, "Bad kind '{}' (gear/prayer/consumable/combo)".format(kind)
+        out.append({"label": label, "kind": kind.upper(), "maxHit": lo, "maxHitMax": hi})
+    return (out or None), None
+
+
+def fmt_variants(variants):
+    """Inverse of parse_variants, for loading an overlay entry back into the editor."""
+    if not variants:
+        return ""
+    parts = []
+    for v in variants:
+        lo, hi = v.get("maxHit", 0), v.get("maxHitMax", 0)
+        hit = str(lo) if hi in (0, lo) else "{}-{}".format(lo, hi)
+        parts.append("{} @ {} ({})".format(hit, v.get("label", "?"), (v.get("kind") or "GEAR").lower()))
+    return "; ".join(parts)
 
 
 def collect_attacks(rows):
-    """rows: iterable of (style, max_text, speed_text) -> (attacks_list, error_or_None).
+    """rows: iterable of (style, max_text, speed_text[, variants_text]) -> (attacks_list, error_or_None).
 
     Blank-style rows are dropped; max/speed accept 'N' or 'low-high' (bad input is an error).
     """
     attacks = []
-    for style, mx, sp in rows:
+    for row in rows:
+        style, mx, sp = row[0], row[1], row[2]
+        variants_text = row[3] if len(row) > 3 else ""
         style = (style or "").strip().lower()
         if not style:
             continue
@@ -41,15 +86,25 @@ def collect_attacks(rows):
         spd = core.parse_range(sp)
         if mh is None or spd is None:
             return None, "Attack '{}' has a bad max hit or speed (use N or low-high).".format(style)
-        attacks.append({"style": style, "maxHit": mh[0], "maxHitMax": mh[1],
-                        "speed": spd[0], "speedMax": spd[1]})
+        attack = {"style": style, "maxHit": mh[0], "maxHitMax": mh[1],
+                  "speed": spd[0], "speedMax": spd[1]}
+        words = style.split()
+        if len(words) == 2 and words[0] in HYBRID_WORDS and words[1] in HYBRID_WORDS and words[0] != words[1]:
+            # hybrid: accuracy roll first, prayed-against style second
+            attack["style"], attack["prayStyle"] = words[0], words[1]
+        variants, verr = parse_variants(variants_text)
+        if verr:
+            return None, verr
+        if variants:
+            attack["variants"] = variants
+        attacks.append(attack)
     return attacks, None
 
 
 class CuratorApp:
     def __init__(self, root):
         self.root = root
-        root.title("Drop Search — Combat Overlay Curator")
+        root.title("Item Search — Combat Curator")
         root.geometry("780x540")
 
         self.overlay = core.load_json(core.OVERLAY, {}) or {}
@@ -97,8 +152,10 @@ class CuratorApp:
         hdr = ttk.Frame(right)
         hdr.pack(fill="x")
         ttk.Label(hdr, text="Style", width=16).grid(row=0, column=0, sticky="w")
-        ttk.Label(hdr, text="Max hit (N or lo-hi)", width=16).grid(row=0, column=1, sticky="w")
-        ttk.Label(hdr, text="Speed", width=12).grid(row=0, column=2, sticky="w")
+        ttk.Label(hdr, text="Max hit (N or lo-hi)", width=18).grid(row=0, column=1, sticky="w")
+        ttk.Label(hdr, text="Atk speed (ticks)", width=15).grid(row=0, column=2, sticky="w")
+        ttk.Label(hdr, text="Conditional: N @ Label (gear/prayer/consumable/combo); ...",
+                  width=52).grid(row=0, column=3, sticky="w")
         self.attacks_frame = ttk.Frame(right)
         self.attacks_frame.pack(fill="x", pady=(2, 6))
 
@@ -147,15 +204,17 @@ class CuratorApp:
             r["frame"].destroy()
         self.rows = []
 
-    def _add_row(self, style="", mh_text="0", sp_text="0"):
+    def _add_row(self, style="", mh_text="0", sp_text="0", variants_text=""):
         fr = ttk.Frame(self.attacks_frame)
         fr.pack(fill="x", pady=1)
         style_var, max_var, speed_var = tk.StringVar(value=style), tk.StringVar(value=mh_text), tk.StringVar(value=sp_text)
+        variants_var = tk.StringVar(value=variants_text)
         ttk.Combobox(fr, values=STYLES, textvariable=style_var, width=14).grid(row=0, column=0, sticky="w")
-        ttk.Entry(fr, textvariable=max_var, width=10).grid(row=0, column=1, sticky="w", padx=4)
+        ttk.Entry(fr, textvariable=max_var, width=12).grid(row=0, column=1, sticky="w", padx=4)
         ttk.Entry(fr, textvariable=speed_var, width=8).grid(row=0, column=2, sticky="w", padx=4)
-        row = {"frame": fr, "style": style_var, "max": max_var, "speed": speed_var}
-        ttk.Button(fr, text="✕", width=3, command=lambda: self._remove_row(row)).grid(row=0, column=3, padx=4)
+        ttk.Entry(fr, textvariable=variants_var, width=44).grid(row=0, column=3, sticky="w", padx=4)
+        row = {"frame": fr, "style": style_var, "max": max_var, "speed": speed_var, "variants": variants_var}
+        ttk.Button(fr, text="✕", width=3, command=lambda: self._remove_row(row)).grid(row=0, column=4, padx=4)
         self.rows.append(row)
 
     def _remove_row(self, row):
@@ -171,9 +230,13 @@ class CuratorApp:
         self.status.configure(text="")
         self._clear_rows()
         for a in self.overlay[idstr].get("attacks") or []:
-            self._add_row(a.get("style", ""),
+            style = a.get("style", "")
+            if a.get("prayStyle"):
+                style = style + " " + a["prayStyle"]
+            self._add_row(style,
                           core.fmt_range(a.get("maxHit", 0), a.get("maxHitMax", 0)),
-                          core.fmt_range(a.get("speed", 0), a.get("speedMax", 0)))
+                          core.fmt_range(a.get("speed", 0), a.get("speedMax", 0)),
+                          fmt_variants(a.get("variants")))
         if not self.rows:
             self._add_row()
 
@@ -182,7 +245,7 @@ class CuratorApp:
             webbrowser.open(self.link_url)
 
     def _gather(self):
-        return [(r["style"].get(), r["max"].get(), r["speed"].get()) for r in self.rows]
+        return [(r["style"].get(), r["max"].get(), r["speed"].get(), r["variants"].get()) for r in self.rows]
 
     def _save(self):
         if self.current_id is None:

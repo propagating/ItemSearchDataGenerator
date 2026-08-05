@@ -27,12 +27,18 @@ package com.itemsearch.datagen.output;
 public class OutputAttack
 {
     public String style;
+    // what the attack counts as defensively when that differs from style: "magic ranged"
+    // rolls magic accuracy (style) but is prayed against with ranged prayers (prayStyle).
+    // null = same as style.
+    public String prayStyle;
     // maxHit/speed are the low end of a range; maxHitMax/speedMax the high end. For a single-valued
     // attack the high equals the low (multi-version monsters collapse to a real min..max range).
     public int maxHit;
     public int maxHitMax;
     public int speed;
     public int speedMax;
+    // conditional max hits (gear/prayer/consumable mitigations); null/empty = unconditional
+    public java.util.List<OutputVariant> variants;
 
     public OutputAttack(String style, int maxHit, int speed)
     {
