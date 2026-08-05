@@ -93,4 +93,15 @@ public class WikiShopFetchTest
         assertNull(WikiShopFetch.extract("Some Page", "Just prose, no shop."));
         assertNull(WikiShopFetch.extract("Some Page", null));
     }
+
+    @Test
+    public void extractsTitlesFromEmbeddedinResponse()
+    {
+        com.google.gson.JsonObject response = new com.google.gson.Gson().fromJson(
+            "{\"query\":{\"embeddedin\":[{\"pageid\":1,\"ns\":0,\"title\":\"Zaff's Superior Staffs\"},"
+                + "{\"pageid\":2,\"ns\":0,\"title\":\"Aubury's Rune Shop\"}]}}",
+            com.google.gson.JsonObject.class);
+        assertEquals(java.util.Arrays.asList("Zaff's Superior Staffs", "Aubury's Rune Shop"),
+            WikiShopFetch.titlesFrom(response));
+    }
 }

@@ -24,9 +24,19 @@
  */
 package com.itemsearch.datagen;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import java.io.IOException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import com.itemsearch.datagen.source.ShopLineJson;
@@ -41,6 +51,7 @@ public final class WikiShopFetch
     private static final Pattern STORE_TABLE_HEAD =
         Pattern.compile("\\{\\{StoreTableHead\\|(.*?)\\}\\}");
     private static final Pattern STORE_LINE = Pattern.compile("\\{\\{StoreLine\\|(.*?)\\}\\}");
+    private static final int BATCH = 50;
 
     private WikiShopFetch()
     {
@@ -119,5 +130,108 @@ public final class WikiShopFetch
     private static String emptyToNull(String s)
     {
         return s == null || s.isEmpty() ? null : s;
+    }
+
+    /** All mainspace page titles that embed {{StoreLine}} — i.e. every shop page. */
+    public static List<String> fetchShopPageTitles(Gson gson) throws IOException
+    {
+        List<String> titles = new ArrayList<>();
+        String continueSuffix = "";
+        while (true)
+        {
+            JsonObject response = WikiHttp.request(gson, WikiHttp.API
+                + "?action=query&list=embeddedin&eititle=" + URLEncoder.encode("Template:StoreLine", "UTF-8")
+                + "&einamespace=0&eilimit=500&format=json" + continueSuffix);
+            WikiHttp.sleep();
+            titles.addAll(titlesFrom(response));
+            JsonObject cont = response.getAsJsonObject("continue");
+            if (cont == null)
+            {
+                break;
+            }
+            StringBuilder next = new StringBuilder();
+            for (Map.Entry<String, JsonElement> e : cont.entrySet())
+            {
+                next.append('&').append(e.getKey()).append('=')
+                    .append(URLEncoder.encode(e.getValue().getAsString(), "UTF-8"));
+            }
+            continueSuffix = next.toString();
+        }
+        return titles;
+    }
+
+    static List<String> titlesFrom(JsonObject response)
+    {
+        List<String> out = new ArrayList<>();
+        JsonObject query = response.getAsJsonObject("query");
+        JsonArray list = query == null ? null : query.getAsJsonArray("embeddedin");
+        if (list == null)
+        {
+            return out;
+        }
+        for (JsonElement e : list)
+        {
+            out.add(e.getAsJsonObject().get("title").getAsString());
+        }
+        return out;
+    }
+
+    /** Fetches and parses each page's store tables; pages with no usable table are omitted. */
+    public static Map<String, ShopPageJson> fetchShops(Gson gson, Collection<String> pageTitles)
+        throws IOException
+    {
+        Map<String, ShopPageJson> result = new TreeMap<>();
+        List<String> titles = new ArrayList<>(pageTitles);
+        for (int i = 0; i < titles.size(); i += BATCH)
+        {
+            List<String> batch = titles.subList(i, Math.min(i + BATCH, titles.size()));
+            String baseBatchUrl = WikiHttp.API
+                + "?action=query&prop=revisions&rvslots=main&rvprop=content&format=json"
+                + "&titles=" + URLEncoder.encode(String.join("|", batch), "UTF-8");
+            String continueSuffix = "";
+            while (true)
+            {
+                JsonObject response = WikiHttp.request(gson, baseBatchUrl + continueSuffix);
+                WikiHttp.sleep();
+                JsonObject query = response.getAsJsonObject("query");
+                JsonObject pages = query == null ? null : query.getAsJsonObject("pages");
+                if (pages == null)
+                {
+                    throw new IOException("Unexpected wiki API response for batch ["
+                        + String.join(", ", batch) + "]: "
+                        + (response.has("error") ? response.get("error").toString()
+                            : WikiHttp.snippet(response)));
+                }
+                for (Map.Entry<String, JsonElement> e : pages.entrySet())
+                {
+                    JsonObject page = e.getValue().getAsJsonObject();
+                    if (!page.has("revisions"))
+                    {
+                        continue; // missing page
+                    }
+                    String title = page.get("title").getAsString();
+                    String content = page.getAsJsonArray("revisions").get(0).getAsJsonObject()
+                        .getAsJsonObject("slots").getAsJsonObject("main").get("*").getAsString();
+                    ShopPageJson shop = extract(title, content);
+                    if (shop != null)
+                    {
+                        result.put(title, shop);
+                    }
+                }
+                JsonObject cont = response.getAsJsonObject("continue");
+                if (cont == null)
+                {
+                    break;
+                }
+                StringBuilder next = new StringBuilder();
+                for (Map.Entry<String, JsonElement> e : cont.entrySet())
+                {
+                    next.append('&').append(e.getKey()).append('=')
+                        .append(URLEncoder.encode(e.getValue().getAsString(), "UTF-8"));
+                }
+                continueSuffix = next.toString();
+            }
+        }
+        return result;
     }
 }

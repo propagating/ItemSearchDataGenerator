@@ -27,13 +27,8 @@ package com.itemsearch.datagen;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -46,8 +41,6 @@ import com.itemsearch.datagen.source.WikiCombatJson;
 /** Fetches raw {{Infobox Monster}} combat fields from the live OSRS Wiki. */
 public final class WikiFetch
 {
-    private static final String API = "https://oldschool.runescape.wiki/api.php";
-    private static final String UA = "runelite-dropsearch-datagen/1.0 (offline combat-data generator)";
     private static final int BATCH = 50;
     // "|field = value" up to the next "|field" or the closing "}}"
     private static final Pattern INFOBOX =
@@ -109,19 +102,19 @@ public final class WikiFetch
         for (int i = 0; i < titles.size(); i += BATCH)
         {
             List<String> batch = titles.subList(i, Math.min(i + BATCH, titles.size()));
-            String baseBatchUrl = API + "?action=query&prop=revisions&rvslots=main&rvprop=content&format=json"
+            String baseBatchUrl = WikiHttp.API + "?action=query&prop=revisions&rvslots=main&rvprop=content&format=json"
                 + "&titles=" + URLEncoder.encode(String.join("|", batch), "UTF-8");
             String continueSuffix = "";
             while (true)
             {
-                JsonObject response = request(gson, baseBatchUrl + continueSuffix);
-                sleep();
+                JsonObject response = WikiHttp.request(gson, baseBatchUrl + continueSuffix);
+                WikiHttp.sleep();
                 JsonObject query = response.getAsJsonObject("query");
                 JsonObject pages = query == null ? null : query.getAsJsonObject("pages");
                 if (pages == null)
                 {
                     throw new IOException("Unexpected wiki API response for batch [" + String.join(", ", batch)
-                        + "]: " + (response.has("error") ? response.get("error").toString() : snippet(response)));
+                        + "]: " + (response.has("error") ? response.get("error").toString() : WikiHttp.snippet(response)));
                 }
                 for (Map.Entry<String, JsonElement> e : pages.entrySet())
                 {
@@ -155,38 +148,4 @@ public final class WikiFetch
         return result;
     }
 
-    private static JsonObject request(Gson gson, String url) throws IOException
-    {
-        HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
-        conn.setRequestProperty("User-Agent", UA);
-        conn.setConnectTimeout(15000);
-        conn.setReadTimeout(30000);
-        try (BufferedReader r = new BufferedReader(
-            new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8)))
-        {
-            return gson.fromJson(r, JsonObject.class);
-        }
-        finally
-        {
-            conn.disconnect();
-        }
-    }
-
-    private static String snippet(JsonObject response)
-    {
-        String raw = response.toString();
-        return raw.length() > 500 ? raw.substring(0, 500) + "..." : raw;
-    }
-
-    private static void sleep()
-    {
-        try
-        {
-            Thread.sleep(200); // be polite to the wiki
-        }
-        catch (InterruptedException e)
-        {
-            Thread.currentThread().interrupt();
-        }
-    }
 }
