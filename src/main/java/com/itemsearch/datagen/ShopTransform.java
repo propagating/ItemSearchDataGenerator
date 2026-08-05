@@ -56,7 +56,9 @@ public final class ShopTransform
             {
                 ShopTableJson table = page.tables.get(t);
                 OutputShop shop = new OutputShop();
-                shop.name = t == 0 ? page.pageTitle : page.pageTitle + " (" + (t + 1) + ")";
+                // some wiki page titles carry a trailing period ("Diango's Toy Store.")
+                String baseName = page.pageTitle.replaceAll("\\.+$", "").trim();
+                shop.name = t == 0 ? baseName : baseName + " (" + (t + 1) + ")";
                 shop.location = page.location;
                 shop.currency = table.currency == null || table.currency.isEmpty()
                     ? "Coins" : table.currency;

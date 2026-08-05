@@ -94,6 +94,23 @@ public final class WikiShopFetch
                 }
             }
         }
+        if (page.mapX == null)
+        {
+            // NPC-page shops have no {{Infobox Shop}}; fall back to the first {{Map}}
+            // anywhere on the page — shop locations are static, so any page map points
+            // at (or next to) the shop
+            Matcher map = MAP_COORDS.matcher(wikitext);
+            if (map.find())
+            {
+                page.mapX = map.group(1);
+                page.mapY = map.group(2);
+                Matcher plane = MAP_PLANE.matcher(map.group(0));
+                if (plane.find())
+                {
+                    page.mapPlane = plane.group(1);
+                }
+            }
+        }
         Matcher head = STORE_TABLE_HEAD.matcher(wikitext);
         while (head.find())
         {

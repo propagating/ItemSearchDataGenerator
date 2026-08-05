@@ -151,6 +151,19 @@ public class WikiShopFetchTest
             WikiShopFetch.titlesFrom(response));
     }
     @Test
+    public void mapCoordsFallBackToAnyMapTemplateOnThePage()
+    {
+        // NPC-page shops have {{Infobox NPC}} (or none) — their {{Map}} lives elsewhere
+        String npcPage = "{{Infobox NPC\n|name = Shop keeper\n}}\n"
+            + "The shop is here: {{Map|3212,3246|mapID=0}}\n"
+            + "{{StoreTableHead|sellmultiplier=1000}}\n"
+            + "{{StoreLine|name=Pot|stock=1|restock=10}}\n{{StoreTableBottom}}";
+        ShopPageJson page = WikiShopFetch.extract("Shop keeper", npcPage);
+        assertEquals("3212", page.mapX);
+        assertEquals("3246", page.mapY);
+    }
+
+    @Test
     public void parsesMapPlaneWhenPresent()
     {
         String upstairs = "{{Infobox Shop\n|location = [[Somewhere]]\n"

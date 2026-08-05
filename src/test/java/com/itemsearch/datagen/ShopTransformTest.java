@@ -124,6 +124,20 @@ public class ShopTransformTest
     }
 
     @Test
+    public void trailingPeriodsAreStrippedFromShopNames()
+    {
+        Map<String, ShopPageJson> pages = new TreeMap<>();
+        pages.put("Diango's Toy Store.", page("Diango's Toy Store.", "Draynor",
+            table(null, null, line("Toy horsey", "5", null, null)),
+            table(null, null, line("Toy soldier", "5", null, null))));
+
+        List<OutputShop> shops = ShopTransform.transform(pages,
+            Collections.emptyMap(), Collections.emptyMap());
+        assertEquals("Diango's Toy Store", shops.get(0).name);
+        assertEquals("Diango's Toy Store (2)", shops.get(1).name); // suffix after stripping
+    }
+
+    @Test
     public void mapCoordinatesCarryThroughToOutput()
     {
         Map<String, ShopPageJson> pages = new TreeMap<>();
