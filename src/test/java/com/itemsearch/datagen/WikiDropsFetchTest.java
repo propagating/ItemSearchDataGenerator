@@ -62,6 +62,38 @@ public class WikiDropsFetchTest
         assertEquals("100-299", lines.get(1).quantity); // comment stripped
         assertEquals("10/249", lines.get(2).rarity);    // nested Refn did not break the split
         assertFalse(lines.get(0).reward);
+        // no {{Map}} anywhere on this fixture -> all three coordinate fields stay null
+        assertNull(page.mapX);
+        assertNull(page.mapY);
+        assertNull(page.mapPlane);
+    }
+
+    @Test
+    public void mapCoordsFromInfoboxBodyIncludePlane()
+    {
+        String page = "{{Infobox Monster\n|name = Cave dweller\n"
+            + "|map = {{Map|3100,3300|plane=1}}\n}}\n"
+            + "==Drops==\n{{DropsTableHead}}\n"
+            + "{{DropsLine|name=Bones|quantity=1|rarity=Always}}\n{{DropsTableBottom}}\n";
+        DropPageJson result = WikiDropsFetch.extract("Cave dweller", page);
+        assertEquals(Integer.valueOf(3100), result.mapX);
+        assertEquals(Integer.valueOf(3300), result.mapY);
+        assertEquals(Integer.valueOf(1), result.mapPlane);
+    }
+
+    @Test
+    public void mapCoordsFallBackToAnyMapTemplateOnThePageWhenInfoboxHasNone()
+    {
+        String page = "{{Infobox NPC\n|name = Cave goblin guard\n}}\n"
+            + "The cave entrance is here: {{Map|3160,9500}}\n"
+            + "==Drops==\n{{DropsTableHead}}\n"
+            + "{{DropsLine|name=Bones|quantity=1|rarity=Always}}\n{{DropsTableBottom}}\n";
+        DropPageJson result = WikiDropsFetch.extract("Cave goblin guard", page);
+        assertEquals(Integer.valueOf(3160), result.mapX);
+        assertEquals(Integer.valueOf(9500), result.mapY);
+        // WikiText.mapCoords defaults plane to 0 when absent; DropPageJson keeps it as a
+        // boxed 0, not null, since coordinates were found
+        assertEquals(Integer.valueOf(0), result.mapPlane);
     }
 
     @Test
