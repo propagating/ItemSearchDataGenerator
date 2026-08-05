@@ -88,6 +88,24 @@ public class WikiShopFetchTest
     }
 
     @Test
+    public void parsesTzhaarShopRowSynonymForStoreLine()
+    {
+        String tzhaar = "{{Infobox Shop\n|location = [[Mor Ul Rek]]\n}}\n"
+            + "{{StoreTableHead|sellmultiplier=1500|buymultiplier=150|delta=20|currency=Tokkul}}\n"
+            + "{{Tzhaar shop row|name=Toktz-xil-ul|stock=500|restock=10}}\n"
+            + "{{Tzhaar shop row|name=Obsidian cape|stock=1|restock=100}}\n"
+            + "{{StoreTableBottom}}\n";
+        ShopPageJson page = WikiShopFetch.extract("TzHaar-Hur-Tel's Equipment Store", tzhaar);
+        assertEquals("Mor Ul Rek", page.location);
+        assertEquals(1, page.tables.size());
+        assertEquals("Tokkul", page.tables.get(0).currency);
+        assertEquals(2, page.tables.get(0).lines.size());
+        assertEquals("Toktz-xil-ul", page.tables.get(0).lines.get(0).name);
+        assertEquals("500", page.tables.get(0).lines.get(0).stock);
+        assertEquals("Obsidian cape", page.tables.get(0).lines.get(1).name);
+    }
+
+    @Test
     public void returnsNullWhenNoStoreTable()
     {
         assertNull(WikiShopFetch.extract("Some Page", "Just prose, no shop."));

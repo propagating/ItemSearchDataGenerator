@@ -33,6 +33,49 @@ Static spawns cover most world monsters. Instanced monsters (Zulrah, Vorkath,
 Graardor, ...) have no static spawn, so `spawns-overlay.json` supplies their
 locations as a fallback. The spawn file is **not** committed.
 
+## Shop data (OSRS Wiki)
+
+`ShopDataGenerator` produces `shops.json` for the plugin's "buy from" lookups
+by joining two OSRS Wiki snapshots:
+
+- `wiki-shops.json` — every shop page's `{{StoreTableHead}}`/`{{StoreLine}}`
+  tables (and the TzHaar-only `{{Tzhaar shop row}}` synonym), keyed by wiki
+  page title: location, currency, sell multiplier, and each stocked item's
+  name/stock/restock/optional sell override.
+- `wiki-items.json` — item id + shop value (the GE-independent base value
+  used to derive shop prices) for every item name referenced by a shop line.
+
+Regenerate with:
+
+```bash
+./gradlew runShops --args="--refresh-shops --refresh-items"
+```
+
+Since wiki content can change at any time, the committed `wiki-shops.json` /
+`wiki-items.json` snapshots (dated in the commit) are the reproducibility pin
+for shop data, the same way `wiki-combat.json` is the pin for combat data.
+Normal runs (without the `--refresh-*` flags) reuse the committed snapshots
+as-is and never hit the network; `monsters-complete.json` (see above) is
+still read as a fallback source of item ids for names the wiki item lookup
+couldn't resolve.
+
+**Derived price.** Each shop line's sell price is `floor(value * sellmultiplier
+/ 1000)`, where `value` is the item's shop value from `wiki-items.json` and
+`sellmultiplier` comes from that table's `{{StoreTableHead}}`. An explicit
+`sell=` override on the `{{StoreLine}}`/`{{Tzhaar shop row}}` itself always
+wins over the derived price. If neither is available the price is omitted
+(`sellPrice: null`).
+
+**Restock.** Wiki restock values are game ticks (0.6s each); they're
+converted to whole seconds (`round(ticks * 0.6)`) in `shops.json`. A negative
+or unparseable tick value (e.g. "N/A") is written as `null` (unknown).
+
+**Stock encoding.** `stock` is `-1` for infinite ("∞"), `null` when the wiki
+value couldn't be parsed (unknown), and `0` for a wiki-listed but currently
+out-of-stock line — `0` is kept in `shops.json` for completeness but the
+plugin's item-to-shop join excludes `stock == 0` lines, since a shop that
+never stocks an item isn't a place to buy it.
+
 ## Regenerate drops.json
 
 From the repository root:

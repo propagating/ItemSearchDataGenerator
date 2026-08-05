@@ -36,7 +36,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import com.itemsearch.datagen.source.ShopLineJson;
@@ -50,7 +52,10 @@ public final class WikiShopFetch
         Pattern.compile("\\{\\{Infobox Shop(.*?)\\n\\}\\}", Pattern.DOTALL);
     private static final Pattern STORE_TABLE_HEAD =
         Pattern.compile("\\{\\{StoreTableHead\\|(.*?)\\}\\}");
-    private static final Pattern STORE_LINE = Pattern.compile("\\{\\{StoreLine\\|(.*?)\\}\\}");
+    // {{StoreLine|...}} is the common row template; {{Tzhaar shop row|...}} is a synonym used
+    // exclusively by the TzHaar city shops (Tokkul currency), with the same param names.
+    private static final Pattern STORE_LINE =
+        Pattern.compile("\\{\\{(?:StoreLine|Tzhaar shop row)\\|(.*?)\\}\\}");
     private static final int BATCH = 50;
 
     private WikiShopFetch()
@@ -132,15 +137,26 @@ public final class WikiShopFetch
         return s == null || s.isEmpty() ? null : s;
     }
 
-    /** All mainspace page titles that embed {{StoreLine}} — i.e. every shop page. */
+    /**
+     * All mainspace page titles that embed {{StoreLine}} or {{Tzhaar shop row}} — i.e. every shop
+     * page, including the TzHaar city shops which use the latter, Tokkul-currency-only synonym.
+     */
     public static List<String> fetchShopPageTitles(Gson gson) throws IOException
+    {
+        Set<String> titles = new TreeSet<>();
+        titles.addAll(fetchTitlesEmbedding(gson, "Template:StoreLine"));
+        titles.addAll(fetchTitlesEmbedding(gson, "Template:Tzhaar shop row"));
+        return new ArrayList<>(titles);
+    }
+
+    private static List<String> fetchTitlesEmbedding(Gson gson, String template) throws IOException
     {
         List<String> titles = new ArrayList<>();
         String continueSuffix = "";
         while (true)
         {
             JsonObject response = WikiHttp.request(gson, WikiHttp.API
-                + "?action=query&list=embeddedin&eititle=" + URLEncoder.encode("Template:StoreLine", "UTF-8")
+                + "?action=query&list=embeddedin&eititle=" + URLEncoder.encode(template, "UTF-8")
                 + "&einamespace=0&eilimit=500&format=json" + continueSuffix);
             WikiHttp.sleep();
             titles.addAll(titlesFrom(response));

@@ -1,0 +1,7794 @@
+{
+  "'24-carat' sword": {
+    "id": 24539,
+    "value": 1
+  },
+  "10th birthday balloons": {
+    "id": 27820,
+    "value": 0
+  },
+  "10th birthday cape": {
+    "id": 27812,
+    "value": 1
+  },
+  "20th anniversary boots": {
+    "id": 25328,
+    "value": 0
+  },
+  "20th anniversary bottom": {
+    "id": 25326,
+    "value": 0
+  },
+  "20th anniversary cape": {
+    "id": 25334,
+    "value": 0
+  },
+  "20th anniversary gloves": {
+    "id": 25330,
+    "value": 0
+  },
+  "20th anniversary hat": {
+    "id": 25322,
+    "value": 0
+  },
+  "20th anniversary necklace": {
+    "id": 25332,
+    "value": 0
+  },
+  "20th anniversary top": {
+    "id": 25324,
+    "value": 0
+  },
+  "25th anniversary 5x5 hat": {
+    "id": 33086,
+    "value": 0
+  },
+  "25th anniversary helmet": {
+    "id": 33080,
+    "value": 0
+  },
+  "25th anniversary skeleton tabard": {
+    "id": 33084,
+    "value": 0
+  },
+  "25th anniversary warrior tabard": {
+    "id": 33082,
+    "value": 0
+  },
+  "3rd age robe": {
+    "id": 10340,
+    "value": 50600
+  },
+  "3rd age robe top": {
+    "id": 10338,
+    "value": 50800
+  },
+  "4th birthday hat": {
+    "id": 21211,
+    "value": 0
+  },
+  "Absorption (1)": {
+    "id": 11737
+  },
+  "Abyssal blue dye": {
+    "id": 26809,
+    "value": 3000
+  },
+  "Abyssal dagger imbue scroll": {
+    "id": 28080,
+    "value": 10000
+  },
+  "Abyssal green dye": {
+    "id": 26807,
+    "value": 3000
+  },
+  "Abyssal lantern": {
+    "id": 26822,
+    "value": 100
+  },
+  "Abyssal red dye": {
+    "id": 26811,
+    "value": 3000
+  },
+  "Abyssal whip": {
+    "id": 4151,
+    "value": 120001
+  },
+  "Achey tree logs": {
+    "id": 2862,
+    "value": 4
+  },
+  "Achievement diary cape (t)": {
+    "id": 19476,
+    "value": 99000
+  },
+  "Adamant 2h sword": {
+    "id": 1317,
+    "value": 6400
+  },
+  "Adamant arrow": {
+    "id": 890,
+    "value": 80
+  },
+  "Adamant arrow pack": {
+    "id": 20525,
+    "value": 70
+  },
+  "Adamant arrowtips": {
+    "id": 43,
+    "value": 40
+  },
+  "Adamant axe": {
+    "id": 1357,
+    "value": 1280
+  },
+  "Adamant battleaxe": {
+    "id": 1371,
+    "value": 4160
+  },
+  "Adamant brutal": {
+    "id": 4798,
+    "value": 95
+  },
+  "Adamant cannonball": {
+    "id": 31912,
+    "value": 180
+  },
+  "Adamant chainbody": {
+    "id": 1111,
+    "value": 4800
+  },
+  "Adamant crossbow": {
+    "id": 9183,
+    "value": 1767
+  },
+  "Adamant dagger": {
+    "id": 1211,
+    "value": 800
+  },
+  "Adamant full helm": {
+    "id": 1161,
+    "value": 3520
+  },
+  "Adamant gloves": {
+    "id": 7459,
+    "value": 2500
+  },
+  "Adamant halberd": {
+    "id": 3200,
+    "value": 6400
+  },
+  "Adamant javelin": {
+    "id": 829,
+    "value": 160
+  },
+  "Adamant kiteshield": {
+    "id": 1199,
+    "value": 5440
+  },
+  "Adamant longsword": {
+    "id": 1301,
+    "value": 3200
+  },
+  "Adamant mace": {
+    "id": 1430,
+    "value": 1440
+  },
+  "Adamant med helm": {
+    "id": 1145,
+    "value": 1920
+  },
+  "Adamant pickaxe": {
+    "id": 1271,
+    "value": 3200
+  },
+  "Adamant platebody": {
+    "id": 1123,
+    "value": 16640
+  },
+  "Adamant platelegs": {
+    "id": 1073,
+    "value": 6400
+  },
+  "Adamant plateskirt": {
+    "id": 1091,
+    "value": 6400
+  },
+  "Adamant scimitar": {
+    "id": 1331,
+    "value": 2560
+  },
+  "Adamant spear(kp)": {
+    "id": 1245,
+    "value": 2080
+  },
+  "Adamant sq shield": {
+    "id": 1183,
+    "value": 3840
+  },
+  "Adamant sword": {
+    "id": 1287,
+    "value": 2080
+  },
+  "Adamant thrownaxe": {
+    "id": 804,
+    "value": 176
+  },
+  "Adamant warhammer": {
+    "id": 1345,
+    "value": 4120
+  },
+  "Adamantite limbs": {
+    "id": 9429,
+    "value": 1600
+  },
+  "Adamantite ore": {
+    "id": 449,
+    "value": 400
+  },
+  "Adept potion pack": {
+    "id": 29972,
+    "value": 200
+  },
+  "Admiral pie": {
+    "id": 7198
+  },
+  "Agility cape(t)": {
+    "id": 9771,
+    "value": 99000
+  },
+  "Air rune": {
+    "id": 556,
+    "value": 4
+  },
+  "Air rune pack": {
+    "id": 12728,
+    "value": 430
+  },
+  "Air talisman": {
+    "id": 1438,
+    "value": 4
+  },
+  "Alchemist gloves": {
+    "id": 29986,
+    "value": 390
+  },
+  "Alchemist labcoat": {
+    "id": 29978,
+    "value": 380
+  },
+  "Alchemist pants": {
+    "id": 29982,
+    "value": 340
+  },
+  "Alchemist's amulet": {
+    "id": 29988,
+    "value": 1050
+  },
+  "Aldarium": {
+    "id": 29993,
+    "value": 100
+  },
+  "Ale yeast": {
+    "id": 5767,
+    "value": 1
+  },
+  "Amethyst arrow": {
+    "id": 21326,
+    "value": 490
+  },
+  "Ammo mould": {
+    "id": 4,
+    "value": 5
+  },
+  "Amulet mould": {
+    "id": 1595,
+    "value": 5
+  },
+  "Amulet of accuracy": {
+    "id": 1478,
+    "value": 100
+  },
+  "Amulet of defence": {
+    "id": 1729,
+    "value": 1275
+  },
+  "Amulet of magic": {
+    "id": 1727,
+    "value": 900
+  },
+  "Amulet of power": {
+    "id": 1731,
+    "value": 3525
+  },
+  "Amulet of strength": {
+    "id": 1725,
+    "value": 2025
+  },
+  "Amur leopard toy": {
+    "id": 13218,
+    "value": 100
+  },
+  "Amy's saw": {
+    "id": 24880,
+    "value": 280
+  },
+  "Amylase pack": {
+    "id": 12641,
+    "value": 10
+  },
+  "Ancient halo": {
+    "id": 24201
+  },
+  "Ancient magicks tablet": {
+    "id": 20430,
+    "value": 400
+  },
+  "Ancient sceptre": {
+    "id": 27624,
+    "value": 211000
+  },
+  "Ancient signet": {
+    "id": 20611,
+    "value": 0
+  },
+  "Ancient staff": {
+    "id": 4675,
+    "value": 100000
+  },
+  "Angler boots": {
+    "id": 13261,
+    "value": 100
+  },
+  "Angler hat": {
+    "id": 13258,
+    "value": 100
+  },
+  "Angler top": {
+    "id": 13259,
+    "value": 100
+  },
+  "Angler waders": {
+    "id": 13260,
+    "value": 100
+  },
+  "Annakarl teleport (tablet)": {
+    "id": 12775,
+    "value": 1
+  },
+  "Annihilation blueprints": {
+    "id": 33015,
+    "value": 25000
+  },
+  "Annihilation teleport scroll": {
+    "id": 33018,
+    "value": 25000
+  },
+  "Annihilation weapon scroll": {
+    "id": 33012,
+    "value": 25000
+  },
+  "Anti-dragon shield": {
+    "id": 1540,
+    "value": 20
+  },
+  "Anti-panties": {
+    "id": 13288,
+    "value": 1
+  },
+  "Anti-venom(4)": {
+    "id": 12911
+  },
+  "Antidote++(4)": {
+    "id": 5958
+  },
+  "Antipoison(3)": {
+    "id": 179
+  },
+  "Antisanta boots": {
+    "id": 12896,
+    "value": 0
+  },
+  "Antisanta gloves": {
+    "id": 12895,
+    "value": 0
+  },
+  "Antisanta jacket": {
+    "id": 12893,
+    "value": 0
+  },
+  "Antisanta mask": {
+    "id": 12892,
+    "value": 0
+  },
+  "Antisanta pantaloons": {
+    "id": 12894,
+    "value": 0
+  },
+  "Apple pie": {
+    "id": 2323
+  },
+  "Apprentice potion pack": {
+    "id": 29971,
+    "value": 145
+  },
+  "Arceuus signet": {
+    "id": 20615,
+    "value": 2
+  },
+  "Archer helm": {
+    "id": 3749,
+    "value": 60000
+  },
+  "Archibald": {
+    "id": 33149,
+    "value": 1
+  },
+  "Ardrigal": {
+    "id": 1528,
+    "value": 5
+  },
+  "Armadyl halo": {
+    "id": 24192
+  },
+  "Armageddon cape fabric": {
+    "id": 29628,
+    "value": 25000
+  },
+  "Armageddon rug": {
+    "id": 29619,
+    "value": 50000
+  },
+  "Armageddon teleport scroll": {
+    "id": 29622,
+    "value": 25000
+  },
+  "Armageddon weapon scroll": {
+    "id": 29625,
+    "value": 25000
+  },
+  "Arrow shaft": {
+    "id": 52,
+    "value": 1
+  },
+  "Arthur portrait": {
+    "id": 7995,
+    "value": 1000
+  },
+  "Asgarnian ale": {
+    "id": 1905,
+    "value": 2
+  },
+  "Asgarnian hops": {
+    "id": 5996,
+    "value": 5
+  },
+  "Asgarnian seed": {
+    "id": 5308,
+    "value": 3
+  },
+  "Ash covered tome": {
+    "id": 21697,
+    "value": 1
+  },
+  "Astral rune": {
+    "id": 9075,
+    "value": 50
+  },
+  "Attack cape(t)": {
+    "id": 9747,
+    "value": 99000
+  },
+  "Attack potion(3)": {
+    "id": 125
+  },
+  "Auto-weed": {
+    "value": 1
+  },
+  "Ava's accumulator": {
+    "id": 10499,
+    "value": 1000
+  },
+  "Ava's assembler": {
+    "id": 22109
+  },
+  "Ava's attractor": {
+    "id": 10498,
+    "value": 769
+  },
+  "Axeman's folly": {
+    "id": 5751,
+    "value": 2
+  },
+  "Bag full of gems": {
+    "id": 19473
+  },
+  "Bag of salt": {
+    "id": 4161,
+    "value": 10
+  },
+  "Bagged bluebells": {
+    "id": 8455,
+    "value": 15000
+  },
+  "Bagged daffodils": {
+    "id": 8453,
+    "value": 10000
+  },
+  "Bagged dead tree": {
+    "id": 8417,
+    "value": 1000
+  },
+  "Bagged flower": {
+    "id": 8451,
+    "value": 5000
+  },
+  "Bagged magic tree": {
+    "id": 8429,
+    "value": 50000
+  },
+  "Bagged maple tree": {
+    "id": 8425,
+    "value": 15000
+  },
+  "Bagged marigolds": {
+    "id": 8459,
+    "value": 10000
+  },
+  "Bagged nice tree": {
+    "id": 8419,
+    "value": 2000
+  },
+  "Bagged oak tree": {
+    "id": 8421,
+    "value": 5000
+  },
+  "Bagged plant 1": {
+    "id": 8431,
+    "value": 1000
+  },
+  "Bagged plant 2": {
+    "id": 8433,
+    "value": 5000
+  },
+  "Bagged plant 3": {
+    "id": 8435,
+    "value": 10000
+  },
+  "Bagged roses": {
+    "id": 8461,
+    "value": 15000
+  },
+  "Bagged sunflower": {
+    "id": 8457,
+    "value": 5000
+  },
+  "Bagged willow tree": {
+    "id": 8423,
+    "value": 10000
+  },
+  "Bagged yew tree": {
+    "id": 8427,
+    "value": 20000
+  },
+  "Bailing bucket": {
+    "id": 583,
+    "value": 10
+  },
+  "Bait pack": {
+    "id": 11883,
+    "value": 300
+  },
+  "Ball of wool": {
+    "id": 1759,
+    "value": 2
+  },
+  "Banana": {
+    "id": 1963,
+    "value": 2
+  },
+  "Banana cape": {
+    "id": 25502,
+    "value": 0
+  },
+  "Banana hat": {
+    "id": 25840,
+    "value": 1
+  },
+  "Banana stew": {
+    "id": 4016,
+    "value": 300
+  },
+  "Bandages (Theatre of Blood)": {
+    "id": 25730,
+    "value": 10
+  },
+  "Bandit's brew": {
+    "id": 4627,
+    "value": 500
+  },
+  "Bandos halo": {
+    "id": 24195
+  },
+  "Banshee mask": {
+    "id": 20773,
+    "value": 1
+  },
+  "Banshee robe": {
+    "id": 20777,
+    "value": 1
+  },
+  "Banshee top": {
+    "id": 20775,
+    "value": 1
+  },
+  "Barb bolttips": {
+    "id": 47,
+    "value": 95
+  },
+  "Barley": {
+    "id": 6006,
+    "value": 4
+  },
+  "Barley seed": {
+    "id": 5305,
+    "value": 2
+  },
+  "Barnacle blaster": {
+    "id": 31255,
+    "value": 20
+  },
+  "Barrelchest anchor": {
+    "id": 10887
+  },
+  "Barrelchest anchor imbue scroll": {
+    "id": 28074,
+    "value": 10000
+  },
+  "Barrows gloves": {
+    "id": 7462,
+    "value": 100000
+  },
+  "Basket": {
+    "id": 5376,
+    "value": 1
+  },
+  "Basket pack": {
+    "id": 13254,
+    "value": 100
+  },
+  "Bass": {
+    "id": 365,
+    "value": 40
+  },
+  "Bat shish": {
+    "id": 10964,
+    "value": 10
+  },
+  "Batta tin": {
+    "id": 2164,
+    "value": 10
+  },
+  "Battlestaff": {
+    "id": 1391,
+    "value": 7000
+  },
+  "Beach boxing gloves (yellow)": {
+    "id": 11705,
+    "value": 50
+  },
+  "Beacon ring": {
+    "id": 11014,
+    "value": 0
+  },
+  "Beads of the dead": {
+    "id": 616,
+    "value": 1
+  },
+  "Bear fur": {
+    "id": 948,
+    "value": 10
+  },
+  "Bearhead": {
+    "id": 4502,
+    "value": 0
+  },
+  "Beer": {
+    "id": 1917,
+    "value": 2
+  },
+  "Beer belly sweater": {
+    "id": 32930,
+    "value": 1
+  },
+  "Beer glass": {
+    "id": 1919,
+    "value": 2
+  },
+  "Beer tankard": {
+    "id": 3803,
+    "value": 20
+  },
+  "Berserker helm": {
+    "id": 3751,
+    "value": 60000
+  },
+  "Bervirius notes": {
+    "id": 624,
+    "value": 1
+  },
+  "Big fishing net": {
+    "id": 305,
+    "value": 20
+  },
+  "Bird snare": {
+    "id": 10006,
+    "value": 5
+  },
+  "Bird snare pack": {
+    "id": 12740,
+    "value": 505
+  },
+  "Birthday balloons": {
+    "id": 21209,
+    "value": 0
+  },
+  "Birthday cake": {
+    "id": 23108,
+    "value": 1
+  },
+  "Black 2h sword": {
+    "id": 1313,
+    "value": 1920
+  },
+  "Black battleaxe": {
+    "id": 1367,
+    "value": 1248
+  },
+  "Black brutal": {
+    "id": 4788,
+    "value": 35
+  },
+  "Black cape": {
+    "id": 1019,
+    "value": 7
+  },
+  "Black chainbody": {
+    "id": 1107,
+    "value": 1440
+  },
+  "Black d'hide body": {
+    "id": 2503,
+    "value": 13480
+  },
+  "Black d'hide chaps": {
+    "id": 2497,
+    "value": 6220
+  },
+  "Black dagger": {
+    "id": 1217,
+    "value": 240
+  },
+  "Black full helm": {
+    "id": 1165,
+    "value": 1056
+  },
+  "Black gloves": {
+    "id": 7457,
+    "value": 1000
+  },
+  "Black h'ween mask": {
+    "id": 11847,
+    "value": 7
+  },
+  "Black halberd": {
+    "id": 3196,
+    "value": 1920
+  },
+  "Black kiteshield": {
+    "id": 1195,
+    "value": 1632
+  },
+  "Black longsword": {
+    "id": 1297,
+    "value": 960
+  },
+  "Black med helm": {
+    "id": 1151,
+    "value": 576
+  },
+  "Black naval shirt": {
+    "id": 8956,
+    "value": 100
+  },
+  "Black navy slacks": {
+    "id": 8995,
+    "value": 100
+  },
+  "Black partyhat": {
+    "id": 11862,
+    "value": 1
+  },
+  "Black platebody": {
+    "id": 1125,
+    "value": 3840
+  },
+  "Black platelegs": {
+    "id": 1077,
+    "value": 1920
+  },
+  "Black plateskirt": {
+    "id": 1089,
+    "value": 1920
+  },
+  "Black prism": {
+    "id": 4808,
+    "value": 1
+  },
+  "Black santa hat": {
+    "id": 13343,
+    "value": 1
+  },
+  "Black scimitar": {
+    "id": 1327,
+    "value": 768
+  },
+  "Black skirt": {
+    "id": 1015,
+    "value": 2
+  },
+  "Black sword": {
+    "id": 1283,
+    "value": 624
+  },
+  "Black toy horsey": {
+    "id": 2524,
+    "value": 100
+  },
+  "Black tricorn hat": {
+    "id": 8963,
+    "value": 50
+  },
+  "Black warhammer": {
+    "id": 1341,
+    "value": 980
+  },
+  "Blackbird red": {
+    "id": 29944,
+    "value": 300
+  },
+  "Blighted ancient ice sack": {
+    "id": 24607,
+    "value": 35
+  },
+  "Blighted anglerfish": {
+    "id": 24592,
+    "value": 50
+  },
+  "Blighted bind sack": {
+    "id": 24609,
+    "value": 20
+  },
+  "Blighted entangle sack": {
+    "id": 24613,
+    "value": 30
+  },
+  "Blighted karambwan": {
+    "id": 24595,
+    "value": 60
+  },
+  "Blighted manta ray": {
+    "id": 24589,
+    "value": 50
+  },
+  "Blighted snare sack": {
+    "id": 24611,
+    "value": 25
+  },
+  "Blighted super restore(4)": {
+    "id": 24605
+  },
+  "Blighted surge sack": {
+    "id": 26705,
+    "value": 45
+  },
+  "Blighted teleport spell sack": {
+    "id": 24615,
+    "value": 32
+  },
+  "Blighted vengeance sack": {
+    "id": 24621,
+    "value": 33
+  },
+  "Blighted wave sack": {
+    "id": 26704,
+    "value": 40
+  },
+  "Blisterwood flail": {
+    "id": 24699,
+    "value": 40000
+  },
+  "Blisterwood sickle": {
+    "id": 24697,
+    "value": 20000
+  },
+  "Blisterwood sickle (e)": {
+    "id": 33713,
+    "value": 30000
+  },
+  "Blood pint": {
+    "id": 24774,
+    "value": 2
+  },
+  "Blood rune": {
+    "id": 565,
+    "value": 400
+  },
+  "Blood talisman": {
+    "id": 1450,
+    "value": 4
+  },
+  "Bloody bracer": {
+    "id": 22430,
+    "value": 10
+  },
+  "Blue boots": {
+    "id": 630,
+    "value": 200
+  },
+  "Blue cape": {
+    "id": 1021,
+    "value": 32
+  },
+  "Blue dark bow paint": {
+    "id": 12757,
+    "value": 1
+  },
+  "Blue dragon scale": {
+    "id": 243,
+    "value": 50
+  },
+  "Blue dye": {
+    "id": 1767,
+    "value": 5
+  },
+  "Blue feather": {
+    "id": 10089,
+    "value": 16
+  },
+  "Blue hat": {
+    "id": 660,
+    "value": 160
+  },
+  "Blue marionette": {
+    "id": 6865,
+    "value": 1
+  },
+  "Blue naval shirt": {
+    "id": 8952,
+    "value": 100
+  },
+  "Blue navy slacks": {
+    "id": 8991,
+    "value": 100
+  },
+  "Blue robe bottoms": {
+    "id": 650,
+    "value": 180
+  },
+  "Blue robe top": {
+    "id": 640,
+    "value": 180
+  },
+  "Blue skirt": {
+    "id": 1011,
+    "value": 2
+  },
+  "Blue tricorn hat": {
+    "id": 8959,
+    "value": 50
+  },
+  "Blue wizard hat": {
+    "id": 579,
+    "value": 2
+  },
+  "Blurberry special": {
+    "id": 2064,
+    "value": 30
+  },
+  "Bob the cat slippers": {
+    "id": 27806,
+    "value": 1
+  },
+  "Bobble hat": {
+    "id": 6856,
+    "value": 1
+  },
+  "Bobble scarf": {
+    "id": 6857,
+    "value": 1
+  },
+  "Body rune": {
+    "id": 559,
+    "value": 3
+  },
+  "Body talisman": {
+    "id": 1446,
+    "value": 4
+  },
+  "Bologa's blessing": {
+    "id": 20747,
+    "value": 25
+  },
+  "Bolt mould": {
+    "id": 9434,
+    "value": 25
+  },
+  "Bolt of cloth": {
+    "id": 8790,
+    "value": 500
+  },
+  "Bolt pouch": {
+    "id": 9433,
+    "value": 10
+  },
+  "Bolt rack": {
+    "id": 4740,
+    "value": 50
+  },
+  "Bone bolt pack": {
+    "id": 13193,
+    "value": 350
+  },
+  "Bone bolts": {
+    "id": 8882,
+    "value": 3
+  },
+  "Bone club": {
+    "id": 5018,
+    "value": 600
+  },
+  "Bone dagger": {
+    "id": 8872,
+    "value": 2000
+  },
+  "Bone key (Shilo Village)": {
+    "id": 605,
+    "value": 1
+  },
+  "Bone seeds": {
+    "id": 7950,
+    "value": 30
+  },
+  "Bone spear": {
+    "id": 5016,
+    "value": 600
+  },
+  "Book of balance": {
+    "id": 3844,
+    "value": 200
+  },
+  "Book of darkness": {
+    "id": 12612,
+    "value": 200
+  },
+  "Book of egg": {
+    "id": 29433,
+    "value": 200
+  },
+  "Book of law": {
+    "id": 12610,
+    "value": 200
+  },
+  "Book of the dead": {
+    "id": 25818,
+    "value": 80
+  },
+  "Book of war": {
+    "id": 12608,
+    "value": 200
+  },
+  "Boots of lightness": {
+    "id": 88,
+    "value": 6
+  },
+  "Boots of stone": {
+    "id": 23037,
+    "value": 200
+  },
+  "Boots of the eye": {
+    "id": 26856,
+    "value": 250
+  },
+  "Bottle of wine": {
+    "id": 7919,
+    "value": 500
+  },
+  "Bounty hunter hat (tier 1)": {
+    "id": 24338,
+    "value": 1
+  },
+  "Bounty hunter hat (tier 2)": {
+    "id": 24340,
+    "value": 1
+  },
+  "Bounty hunter hat (tier 3)": {
+    "id": 24342,
+    "value": 1
+  },
+  "Bounty hunter hat (tier 4)": {
+    "id": 24344,
+    "value": 1
+  },
+  "Bounty hunter hat (tier 5)": {
+    "id": 24346,
+    "value": 1
+  },
+  "Bounty hunter hat (tier 6)": {
+    "id": 24348,
+    "value": 1
+  },
+  "Bounty hunter ornament kit": {
+    "id": 28017,
+    "value": 5000
+  },
+  "Bow string": {
+    "id": 1777,
+    "value": 10
+  },
+  "Bow string spool": {
+    "id": 31052,
+    "value": 2000
+  },
+  "Bowl": {
+    "id": 1923,
+    "value": 4
+  },
+  "Bowl of fish": {
+    "id": 21693,
+    "value": 30
+  },
+  "Bowl of water": {
+    "id": 1921,
+    "value": 4
+  },
+  "Box trap": {
+    "id": 10008,
+    "value": 32
+  },
+  "Box trap pack": {
+    "id": 12742,
+    "value": 3200
+  },
+  "Bracelet mould": {
+    "id": 11065,
+    "value": 5
+  },
+  "Braindeath 'rum'": {
+    "id": 7157,
+    "value": 30
+  },
+  "Brandy": {
+    "id": 2021,
+    "value": 5
+  },
+  "Brassica halo": {
+    "id": 24204
+  },
+  "Bread": {
+    "id": 2309,
+    "value": 12
+  },
+  "Broad arrowhead pack": {
+    "id": 11885,
+    "value": 5500
+  },
+  "Broad arrowheads": {
+    "id": 11874,
+    "value": 55
+  },
+  "Broad arrows": {
+    "id": 4160,
+    "value": 60
+  },
+  "Broad bolts": {
+    "id": 11875,
+    "value": 55
+  },
+  "Bronze 2h sword": {
+    "id": 1307,
+    "value": 80
+  },
+  "Bronze arrow": {
+    "id": 882,
+    "value": 1
+  },
+  "Bronze arrowtips": {
+    "id": 39,
+    "value": 1
+  },
+  "Bronze axe": {
+    "id": 1351,
+    "value": 16
+  },
+  "Bronze bar": {
+    "id": 2349,
+    "value": 8
+  },
+  "Bronze battleaxe": {
+    "id": 1375,
+    "value": 52
+  },
+  "Bronze bolts": {
+    "id": 877,
+    "value": 0
+  },
+  "Bronze brutal": {
+    "id": 4773,
+    "value": 5
+  },
+  "Bronze cannonball": {
+    "id": 31906,
+    "value": 5
+  },
+  "Bronze chainbody": {
+    "id": 1103,
+    "value": 60
+  },
+  "Bronze claws": {
+    "id": 3095,
+    "value": 15
+  },
+  "Bronze crossbow": {
+    "id": 9174,
+    "value": 73
+  },
+  "Bronze dagger": {
+    "id": 1205,
+    "value": 10
+  },
+  "Bronze fist flag": {
+    "id": 8968,
+    "value": 300
+  },
+  "Bronze full helm": {
+    "id": 1155,
+    "value": 44
+  },
+  "Bronze gloves": {
+    "id": 7454,
+    "value": 100
+  },
+  "Bronze halberd": {
+    "id": 3190,
+    "value": 80
+  },
+  "Bronze javelin": {
+    "id": 825,
+    "value": 4
+  },
+  "Bronze key (Prince Ali Rescue)": {
+    "id": 2418,
+    "value": 30
+  },
+  "Bronze kiteshield": {
+    "id": 1189,
+    "value": 68
+  },
+  "Bronze knife": {
+    "id": 864,
+    "value": 1
+  },
+  "Bronze limbs": {
+    "id": 9420,
+    "value": 20
+  },
+  "Bronze longsword": {
+    "id": 1291,
+    "value": 40
+  },
+  "Bronze mace": {
+    "id": 1422,
+    "value": 18
+  },
+  "Bronze med helm": {
+    "id": 1139,
+    "value": 24
+  },
+  "Bronze nails": {
+    "id": 4819,
+    "value": 2
+  },
+  "Bronze pickaxe": {
+    "id": 1265,
+    "value": 1
+  },
+  "Bronze platebody": {
+    "id": 1117,
+    "value": 160
+  },
+  "Bronze platelegs": {
+    "id": 1075,
+    "value": 80
+  },
+  "Bronze plateskirt": {
+    "id": 1087,
+    "value": 80
+  },
+  "Bronze scimitar": {
+    "id": 1321,
+    "value": 32
+  },
+  "Bronze spear(kp)": {
+    "id": 1237,
+    "value": 26
+  },
+  "Bronze sq shield": {
+    "id": 1173,
+    "value": 48
+  },
+  "Bronze sword": {
+    "id": 1277,
+    "value": 26
+  },
+  "Bronze thrownaxe": {
+    "id": 800,
+    "value": 3
+  },
+  "Bronze warhammer": {
+    "id": 1337,
+    "value": 47
+  },
+  "Brown apron": {
+    "id": 1757,
+    "value": 2
+  },
+  "Brown naval shirt": {
+    "id": 8955,
+    "value": 100
+  },
+  "Brown navy slacks": {
+    "id": 8994,
+    "value": 100
+  },
+  "Brown toy horsey": {
+    "id": 2520,
+    "value": 100
+  },
+  "Brown tricorn hat": {
+    "id": 8962,
+    "value": 50
+  },
+  "Bucket": {
+    "id": 1925,
+    "value": 2
+  },
+  "Bucket of milk": {
+    "id": 1927,
+    "value": 6
+  },
+  "Bucket of sand": {
+    "id": 1783,
+    "value": 2
+  },
+  "Bucket of sap": {
+    "id": 4687,
+    "value": 30
+  },
+  "Bucket of slime": {
+    "id": 4286,
+    "value": 1
+  },
+  "Bucket of water": {
+    "id": 1929,
+    "value": 6
+  },
+  "Bullseye lantern": {
+    "id": 4548,
+    "value": 420
+  },
+  "Bullseye lantern (empty)": {
+    "id": 4546,
+    "value": 400
+  },
+  "Bunny ears": {
+    "id": 1037,
+    "value": 1
+  },
+  "Bunny feet": {
+    "id": 13182,
+    "value": 0
+  },
+  "Bunny legs": {
+    "id": 13664,
+    "value": 1
+  },
+  "Bunny paws": {
+    "id": 13665,
+    "value": 1
+  },
+  "Bunny top": {
+    "id": 13663,
+    "value": 50
+  },
+  "Bunnyman mask": {
+    "id": 23448,
+    "value": 1
+  },
+  "Butterfly jar": {
+    "id": 10012,
+    "value": 1
+  },
+  "Butterfly net": {
+    "id": 10010,
+    "value": 20
+  },
+  "Cabbage": {
+    "id": 1965,
+    "value": 1
+  },
+  "Cabbage cape": {
+    "id": 13679,
+    "value": 100
+  },
+  "Cabbage seed": {
+    "id": 5324,
+    "value": 3
+  },
+  "Cake": {
+    "id": 1891
+  },
+  "Cake hat": {
+    "id": 27804,
+    "value": 1
+  },
+  "Cake tin": {
+    "id": 1887,
+    "value": 10
+  },
+  "Calcified acorn": {
+    "id": 30042,
+    "value": 3000
+  },
+  "Calcite": {
+    "id": 21543,
+    "value": 30
+  },
+  "Camelot quest lamp": {
+    "id": 33008,
+    "value": 1
+  },
+  "Candle": {
+    "id": 36,
+    "value": 3
+  },
+  "Candy cane": {
+    "id": 22719,
+    "value": 0
+  },
+  "Cannon barrels": {
+    "id": 10,
+    "value": 187500
+  },
+  "Cannon base": {
+    "id": 6,
+    "value": 187500
+  },
+  "Cannon furnace": {
+    "id": 12,
+    "value": 187500
+  },
+  "Cannon stand": {
+    "id": 8,
+    "value": 187500
+  },
+  "Cape of legends": {
+    "id": 1052,
+    "value": 450
+  },
+  "Cape pouch": {
+    "id": 28613,
+    "value": 100
+  },
+  "Carpenter's boots": {
+    "id": 24878,
+    "value": 280
+  },
+  "Carpenter's helmet": {
+    "id": 24872,
+    "value": 320
+  },
+  "Carpenter's shirt": {
+    "id": 24874,
+    "value": 380
+  },
+  "Carpenter's trousers": {
+    "id": 24876,
+    "value": 340
+  },
+  "Carrallanger teleport (tablet)": {
+    "id": 12776,
+    "value": 1
+  },
+  "Carrot costume body": {
+    "id": 30722,
+    "value": 40
+  },
+  "Carrot costume gloves": {
+    "id": 30726,
+    "value": 0
+  },
+  "Carrot costume hat": {
+    "id": 30720,
+    "value": 200
+  },
+  "Carrot costume tights": {
+    "id": 30724,
+    "value": 30
+  },
+  "Carrot sword": {
+    "id": 24537,
+    "value": 1
+  },
+  "Castle wars supply crate": {
+    "id": 30690,
+    "value": 1
+  },
+  "Cat": {
+    "id": 1561,
+    "value": 1
+  },
+  "Cat ears": {
+    "id": 24525,
+    "value": 2
+  },
+  "Catalytic rune pack": {
+    "id": 20523,
+    "value": 75
+  },
+  "Celestial ring (uncharged)": {
+    "id": 25539,
+    "value": 2000
+  },
+  "Chaos rune": {
+    "id": 562,
+    "value": 90
+  },
+  "Chaos rune pack": {
+    "id": 12738,
+    "value": 9950
+  },
+  "Chaos talisman": {
+    "id": 1452,
+    "value": 4
+  },
+  "Chaotic handegg": {
+    "id": 22361,
+    "value": 1
+  },
+  "Charcoal": {
+    "id": 973,
+    "value": 45
+  },
+  "Cheese": {
+    "id": 1985,
+    "value": 4
+  },
+  "Chef's hat": {
+    "id": 1949,
+    "value": 2
+  },
+  "Chichilihui rosé": {
+    "id": 29963,
+    "value": 100
+  },
+  "Chicken feet": {
+    "id": 11019,
+    "value": 1
+  },
+  "Chicken head": {
+    "id": 11021,
+    "value": 1
+  },
+  "Chicken legs": {
+    "id": 11022,
+    "value": 1
+  },
+  "Chicken wings": {
+    "id": 11020,
+    "value": 1
+  },
+  "Chilhuac red": {
+    "id": 29947,
+    "value": 400
+  },
+  "Chisel": {
+    "id": 1755,
+    "value": 1
+  },
+  "Choc saturday": {
+    "id": 2074,
+    "value": 30
+  },
+  "Choc-ice": {
+    "id": 6794,
+    "value": 30
+  },
+  "Chocolate bar": {
+    "id": 1973,
+    "value": 10
+  },
+  "Chocolate dust": {
+    "id": 1975,
+    "value": 2
+  },
+  "Chocolate slice": {
+    "id": 1897
+  },
+  "Christmas dinner": {
+    "id": 32934,
+    "value": 50
+  },
+  "Christmas jumper": {
+    "id": 27566,
+    "value": 1
+  },
+  "Chronicle": {
+    "id": 13660,
+    "value": 200
+  },
+  "Chugging barrel (disassembled)": {
+    "id": 30002
+  },
+  "Cider": {
+    "id": 5763,
+    "value": 2
+  },
+  "Citizen shoes": {
+    "id": 9644,
+    "value": 5
+  },
+  "Citizen top": {
+    "id": 9640,
+    "value": 5
+  },
+  "Citizen trousers": {
+    "id": 9642,
+    "value": 5
+  },
+  "Classic imp hood": {
+    "id": 30648,
+    "value": 1
+  },
+  "Classic imp tail": {
+    "id": 30646,
+    "value": 1
+  },
+  "Cleaning cloth": {
+    "id": 3188,
+    "value": 60
+  },
+  "Cleaver": {
+    "id": 7451,
+    "value": 25600
+  },
+  "Climbing boots": {
+    "id": 3105,
+    "value": 12
+  },
+  "Clothes pouch blueprint": {
+    "id": 28166,
+    "value": 100
+  },
+  "Clown bow tie": {
+    "id": 22692,
+    "value": 1
+  },
+  "Clown gown": {
+    "id": 22695,
+    "value": 1
+  },
+  "Clown mask": {
+    "id": 22689,
+    "value": 1
+  },
+  "Clown shoes": {
+    "id": 22701,
+    "value": 0
+  },
+  "Clown trousers": {
+    "id": 22698,
+    "value": 1
+  },
+  "Clue box": {
+    "id": 12789,
+    "value": 10
+  },
+  "Clue scroll (medium)": {
+    "value": 20
+  },
+  "Coal": {
+    "id": 453,
+    "value": 45
+  },
+  "Coal bag": {
+    "id": 12019,
+    "value": 100
+  },
+  "Coated frogs' legs": {
+    "id": 10963,
+    "value": 10
+  },
+  "Cobweb cape": {
+    "id": 28601,
+    "value": 0
+  },
+  "Cocktail glass": {
+    "id": 2026,
+    "value": 1
+  },
+  "Cocktail guide": {
+    "id": 2023,
+    "value": 2
+  },
+  "Cocktail shaker": {
+    "id": 2025,
+    "value": 2
+  },
+  "Coconut": {
+    "id": 5974,
+    "value": 87
+  },
+  "Cod": {
+    "id": 339,
+    "value": 10
+  },
+  "Coif": {
+    "id": 1169,
+    "value": 200
+  },
+  "Colossal blade": {
+    "id": 27021,
+    "value": 225000
+  },
+  "Colossal wyrm teleport scroll": {
+    "id": 30040,
+    "value": 10
+  },
+  "Common kebbit fur": {
+    "id": 10121,
+    "value": 12
+  },
+  "Comp ogre bow": {
+    "id": 4827,
+    "value": 180
+  },
+  "Compost": {
+    "id": 6032,
+    "value": 20
+  },
+  "Compost pack": {
+    "id": 19704,
+    "value": 2000
+  },
+  "Compost potion(4)": {
+    "id": 6476
+  },
+  "Condensed gold": {
+    "id": 26266,
+    "value": 8000000
+  },
+  "Construct. cape(t)": {
+    "id": 9789,
+    "value": 99000
+  },
+  "Cooked chompy": {
+    "id": 2878,
+    "value": 130
+  },
+  "Cooked karambwan": {
+    "id": 3144,
+    "value": 250
+  },
+  "Cooked meat": {
+    "id": 2142,
+    "value": 4
+  },
+  "Cooking apple": {
+    "id": 1955,
+    "value": 1
+  },
+  "Cooking cape(t)": {
+    "id": 9801,
+    "value": 99000
+  },
+  "Copper ore": {
+    "id": 436,
+    "value": 3
+  },
+  "Cosmic rune": {
+    "id": 564,
+    "value": 50
+  },
+  "Cosmic talisman": {
+    "id": 1454,
+    "value": 4
+  },
+  "Cow gloves": {
+    "id": 12958,
+    "value": 1
+  },
+  "Cow mask": {
+    "id": 11919,
+    "value": 1
+  },
+  "Cow shoes": {
+    "id": 12959,
+    "value": 1
+  },
+  "Cow top": {
+    "id": 12956,
+    "value": 1
+  },
+  "Cow trousers": {
+    "id": 12957,
+    "value": 1
+  },
+  "Crafting cape(t)": {
+    "id": 9780,
+    "value": 99000
+  },
+  "Crate ring": {
+    "id": 26939,
+    "value": 1
+  },
+  "Cream boots": {
+    "id": 632,
+    "value": 200
+  },
+  "Cream hat": {
+    "id": 662,
+    "value": 160
+  },
+  "Cream robe bottoms": {
+    "id": 652,
+    "value": 180
+  },
+  "Cream robe top": {
+    "id": 642,
+    "value": 180
+  },
+  "Crossbow": {
+    "id": 837,
+    "value": 70
+  },
+  "Cruciferous codex": {
+    "id": 13681,
+    "value": 200
+  },
+  "Crumpled scroll": {
+    "id": 608,
+    "value": 1
+  },
+  "Crunchy tray": {
+    "id": 2165,
+    "value": 10
+  },
+  "Crystal bow": {
+    "id": 23983,
+    "value": 300000
+  },
+  "Crystal crown (Ithell)": {
+    "id": 23911,
+    "value": 250000000
+  },
+  "Crystal halberd": {
+    "id": 23987,
+    "value": 300000
+  },
+  "Crystal of amlodd": {
+    "id": 23941,
+    "value": 500000
+  },
+  "Crystal of cadarn": {
+    "id": 23933,
+    "value": 500000
+  },
+  "Crystal of crwys": {
+    "id": 23935,
+    "value": 500000
+  },
+  "Crystal of hefin": {
+    "id": 23939,
+    "value": 500000
+  },
+  "Crystal of iorwerth": {
+    "id": 23929,
+    "value": 500000
+  },
+  "Crystal of ithell": {
+    "id": 23927,
+    "value": 500000
+  },
+  "Crystal of meilyr": {
+    "id": 23937,
+    "value": 500000
+  },
+  "Crystal of trahaearn": {
+    "id": 23931,
+    "value": 500000
+  },
+  "Crystal shield": {
+    "id": 23991,
+    "value": 300000
+  },
+  "Crystal weapon seed": {
+    "id": 4207,
+    "value": 1
+  },
+  "Cup of tea": {
+    "id": 1978,
+    "value": 10
+  },
+  "Cured yak-hide": {
+    "id": 10820,
+    "value": 100
+  },
+  "Curry leaf": {
+    "id": 5970,
+    "value": 19
+  },
+  "Cursed banana": {
+    "id": 25500,
+    "value": 0
+  },
+  "Cursed goblin bow": {
+    "id": 11708,
+    "value": 30
+  },
+  "Cursed goblin hammer": {
+    "id": 11707,
+    "value": 30
+  },
+  "Cursed goblin staff": {
+    "id": 11709,
+    "value": 30
+  },
+  "Cutthroat flag": {
+    "id": 8966,
+    "value": 200
+  },
+  "Dareeyak teleport (tablet)": {
+    "id": 12777,
+    "value": 1
+  },
+  "Dark acorn": {
+    "id": 24733,
+    "value": 5000
+  },
+  "Dark bow imbue scroll": {
+    "id": 28072,
+    "value": 10000
+  },
+  "Dark dye": {
+    "id": 24729,
+    "value": 300
+  },
+  "Deadman's cape": {
+    "id": 24191
+  },
+  "Deadman's chest": {
+    "id": 24189
+  },
+  "Deadman's legs": {
+    "id": 24190,
+    "value": 1
+  },
+  "Death rune": {
+    "id": 560,
+    "value": 180
+  },
+  "Death talisman": {
+    "id": 1456,
+    "value": 4
+  },
+  "Decorative emblem": {
+    "id": 24287,
+    "value": 50009
+  },
+  "Defence cape(t)": {
+    "id": 9753,
+    "value": 99000
+  },
+  "Defence potion(3)": {
+    "id": 137
+  },
+  "Demonic axe ornament kit": {
+    "id": 33305,
+    "value": 100000
+  },
+  "Demonic pacts banner": {
+    "id": 33299,
+    "value": 1000
+  },
+  "Demonic pacts demon butler scroll": {
+    "id": 33368,
+    "value": 25000
+  },
+  "Demonic pacts throne scroll": {
+    "id": 33362,
+    "value": 25000
+  },
+  "Demonic quill": {
+    "id": 33342,
+    "value": 100000
+  },
+  "Demonic sceptre": {
+    "id": 33296,
+    "value": 1000
+  },
+  "Demonic skin contract": {
+    "id": 33302,
+    "value": 100000
+  },
+  "Demonic staff ornament kit": {
+    "id": 33308,
+    "value": 1
+  },
+  "Demonic trident ornament kit": {
+    "id": 33311,
+    "value": 100000
+  },
+  "Desert boots": {
+    "id": 1837,
+    "value": 20
+  },
+  "Desert devil fur": {
+    "id": 10123,
+    "value": 17
+  },
+  "Desert legs": {
+    "id": 6390,
+    "value": 25
+  },
+  "Desert painting": {
+    "id": 7999,
+    "value": 2000
+  },
+  "Desert robe": {
+    "id": 1835,
+    "value": 40
+  },
+  "Desert robes": {
+    "id": 6386,
+    "value": 25
+  },
+  "Desert shirt": {
+    "id": 1833,
+    "value": 40
+  },
+  "Desert top": {
+    "id": 6384,
+    "value": 15
+  },
+  "Desert top (overcoat)": {
+    "id": 6388,
+    "value": 35
+  },
+  "Diamond": {
+    "id": 1601,
+    "value": 2000
+  },
+  "Diamond amulet": {
+    "id": 1700,
+    "value": 3525
+  },
+  "Diamond bracelet": {
+    "id": 11092,
+    "value": 3825
+  },
+  "Diamond necklace": {
+    "id": 1662,
+    "value": 3675
+  },
+  "Diamond ring": {
+    "id": 1643,
+    "value": 3525
+  },
+  "Diango's claws": {
+    "id": 13188,
+    "value": 500
+  },
+  "Disk of returning": {
+    "id": 981,
+    "value": 120
+  },
+  "Dog boots": {
+    "id": 30491,
+    "value": 1
+  },
+  "Dog disguise": {
+    "id": 30487,
+    "value": 0
+  },
+  "Dorgeshuun crossbow": {
+    "id": 8880,
+    "value": 2000
+  },
+  "Double ammo mould": {
+    "id": 27012,
+    "value": 6
+  },
+  "Dragon battleaxe": {
+    "id": 1377,
+    "value": 200000
+  },
+  "Dragon bitter": {
+    "id": 1911,
+    "value": 2
+  },
+  "Dragon candle dagger": {
+    "id": 27810,
+    "value": 1
+  },
+  "Dragon dagger": {
+    "id": 1215
+  },
+  "Dragon gloves": {
+    "id": 7461,
+    "value": 100000
+  },
+  "Dragon halberd": {
+    "id": 3204,
+    "value": 250000
+  },
+  "Dragon longsword": {
+    "id": 1305,
+    "value": 100000
+  },
+  "Dragon longsword imbue scroll": {
+    "id": 28078,
+    "value": 10000
+  },
+  "Dragon mace": {
+    "id": 1434,
+    "value": 50000
+  },
+  "Dragon mace imbue scroll": {
+    "id": 28076,
+    "value": 10000
+  },
+  "Dragon metal shard": {
+    "id": 22097,
+    "value": 1200000
+  },
+  "Dragon pickaxe upgrade kit": {
+    "id": 12800,
+    "value": 1600
+  },
+  "Dragon scimitar": {
+    "id": 4587,
+    "value": 100000
+  },
+  "Dragonkin quest lamp": {
+    "id": 33006,
+    "value": 1
+  },
+  "Dragonstone bolts (e)": {
+    "id": 9244,
+    "value": 1063
+  },
+  "Drakan's medallion": {
+    "id": 22400,
+    "value": 200
+  },
+  "Druidic wreath": {
+    "id": 12600,
+    "value": 1
+  },
+  "Drunk dragon": {
+    "id": 2092,
+    "value": 30
+  },
+  "Dusty key": {
+    "id": 1590,
+    "value": 1
+  },
+  "Dwarf cannon set": {
+    "id": 12863,
+    "value": 600000
+  },
+  "Dwarven helmet": {
+    "id": 11200,
+    "value": 60000
+  },
+  "Dwarven rock cake": {
+    "id": 7509,
+    "value": 1
+  },
+  "Dwarven stout": {
+    "id": 1913,
+    "value": 2
+  },
+  "Dwellberries": {
+    "id": 2126,
+    "value": 4
+  },
+  "Dynamite": {
+    "id": 13573,
+    "value": 50
+  },
+  "Earmuffs": {
+    "id": 4166,
+    "value": 200
+  },
+  "Earth rune": {
+    "id": 557,
+    "value": 4
+  },
+  "Earth rune pack": {
+    "id": 12732,
+    "value": 430
+  },
+  "Earth talisman": {
+    "id": 1440,
+    "value": 4
+  },
+  "Easter basket": {
+    "id": 4565,
+    "value": 0
+  },
+  "Easter egg helm": {
+    "id": 21214,
+    "value": 0
+  },
+  "Easter hat": {
+    "id": 26937,
+    "value": 70
+  },
+  "Easter ring": {
+    "id": 7927,
+    "value": 1
+  },
+  "Eastfloor spade": {
+    "id": 27873,
+    "value": 1
+  },
+  "Echo ahrim's ornament kit": {
+    "id": 30451,
+    "value": 5000
+  },
+  "Echo home teleport scroll": {
+    "id": 30453,
+    "value": 25000
+  },
+  "Echo venator bow ornament kit": {
+    "id": 30432,
+    "value": 5000
+  },
+  "Echo virtus ornament kit": {
+    "id": 30443,
+    "value": 5000
+  },
+  "Eclipse red": {
+    "id": 29415,
+    "value": 1000
+  },
+  "Ectophial": {
+    "id": 4251,
+    "value": 1
+  },
+  "Ectoplasmator": {
+    "id": 25340,
+    "value": 1
+  },
+  "Eek": {
+    "id": 22684,
+    "value": 0
+  },
+  "Egg": {
+    "id": 1944,
+    "value": 4
+  },
+  "Egg priest mitre": {
+    "id": 29443,
+    "value": 200
+  },
+  "Egg priest necklace": {
+    "id": 29441,
+    "value": 40
+  },
+  "Egg priest robe": {
+    "id": 29437,
+    "value": 30
+  },
+  "Egg priest robe top": {
+    "id": 29439,
+    "value": 40
+  },
+  "Egg whisk": {
+    "id": 7435,
+    "value": 50
+  },
+  "Eggshell platebody": {
+    "id": 22351,
+    "value": 1
+  },
+  "Eggshell platelegs": {
+    "id": 22353,
+    "value": 1
+  },
+  "Elder chaos robes ornament kit": {
+    "id": 27113,
+    "value": 5000
+  },
+  "Elder maul ornament kit": {
+    "id": 27098,
+    "value": 5000
+  },
+  "Elemental rune pack": {
+    "id": 20524,
+    "value": 50
+  },
+  "Elena portrait": {
+    "id": 7996,
+    "value": 1000
+  },
+  "Elf quest lamp": {
+    "id": 28552,
+    "value": 1
+  },
+  "Elite void robe": {
+    "id": 13073
+  },
+  "Elite void top": {
+    "id": 13072
+  },
+  "Elven boots": {
+    "id": 24003,
+    "value": 10000
+  },
+  "Elven dawn": {
+    "id": 23948,
+    "value": 6
+  },
+  "Elven gloves": {
+    "id": 24006,
+    "value": 10000
+  },
+  "Elven legwear": {
+    "id": 24024,
+    "value": 5000
+  },
+  "Elven skirt (white)": {
+    "id": 24018,
+    "value": 5000
+  },
+  "Elven skirt (yellow)": {
+    "id": 24012,
+    "value": 5000
+  },
+  "Elven top (white vest)": {
+    "id": 24027,
+    "value": 5000
+  },
+  "Elven top (white)": {
+    "id": 24015,
+    "value": 5000
+  },
+  "Elven top (yellow vest)": {
+    "id": 24021,
+    "value": 5000
+  },
+  "Elven top (yellow)": {
+    "id": 24009,
+    "value": 5000
+  },
+  "Emerald": {
+    "id": 1605,
+    "value": 500
+  },
+  "Emerald amulet": {
+    "id": 1696,
+    "value": 1275
+  },
+  "Emerald bracelet": {
+    "id": 11076,
+    "value": 1525
+  },
+  "Emerald necklace": {
+    "id": 1658,
+    "value": 1425
+  },
+  "Emerald ring": {
+    "id": 1639,
+    "value": 1275
+  },
+  "Empty bucket pack": {
+    "id": 22660,
+    "value": 500
+  },
+  "Empty cup": {
+    "id": 1980,
+    "value": 2
+  },
+  "Empty jug pack": {
+    "id": 20742,
+    "value": 140
+  },
+  "Empty oil lamp": {
+    "id": 4525,
+    "value": 25
+  },
+  "Empty oil lantern": {
+    "id": 4535,
+    "value": 120
+  },
+  "Empty plant pot": {
+    "id": 5350,
+    "value": 1
+  },
+  "Empty sack": {
+    "id": 5418,
+    "value": 1
+  },
+  "Empty vial pack": {
+    "id": 11877,
+    "value": 200
+  },
+  "Empty wine bottle": {
+    "id": 7921,
+    "value": 1
+  },
+  "Enchanted gem": {
+    "id": 4155,
+    "value": 1
+  },
+  "Ent branch": {
+    "id": 31032,
+    "value": 220
+  },
+  "Equa leaves": {
+    "id": 2128,
+    "value": 2
+  },
+  "Escape crystal": {
+    "id": 22517,
+    "value": 100000
+  },
+  "Esoteric emblem (tier 1)": {
+    "id": 27997
+  },
+  "Expert potion pack": {
+    "id": 29973,
+    "value": 400
+  },
+  "Extended antifire(4)": {
+    "id": 11957
+  },
+  "Eye of gnome": {
+    "id": 4008,
+    "value": 3
+  },
+  "Eye of newt": {
+    "id": 221,
+    "value": 3
+  },
+  "Eye of newt pack": {
+    "id": 12859,
+    "value": 300
+  },
+  "Facemask": {
+    "id": 4164,
+    "value": 200
+  },
+  "Facility bottle (empty)": {
+    "id": 33074,
+    "value": 57693
+  },
+  "Fairy enchantment": {
+    "id": 20609,
+    "value": 100
+  },
+  "Fake beard": {
+    "id": 4593,
+    "value": 1
+  },
+  "Fancy hedge (bagged)": {
+    "id": 8445,
+    "value": 25000
+  },
+  "Farmer's boots": {
+    "id": 13644,
+    "value": 50
+  },
+  "Farmer's boro trousers": {
+    "id": 13640,
+    "value": 50
+  },
+  "Farmer's jacket": {
+    "id": 13642,
+    "value": 60
+  },
+  "Farmer's shirt": {
+    "id": 13643,
+    "value": 60
+  },
+  "Farmer's strawhat": {
+    "id": 13646,
+    "value": 50
+  },
+  "Farming cape(t)": {
+    "id": 9810,
+    "value": 99000
+  },
+  "Farseer helm": {
+    "id": 3755,
+    "value": 60000
+  },
+  "Feather": {
+    "id": 314,
+    "value": 2
+  },
+  "Feather pack": {
+    "id": 11881,
+    "value": 200
+  },
+  "Feldip weasel fur": {
+    "id": 10119,
+    "value": 14
+  },
+  "Felling axe handle": {
+    "id": 28177,
+    "value": 5000
+  },
+  "Festive elf hat": {
+    "id": 26312,
+    "value": 1
+  },
+  "Festive elf slippers": {
+    "id": 26310,
+    "value": 1
+  },
+  "Festive games crown": {
+    "id": 27588,
+    "value": 1
+  },
+  "Festive nutcracker boots": {
+    "id": 27578,
+    "value": 1
+  },
+  "Festive nutcracker hat": {
+    "id": 27576,
+    "value": 1
+  },
+  "Festive nutcracker staff": {
+    "id": 27580,
+    "value": 1
+  },
+  "Festive nutcracker top": {
+    "id": 27572,
+    "value": 1
+  },
+  "Festive nutcracker trousers": {
+    "id": 27574,
+    "value": 1
+  },
+  "Festive scarf": {
+    "id": 30489,
+    "value": 80
+  },
+  "Fez": {
+    "id": 6382,
+    "value": 20
+  },
+  "Field ration": {
+    "id": 7934,
+    "value": 300
+  },
+  "Fighter hat": {
+    "id": 10548
+  },
+  "Fighter torso": {
+    "id": 10551
+  },
+  "Filled plant pot": {
+    "id": 5354,
+    "value": 1
+  },
+  "Fingers": {
+    "id": 10965,
+    "value": 10
+  },
+  "Fire rune": {
+    "id": 554,
+    "value": 4
+  },
+  "Fire rune pack": {
+    "id": 12734,
+    "value": 430
+  },
+  "Fire talisman": {
+    "id": 1442,
+    "value": 4
+  },
+  "Firemaking cape(t)": {
+    "id": 9804,
+    "value": 99000
+  },
+  "Fish pie": {
+    "id": 7188
+  },
+  "Fish sack": {
+    "id": 22838,
+    "value": 1000
+  },
+  "Fishing bait": {
+    "id": 313,
+    "value": 3
+  },
+  "Fishing cape(t)": {
+    "id": 9798,
+    "value": 99000
+  },
+  "Fishing explosive": {
+    "id": 6664,
+    "value": 60
+  },
+  "Fishing rod": {
+    "id": 307,
+    "value": 5
+  },
+  "Flamtaer hammer": {
+    "id": 3678,
+    "value": 10000
+  },
+  "Flax": {
+    "id": 1779,
+    "value": 5
+  },
+  "Fletching cape(t)": {
+    "id": 9783,
+    "value": 99000
+  },
+  "Fletching knife": {
+    "id": 31043,
+    "value": 5000
+  },
+  "Flower crown": {
+    "id": 27035,
+    "value": 1
+  },
+  "Fly fishing rod": {
+    "id": 309,
+    "value": 5
+  },
+  "Forestry boots": {
+    "id": 28175,
+    "value": 50
+  },
+  "Forestry hat": {
+    "id": 28173,
+    "value": 50
+  },
+  "Forestry kit": {
+    "id": 28136,
+    "value": 850
+  },
+  "Forestry legs": {
+    "id": 28171,
+    "value": 50
+  },
+  "Forestry top": {
+    "id": 28169,
+    "value": 50
+  },
+  "Fox fur": {
+    "id": 29163,
+    "value": 10
+  },
+  "Fox whistle": {
+    "id": 28626,
+    "value": 30000
+  },
+  "Fremennik beige shirt": {
+    "id": 3771,
+    "value": 250
+  },
+  "Fremennik black cloak": {
+    "id": 3789,
+    "value": 250
+  },
+  "Fremennik blue cloak": {
+    "id": 3763,
+    "value": 250
+  },
+  "Fremennik blue shirt": {
+    "id": 3775,
+    "value": 250
+  },
+  "Fremennik boots": {
+    "id": 3791,
+    "value": 500
+  },
+  "Fremennik brown cloak": {
+    "id": 3761,
+    "value": 250
+  },
+  "Fremennik brown shirt": {
+    "id": 3767,
+    "value": 250
+  },
+  "Fremennik cyan cloak": {
+    "id": 3759,
+    "value": 250
+  },
+  "Fremennik gloves": {
+    "id": 3799,
+    "value": 500
+  },
+  "Fremennik green cloak": {
+    "id": 3765,
+    "value": 250
+  },
+  "Fremennik grey cloak": {
+    "id": 3779,
+    "value": 250
+  },
+  "Fremennik grey shirt": {
+    "id": 3769,
+    "value": 250
+  },
+  "Fremennik hat": {
+    "id": 3797,
+    "value": 500
+  },
+  "Fremennik pink cloak": {
+    "id": 3787,
+    "value": 250
+  },
+  "Fremennik purple cloak": {
+    "id": 3785,
+    "value": 250
+  },
+  "Fremennik quest lamp": {
+    "id": 28551,
+    "value": 1
+  },
+  "Fremennik red cloak": {
+    "id": 3777,
+    "value": 250
+  },
+  "Fremennik red shirt": {
+    "id": 3773,
+    "value": 250
+  },
+  "Fremennik robe": {
+    "id": 3793,
+    "value": 500
+  },
+  "Fremennik shield": {
+    "id": 3758,
+    "value": 5000
+  },
+  "Fremennik skirt": {
+    "id": 3795,
+    "value": 500
+  },
+  "Fremennik teal cloak": {
+    "id": 3783,
+    "value": 250
+  },
+  "Fremennik yellow cloak": {
+    "id": 3781,
+    "value": 250
+  },
+  "Frog mask": {
+    "id": 6188,
+    "value": 0
+  },
+  "Frog-leather body": {
+    "id": 10954,
+    "value": 1000
+  },
+  "Frog-leather boots": {
+    "id": 10958,
+    "value": 200
+  },
+  "Frog-leather chaps": {
+    "id": 10956,
+    "value": 900
+  },
+  "Frogburger": {
+    "id": 10962,
+    "value": 10
+  },
+  "Frogspawn gumbo": {
+    "id": 10961,
+    "value": 10
+  },
+  "Frozen whip mix": {
+    "id": 12769,
+    "value": 1
+  },
+  "Fruit blast": {
+    "id": 2084,
+    "value": 30
+  },
+  "Frying pan": {
+    "id": 7441,
+    "value": 1660
+  },
+  "Fungicide": {
+    "id": 7432,
+    "value": 10
+  },
+  "Fungicide spray": {
+    "id": 7421
+  },
+  "Funky shaped log": {
+    "id": 28138,
+    "value": 30000
+  },
+  "Fur": {
+    "id": 6814,
+    "value": 10
+  },
+  "Gadderhammer": {
+    "id": 7668,
+    "value": 3000
+  },
+  "Garden pie": {
+    "id": 7178
+  },
+  "Gardening trowel": {
+    "id": 5325,
+    "value": 12
+  },
+  "Garlic": {
+    "id": 1550,
+    "value": 3
+  },
+  "Gem bag": {
+    "id": 12020,
+    "value": 100
+  },
+  "Ghorrock teleport (tablet)": {
+    "id": 12778,
+    "value": 1
+  },
+  "Ghostly boots": {
+    "id": 6106,
+    "value": 30
+  },
+  "Ghostly cloak": {
+    "id": 6111,
+    "value": 25
+  },
+  "Ghostly gloves": {
+    "id": 6110,
+    "value": 30
+  },
+  "Ghostly hood": {
+    "id": 6109,
+    "value": 30
+  },
+  "Ghostly robe (bottom)": {
+    "id": 6108,
+    "value": 30
+  },
+  "Ghostly robe (top)": {
+    "id": 6107,
+    "value": 30
+  },
+  "Gianne dough": {
+    "id": 2171,
+    "value": 2
+  },
+  "Gianne's cook book": {
+    "id": 2167,
+    "value": 2
+  },
+  "Giant boulder": {
+    "id": 25314,
+    "value": 1
+  },
+  "Giant bronze dagger": {
+    "id": 27871,
+    "value": 100
+  },
+  "Giant easter egg": {
+    "id": 23446,
+    "value": 1
+  },
+  "Giant frog legs": {
+    "id": 4517,
+    "value": 100
+  },
+  "Giant present": {
+    "id": 20836,
+    "value": 1
+  },
+  "Giant stopwatch": {
+    "id": 27414,
+    "value": 50
+  },
+  "Gilded smile flag": {
+    "id": 8967,
+    "value": 200
+  },
+  "Gin": {
+    "id": 2019,
+    "value": 5
+  },
+  "Glassblowing pipe": {
+    "id": 1785,
+    "value": 2
+  },
+  "Gnome child backpack": {
+    "id": 27802,
+    "value": 1
+  },
+  "Gnome child hat": {
+    "id": 13655,
+    "value": 1
+  },
+  "Gnome child icon": {
+    "id": 25338,
+    "value": 1
+  },
+  "Gnome child mask": {
+    "id": 25336,
+    "value": 0
+  },
+  "Gnome child plush": {
+    "id": 27818,
+    "value": 1
+  },
+  "Gnome quest lamp": {
+    "id": 28553,
+    "value": 1
+  },
+  "Gnome spice": {
+    "id": 2169,
+    "value": 2
+  },
+  "Gnomebowl mould": {
+    "id": 2166,
+    "value": 10
+  },
+  "Goat horn": {
+    "id": 9735,
+    "value": 12
+  },
+  "Goblin decorations": {
+    "id": 25316,
+    "value": 1
+  },
+  "Goblin paint cannon": {
+    "id": 12727,
+    "value": 150
+  },
+  "Gold amulet": {
+    "id": 1692,
+    "value": 350
+  },
+  "Gold bar": {
+    "id": 2357,
+    "value": 300
+  },
+  "Gold bracelet": {
+    "id": 11069,
+    "value": 550
+  },
+  "Gold leaf": {
+    "id": 8784,
+    "value": 100000
+  },
+  "Gold necklace": {
+    "id": 1654,
+    "value": 450
+  },
+  "Gold ore": {
+    "id": 444,
+    "value": 150
+  },
+  "Gold ring": {
+    "id": 1635,
+    "value": 350
+  },
+  "Golden fleece": {
+    "id": 3693,
+    "value": 1
+  },
+  "Golden pheasant egg": {
+    "id": 28663,
+    "value": 30000
+  },
+  "Gout tuber": {
+    "id": 6311,
+    "value": 200
+  },
+  "Graahk fur": {
+    "id": 10099,
+    "value": 120
+  },
+  "Graceful boots": {
+    "id": 11860,
+    "value": 40
+  },
+  "Graceful cape": {
+    "id": 11852,
+    "value": 40
+  },
+  "Graceful crafting kit": {
+    "id": 30044,
+    "value": 1
+  },
+  "Graceful gloves": {
+    "id": 11858,
+    "value": 30
+  },
+  "Graceful hood": {
+    "id": 11850,
+    "value": 35
+  },
+  "Graceful legs": {
+    "id": 11856,
+    "value": 60
+  },
+  "Graceful top": {
+    "id": 11854,
+    "value": 55
+  },
+  "Grain": {
+    "id": 1947,
+    "value": 2
+  },
+  "Granite body": {
+    "id": 10564,
+    "value": 80000
+  },
+  "Granite clamp": {
+    "id": 12849,
+    "value": 5000
+  },
+  "Grape seed": {
+    "id": 13657,
+    "value": 74
+  },
+  "Grapes": {
+    "id": 1987,
+    "value": 1
+  },
+  "Gravedigger boots": {
+    "id": 13286,
+    "value": 1
+  },
+  "Gravedigger gloves": {
+    "id": 13287,
+    "value": 1
+  },
+  "Gravedigger leggings": {
+    "id": 13285,
+    "value": 1
+  },
+  "Gravedigger mask": {
+    "id": 13283,
+    "value": 1
+  },
+  "Gravedigger top": {
+    "id": 13284,
+    "value": 1
+  },
+  "Green banner": {
+    "id": 13328,
+    "value": 49
+  },
+  "Green boots": {
+    "id": 628,
+    "value": 200
+  },
+  "Green cape": {
+    "id": 1027,
+    "value": 32
+  },
+  "Green d'hide body": {
+    "id": 1135,
+    "value": 7800
+  },
+  "Green d'hide chaps": {
+    "id": 1099,
+    "value": 3900
+  },
+  "Green d'hide vambraces": {
+    "id": 1065,
+    "value": 2500
+  },
+  "Green dark bow paint": {
+    "id": 12759,
+    "value": 1
+  },
+  "Green dye": {
+    "id": 1771,
+    "value": 5
+  },
+  "Green gingerbread shield": {
+    "id": 24428,
+    "value": 0
+  },
+  "Green gloop soup": {
+    "id": 10960,
+    "value": 10
+  },
+  "Green hat": {
+    "id": 658,
+    "value": 160
+  },
+  "Green marionette": {
+    "id": 6866,
+    "value": 1
+  },
+  "Green naval shirt": {
+    "id": 8953,
+    "value": 100
+  },
+  "Green navy slacks": {
+    "id": 8992,
+    "value": 100
+  },
+  "Green robe bottoms": {
+    "id": 648,
+    "value": 180
+  },
+  "Green robe top": {
+    "id": 638,
+    "value": 180
+  },
+  "Green tricorn hat": {
+    "id": 8960,
+    "value": 50
+  },
+  "Greenman's ale": {
+    "id": 1909,
+    "value": 2
+  },
+  "Gregg's eastdoor": {
+    "id": 25604,
+    "value": 0
+  },
+  "Grey boots": {
+    "id": 2894,
+    "value": 500
+  },
+  "Grey gloves": {
+    "id": 2902,
+    "value": 500
+  },
+  "Grey hat": {
+    "id": 2900,
+    "value": 500
+  },
+  "Grey naval shirt": {
+    "id": 8958,
+    "value": 100
+  },
+  "Grey navy slacks": {
+    "id": 8997,
+    "value": 100
+  },
+  "Grey robe bottoms": {
+    "id": 2898,
+    "value": 500
+  },
+  "Grey robe top": {
+    "id": 2896,
+    "value": 500
+  },
+  "Grey toy horsey": {
+    "id": 2526,
+    "value": 100
+  },
+  "Grey tricorn hat": {
+    "id": 8965,
+    "value": 50
+  },
+  "Grey wolf fur": {
+    "id": 958,
+    "value": 50
+  },
+  "Gricoller's can": {
+    "id": 13353,
+    "value": 1200
+  },
+  "Grid master altar icon scroll": {
+    "id": 31205,
+    "value": 2500000
+  },
+  "Grid master tabard": {
+    "id": 31181,
+    "value": 100000
+  },
+  "Grid master tabard (b)": {
+    "id": 31184,
+    "value": 100000
+  },
+  "Grid master tabard (g)": {
+    "id": 31190,
+    "value": 100000
+  },
+  "Grid master tabard (p)": {
+    "id": 31187,
+    "value": 100000
+  },
+  "Grid master torch scroll": {
+    "id": 31208,
+    "value": 2500000
+  },
+  "Grim reaper bottoms": {
+    "id": 31231,
+    "value": 1
+  },
+  "Grim reaper gloves": {
+    "id": 31233,
+    "value": 1
+  },
+  "Grim reaper hood": {
+    "id": 12845,
+    "value": 1
+  },
+  "Grim reaper top": {
+    "id": 31229,
+    "value": 1
+  },
+  "Grog": {
+    "id": 1915,
+    "value": 3
+  },
+  "Guardian's eye": {
+    "id": 26820,
+    "value": 3000
+  },
+  "Guthix cape": {
+    "id": 2413,
+    "value": 10
+  },
+  "Guthix halo": {
+    "id": 12639
+  },
+  "Guthix staff": {
+    "id": 2416,
+    "value": 80000
+  },
+  "Guthixian icon": {
+    "id": 24217,
+    "value": 500
+  },
+  "Hair": {
+    "id": 10814,
+    "value": 2
+  },
+  "Hallowed crystal shard": {
+    "id": 24709,
+    "value": 1000
+  },
+  "Hallowed flail": {
+    "id": 33718,
+    "value": 80000
+  },
+  "Hallowed focus": {
+    "id": 24723,
+    "value": 10000
+  },
+  "Hallowed grapple": {
+    "id": 24721,
+    "value": 100
+  },
+  "Hallowed hammer": {
+    "id": 24727,
+    "value": 10000
+  },
+  "Hallowed ring": {
+    "id": 24731,
+    "value": 10000
+  },
+  "Hallowed sack": {
+    "id": 24946,
+    "value": 100
+  },
+  "Hallowed symbol": {
+    "id": 24725,
+    "value": 10000
+  },
+  "Hallowed token": {
+    "id": 24719,
+    "value": 10000
+  },
+  "Halloween scarecrow": {
+    "id": 30234,
+    "value": 1
+  },
+  "Halloween wig": {
+    "id": 27497,
+    "value": 1
+  },
+  "Hammer": {
+    "id": 2347,
+    "value": 1
+  },
+  "Hammerstone hops": {
+    "id": 5994,
+    "value": 4
+  },
+  "Hammerstone seed": {
+    "id": 5307,
+    "value": 2
+  },
+  "Hand fan": {
+    "id": 21354,
+    "value": 0
+  },
+  "Hardleather body": {
+    "id": 1131,
+    "value": 170
+  },
+  "Hardleather gloves": {
+    "id": 7453,
+    "value": 50
+  },
+  "Harpoon": {
+    "id": 311,
+    "value": 5
+  },
+  "Harry's cutlass": {
+    "id": 7141,
+    "value": 1040
+  },
+  "Hat of the eye": {
+    "id": 26850,
+    "value": 400
+  },
+  "Haunted wine bottle": {
+    "id": 26260,
+    "value": 1
+  },
+  "Headless head": {
+    "id": 24975,
+    "value": 1
+  },
+  "Healer hat": {
+    "id": 10547
+  },
+  "Heat-proof vessel": {
+    "id": 21539,
+    "value": 1
+  },
+  "Heavy ballista ornament kit": {
+    "id": 26711,
+    "value": 5000
+  },
+  "Helm of neitiznot": {
+    "id": 10828,
+    "value": 50000
+  },
+  "Herb box": {
+    "id": 11738
+  },
+  "Herb sack": {
+    "id": 13226,
+    "value": 1
+  },
+  "Herblore cape(t)": {
+    "id": 9774,
+    "value": 99000
+  },
+  "Herring": {
+    "id": 347,
+    "value": 10
+  },
+  "Hitpoints cape(t)": {
+    "id": 9768,
+    "value": 99000
+  },
+  "Holy book": {
+    "id": 3840,
+    "value": 200
+  },
+  "Holy handegg": {
+    "id": 22355,
+    "value": 1
+  },
+  "Holy mould": {
+    "id": 1599,
+    "value": 5
+  },
+  "Holy symbol": {
+    "id": 1718,
+    "value": 300
+  },
+  "Hornwood helm": {
+    "id": 19699,
+    "value": 10
+  },
+  "Hosidius blueprints": {
+    "id": 24885,
+    "value": 30
+  },
+  "Hunter cape(t)": {
+    "id": 9948,
+    "value": 99000
+  },
+  "Hunter's honour": {
+    "id": 12855,
+    "value": 1
+  },
+  "Hunters' crossbow": {
+    "id": 10156,
+    "value": 1300
+  },
+  "Hunting knife": {
+    "id": 20779,
+    "value": 1
+  },
+  "Ice cooler": {
+    "id": 6696,
+    "value": 1
+  },
+  "Icy jumper": {
+    "id": 28786,
+    "value": 1
+  },
+  "Imbued guthix cape": {
+    "id": 21793
+  },
+  "Imbued saradomin cape": {
+    "id": 21791
+  },
+  "Imbued zamorak cape": {
+    "id": 21795
+  },
+  "Imperial rosé": {
+    "id": 29966,
+    "value": 400
+  },
+  "Impish ritual scroll": {
+    "id": 33359,
+    "value": 25000
+  },
+  "Impish whistle": {
+    "id": 33365,
+    "value": 25000
+  },
+  "Impling jar": {
+    "id": 11260,
+    "value": 1
+  },
+  "Initiate cuisse": {
+    "id": 5576,
+    "value": 8000
+  },
+  "Initiate harness m": {
+    "id": 9668,
+    "value": 20000
+  },
+  "Initiate hauberk": {
+    "id": 5575,
+    "value": 10000
+  },
+  "Initiate sallet": {
+    "id": 5574,
+    "value": 6000
+  },
+  "Instruction manual": {
+    "id": 5,
+    "value": 10
+  },
+  "Insulated boots": {
+    "id": 7159,
+    "value": 200
+  },
+  "Inverted santa hat": {
+    "id": 13344,
+    "value": 1
+  },
+  "Iron 2h sword": {
+    "id": 1309,
+    "value": 280
+  },
+  "Iron arrow": {
+    "id": 884,
+    "value": 3
+  },
+  "Iron arrowtips": {
+    "id": 40,
+    "value": 2
+  },
+  "Iron axe": {
+    "id": 1349,
+    "value": 56
+  },
+  "Iron bar": {
+    "id": 2351,
+    "value": 28
+  },
+  "Iron battleaxe": {
+    "id": 1363,
+    "value": 182
+  },
+  "Iron bolts": {
+    "id": 9140,
+    "value": 2
+  },
+  "Iron brutal": {
+    "id": 4778,
+    "value": 10
+  },
+  "Iron cannonball": {
+    "id": 31908,
+    "value": 5
+  },
+  "Iron chainbody": {
+    "id": 1101,
+    "value": 210
+  },
+  "Iron claws": {
+    "id": 3096,
+    "value": 50
+  },
+  "Iron crossbow": {
+    "id": 9177,
+    "value": 157
+  },
+  "Iron dagger": {
+    "id": 1203,
+    "value": 35
+  },
+  "Iron full helm": {
+    "id": 1153,
+    "value": 154
+  },
+  "Iron gloves": {
+    "id": 7455,
+    "value": 250
+  },
+  "Iron halberd": {
+    "id": 3192,
+    "value": 280
+  },
+  "Iron javelin": {
+    "id": 826,
+    "value": 6
+  },
+  "Iron kiteshield": {
+    "id": 1191,
+    "value": 238
+  },
+  "Iron knife": {
+    "id": 863,
+    "value": 3
+  },
+  "Iron limbs": {
+    "id": 9423,
+    "value": 70
+  },
+  "Iron longsword": {
+    "id": 1293,
+    "value": 140
+  },
+  "Iron mace": {
+    "id": 1420,
+    "value": 63
+  },
+  "Iron med helm": {
+    "id": 1137,
+    "value": 84
+  },
+  "Iron nails": {
+    "id": 4820,
+    "value": 4
+  },
+  "Iron ore": {
+    "id": 440,
+    "value": 17
+  },
+  "Iron pickaxe": {
+    "id": 1267,
+    "value": 140
+  },
+  "Iron platebody": {
+    "id": 1115,
+    "value": 560
+  },
+  "Iron platelegs": {
+    "id": 1067,
+    "value": 280
+  },
+  "Iron plateskirt": {
+    "id": 1081,
+    "value": 280
+  },
+  "Iron scimitar": {
+    "id": 1323,
+    "value": 112
+  },
+  "Iron sheet": {
+    "id": 7941,
+    "value": 30
+  },
+  "Iron sickle": {
+    "id": 3899,
+    "value": 15
+  },
+  "Iron spear(kp)": {
+    "id": 1239,
+    "value": 91
+  },
+  "Iron sq shield": {
+    "id": 1175,
+    "value": 168
+  },
+  "Iron sword": {
+    "id": 1279,
+    "value": 91
+  },
+  "Iron thrownaxe": {
+    "id": 801,
+    "value": 7
+  },
+  "Iron warhammer": {
+    "id": 1335,
+    "value": 173
+  },
+  "Isafdar painting": {
+    "id": 8000,
+    "value": 2000
+  },
+  "Ivandis flail": {
+    "id": 22398,
+    "value": 20000
+  },
+  "Ixcoztic white": {
+    "id": 29952,
+    "value": 100
+  },
+  "Jack lantern mask": {
+    "id": 9920,
+    "value": 1
+  },
+  "Jad jumper": {
+    "id": 32932,
+    "value": 1
+  },
+  "Jade": {
+    "id": 1611,
+    "value": 150
+  },
+  "Jade machete": {
+    "id": 6315,
+    "value": 1000
+  },
+  "Jaguar fur": {
+    "id": 29218,
+    "value": 80
+  },
+  "Jester hat": {
+    "id": 6858,
+    "value": 1
+  },
+  "Jester scarf": {
+    "id": 6859,
+    "value": 1
+  },
+  "Jonas mask": {
+    "id": 21720,
+    "value": 1
+  },
+  "Jug": {
+    "id": 1935,
+    "value": 1
+  },
+  "Jug of vinegar": {
+    "id": 7810,
+    "value": 1
+  },
+  "Jug of water": {
+    "id": 1937,
+    "value": 1
+  },
+  "Jug of wine": {
+    "id": 1993,
+    "value": 1
+  },
+  "Jute fibre": {
+    "id": 5931,
+    "value": 6
+  },
+  "Jute seed": {
+    "id": 5306,
+    "value": 5
+  },
+  "Karambwan vessel": {
+    "id": 3157
+  },
+  "Karamja painting": {
+    "id": 8001,
+    "value": 2000
+  },
+  "Karamjan rum": {
+    "id": 431,
+    "value": 30
+  },
+  "Kebab": {
+    "id": 1971,
+    "value": 3
+  },
+  "Keg of beer": {
+    "id": 3801,
+    "value": 250
+  },
+  "Keldagrim portrait": {
+    "id": 7997,
+    "value": 1000
+  },
+  "Keris": {
+    "id": 10581,
+    "value": 10000
+  },
+  "Keris partisan": {
+    "id": 25979,
+    "value": 60000
+  },
+  "Khali brew": {
+    "id": 77,
+    "value": 5
+  },
+  "Kharidian headpiece": {
+    "id": 4591,
+    "value": 1
+  },
+  "Kharidian quest lamp": {
+    "id": 33004,
+    "value": 1
+  },
+  "Kharyrll teleport (tablet)": {
+    "id": 12779,
+    "value": 1
+  },
+  "Kitchen knife": {
+    "id": 7447,
+    "value": 8000
+  },
+  "Klank's gauntlets": {
+    "id": 1495,
+    "value": 6
+  },
+  "Knife": {
+    "id": 946,
+    "value": 6
+  },
+  "Kovac's grog": {
+    "id": 27014,
+    "value": 5
+  },
+  "Kraken colada": {
+    "id": 31258,
+    "value": 20
+  },
+  "Krandorian hops": {
+    "id": 6000,
+    "value": 10
+  },
+  "Krandorian seed": {
+    "id": 5310,
+    "value": 8
+  },
+  "Kyatt fur": {
+    "id": 10103,
+    "value": 160
+  },
+  "Lamp": {
+    "id": 2528,
+    "value": 200
+  },
+  "Large map (item)": {
+    "id": 8006,
+    "value": 1000
+  },
+  "Larupia fur": {
+    "id": 10095,
+    "value": 80
+  },
+  "Lassar teleport (tablet)": {
+    "id": 12780,
+    "value": 1
+  },
+  "Lava staff upgrade kit": {
+    "id": 21202,
+    "value": 1500
+  },
+  "Law rune": {
+    "id": 563,
+    "value": 240
+  },
+  "Law talisman": {
+    "id": 1458,
+    "value": 4
+  },
+  "Lazy cat": {
+    "id": 6550,
+    "value": 1
+  },
+  "Lead ore": {
+    "id": 31716,
+    "value": 35
+  },
+  "Leaf-bladed spear": {
+    "id": 4158,
+    "value": 31000
+  },
+  "Leather body": {
+    "id": 1129,
+    "value": 21
+  },
+  "Leather boots": {
+    "id": 1061,
+    "value": 6
+  },
+  "Leather chaps": {
+    "id": 1095,
+    "value": 20
+  },
+  "Leather cowl": {
+    "id": 1167,
+    "value": 24
+  },
+  "Leather gloves": {
+    "id": 1059,
+    "value": 6
+  },
+  "Leather shields flyer": {
+    "id": 22287,
+    "value": 1
+  },
+  "Leather vambraces": {
+    "id": 1063,
+    "value": 18
+  },
+  "Lemon": {
+    "id": 2102,
+    "value": 2
+  },
+  "Light orb": {
+    "id": 10973,
+    "value": 350
+  },
+  "Lime": {
+    "id": 2120,
+    "value": 2
+  },
+  "Limestone": {
+    "id": 3211,
+    "value": 10
+  },
+  "Limestone brick": {
+    "id": 3420,
+    "value": 20
+  },
+  "Linen (Icthlarin's Little Helper)": {
+    "id": 4684,
+    "value": 30
+  },
+  "Lion toy": {
+    "id": 13216,
+    "value": 100
+  },
+  "Lizardkicker": {
+    "id": 25826,
+    "value": 6
+  },
+  "Lobster": {
+    "id": 379,
+    "value": 70
+  },
+  "Lobster pot": {
+    "id": 301,
+    "value": 20
+  },
+  "Locating crystal": {
+    "id": 611,
+    "value": 1
+  },
+  "Locator orb": {
+    "id": 22081,
+    "value": 2
+  },
+  "Lockpick": {
+    "id": 1523,
+    "value": 20
+  },
+  "Log basket": {
+    "id": 28140,
+    "value": 720
+  },
+  "Log brace": {
+    "id": 28146,
+    "value": 3000
+  },
+  "Long rope": {
+    "id": 24790,
+    "value": 40000
+  },
+  "Longbow": {
+    "id": 839,
+    "value": 80
+  },
+  "Looting bag": {
+    "id": 11941,
+    "value": 10
+  },
+  "Looting bag note": {
+    "id": 24585,
+    "value": 90
+  },
+  "Love crossbow": {
+    "id": 28128,
+    "value": 1
+  },
+  "Lovley jubbly bib": {
+    "id": 32928,
+    "value": 1
+  },
+  "Lucky cutlass": {
+    "id": 7140,
+    "value": 2560
+  },
+  "Lucky shot flag": {
+    "id": 8969,
+    "value": 400
+  },
+  "Lumberjack boots": {
+    "id": 10933,
+    "value": 50
+  },
+  "Lumberjack hat": {
+    "id": 10941,
+    "value": 50
+  },
+  "Lumberjack legs": {
+    "id": 10940,
+    "value": 50
+  },
+  "Lumberjack top": {
+    "id": 10939,
+    "value": 50
+  },
+  "Lumbridge painting": {
+    "id": 8002,
+    "value": 2000
+  },
+  "Lunar amulet": {
+    "id": 9102,
+    "value": 30
+  },
+  "Lunar boots": {
+    "id": 9100,
+    "value": 100
+  },
+  "Lunar cape": {
+    "id": 9101,
+    "value": 2
+  },
+  "Lunar gloves": {
+    "id": 9099,
+    "value": 100
+  },
+  "Lunar helm": {
+    "id": 9096,
+    "value": 100
+  },
+  "Lunar legs": {
+    "id": 9098,
+    "value": 100
+  },
+  "Lunar ring": {
+    "id": 9104,
+    "value": 100
+  },
+  "Lunar signet": {
+    "id": 20613,
+    "value": 2
+  },
+  "Lunar staff": {
+    "id": 9084,
+    "value": 1
+  },
+  "Lunar torso": {
+    "id": 9097,
+    "value": 100
+  },
+  "M'amulet mould": {
+    "id": 4020,
+    "value": 10
+  },
+  "Machete": {
+    "id": 975,
+    "value": 40
+  },
+  "Mackerel": {
+    "id": 355,
+    "value": 15
+  },
+  "Magic box": {
+    "id": 10025,
+    "value": 600
+  },
+  "Magic cape(t)": {
+    "id": 9762,
+    "value": 99000
+  },
+  "Magic egg ball": {
+    "id": 24535,
+    "value": 1
+  },
+  "Magic imp box pack": {
+    "id": 12744,
+    "value": 60000
+  },
+  "Magic potion(4)": {
+    "id": 3046
+  },
+  "Magic secateurs": {
+    "id": 7409,
+    "value": 1
+  },
+  "Magic shortbow": {
+    "id": 861,
+    "value": 1600
+  },
+  "Magic shortbow scroll": {
+    "id": 12786,
+    "value": 5000
+  },
+  "Magic staff": {
+    "id": 1389,
+    "value": 200
+  },
+  "Magic stone": {
+    "id": 8788,
+    "value": 750000
+  },
+  "Magical pumpkin": {
+    "id": 24977,
+    "value": 1
+  },
+  "Mahjarrat 1 quest lamp": {
+    "id": 28554,
+    "value": 1
+  },
+  "Mahjarrat 2 quest lamp": {
+    "id": 33007,
+    "value": 1
+  },
+  "Mahogany stock": {
+    "id": 9450,
+    "value": 133
+  },
+  "Manta ray": {
+    "id": 391,
+    "value": 200
+  },
+  "Maple blackjack": {
+    "id": 6416,
+    "value": 1200
+  },
+  "Maple blackjack(d)": {
+    "id": 6420,
+    "value": 1600
+  },
+  "Maple blackjack(o)": {
+    "id": 6418,
+    "value": 1600
+  },
+  "Maple longbow": {
+    "id": 851,
+    "value": 640
+  },
+  "Maple shortbow": {
+    "id": 853,
+    "value": 400
+  },
+  "Maple stock": {
+    "id": 9448,
+    "value": 100
+  },
+  "Marble block": {
+    "id": 8786,
+    "value": 250000
+  },
+  "Marigold seed": {
+    "id": 5096,
+    "value": 2
+  },
+  "Mask of balance": {
+    "id": 13203,
+    "value": 1
+  },
+  "Max cape": {
+    "id": 13280,
+    "value": 99000
+  },
+  "Maze key": {
+    "id": 1542,
+    "value": 1
+  },
+  "Meat pie": {
+    "id": 2327
+  },
+  "Meat tenderiser": {
+    "id": 7449,
+    "value": 41500
+  },
+  "Medium map (item)": {
+    "id": 8005,
+    "value": 1000
+  },
+  "Menaphite purple hat": {
+    "id": 6392,
+    "value": 35
+  },
+  "Menaphite purple kilt": {
+    "id": 6398,
+    "value": 20
+  },
+  "Menaphite purple robe": {
+    "id": 6396,
+    "value": 40
+  },
+  "Menaphite purple top": {
+    "id": 6394,
+    "value": 20
+  },
+  "Menaphite red hat": {
+    "id": 6400,
+    "value": 35
+  },
+  "Menaphite red kilt": {
+    "id": 6406,
+    "value": 20
+  },
+  "Menaphite red robe": {
+    "id": 6404,
+    "value": 40
+  },
+  "Menaphite red top": {
+    "id": 6402,
+    "value": 20
+  },
+  "Merfolk trident": {
+    "id": 21649,
+    "value": 400
+  },
+  "Message (Theatre of Blood)": {
+    "id": 22475,
+    "value": 1
+  },
+  "Metztonalli white": {
+    "id": 29955,
+    "value": 500
+  },
+  "Mind rune": {
+    "id": 558,
+    "value": 3
+  },
+  "Mind rune pack": {
+    "id": 12736,
+    "value": 330
+  },
+  "Mind talisman": {
+    "id": 1448,
+    "value": 4
+  },
+  "Minecart ticket (White Wolf Mountain to Keldagrim)": {
+    "id": 5020,
+    "value": 1
+  },
+  "Mining cape(t)": {
+    "id": 9792,
+    "value": 99000
+  },
+  "Mining gloves": {
+    "id": 21343,
+    "value": 60
+  },
+  "Mining helmet": {
+    "id": 5014,
+    "value": 600
+  },
+  "Mirror shield": {
+    "id": 4156,
+    "value": 5000
+  },
+  "Misc. portrait": {
+    "id": 7998,
+    "value": 1000
+  },
+  "Mithril 2h sword": {
+    "id": 1315,
+    "value": 2600
+  },
+  "Mithril arrow": {
+    "id": 888,
+    "value": 32
+  },
+  "Mithril arrowtips": {
+    "id": 42,
+    "value": 16
+  },
+  "Mithril axe": {
+    "id": 1355,
+    "value": 520
+  },
+  "Mithril battleaxe": {
+    "id": 1369,
+    "value": 1690
+  },
+  "Mithril brutal": {
+    "id": 4793,
+    "value": 50
+  },
+  "Mithril cannonball": {
+    "id": 31910,
+    "value": 90
+  },
+  "Mithril chainbody": {
+    "id": 1109,
+    "value": 1950
+  },
+  "Mithril claws": {
+    "id": 3099,
+    "value": 475
+  },
+  "Mithril crossbow": {
+    "id": 9181,
+    "value": 783
+  },
+  "Mithril dagger": {
+    "id": 1209,
+    "value": 325
+  },
+  "Mithril full helm": {
+    "id": 1159,
+    "value": 1430
+  },
+  "Mithril gloves": {
+    "id": 7458,
+    "value": 1500
+  },
+  "Mithril halberd": {
+    "id": 3198,
+    "value": 2600
+  },
+  "Mithril javelin": {
+    "id": 828,
+    "value": 64
+  },
+  "Mithril kiteshield": {
+    "id": 1197,
+    "value": 2210
+  },
+  "Mithril limbs": {
+    "id": 9427,
+    "value": 650
+  },
+  "Mithril longsword": {
+    "id": 1299,
+    "value": 1300
+  },
+  "Mithril mace": {
+    "id": 1428,
+    "value": 585
+  },
+  "Mithril med helm": {
+    "id": 1143,
+    "value": 780
+  },
+  "Mithril ore": {
+    "id": 447,
+    "value": 162
+  },
+  "Mithril pickaxe": {
+    "id": 1273,
+    "value": 1300
+  },
+  "Mithril platebody": {
+    "id": 1121,
+    "value": 5200
+  },
+  "Mithril platelegs": {
+    "id": 1071,
+    "value": 2600
+  },
+  "Mithril plateskirt": {
+    "id": 1085,
+    "value": 2600
+  },
+  "Mithril scimitar": {
+    "id": 1329,
+    "value": 1040
+  },
+  "Mithril seeds": {
+    "id": 299,
+    "value": 200
+  },
+  "Mithril spear(kp)": {
+    "id": 1243,
+    "value": 845
+  },
+  "Mithril sq shield": {
+    "id": 1181,
+    "value": 1560
+  },
+  "Mithril sword": {
+    "id": 1285,
+    "value": 845
+  },
+  "Mithril thrownaxe": {
+    "id": 803,
+    "value": 70
+  },
+  "Mithril warhammer": {
+    "id": 1343,
+    "value": 1660
+  },
+  "Mixed flowers": {
+    "id": 2472,
+    "value": 100
+  },
+  "Mixed hide base": {
+    "id": 29292,
+    "value": 9000
+  },
+  "Molten glass": {
+    "id": 1775,
+    "value": 3
+  },
+  "Monkey bar": {
+    "id": 4014,
+    "value": 50
+  },
+  "Monkey dentures": {
+    "id": 4006,
+    "value": 10
+  },
+  "Monkey nuts": {
+    "id": 4012,
+    "value": 3
+  },
+  "Monkey talisman": {
+    "id": 4023,
+    "value": 1000
+  },
+  "Monkfish": {
+    "id": 7946,
+    "value": 230
+  },
+  "Moon-lite": {
+    "id": 29418,
+    "value": 15
+  },
+  "Moonclan armour": {
+    "id": 9070,
+    "value": 1000
+  },
+  "Moonclan boots": {
+    "id": 9073,
+    "value": 900
+  },
+  "Moonclan cape": {
+    "id": 9074,
+    "value": 200
+  },
+  "Moonclan gloves": {
+    "id": 9072,
+    "value": 900
+  },
+  "Moonclan hat": {
+    "id": 9069,
+    "value": 1000
+  },
+  "Moonclan helm": {
+    "id": 9068,
+    "value": 1000
+  },
+  "Moonclan manual": {
+    "id": 9078,
+    "value": 1
+  },
+  "Moonclan skirt": {
+    "id": 9071,
+    "value": 1000
+  },
+  "Moonlight antelope fur": {
+    "id": 29174,
+    "value": 10
+  },
+  "Moonlight mead": {
+    "id": 2955,
+    "value": 5
+  },
+  "Morrigan's coif (bh)(inactive)": {
+    "id": 27836
+  },
+  "Morrigan's javelin (bh)(inactive)": {
+    "id": 27916
+  },
+  "Morrigan's leather body (bh)(inactive)": {
+    "id": 27837
+  },
+  "Morrigan's leather chaps (bh)(inactive)": {
+    "id": 27838
+  },
+  "Morrigan's throwing axe (bh)(inactive)": {
+    "id": 27912
+  },
+  "Morytania painting": {
+    "id": 8003,
+    "value": 2000
+  },
+  "Mud pie": {
+    "id": 7170,
+    "value": 54
+  },
+  "Mushroom potato": {
+    "id": 7058,
+    "value": 45
+  },
+  "Music cape(t)": {
+    "id": 13221,
+    "value": 99000
+  },
+  "Myreque quest lamp": {
+    "id": 33005,
+    "value": 1
+  },
+  "Mystic boots": {
+    "id": 4097,
+    "value": 10000
+  },
+  "Mystic cards": {
+    "id": 27645,
+    "value": 50
+  },
+  "Mystic gloves": {
+    "id": 4095,
+    "value": 10000
+  },
+  "Mystic hat": {
+    "id": 4089,
+    "value": 15000
+  },
+  "Mystic robe bottom": {
+    "id": 4093,
+    "value": 80000
+  },
+  "Mystic robe top": {
+    "id": 4091,
+    "value": 120000
+  },
+  "Mythical cape": {
+    "id": 22114,
+    "value": 10000
+  },
+  "Nature rune": {
+    "id": 561,
+    "value": 180
+  },
+  "Nature talisman": {
+    "id": 1462,
+    "value": 4
+  },
+  "Necklace mould": {
+    "id": 1597,
+    "value": 5
+  },
+  "Needle": {
+    "id": 1733,
+    "value": 1
+  },
+  "Nest hat": {
+    "id": 27875,
+    "value": 1
+  },
+  "Newcomer map": {
+    "id": 550,
+    "value": 1
+  },
+  "Newspaper": {
+    "id": 11171,
+    "value": 10
+  },
+  "Nice hedge (bagged)": {
+    "id": 8439,
+    "value": 10000
+  },
+  "Nickel ore": {
+    "id": 31719,
+    "value": 400
+  },
+  "Noble robe top (black)": {
+    "id": 33836,
+    "value": 50000
+  },
+  "Noble robe top (pink)": {
+    "id": 33836,
+    "value": 50000
+  },
+  "Noose wand": {
+    "id": 10150,
+    "value": 4
+  },
+  "Nose peg": {
+    "id": 4168,
+    "value": 200
+  },
+  "Oak blackjack(d)": {
+    "id": 6410,
+    "value": 400
+  },
+  "Oak blackjack(o)": {
+    "id": 6408,
+    "value": 400
+  },
+  "Oak longbow": {
+    "id": 845,
+    "value": 160
+  },
+  "Oak shortbow": {
+    "id": 843,
+    "value": 100
+  },
+  "Oak stock": {
+    "id": 9442,
+    "value": 27
+  },
+  "Obsidian cape": {
+    "id": 6568,
+    "value": 60000
+  },
+  "Obsidian helmet": {
+    "id": 21298,
+    "value": 56320
+  },
+  "Obsidian platebody": {
+    "id": 21301,
+    "value": 84000
+  },
+  "Obsidian platelegs": {
+    "id": 21304,
+    "value": 67000
+  },
+  "Oculus orb": {
+    "id": 22364,
+    "value": 40
+  },
+  "Ogre coffin key": {
+    "id": 4850,
+    "value": 100
+  },
+  "Oil lamp": {
+    "id": 4522,
+    "value": 28
+  },
+  "Oil lantern": {
+    "id": 4537,
+    "value": 125
+  },
+  "Oldschool jumper": {
+    "id": 27822,
+    "value": 1
+  },
+  "Olive oil pack": {
+    "id": 12857,
+    "value": 2670
+  },
+  "Olive oil(3)": {
+    "id": 3428
+  },
+  "Onion": {
+    "id": 1957,
+    "value": 3
+  },
+  "Onion seed": {
+    "id": 5319,
+    "value": 3
+  },
+  "Onyx bolt tips": {
+    "id": 9194,
+    "value": 1000
+  },
+  "Opal": {
+    "id": 1609,
+    "value": 100
+  },
+  "Opal machete": {
+    "id": 6313,
+    "value": 500
+  },
+  "Orange": {
+    "id": 2108,
+    "value": 2
+  },
+  "Orange dye": {
+    "id": 1769,
+    "value": 5
+  },
+  "Orange feather": {
+    "id": 10091,
+    "value": 15
+  },
+  "Ore pack (Giants' Foundry)": {
+    "id": 27019,
+    "value": 40
+  },
+  "Ore pack (Volcanic Mine)": {
+    "id": 27693,
+    "value": 40
+  },
+  "Ornate maul handle": {
+    "id": 24229,
+    "value": 5000
+  },
+  "Overgrown cat": {
+    "id": 1567,
+    "value": 1
+  },
+  "Overload (1) (Nightmare Zone)": {
+    "id": 11733
+  },
+  "Paddewwa teleport (tablet)": {
+    "id": 12781,
+    "value": 1
+  },
+  "Papaya fruit": {
+    "id": 5972,
+    "value": 64
+  },
+  "Papyrus": {
+    "id": 970,
+    "value": 10
+  },
+  "Paramaya ticket": {
+    "id": 619,
+    "value": 5
+  },
+  "Pat of butter": {
+    "id": 6697,
+    "value": 4
+  },
+  "Peaceful handegg": {
+    "id": 22358,
+    "value": 1
+  },
+  "Pearl barbarian rod": {
+    "id": 22842,
+    "value": 150
+  },
+  "Pearl bolts": {
+    "id": 880,
+    "value": 13
+  },
+  "Pearl fishing rod": {
+    "id": 22846,
+    "value": 100
+  },
+  "Pearl fly fishing rod": {
+    "id": 22844,
+    "value": 120
+  },
+  "Penance gloves": {
+    "id": 10553,
+    "value": 65001
+  },
+  "Penance skirt": {
+    "id": 10555
+  },
+  "Pestle and mortar": {
+    "id": 233,
+    "value": 4
+  },
+  "Phasmatys flag": {
+    "id": 8971,
+    "value": 600
+  },
+  "Pickled brain": {
+    "id": 4199,
+    "value": 1
+  },
+  "Pie dish": {
+    "id": 2313,
+    "value": 3
+  },
+  "Pie recipe book": {
+    "id": 7162,
+    "value": 5
+  },
+  "Pile of salt": {
+    "id": 4689,
+    "value": 20
+  },
+  "Pineapple": {
+    "id": 2114,
+    "value": 2
+  },
+  "Pineapple punch": {
+    "id": 2048,
+    "value": 30
+  },
+  "Pink boots": {
+    "id": 626,
+    "value": 200
+  },
+  "Pink dye": {
+    "id": 6955,
+    "value": 1
+  },
+  "Pink hat": {
+    "id": 656,
+    "value": 160
+  },
+  "Pink robe bottoms": {
+    "id": 646,
+    "value": 180
+  },
+  "Pink robe top": {
+    "id": 636,
+    "value": 180
+  },
+  "Pink skirt": {
+    "id": 1013,
+    "value": 2
+  },
+  "Pirate bandana (blue)": {
+    "id": 7130,
+    "value": 100
+  },
+  "Pirate bandana (brown)": {
+    "id": 7136,
+    "value": 100
+  },
+  "Pirate bandana (red)": {
+    "id": 7124,
+    "value": 100
+  },
+  "Pirate bandana (white)": {
+    "id": 7112,
+    "value": 100
+  },
+  "Pirate boots": {
+    "id": 7114,
+    "value": 350
+  },
+  "Pirate leggings (beige)": {
+    "id": 7116,
+    "value": 350
+  },
+  "Pirate leggings (blue)": {
+    "id": 7132,
+    "value": 350
+  },
+  "Pirate leggings (brown)": {
+    "id": 7138,
+    "value": 350
+  },
+  "Pirate leggings (red)": {
+    "id": 7126,
+    "value": 350
+  },
+  "Pirate's hook": {
+    "id": 2997,
+    "value": 89
+  },
+  "Pizza base": {
+    "id": 2283,
+    "value": 4
+  },
+  "Plain pizza": {
+    "id": 2289
+  },
+  "Plank": {
+    "id": 960,
+    "value": 1
+  },
+  "Plank sack": {
+    "id": 24882,
+    "value": 370
+  },
+  "Plant cure": {
+    "id": 6036,
+    "value": 40
+  },
+  "Plant pot pack": {
+    "id": 13250,
+    "value": 100
+  },
+  "Poet's jacket": {
+    "id": 28126,
+    "value": 1
+  },
+  "Poison (item)": {
+    "id": 273,
+    "value": 1
+  },
+  "Poison chalice": {
+    "id": 197,
+    "value": 20
+  },
+  "Polar kebbit fur": {
+    "id": 10117,
+    "value": 10
+  },
+  "Pot": {
+    "id": 1931,
+    "value": 1
+  },
+  "Pot of cream": {
+    "id": 2130,
+    "value": 2
+  },
+  "Pot of flour": {
+    "id": 1933,
+    "value": 10
+  },
+  "Potato": {
+    "id": 1942,
+    "value": 1
+  },
+  "Potato seed": {
+    "id": 5318,
+    "value": 2
+  },
+  "Potato with cheese": {
+    "id": 6705,
+    "value": 8
+  },
+  "Prayer cape(t)": {
+    "id": 9759,
+    "value": 99000
+  },
+  "Prayer potion(1)": {
+    "id": 143
+  },
+  "Premade blurb' sp.": {
+    "id": 2028,
+    "value": 30
+  },
+  "Premade c+t batta": {
+    "id": 2223,
+    "value": 120
+  },
+  "Premade ch' crunch": {
+    "id": 2239,
+    "value": 85
+  },
+  "Premade choc bomb": {
+    "id": 2229,
+    "value": 160
+  },
+  "Premade choc s'dy": {
+    "id": 2030,
+    "value": 30
+  },
+  "Premade dr' dragon": {
+    "id": 2032,
+    "value": 30
+  },
+  "Premade fr' blast": {
+    "id": 2034,
+    "value": 30
+  },
+  "Premade fr't batta": {
+    "id": 2225,
+    "value": 120
+  },
+  "Premade p' punch": {
+    "id": 2036,
+    "value": 30
+  },
+  "Premade s'y crunch": {
+    "id": 2241,
+    "value": 85
+  },
+  "Premade sgg": {
+    "id": 2038,
+    "value": 30
+  },
+  "Premade t'd batta": {
+    "id": 2221,
+    "value": 120
+  },
+  "Premade t'd crunch": {
+    "id": 2243,
+    "value": 85
+  },
+  "Premade ttl": {
+    "id": 2231,
+    "value": 160
+  },
+  "Premade veg ball": {
+    "id": 2235,
+    "value": 150
+  },
+  "Premade veg batta": {
+    "id": 2227,
+    "value": 120
+  },
+  "Premade w'm batta": {
+    "id": 2219,
+    "value": 120
+  },
+  "Premade w'm crun'": {
+    "id": 2237,
+    "value": 85
+  },
+  "Premade wiz blz'd": {
+    "id": 2040,
+    "value": 30
+  },
+  "Premade worm hole": {
+    "id": 2233,
+    "value": 150
+  },
+  "Prescription goggles": {
+    "id": 29974,
+    "value": 320
+  },
+  "Present box hat": {
+    "id": 30479,
+    "value": 0
+  },
+  "Priest gown (bottom)": {
+    "id": 428,
+    "value": 5
+  },
+  "Priest gown (top)": {
+    "id": 426,
+    "value": 5
+  },
+  "Prop sword": {
+    "id": 22316,
+    "value": 1
+  },
+  "Propeller hat": {
+    "id": 25606,
+    "value": 1
+  },
+  "Proselyte cuisse": {
+    "id": 9676,
+    "value": 10000
+  },
+  "Proselyte harness f": {
+    "id": 9670,
+    "value": 25000
+  },
+  "Proselyte harness m": {
+    "id": 9666,
+    "value": 25000
+  },
+  "Proselyte hauberk": {
+    "id": 9674,
+    "value": 12000
+  },
+  "Proselyte sallet": {
+    "id": 9672,
+    "value": 8000
+  },
+  "Proselyte tasset": {
+    "id": 9678,
+    "value": 10000
+  },
+  "Prospector boots#Volcanic Mine": {
+    "id": 12016,
+    "value": 30
+  },
+  "Prospector helmet#Volcanic Mine": {
+    "id": 12013,
+    "value": 40
+  },
+  "Prospector jacket#Volcanic Mine": {
+    "id": 12014,
+    "value": 60
+  },
+  "Prospector legs#Volcanic Mine": {
+    "id": 12015,
+    "value": 50
+  },
+  "Pumpkin lantern": {
+    "id": 24325,
+    "value": 1
+  },
+  "Pure essence": {
+    "id": 7936,
+    "value": 4
+  },
+  "Purple boots": {
+    "id": 2934,
+    "value": 500
+  },
+  "Purple dye": {
+    "id": 1773,
+    "value": 5
+  },
+  "Purple gloves": {
+    "id": 2942,
+    "value": 500
+  },
+  "Purple hat": {
+    "id": 2940,
+    "value": 500
+  },
+  "Purple naval shirt": {
+    "id": 8957,
+    "value": 100
+  },
+  "Purple navy slacks": {
+    "id": 8996,
+    "value": 100
+  },
+  "Purple robe bottoms": {
+    "id": 2938,
+    "value": 500
+  },
+  "Purple robe top": {
+    "id": 2936,
+    "value": 500
+  },
+  "Purple tricorn hat": {
+    "id": 8964,
+    "value": 50
+  },
+  "Pyrophosphite": {
+    "id": 21545,
+    "value": 30
+  },
+  "Quest point cape (t)": {
+    "id": 9813,
+    "value": 99000
+  },
+  "Rabbit snare": {
+    "id": 10031,
+    "value": 15
+  },
+  "Raging echoes astral contact scroll": {
+    "id": 30457,
+    "value": 25000
+  },
+  "Raging echoes banner": {
+    "id": 30430,
+    "value": 1000
+  },
+  "Raging echoes cane": {
+    "id": 30428,
+    "value": 1000
+  },
+  "Raging echoes curtains": {
+    "id": 30557,
+    "value": 500
+  },
+  "Raging echoes death scroll": {
+    "id": 30455,
+    "value": 25000
+  },
+  "Raging echoes nexus scroll": {
+    "id": 30459,
+    "value": 25000
+  },
+  "Raging echoes portal scroll": {
+    "id": 30461,
+    "value": 25000
+  },
+  "Raging echoes rug": {
+    "id": 30554,
+    "value": 500
+  },
+  "Raging echoes scrying pool scroll": {
+    "id": 30560,
+    "value": 25000
+  },
+  "Raging echoes spirit tree scroll": {
+    "id": 30563,
+    "value": 25000
+  },
+  "Rainbow cape": {
+    "id": 29489,
+    "value": 1
+  },
+  "Rainbow crown shirt": {
+    "id": 29507,
+    "value": 1
+  },
+  "Rainbow jumper": {
+    "id": 28116,
+    "value": 1
+  },
+  "Rainbow partyhat": {
+    "id": 11863,
+    "value": 1
+  },
+  "Rainbow scarf": {
+    "id": 21314,
+    "value": 80
+  },
+  "Rake": {
+    "id": 5341,
+    "value": 6
+  },
+  "Ranger hat": {
+    "id": 10550
+  },
+  "Ranging cape(t)": {
+    "id": 9756,
+    "value": 99000
+  },
+  "Ranging potion(4)": {
+    "id": 173
+  },
+  "Rapier": {
+    "id": 7142,
+    "value": 25600
+  },
+  "Raw anchovies": {
+    "id": 321,
+    "value": 15
+  },
+  "Raw bass": {
+    "id": 363,
+    "value": 40
+  },
+  "Raw bear meat": {
+    "id": 2136,
+    "value": 1
+  },
+  "Raw beef": {
+    "id": 2132,
+    "value": 1
+  },
+  "Raw cave eel": {
+    "id": 5001,
+    "value": 15
+  },
+  "Raw chicken": {
+    "id": 2138,
+    "value": 1
+  },
+  "Raw chompy": {
+    "id": 2876,
+    "value": 85
+  },
+  "Raw cod": {
+    "id": 341,
+    "value": 10
+  },
+  "Raw herring": {
+    "id": 345,
+    "value": 10
+  },
+  "Raw karambwan": {
+    "id": 3142,
+    "value": 200
+  },
+  "Raw karambwanji": {
+    "id": 3150,
+    "value": 19
+  },
+  "Raw lobster": {
+    "id": 377,
+    "value": 70
+  },
+  "Raw mackerel": {
+    "id": 353,
+    "value": 15
+  },
+  "Raw monkfish": {
+    "id": 7944,
+    "value": 230
+  },
+  "Raw mystery meat": {
+    "id": 24782,
+    "value": 1
+  },
+  "Raw pike": {
+    "id": 349,
+    "value": 20
+  },
+  "Raw rabbit": {
+    "id": 3226,
+    "value": 20
+  },
+  "Raw rat meat": {
+    "id": 2134,
+    "value": 1
+  },
+  "Raw salmon": {
+    "id": 331,
+    "value": 30
+  },
+  "Raw sardine": {
+    "id": 327,
+    "value": 10
+  },
+  "Raw shark": {
+    "id": 383,
+    "value": 170
+  },
+  "Raw shrimps": {
+    "id": 317,
+    "value": 5
+  },
+  "Raw swordfish": {
+    "id": 371,
+    "value": 80
+  },
+  "Raw trout": {
+    "id": 335,
+    "value": 10
+  },
+  "Raw tuna": {
+    "id": 359,
+    "value": 40
+  },
+  "Raw yak meat": {
+    "id": 10816,
+    "value": 2
+  },
+  "Reagent pouch": {
+    "id": 29996,
+    "value": 100
+  },
+  "Recipe for disaster quest lamp": {
+    "id": 33009,
+    "value": 1
+  },
+  "Red boots": {
+    "id": 2904,
+    "value": 500
+  },
+  "Red cape": {
+    "id": 1007,
+    "value": 2
+  },
+  "Red dye": {
+    "id": 1763,
+    "value": 5
+  },
+  "Red feather": {
+    "id": 10088,
+    "value": 10
+  },
+  "Red gloves": {
+    "id": 2912,
+    "value": 500
+  },
+  "Red hat": {
+    "id": 2910,
+    "value": 500
+  },
+  "Red hot sauce": {
+    "id": 4610,
+    "value": 1
+  },
+  "Red marionette": {
+    "id": 6867,
+    "value": 1
+  },
+  "Red naval shirt": {
+    "id": 8954,
+    "value": 100
+  },
+  "Red navy slacks": {
+    "id": 8993,
+    "value": 100
+  },
+  "Red robe bottoms": {
+    "id": 2908,
+    "value": 500
+  },
+  "Red robe top": {
+    "id": 2906,
+    "value": 500
+  },
+  "Red topaz": {
+    "id": 1613,
+    "value": 200
+  },
+  "Red topaz machete": {
+    "id": 6317,
+    "value": 2000
+  },
+  "Red tricorn hat": {
+    "id": 8961,
+    "value": 50
+  },
+  "Redberries": {
+    "id": 1951,
+    "value": 3
+  },
+  "Redberry pie": {
+    "id": 2325
+  },
+  "Reindeer hat": {
+    "id": 10507,
+    "value": 1
+  },
+  "Reinforced goggles": {
+    "id": 24942,
+    "value": 100
+  },
+  "Relicym's balm(3)": {
+    "id": 4848
+  },
+  "Repair kit": {
+    "id": 31964,
+    "value": 150
+  },
+  "Right eye patch": {
+    "id": 1025,
+    "value": 2
+  },
+  "Ring mould": {
+    "id": 1592,
+    "value": 5
+  },
+  "Ring of the elements": {
+    "id": 26815,
+    "value": 2000
+  },
+  "Ring of visibility": {
+    "id": 4657,
+    "value": 350
+  },
+  "Ring of wealth scroll": {
+    "id": 12783,
+    "value": 5000
+  },
+  "Ritual mulch": {
+    "id": 28154,
+    "value": 100
+  },
+  "Robe bottoms of the eye": {
+    "id": 26854,
+    "value": 350
+  },
+  "Robe top of the eye": {
+    "id": 26852,
+    "value": 350
+  },
+  "Rock (elemental)": {
+    "id": 1480,
+    "value": 1
+  },
+  "Rock hammer": {
+    "id": 4162,
+    "value": 500
+  },
+  "Rock thrownhammer": {
+    "id": 21754,
+    "value": 200
+  },
+  "Rod of ivandis (10)": {
+    "id": 7648,
+    "value": 1000
+  },
+  "Rogue's purse": {
+    "id": 1534,
+    "value": 5
+  },
+  "Rogue's revenge": {
+    "id": 12856,
+    "value": 1
+  },
+  "Rolling pin": {
+    "id": 7445,
+    "value": 14400
+  },
+  "Rope": {
+    "id": 954,
+    "value": 18
+  },
+  "Rosemary seed": {
+    "id": 5097,
+    "value": 4
+  },
+  "Rotten tomato": {
+    "id": 2518,
+    "value": 1
+  },
+  "Royal seed pod": {
+    "id": 19564,
+    "value": 20
+  },
+  "Rubber chicken": {
+    "id": 4566,
+    "value": 0
+  },
+  "Ruby": {
+    "id": 1603,
+    "value": 1000
+  },
+  "Ruby amulet": {
+    "id": 1698,
+    "value": 2025
+  },
+  "Ruby bracelet": {
+    "id": 11085,
+    "value": 2325
+  },
+  "Ruby necklace": {
+    "id": 1660,
+    "value": 2175
+  },
+  "Ruby ring": {
+    "id": 1641,
+    "value": 2025
+  },
+  "Rum": {
+    "id": 28896,
+    "value": 5
+  },
+  "Rum (blue)": {
+    "id": 8941,
+    "value": 200
+  },
+  "Rum (red)": {
+    "id": 8940,
+    "value": 200
+  },
+  "Rune arrow": {
+    "id": 892,
+    "value": 400
+  },
+  "Rune arrow pack": {
+    "id": 20607,
+    "value": 75
+  },
+  "Rune arrowtips": {
+    "id": 44,
+    "value": 200
+  },
+  "Rune axe": {
+    "id": 1359,
+    "value": 12800
+  },
+  "Rune brutal": {
+    "id": 4803,
+    "value": 450
+  },
+  "Rune cannonball": {
+    "id": 31914,
+    "value": 1400
+  },
+  "Rune chainbody": {
+    "id": 1113,
+    "value": 50000
+  },
+  "Rune crossbow": {
+    "id": 9185,
+    "value": 16200
+  },
+  "Rune dagger": {
+    "id": 1213,
+    "value": 8000
+  },
+  "Rune essence": {
+    "id": 1436,
+    "value": 4
+  },
+  "Rune full helm": {
+    "id": 1163,
+    "value": 35200
+  },
+  "Rune gloves": {
+    "id": 7460,
+    "value": 5000
+  },
+  "Rune halberd": {
+    "id": 3202,
+    "value": 64000
+  },
+  "Rune javelin": {
+    "id": 830,
+    "value": 400
+  },
+  "Rune kiteshield": {
+    "id": 1201,
+    "value": 54400
+  },
+  "Rune longsword": {
+    "id": 1303,
+    "value": 32000
+  },
+  "Rune mace": {
+    "id": 1432,
+    "value": 14400
+  },
+  "Rune med helm": {
+    "id": 1147,
+    "value": 19200
+  },
+  "Rune pickaxe": {
+    "id": 1275,
+    "value": 32000
+  },
+  "Rune platebody": {
+    "id": 1127,
+    "value": 65000
+  },
+  "Rune platelegs": {
+    "id": 1079,
+    "value": 64000
+  },
+  "Rune plateskirt": {
+    "id": 1093,
+    "value": 64000
+  },
+  "Rune pouch": {
+    "id": 12791,
+    "value": 10000
+  },
+  "Rune pouch note": {
+    "id": 24587,
+    "value": 210
+  },
+  "Rune scimitar": {
+    "id": 1333,
+    "value": 25600
+  },
+  "Rune spear(kp)": {
+    "id": 1247,
+    "value": 20800
+  },
+  "Rune sq shield": {
+    "id": 1185,
+    "value": 38400
+  },
+  "Rune sword": {
+    "id": 1289,
+    "value": 20800
+  },
+  "Rune thrownaxe": {
+    "id": 805,
+    "value": 440
+  },
+  "Rune warhammer": {
+    "id": 1347,
+    "value": 41500
+  },
+  "Runecraft cape(t)": {
+    "id": 9765,
+    "value": 99000
+  },
+  "Runefest shield": {
+    "id": 21695,
+    "value": 1
+  },
+  "Runite limbs": {
+    "id": 9431,
+    "value": 16000
+  },
+  "Runite ore": {
+    "id": 451,
+    "value": 3200
+  },
+  "Runner boots": {
+    "id": 10552,
+    "value": 65003
+  },
+  "Runner hat": {
+    "id": 10549
+  },
+  "S.t.a.s.h blueprint": {
+    "id": 25612,
+    "value": 1
+  },
+  "Sack of coal": {
+    "id": 27558,
+    "value": 1
+  },
+  "Sack of presents": {
+    "id": 20834,
+    "value": 1
+  },
+  "Sack pack": {
+    "id": 13252,
+    "value": 100
+  },
+  "Sailor's mirage": {
+    "id": 31261,
+    "value": 20
+  },
+  "Salmon": {
+    "id": 329,
+    "value": 30
+  },
+  "Sample bottle": {
+    "id": 3377,
+    "value": 5
+  },
+  "Sandworms": {
+    "id": 13431,
+    "value": 90
+  },
+  "Sandworms pack": {
+    "id": 13432,
+    "value": 9000
+  },
+  "Sanfew serum(3)": {
+    "id": 10931
+  },
+  "Santa boots": {
+    "id": 12891,
+    "value": 0
+  },
+  "Santa gloves": {
+    "id": 12890,
+    "value": 0
+  },
+  "Santa jacket": {
+    "id": 12888,
+    "value": 0
+  },
+  "Santa mask": {
+    "id": 12887,
+    "value": 0
+  },
+  "Santa pantaloons": {
+    "id": 12889,
+    "value": 0
+  },
+  "Santa's list": {
+    "id": 27564,
+    "value": 1
+  },
+  "Sapphire": {
+    "id": 1607,
+    "value": 250
+  },
+  "Sapphire amulet": {
+    "id": 1694,
+    "value": 900
+  },
+  "Sapphire bracelet": {
+    "id": 11072,
+    "value": 1150
+  },
+  "Sapphire necklace": {
+    "id": 1656,
+    "value": 1050
+  },
+  "Sapphire ring": {
+    "id": 1637,
+    "value": 900
+  },
+  "Saradomin brew(4)": {
+    "id": 6691
+  },
+  "Saradomin cape": {
+    "id": 2412,
+    "value": 10
+  },
+  "Saradomin halo": {
+    "id": 12637
+  },
+  "Saradomin staff": {
+    "id": 2415,
+    "value": 80000
+  },
+  "Saradomin's tear": {
+    "id": 12804,
+    "value": 40000
+  },
+  "Saucepan": {
+    "id": 26254,
+    "value": 1
+  },
+  "Saw": {
+    "id": 8794,
+    "value": 10
+  },
+  "Sawmill voucher": {
+    "id": 28628,
+    "value": 100
+  },
+  "Scarecrow shirt": {
+    "id": 30232,
+    "value": 1
+  },
+  "Scroll of imbuing": {
+    "id": 26706,
+    "value": 100
+  },
+  "Scroll of redirection": {
+    "id": 11740,
+    "value": 10
+  },
+  "Scythe (Halloween event)": {
+    "id": 1419,
+    "value": 1
+  },
+  "Sea turtle": {
+    "id": 397,
+    "value": 200
+  },
+  "Seaweed": {
+    "id": 401,
+    "value": 2
+  },
+  "Seaweed spore": {
+    "id": 21490,
+    "value": 20
+  },
+  "Secateurs": {
+    "id": 5329,
+    "value": 5
+  },
+  "Secateurs blade": {
+    "id": 28159,
+    "value": 1000
+  },
+  "Secret santa present (red)": {
+    "id": 26316,
+    "value": 1
+  },
+  "Security book": {
+    "id": 9003,
+    "value": 2
+  },
+  "Seed box": {
+    "id": 13639,
+    "value": 10
+  },
+  "Seed dibber": {
+    "id": 5343,
+    "value": 6
+  },
+  "Seed pack": {
+    "id": 22993,
+    "value": 100
+  },
+  "Senntisten teleport (tablet)": {
+    "id": 12782,
+    "value": 1
+  },
+  "Seren halo": {
+    "id": 24198
+  },
+  "Shantay pass (item)": {
+    "id": 1854,
+    "value": 5
+  },
+  "Shark": {
+    "id": 385,
+    "value": 170
+  },
+  "Shattered banner": {
+    "id": 26424,
+    "value": 1000
+  },
+  "Shattered cane": {
+    "id": 26517,
+    "value": 1000
+  },
+  "Shattered cannon ornament kit": {
+    "id": 26528,
+    "value": 25000
+  },
+  "Shattered relics mystic ornament kit": {
+    "id": 26541,
+    "value": 25000
+  },
+  "Shattered relics variety ornament kit": {
+    "id": 26421,
+    "value": 25000
+  },
+  "Shattered relics void ornament kit": {
+    "id": 26479,
+    "value": 25000
+  },
+  "Shattered teleport scroll": {
+    "id": 26500,
+    "value": 25000
+  },
+  "Shears": {
+    "id": 1735,
+    "value": 1
+  },
+  "Shield right half": {
+    "id": 2368,
+    "value": 500000
+  },
+  "Ship ticket": {
+    "id": 621,
+    "value": 5
+  },
+  "Shirt (brown)": {
+    "id": 5030,
+    "value": 450
+  },
+  "Shirt (lilac)": {
+    "id": 5034,
+    "value": 625
+  },
+  "Shirt (yellow)": {
+    "id": 5032,
+    "value": 600
+  },
+  "Short green guy": {
+    "id": 2080,
+    "value": 30
+  },
+  "Shortbow": {
+    "id": 841,
+    "value": 50
+  },
+  "Shorts (blue)": {
+    "id": 5046,
+    "value": 390
+  },
+  "Shorts (brown)": {
+    "id": 5042,
+    "value": 280
+  },
+  "Shorts (yellow)": {
+    "id": 5044,
+    "value": 360
+  },
+  "Sickle mould": {
+    "id": 2976,
+    "value": 10
+  },
+  "Silk": {
+    "id": 950,
+    "value": 30
+  },
+  "Silver bar": {
+    "id": 2355,
+    "value": 150
+  },
+  "Silver ore": {
+    "id": 442,
+    "value": 75
+  },
+  "Silver partyhat": {
+    "id": 27828,
+    "value": 1
+  },
+  "Silver sickle": {
+    "id": 2961,
+    "value": 175
+  },
+  "Silver sickle (b)": {
+    "id": 2963,
+    "value": 250
+  },
+  "Sito foil": {
+    "id": 1530,
+    "value": 5
+  },
+  "Skeleton boots": {
+    "id": 9921,
+    "value": 1
+  },
+  "Skeleton gloves": {
+    "id": 9922,
+    "value": 1
+  },
+  "Skeleton lantern": {
+    "id": 24327,
+    "value": 1
+  },
+  "Skeleton leggings": {
+    "id": 9923,
+    "value": 1
+  },
+  "Skeleton mask": {
+    "id": 9925,
+    "value": 1
+  },
+  "Skeleton shirt": {
+    "id": 9924,
+    "value": 1
+  },
+  "Skewer": {
+    "id": 7443,
+    "value": 3200
+  },
+  "Skirt (blue)": {
+    "id": 5052,
+    "value": 625
+  },
+  "Skirt (brown)": {
+    "id": 5048,
+    "value": 350
+  },
+  "Skirt (lilac)": {
+    "id": 5050,
+    "value": 550
+  },
+  "Skis": {
+    "id": 26649,
+    "value": 1
+  },
+  "Slayer bell": {
+    "id": 10952,
+    "value": 150
+  },
+  "Slayer cape(t)": {
+    "id": 9786,
+    "value": 99000
+  },
+  "Slayer gloves": {
+    "id": 6720,
+    "value": 200
+  },
+  "Slayer ring (8)": {
+    "id": 11873
+  },
+  "Slayer's staff": {
+    "id": 4170,
+    "value": 21000
+  },
+  "Small box hedge (bagged)": {
+    "id": 8441,
+    "value": 15000
+  },
+  "Small fishing net": {
+    "id": 303,
+    "value": 5
+  },
+  "Small map (item)": {
+    "id": 8004,
+    "value": 1000
+  },
+  "Smithing cape(t)": {
+    "id": 9795,
+    "value": 99000
+  },
+  "Smithing catalyst": {
+    "id": 27017,
+    "value": 100
+  },
+  "Smiths boots": {
+    "id": 27027,
+    "value": 280
+  },
+  "Smiths gloves": {
+    "id": 27029,
+    "value": 390
+  },
+  "Smiths trousers": {
+    "id": 27025,
+    "value": 340
+  },
+  "Smiths tunic": {
+    "id": 27023,
+    "value": 380
+  },
+  "Snake weed": {
+    "id": 1526,
+    "value": 5
+  },
+  "Snakeskin boots": {
+    "id": 6328,
+    "value": 250
+  },
+  "Snapdragon": {
+    "id": 3000,
+    "value": 59
+  },
+  "Snow globe": {
+    "id": 20832,
+    "value": 1
+  },
+  "Snow goggles & hat": {
+    "id": 27568,
+    "value": 1
+  },
+  "Snow imp costume body": {
+    "id": 21849,
+    "value": 50
+  },
+  "Snow imp costume feet": {
+    "id": 21857,
+    "value": 1
+  },
+  "Snow imp costume gloves": {
+    "id": 21855,
+    "value": 1
+  },
+  "Snow imp costume head": {
+    "id": 21847,
+    "value": 1
+  },
+  "Snow imp costume legs": {
+    "id": 21851,
+    "value": 1
+  },
+  "Snow imp costume tail": {
+    "id": 21853,
+    "value": 1
+  },
+  "Snow leopard toy": {
+    "id": 13217,
+    "value": 100
+  },
+  "Snowglobe helmet": {
+    "id": 28788,
+    "value": 1
+  },
+  "Snowman ring": {
+    "id": 26314,
+    "value": 1
+  },
+  "Soda ash": {
+    "id": 1781,
+    "value": 2
+  },
+  "Soft clay pack": {
+    "id": 12009
+  },
+  "Soul cape": {
+    "id": 25344,
+    "value": 1
+  },
+  "Soul rune": {
+    "id": 566,
+    "value": 300
+  },
+  "Spade": {
+    "id": 952,
+    "value": 3
+  },
+  "Spatula": {
+    "id": 7439,
+    "value": 1920
+  },
+  "Speedy teleport scroll": {
+    "id": 27416,
+    "value": 50
+  },
+  "Spice": {
+    "id": 2007,
+    "value": 230
+  },
+  "Spider hat": {
+    "id": 28603,
+    "value": 0
+  },
+  "Spider on shaft": {
+    "id": 6299,
+    "value": 40
+  },
+  "Spider on stick": {
+    "id": 6297,
+    "value": 50
+  },
+  "Spinach roll": {
+    "id": 1969,
+    "value": 1
+  },
+  "Spinning plate": {
+    "id": 4613,
+    "value": 50
+  },
+  "Spiny helmet": {
+    "id": 4551,
+    "value": 650
+  },
+  "Spoils of war": {
+    "id": 25342,
+    "value": 1
+  },
+  "Spookier boots": {
+    "id": 24323,
+    "value": 1
+  },
+  "Spookier gloves": {
+    "id": 24321,
+    "value": 1
+  },
+  "Spookier hood": {
+    "id": 24315,
+    "value": 1
+  },
+  "Spookier robe": {
+    "id": 24317,
+    "value": 1
+  },
+  "Spookier skirt": {
+    "id": 24319,
+    "value": 1
+  },
+  "Spooky boots": {
+    "id": 24313,
+    "value": 1
+  },
+  "Spooky chair": {
+    "id": 31225,
+    "value": 1
+  },
+  "Spooky gloves": {
+    "id": 24311,
+    "value": 1
+  },
+  "Spooky hood": {
+    "id": 24305,
+    "value": 1
+  },
+  "Spooky pumpkin lantern": {
+    "id": 31227,
+    "value": 1
+  },
+  "Spooky robe": {
+    "id": 24307,
+    "value": 1
+  },
+  "Spooky skirt": {
+    "id": 24309,
+    "value": 1
+  },
+  "Spork": {
+    "id": 7437,
+    "value": 325
+  },
+  "Staff": {
+    "id": 1379,
+    "value": 15
+  },
+  "Staff of air": {
+    "id": 1381,
+    "value": 1500
+  },
+  "Staff of earth": {
+    "id": 1385,
+    "value": 1500
+  },
+  "Staff of fire": {
+    "id": 1387,
+    "value": 1500
+  },
+  "Staff of water": {
+    "id": 1383,
+    "value": 1500
+  },
+  "Stamina potion(4)": {
+    "id": 12631
+  },
+  "Star fragment": {
+    "id": 25547,
+    "value": 3000
+  },
+  "Star-face": {
+    "id": 22713,
+    "value": 0
+  },
+  "Statius's full helm (bh)(inactive)": {
+    "id": 27833
+  },
+  "Statius's platebody (bh)(inactive)": {
+    "id": 27834
+  },
+  "Statius's platelegs (bh)(inactive)": {
+    "id": 27835
+  },
+  "Statius's warhammer (bh)(inactive)": {
+    "id": 27908
+  },
+  "Steam staff upgrade kit": {
+    "id": 12798,
+    "value": 1500
+  },
+  "Steamforge brew": {
+    "id": 29412,
+    "value": 8
+  },
+  "Steel 2h sword": {
+    "id": 1311,
+    "value": 1000
+  },
+  "Steel arrow": {
+    "id": 886,
+    "value": 12
+  },
+  "Steel arrowtips": {
+    "id": 41,
+    "value": 6
+  },
+  "Steel axe": {
+    "id": 1353,
+    "value": 200
+  },
+  "Steel battleaxe": {
+    "id": 1365,
+    "value": 650
+  },
+  "Steel brutal": {
+    "id": 4783,
+    "value": 20
+  },
+  "Steel cannonball": {
+    "id": 2,
+    "value": 5
+  },
+  "Steel chainbody": {
+    "id": 1105,
+    "value": 750
+  },
+  "Steel claws": {
+    "id": 3097,
+    "value": 175
+  },
+  "Steel crossbow": {
+    "id": 9179,
+    "value": 360
+  },
+  "Steel dagger": {
+    "id": 1207,
+    "value": 125
+  },
+  "Steel full helm": {
+    "id": 1157,
+    "value": 550
+  },
+  "Steel gloves": {
+    "id": 7456,
+    "value": 500
+  },
+  "Steel halberd": {
+    "id": 3194,
+    "value": 1000
+  },
+  "Steel javelin": {
+    "id": 827,
+    "value": 24
+  },
+  "Steel key ring": {
+    "id": 4446,
+    "value": 1
+  },
+  "Steel kiteshield": {
+    "id": 1193,
+    "value": 850
+  },
+  "Steel knife": {
+    "id": 865
+  },
+  "Steel limbs": {
+    "id": 9425,
+    "value": 250
+  },
+  "Steel longsword": {
+    "id": 1295,
+    "value": 500
+  },
+  "Steel mace": {
+    "id": 1424,
+    "value": 225
+  },
+  "Steel med helm": {
+    "id": 1141,
+    "value": 300
+  },
+  "Steel nails": {
+    "id": 1539,
+    "value": 3
+  },
+  "Steel pickaxe": {
+    "id": 1269,
+    "value": 500
+  },
+  "Steel platebody": {
+    "id": 1119,
+    "value": 2000
+  },
+  "Steel platelegs": {
+    "id": 1069,
+    "value": 1000
+  },
+  "Steel plateskirt": {
+    "id": 1083,
+    "value": 1000
+  },
+  "Steel scimitar": {
+    "id": 1325,
+    "value": 400
+  },
+  "Steel spear(kp)": {
+    "id": 1241,
+    "value": 325
+  },
+  "Steel sq shield": {
+    "id": 1177,
+    "value": 600
+  },
+  "Steel sword": {
+    "id": 1281,
+    "value": 325
+  },
+  "Steel thrownaxe": {
+    "id": 802,
+    "value": 26
+  },
+  "Steel warhammer": {
+    "id": 1339,
+    "value": 640
+  },
+  "Stethoscope": {
+    "id": 5560,
+    "value": 10
+  },
+  "Stew": {
+    "id": 2003,
+    "value": 20
+  },
+  "Stone-plaque": {
+    "id": 606,
+    "value": 1
+  },
+  "Strawberry": {
+    "id": 5504,
+    "value": 17
+  },
+  "Strawberry seed": {
+    "id": 5323,
+    "value": 18
+  },
+  "Strength cape(t)": {
+    "id": 9750,
+    "value": 99000
+  },
+  "Strength potion(3)": {
+    "id": 119
+  },
+  "Stripy feather": {
+    "id": 10087,
+    "value": 20
+  },
+  "Stripy pirate shirt (beige)": {
+    "id": 7110,
+    "value": 300
+  },
+  "Stripy pirate shirt (blue)": {
+    "id": 7128,
+    "value": 300
+  },
+  "Stripy pirate shirt (brown)": {
+    "id": 7134,
+    "value": 300
+  },
+  "Stripy pirate shirt (red)": {
+    "id": 7122,
+    "value": 300
+  },
+  "Studded body": {
+    "id": 1133,
+    "value": 850
+  },
+  "Studded chaps": {
+    "id": 1097,
+    "value": 750
+  },
+  "Summer pie": {
+    "id": 7218
+  },
+  "Sun-shine": {
+    "id": 29421,
+    "value": 100
+  },
+  "Sunbeam ale": {
+    "id": 29409,
+    "value": 8
+  },
+  "Sunlight antelope fur": {
+    "id": 29177,
+    "value": 10
+  },
+  "Sunspear": {
+    "id": 33722,
+    "value": 100000
+  },
+  "Super attack(4)": {
+    "id": 149
+  },
+  "Super combat potion(4)": {
+    "id": 12701
+  },
+  "Super defence(4)": {
+    "id": 167
+  },
+  "Super energy(1)": {
+    "id": 3022
+  },
+  "Super kebab": {
+    "id": 4608,
+    "value": 3
+  },
+  "Super magic potion (1)": {
+    "id": 11729
+  },
+  "Super ranging (1)": {
+    "id": 11725
+  },
+  "Super restore(4)": {
+    "id": 3030
+  },
+  "Super strength(4)": {
+    "id": 161
+  },
+  "Supercompost": {
+    "id": 6034,
+    "value": 85
+  },
+  "Superior mining gloves": {
+    "id": 21345,
+    "value": 120
+  },
+  "Supply crate (Mahogany Homes)": {
+    "id": 24884,
+    "value": 145
+  },
+  "Swamp paste": {
+    "id": 1941,
+    "value": 30
+  },
+  "Sweetcorn": {
+    "id": 5986,
+    "value": 9
+  },
+  "Sweetcorn seed": {
+    "id": 5320,
+    "value": 8
+  },
+  "Swift blade": {
+    "id": 24219,
+    "value": 1500
+  },
+  "Swordfish": {
+    "id": 373,
+    "value": 80
+  },
+  "Swords and emblem": {
+    "id": 31193,
+    "value": 100000
+  },
+  "Swords and emblem (b)": {
+    "id": 31196,
+    "value": 100000
+  },
+  "Swords and emblem (g)": {
+    "id": 31202,
+    "value": 100000
+  },
+  "Swords and emblem (p)": {
+    "id": 31199,
+    "value": 100000
+  },
+  "Tall box hedge (bagged)": {
+    "id": 8449,
+    "value": 100000
+  },
+  "Tall fancy hedge (bagged)": {
+    "id": 8447,
+    "value": 50000
+  },
+  "Target teleport": {
+    "id": 24336,
+    "value": 1
+  },
+  "Target teleport scroll": {
+    "id": 12846,
+    "value": 30000
+  },
+  "Tattered scroll": {
+    "id": 607,
+    "value": 1
+  },
+  "Tatty graahk fur": {
+    "id": 10097,
+    "value": 90
+  },
+  "Tatty kyatt fur": {
+    "id": 10101,
+    "value": 120
+  },
+  "Tatty larupia fur": {
+    "id": 10093,
+    "value": 60
+  },
+  "Teak stock": {
+    "id": 9446,
+    "value": 77
+  },
+  "Teal boots": {
+    "id": 2924,
+    "value": 500
+  },
+  "Teal gloves": {
+    "id": 2932,
+    "value": 500
+  },
+  "Teal hat": {
+    "id": 2930,
+    "value": 500
+  },
+  "Teal robe bottoms": {
+    "id": 2928,
+    "value": 500
+  },
+  "Teal robe top": {
+    "id": 2926,
+    "value": 500
+  },
+  "Team-1 cape": {
+    "id": 4315,
+    "value": 50
+  },
+  "Team-10 cape": {
+    "id": 4333,
+    "value": 50
+  },
+  "Team-11 cape": {
+    "id": 4335,
+    "value": 50
+  },
+  "Team-12 cape": {
+    "id": 4337,
+    "value": 50
+  },
+  "Team-13 cape": {
+    "id": 4339,
+    "value": 50
+  },
+  "Team-14 cape": {
+    "id": 4341,
+    "value": 50
+  },
+  "Team-15 cape": {
+    "id": 4343,
+    "value": 50
+  },
+  "Team-16 cape": {
+    "id": 4345,
+    "value": 50
+  },
+  "Team-17 cape": {
+    "id": 4347,
+    "value": 50
+  },
+  "Team-18 cape": {
+    "id": 4349,
+    "value": 50
+  },
+  "Team-19 cape": {
+    "id": 4351,
+    "value": 50
+  },
+  "Team-2 cape": {
+    "id": 4317,
+    "value": 50
+  },
+  "Team-20 cape": {
+    "id": 4353,
+    "value": 50
+  },
+  "Team-21 cape": {
+    "id": 4355,
+    "value": 50
+  },
+  "Team-22 cape": {
+    "id": 4357,
+    "value": 50
+  },
+  "Team-23 cape": {
+    "id": 4359,
+    "value": 50
+  },
+  "Team-24 cape": {
+    "id": 4361,
+    "value": 50
+  },
+  "Team-25 cape": {
+    "id": 4363,
+    "value": 50
+  },
+  "Team-26 cape": {
+    "id": 4365,
+    "value": 50
+  },
+  "Team-27 cape": {
+    "id": 4367,
+    "value": 50
+  },
+  "Team-28 cape": {
+    "id": 4369,
+    "value": 50
+  },
+  "Team-29 cape": {
+    "id": 4371,
+    "value": 50
+  },
+  "Team-3 cape": {
+    "id": 4319,
+    "value": 50
+  },
+  "Team-30 cape": {
+    "id": 4373,
+    "value": 50
+  },
+  "Team-31 cape": {
+    "id": 4375,
+    "value": 50
+  },
+  "Team-32 cape": {
+    "id": 4377,
+    "value": 50
+  },
+  "Team-33 cape": {
+    "id": 4379,
+    "value": 50
+  },
+  "Team-34 cape": {
+    "id": 4381,
+    "value": 50
+  },
+  "Team-35 cape": {
+    "id": 4383,
+    "value": 50
+  },
+  "Team-36 cape": {
+    "id": 4385,
+    "value": 50
+  },
+  "Team-37 cape": {
+    "id": 4387,
+    "value": 50
+  },
+  "Team-38 cape": {
+    "id": 4389,
+    "value": 50
+  },
+  "Team-39 cape": {
+    "id": 4391,
+    "value": 50
+  },
+  "Team-4 cape": {
+    "id": 4321,
+    "value": 50
+  },
+  "Team-40 cape": {
+    "id": 4393,
+    "value": 50
+  },
+  "Team-41 cape": {
+    "id": 4395,
+    "value": 50
+  },
+  "Team-42 cape": {
+    "id": 4397,
+    "value": 50
+  },
+  "Team-43 cape": {
+    "id": 4399,
+    "value": 50
+  },
+  "Team-44 cape": {
+    "id": 4401,
+    "value": 50
+  },
+  "Team-45 cape": {
+    "id": 4403,
+    "value": 50
+  },
+  "Team-46 cape": {
+    "id": 4405,
+    "value": 50
+  },
+  "Team-47 cape": {
+    "id": 4407,
+    "value": 50
+  },
+  "Team-48 cape": {
+    "id": 4409,
+    "value": 50
+  },
+  "Team-49 cape": {
+    "id": 4411,
+    "value": 50
+  },
+  "Team-5 cape": {
+    "id": 4323,
+    "value": 50
+  },
+  "Team-50 cape": {
+    "id": 4413,
+    "value": 50
+  },
+  "Team-6 cape": {
+    "id": 4325,
+    "value": 50
+  },
+  "Team-7 cape": {
+    "id": 4327,
+    "value": 50
+  },
+  "Team-8 cape": {
+    "id": 4329,
+    "value": 50
+  },
+  "Team-9 cape": {
+    "id": 4331,
+    "value": 50
+  },
+  "Teasing stick": {
+    "id": 10029,
+    "value": 50
+  },
+  "Teleport card": {
+    "id": 13658,
+    "value": 100
+  },
+  "The stuff": {
+    "id": 8988,
+    "value": 5
+  },
+  "Thieving cape(t)": {
+    "id": 9777,
+    "value": 99000
+  },
+  "Thin snail": {
+    "id": 3363,
+    "value": 5
+  },
+  "Thorny hedge (bagged)": {
+    "id": 8437,
+    "value": 5000
+  },
+  "Thread": {
+    "id": 1734,
+    "value": 1
+  },
+  "Thread of elidinis": {
+    "id": 27279,
+    "value": 14000
+  },
+  "Tiara mould": {
+    "id": 5523,
+    "value": 100
+  },
+  "Tiger toy": {
+    "id": 13215,
+    "value": 100
+  },
+  "Timber beam": {
+    "id": 8837,
+    "value": 1
+  },
+  "Tin ore": {
+    "id": 438,
+    "value": 3
+  },
+  "Tinderbox": {
+    "id": 590,
+    "value": 1
+  },
+  "Toadflax": {
+    "id": 2998,
+    "value": 48
+  },
+  "Toktz-ket-xil": {
+    "id": 6524,
+    "value": 45000
+  },
+  "Toktz-mej-tal": {
+    "id": 6526,
+    "value": 35000
+  },
+  "Toktz-xil-ak": {
+    "id": 6523,
+    "value": 40000
+  },
+  "Toktz-xil-ek": {
+    "id": 6525,
+    "value": 25000
+  },
+  "Toktz-xil-ul": {
+    "id": 6522,
+    "value": 250
+  },
+  "Tomato": {
+    "id": 1982,
+    "value": 4
+  },
+  "Tomato seed": {
+    "id": 5322,
+    "value": 4
+  },
+  "Tonameyo white": {
+    "id": 29958,
+    "value": 600
+  },
+  "Topiary hedge (bagged)": {
+    "id": 8443,
+    "value": 20000
+  },
+  "Tortugan shield": {
+    "id": 31398,
+    "value": 2500
+  },
+  "Trailblazer banner": {
+    "id": 25056,
+    "value": 1000
+  },
+  "Trailblazer cane": {
+    "id": 25013,
+    "value": 150000
+  },
+  "Trailblazer globe": {
+    "id": 25093,
+    "value": 40000
+  },
+  "Trailblazer graceful ornament kit": {
+    "id": 25099,
+    "value": 25000
+  },
+  "Trailblazer reloaded alchemy scroll": {
+    "id": 28693,
+    "value": 25000
+  },
+  "Trailblazer reloaded banner": {
+    "id": 28702,
+    "value": 1000
+  },
+  "Trailblazer reloaded blowpipe ornament kit": {
+    "id": 28690,
+    "value": 5000
+  },
+  "Trailblazer reloaded bulwark ornament kit": {
+    "id": 28684,
+    "value": 5000
+  },
+  "Trailblazer reloaded death scroll": {
+    "id": 28699,
+    "value": 25000
+  },
+  "Trailblazer reloaded home teleport scroll": {
+    "id": 28705,
+    "value": 25000
+  },
+  "Trailblazer reloaded rejuvenation pool scroll": {
+    "id": 28708,
+    "value": 25000
+  },
+  "Trailblazer reloaded torch": {
+    "id": 28748,
+    "value": 15000
+  },
+  "Trailblazer reloaded vengeance scroll": {
+    "id": 28696,
+    "value": 25000
+  },
+  "Trailblazer rug": {
+    "id": 25096,
+    "value": 50000
+  },
+  "Trailblazer teleport scroll": {
+    "id": 25087,
+    "value": 25000
+  },
+  "Trailblazer tool ornament kit": {
+    "id": 25090,
+    "value": 25000
+  },
+  "Trapper's tipple": {
+    "id": 29277,
+    "value": 2
+  },
+  "Treasure flag": {
+    "id": 8970,
+    "value": 500
+  },
+  "Treat cauldron": {
+    "id": 27463,
+    "value": 1
+  },
+  "Tree skirt": {
+    "id": 22717,
+    "value": 0
+  },
+  "Tree top": {
+    "id": 22715,
+    "value": 0
+  },
+  "Tri-jester hat": {
+    "id": 6860,
+    "value": 1
+  },
+  "Tri-jester scarf": {
+    "id": 6861,
+    "value": 1
+  },
+  "Tribal top (blue)": {
+    "id": 6351,
+    "value": 300
+  },
+  "Tribal top (brown)": {
+    "id": 6341,
+    "value": 300
+  },
+  "Tribal top (pink)": {
+    "id": 6371,
+    "value": 300
+  },
+  "Tribal top (yellow)": {
+    "id": 6361,
+    "value": 300
+  },
+  "Trousers (blue)": {
+    "id": 5040,
+    "value": 750
+  },
+  "Trousers (brown)": {
+    "id": 5036,
+    "value": 550
+  },
+  "Trousers (lilac)": {
+    "id": 5038,
+    "value": 700
+  },
+  "Trout": {
+    "id": 333,
+    "value": 10
+  },
+  "Trouver parchment": {
+    "id": 24187,
+    "value": 200
+  },
+  "Tuna": {
+    "id": 361,
+    "value": 40
+  },
+  "Turquoise boots": {
+    "id": 634,
+    "value": 200
+  },
+  "Turquoise hat": {
+    "id": 664,
+    "value": 160
+  },
+  "Turquoise robe bottoms": {
+    "id": 654,
+    "value": 180
+  },
+  "Turquoise robe top": {
+    "id": 644,
+    "value": 180
+  },
+  "Twisted banner": {
+    "id": 24413,
+    "value": 1000
+  },
+  "Twisted blueprints": {
+    "id": 24463,
+    "value": 25000
+  },
+  "Twisted cane": {
+    "id": 24395,
+    "value": 1000
+  },
+  "Twisted horns": {
+    "id": 24466,
+    "value": 100000
+  },
+  "Twisted teleport scroll": {
+    "id": 24460,
+    "value": 25000
+  },
+  "Twitcher's gloves": {
+    "id": 28630,
+    "value": 6
+  },
+  "Tyras helm": {
+    "id": 9629,
+    "value": 550
+  },
+  "Tzhaar-ket-em": {
+    "id": 6527,
+    "value": 30000
+  },
+  "Tzhaar-ket-om": {
+    "id": 6528,
+    "value": 50001
+  },
+  "Ugly halloween jumper (orange)": {
+    "id": 26256,
+    "value": 1
+  },
+  "Uncut diamond": {
+    "id": 1617,
+    "value": 200
+  },
+  "Uncut dragonstone": {
+    "id": 1631,
+    "value": 1000
+  },
+  "Uncut emerald": {
+    "id": 1621,
+    "value": 50
+  },
+  "Uncut jade": {
+    "id": 1627,
+    "value": 30
+  },
+  "Uncut onyx": {
+    "id": 6571,
+    "value": 200000
+  },
+  "Uncut opal": {
+    "id": 1625,
+    "value": 20
+  },
+  "Uncut red topaz": {
+    "id": 1629,
+    "value": 40
+  },
+  "Uncut ruby": {
+    "id": 1619,
+    "value": 100
+  },
+  "Uncut sapphire": {
+    "id": 1623,
+    "value": 25
+  },
+  "Unfinished broad bolt pack": {
+    "id": 11887,
+    "value": 5500
+  },
+  "Unfinished broad bolts": {
+    "id": 11876,
+    "value": 55
+  },
+  "Unholy book": {
+    "id": 3842,
+    "value": 200
+  },
+  "Unholy mould": {
+    "id": 1594,
+    "value": 200
+  },
+  "Unidentified large fossil": {
+    "id": 21566,
+    "value": 300
+  },
+  "Unidentified medium fossil": {
+    "id": 21564,
+    "value": 200
+  },
+  "Unidentified small fossil": {
+    "id": 21562,
+    "value": 100
+  },
+  "Unlit bug lantern": {
+    "id": 7051,
+    "value": 130
+  },
+  "Unlit torch": {
+    "id": 596,
+    "value": 4
+  },
+  "Unstrung symbol": {
+    "id": 1714,
+    "value": 200
+  },
+  "Varlamorian kebab": {
+    "id": 29900,
+    "value": 3
+  },
+  "Vesta's chainbody (bh)(inactive)": {
+    "id": 27831
+  },
+  "Vesta's longsword (bh)(inactive)": {
+    "id": 27904
+  },
+  "Vesta's longsword (inactive)": {
+    "id": 24617,
+    "value": 800000
+  },
+  "Vesta's plateskirt (bh)(inactive)": {
+    "id": 27832
+  },
+  "Vesta's spear (bh)(inactive)": {
+    "id": 27900
+  },
+  "Vial": {
+    "id": 229,
+    "value": 2
+  },
+  "Vial of water": {
+    "id": 227,
+    "value": 2
+  },
+  "Victor's cape (1)": {
+    "id": 24207,
+    "value": 4
+  },
+  "Victor's cape (10)": {
+    "id": 24209,
+    "value": 4
+  },
+  "Victor's cape (100)": {
+    "id": 24213,
+    "value": 4
+  },
+  "Victor's cape (1000)": {
+    "id": 24520,
+    "value": 4
+  },
+  "Victor's cape (50)": {
+    "id": 24211,
+    "value": 4
+  },
+  "Victor's cape (500)": {
+    "id": 24215,
+    "value": 4
+  },
+  "Villager armband (blue)": {
+    "id": 6359,
+    "value": 150
+  },
+  "Villager armband (brown)": {
+    "id": 6347,
+    "value": 150
+  },
+  "Villager armband (pink)": {
+    "id": 6379,
+    "value": 150
+  },
+  "Villager armband (yellow)": {
+    "id": 6369,
+    "value": 150
+  },
+  "Villager hat (blue)": {
+    "id": 6355,
+    "value": 200
+  },
+  "Villager hat (brown)": {
+    "id": 6345,
+    "value": 200
+  },
+  "Villager hat (pink)": {
+    "id": 6375,
+    "value": 200
+  },
+  "Villager hat (yellow)": {
+    "id": 6365,
+    "value": 200
+  },
+  "Villager robe (blue)": {
+    "id": 6353,
+    "value": 250
+  },
+  "Villager robe (brown)": {
+    "id": 6343,
+    "value": 250
+  },
+  "Villager robe (pink)": {
+    "id": 6373,
+    "value": 250
+  },
+  "Villager robe (yellow)": {
+    "id": 6363,
+    "value": 250
+  },
+  "Villager sandals (blue)": {
+    "id": 6357,
+    "value": 100
+  },
+  "Villager sandals (brown)": {
+    "id": 6349,
+    "value": 100
+  },
+  "Villager sandals (pink)": {
+    "id": 6377,
+    "value": 100
+  },
+  "Villager sandals (yellow)": {
+    "id": 6367,
+    "value": 100
+  },
+  "Vodka": {
+    "id": 2015,
+    "value": 5
+  },
+  "Void knight gloves": {
+    "id": 8842
+  },
+  "Void knight mace": {
+    "id": 8841
+  },
+  "Void knight robe": {
+    "id": 8840
+  },
+  "Void knight top": {
+    "id": 8839
+  },
+  "Void mage helm": {
+    "id": 11663
+  },
+  "Void melee helm": {
+    "id": 11665
+  },
+  "Void ranger helm": {
+    "id": 11664
+  },
+  "Void seal": {
+    "id": 11673,
+    "value": 100
+  },
+  "Volcanic ash": {
+    "id": 21622,
+    "value": 200
+  },
+  "Volcanic mine teleport": {
+    "id": 21541,
+    "value": 1
+  },
+  "Volcanic whip mix": {
+    "id": 12771,
+    "value": 1
+  },
+  "Volencia moss": {
+    "id": 1532,
+    "value": 5
+  },
+  "Vyre noble blazer (grey)": {
+    "id": 24826,
+    "value": 5000
+  },
+  "Vyre noble blazer (purple)": {
+    "id": 24810,
+    "value": 5000
+  },
+  "Vyre noble blazer (red)": {
+    "id": 24794,
+    "value": 5000
+  },
+  "Vyre noble coat tails (grey)": {
+    "id": 24828,
+    "value": 5000
+  },
+  "Vyre noble coat tails (purple)": {
+    "id": 24812,
+    "value": 5000
+  },
+  "Vyre noble coat tails (red)": {
+    "id": 24796,
+    "value": 5000
+  },
+  "Vyre noble corset (grey)": {
+    "id": 24834,
+    "value": 5000
+  },
+  "Vyre noble corset (purple)": {
+    "id": 24818,
+    "value": 5000
+  },
+  "Vyre noble corset (red)": {
+    "id": 24802,
+    "value": 5000
+  },
+  "Vyre noble dress bottom (grey)": {
+    "id": 24840,
+    "value": 5000
+  },
+  "Vyre noble dress bottom (purple)": {
+    "id": 24824,
+    "value": 5000
+  },
+  "Vyre noble dress bottom (red)": {
+    "id": 24808,
+    "value": 5000
+  },
+  "Vyre noble dress top (grey)": {
+    "id": 24838,
+    "value": 5000
+  },
+  "Vyre noble dress top (purple)": {
+    "id": 24822,
+    "value": 5000
+  },
+  "Vyre noble dress top (red)": {
+    "id": 24806,
+    "value": 5000
+  },
+  "Vyre noble legs": {
+    "id": 24678,
+    "value": 100
+  },
+  "Vyre noble pants (grey)": {
+    "id": 24832,
+    "value": 5000
+  },
+  "Vyre noble pants (purple)": {
+    "id": 24816,
+    "value": 5000
+  },
+  "Vyre noble pants (red)": {
+    "id": 24800,
+    "value": 5000
+  },
+  "Vyre noble shoes": {
+    "id": 24680,
+    "value": 100
+  },
+  "Vyre noble skirt (grey)": {
+    "id": 24836,
+    "value": 5000
+  },
+  "Vyre noble skirt (purple)": {
+    "id": 24820,
+    "value": 5000
+  },
+  "Vyre noble skirt (red)": {
+    "id": 24804,
+    "value": 5000
+  },
+  "Vyre noble top": {
+    "id": 24676,
+    "value": 100
+  },
+  "Vyre noble vest (grey)": {
+    "id": 24830,
+    "value": 5000
+  },
+  "Vyre noble vest (purple)": {
+    "id": 24814,
+    "value": 5000
+  },
+  "Vyre noble vest (red)": {
+    "id": 24798,
+    "value": 5000
+  },
+  "Vyrewatch legs": {
+    "id": 9636,
+    "value": 500
+  },
+  "Vyrewatch shoes": {
+    "id": 9638,
+    "value": 500
+  },
+  "Vyrewatch top": {
+    "id": 9634,
+    "value": 500
+  },
+  "War ship": {
+    "id": 795,
+    "value": 2
+  },
+  "Ward upgrade kit": {
+    "id": 12802,
+    "value": 1500
+  },
+  "Warrior helm": {
+    "id": 3753,
+    "value": 60000
+  },
+  "Water rune": {
+    "id": 555,
+    "value": 4
+  },
+  "Water rune pack": {
+    "id": 12730,
+    "value": 430
+  },
+  "Water talisman": {
+    "id": 1444,
+    "value": 4
+  },
+  "Water-filled vial pack": {
+    "id": 11879,
+    "value": 201
+  },
+  "Watering can": {
+    "id": 5331
+  },
+  "Watermelon": {
+    "id": 5982,
+    "value": 48
+  },
+  "Watermelon seed": {
+    "id": 5321,
+    "value": 56
+  },
+  "Waterskin(0)": {
+    "id": 1831
+  },
+  "Whirlpool surprise": {
+    "id": 31811,
+    "value": 300
+  },
+  "Whisky": {
+    "id": 2017,
+    "value": 5
+  },
+  "White 2h sword": {
+    "id": 6609,
+    "value": 1920
+  },
+  "White apron": {
+    "id": 1005,
+    "value": 2
+  },
+  "White battleaxe": {
+    "id": 6589,
+    "value": 1248
+  },
+  "White boots": {
+    "id": 6619,
+    "value": 576
+  },
+  "White chainbody": {
+    "id": 6615,
+    "value": 1440
+  },
+  "White claws": {
+    "id": 6587,
+    "value": 360
+  },
+  "White dagger": {
+    "id": 6591,
+    "value": 240
+  },
+  "White dark bow paint": {
+    "id": 12763,
+    "value": 1
+  },
+  "White full helm": {
+    "id": 6623,
+    "value": 1056
+  },
+  "White gloves": {
+    "id": 6629,
+    "value": 6
+  },
+  "White halberd": {
+    "id": 6599,
+    "value": 1920
+  },
+  "White kiteshield": {
+    "id": 6633,
+    "value": 1632
+  },
+  "White longsword": {
+    "id": 6607,
+    "value": 960
+  },
+  "White mace": {
+    "id": 6601,
+    "value": 432
+  },
+  "White magic staff": {
+    "id": 6603,
+    "value": 200
+  },
+  "White med helm": {
+    "id": 6621,
+    "value": 576
+  },
+  "White platebody": {
+    "id": 6617,
+    "value": 3840
+  },
+  "White platelegs": {
+    "id": 6625,
+    "value": 1920
+  },
+  "White plateskirt": {
+    "id": 6627,
+    "value": 1920
+  },
+  "White scimitar": {
+    "id": 6611,
+    "value": 768
+  },
+  "White sq shield": {
+    "id": 6631,
+    "value": 1152
+  },
+  "White sword": {
+    "id": 6605,
+    "value": 624
+  },
+  "White toy horsey": {
+    "id": 2522,
+    "value": 100
+  },
+  "White warhammer": {
+    "id": 6613,
+    "value": 980
+  },
+  "Wild pie": {
+    "id": 7208
+  },
+  "Wildblood hops": {
+    "id": 6002,
+    "value": 15
+  },
+  "Wildblood seed": {
+    "id": 5311,
+    "value": 14
+  },
+  "Wilderness crabs teleport": {
+    "id": 24251,
+    "value": 62
+  },
+  "Willow blackjack": {
+    "id": 4600,
+    "value": 600
+  },
+  "Willow blackjack(d)": {
+    "id": 6414,
+    "value": 800
+  },
+  "Willow blackjack(o)": {
+    "id": 6412,
+    "value": 800
+  },
+  "Willow longbow": {
+    "id": 847,
+    "value": 320
+  },
+  "Willow shortbow": {
+    "id": 849,
+    "value": 200
+  },
+  "Willow stock": {
+    "id": 9444,
+    "value": 53
+  },
+  "Wily cat": {
+    "id": 6556,
+    "value": 1
+  },
+  "Wintumber tree": {
+    "id": 10508,
+    "value": 1
+  },
+  "Wise old man's santa hat": {
+    "id": 21859,
+    "value": 160
+  },
+  "Witch boots": {
+    "id": 27479,
+    "value": 0
+  },
+  "Witch cape": {
+    "id": 27481,
+    "value": 0
+  },
+  "Witch hat": {
+    "id": 27473,
+    "value": 0
+  },
+  "Witch robes": {
+    "id": 27477,
+    "value": 0
+  },
+  "Witch top": {
+    "id": 27475,
+    "value": 0
+  },
+  "Witchwood icon": {
+    "id": 8923,
+    "value": 900
+  },
+  "Wizard blizzard": {
+    "id": 2054,
+    "value": 30
+  },
+  "Wizard hat": {
+    "id": 1017,
+    "value": 2
+  },
+  "Wizard's mind bomb": {
+    "id": 1907,
+    "value": 2
+  },
+  "Woad leaf": {
+    "id": 1793,
+    "value": 1
+  },
+  "Woodcut. cape(t)": {
+    "id": 9807,
+    "value": 99000
+  },
+  "Wooden shield": {
+    "id": 1171,
+    "value": 20
+  },
+  "Wooden spoon": {
+    "id": 7433,
+    "value": 35
+  },
+  "Wooden stock": {
+    "id": 9440,
+    "value": 20
+  },
+  "Woolly hat": {
+    "id": 6862,
+    "value": 1
+  },
+  "Woolly scarf": {
+    "id": 6863,
+    "value": 1
+  },
+  "Woven top (blue)": {
+    "id": 5028,
+    "value": 650
+  },
+  "Woven top (brown)": {
+    "id": 5024,
+    "value": 500
+  },
+  "Woven top (yellow)": {
+    "id": 5026,
+    "value": 625
+  },
+  "Wrath talisman": {
+    "id": 22118,
+    "value": 4
+  },
+  "Wyrmscraig boots": {
+    "id": 33881,
+    "value": 10000
+  },
+  "Wyrmscraig goat fur": {
+    "id": 34017,
+    "value": 10
+  },
+  "Wyrmscraig noble skirt (black)": {
+    "id": 33857,
+    "value": 40000
+  },
+  "Wyrmscraig noble skirt (pink)": {
+    "id": 33857,
+    "value": 40000
+  },
+  "Wyrmscraig shoes": {
+    "id": 33878,
+    "value": 10000
+  },
+  "Wyrmscraig villager robe bottom (A, pink)": {
+    "id": 33908,
+    "value": 400
+  },
+  "Wyrmscraig villager robe bottom (B, pink)": {
+    "id": 33929,
+    "value": 400
+  },
+  "Wyrmscraig villager robe top (A, beige)": {
+    "id": 33884,
+    "value": 500
+  },
+  "Wyrmscraig villager robe top (B, pink)": {
+    "id": 33950,
+    "value": 500
+  },
+  "Wyrmscraig villager skirt (pink)": {
+    "id": 33971,
+    "value": 400
+  },
+  "Wyrmscraig villager work skirt (beige)": {
+    "id": 33992,
+    "value": 400
+  },
+  "Wyrmscraig villager work skirt (yellow)": {
+    "id": 33992,
+    "value": 400
+  },
+  "Yak-hide": {
+    "id": 10818,
+    "value": 50
+  },
+  "Yanillian hops": {
+    "id": 5998,
+    "value": 7
+  },
+  "Yanillian seed": {
+    "id": 5309,
+    "value": 6
+  },
+  "Yellow boots": {
+    "id": 2914,
+    "value": 500
+  },
+  "Yellow cape": {
+    "id": 1023,
+    "value": 32
+  },
+  "Yellow dark bow paint": {
+    "id": 12761,
+    "value": 1
+  },
+  "Yellow dye": {
+    "id": 1765,
+    "value": 5
+  },
+  "Yellow feather": {
+    "id": 10090,
+    "value": 13
+  },
+  "Yellow gloves": {
+    "id": 2922,
+    "value": 500
+  },
+  "Yellow hat": {
+    "id": 2920,
+    "value": 500
+  },
+  "Yellow robe bottoms": {
+    "id": 2918,
+    "value": 500
+  },
+  "Yellow robe top": {
+    "id": 2916,
+    "value": 500
+  },
+  "Yew longbow": {
+    "id": 855,
+    "value": 1280
+  },
+  "Yew shortbow": {
+    "id": 857,
+    "value": 800
+  },
+  "Yew stock": {
+    "id": 9452,
+    "value": 167
+  },
+  "Yin yang amulet": {
+    "id": 7803,
+    "value": 1
+  },
+  "Yo-yo": {
+    "id": 4079,
+    "value": 10
+  },
+  "Zamorak brew(4)": {
+    "id": 193
+  },
+  "Zamorak cape": {
+    "id": 2414,
+    "value": 10
+  },
+  "Zamorak halo": {
+    "id": 12638
+  },
+  "Zamorak staff": {
+    "id": 2417,
+    "value": 80000
+  },
+  "Zombie head": {
+    "id": 6722,
+    "value": 0
+  },
+  "Zuriel's hood (bh)(inactive)": {
+    "id": 27839
+  },
+  "Zuriel's robe bottom (bh)(inactive)": {
+    "id": 27841
+  },
+  "Zuriel's robe top (bh)(inactive)": {
+    "id": 27840
+  },
+  "Zuriel's staff (bh)(inactive)": {
+    "id": 27920
+  }
+}
