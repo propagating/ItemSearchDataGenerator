@@ -21,3 +21,10 @@ application {
 tasks.named<JavaExec>("run") {
     workingDir = projectDir
 }
+
+// second entry point: shop data generation (same repo-root working dir as "run")
+tasks.register<JavaExec>("runShops") {
+    mainClass.set("com.itemsearch.datagen.ShopDataGenerator")
+    classpath = sourceSets["main"].runtimeClasspath
+    workingDir = projectDir
+}
