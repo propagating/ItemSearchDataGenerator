@@ -442,6 +442,7 @@
     "location": "Keldagrim",
     "mapX": "2868",
     "mapY": "10209",
+    "mapId": "10",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -834,6 +835,8 @@
   },
   "Ali the Kebab seller": {
     "pageTitle": "Ali the Kebab seller",
+    "mapX": "3354",
+    "mapY": "2975",
     "tables": [
       {
         "lines": [
@@ -1738,6 +1741,7 @@
     "location": "Prifddinas",
     "mapX": "3250",
     "mapY": "6062",
+    "mapId": "29",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -2368,6 +2372,7 @@
     "location": "Blast Furnace in Keldagrim",
     "mapX": "1939",
     "mapY": "4968",
+    "mapId": "10022",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -3106,6 +3111,8 @@
   },
   "Aurel": {
     "pageTitle": "Aurel",
+    "mapX": "3515",
+    "mapY": "3241",
     "tables": [
       {
         "lines": [
@@ -3735,6 +3742,8 @@
   },
   "Baraek": {
     "pageTitle": "Baraek",
+    "mapX": "3217",
+    "mapY": "3435",
     "tables": [
       {
         "lines": [
@@ -3779,6 +3788,10 @@
   },
   "Bardur": {
     "pageTitle": "Bardur",
+    "mapX": "1850",
+    "mapY": "4392",
+    "mapPlane": "1",
+    "mapId": "-1",
     "tables": [
       {
         "nameNotes": "(Fremennik Exiles)",
@@ -4245,6 +4258,8 @@
   },
   "Betty": {
     "pageTitle": "Betty",
+    "mapX": "3013",
+    "mapY": "3259",
     "tables": [
       {
         "lines": [
@@ -4932,6 +4947,7 @@
     "location": "Prifddinas",
     "mapX": "3294",
     "mapY": "6091",
+    "mapId": "29",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -5326,6 +5342,8 @@
   },
   "Brimhaven Agility Arena": {
     "pageTitle": "Brimhaven Agility Arena",
+    "mapX": "2809",
+    "mapY": "3194",
     "tables": [
       {
         "currency": "Brimhaven voucher",
@@ -5450,6 +5468,7 @@
     "mapX": "1449",
     "mapY": "9584",
     "mapPlane": "0",
+    "mapId": "44",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -5564,6 +5583,7 @@
     "mapX": "1426",
     "mapY": "9556",
     "mapPlane": "1",
+    "mapId": "-1",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -5682,6 +5702,8 @@
   },
   "Candle seller": {
     "pageTitle": "Candle seller",
+    "mapX": "3170",
+    "mapY": "3176",
     "tables": [
       {
         "lines": [
@@ -5719,6 +5741,7 @@
     "location": "Keldagrim",
     "mapX": "2887",
     "mapY": "10207",
+    "mapId": "10",
     "tables": [
       {
         "sellMultiplier": "1500",
@@ -5759,6 +5782,9 @@
   },
   "Cart conductor": {
     "pageTitle": "Cart conductor",
+    "mapX": "2919",
+    "mapY": "10180",
+    "mapId": "10",
     "tables": [
       {
         "lines": [
@@ -5797,6 +5823,9 @@
   },
   "Cart conductor (Dwarven Mine)": {
     "pageTitle": "Cart conductor (Dwarven Mine)",
+    "mapX": "2996",
+    "mapY": "9837",
+    "mapId": "6",
     "tables": [
       {
         "lines": [
@@ -5823,6 +5852,9 @@
   },
   "Cart conductor (White Wolf Mountain)": {
     "pageTitle": "Cart conductor (White Wolf Mountain)",
+    "mapX": "2875",
+    "mapY": "9873",
+    "mapId": "20",
     "tables": [
       {
         "lines": [
@@ -6007,6 +6039,10 @@
   },
   "Civilian": {
     "pageTitle": "Civilian",
+    "mapX": "2468",
+    "mapY": "3304",
+    "mapPlane": "0",
+    "mapId": "-1",
     "tables": [
       {
         "currency": "death runes",
@@ -6318,6 +6354,7 @@
     "pageTitle": "Construction supplies",
     "mapX": "3314",
     "mapY": "6120",
+    "mapId": "29",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -6404,6 +6441,7 @@
     "location": "Dwarven Mines",
     "mapX": "3004",
     "mapY": "9799",
+    "mapId": "6",
     "tables": [
       {
         "sellMultiplier": "3600",
@@ -6512,6 +6550,7 @@
     "location": "Keldagrim Palace",
     "mapX": "2887",
     "mapY": "10203",
+    "mapId": "10",
     "tables": [
       {
         "sellMultiplier": "3000",
@@ -6620,6 +6659,7 @@
     "location": "White Wolf Mountain",
     "mapX": "2865",
     "mapY": "9871",
+    "mapId": "20",
     "tables": [
       {
         "sellMultiplier": "3600",
@@ -6728,6 +6768,7 @@
     "location": "Lumbridge Castle basement",
     "mapX": "3219",
     "mapY": "9623",
+    "mapId": "-1",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -11623,6 +11664,7 @@
     "location": "Deepfin Mine",
     "mapX": "1956",
     "mapY": "9172",
+    "mapId": "48",
     "tables": [
       {
         "sellMultiplier": "2500",
@@ -15409,6 +15451,8 @@
   },
   "Fritz the Glassblower": {
     "pageTitle": "Fritz the Glassblower",
+    "mapX": "2829",
+    "mapY": "3354",
     "tables": [
       {
         "lines": [
@@ -16575,6 +16619,7 @@
     "location": "Giants' Foundry",
     "mapX": "3371",
     "mapY": "11486",
+    "mapId": "-1",
     "tables": [
       {
         "currency": "Foundry Reputation",
@@ -16683,6 +16728,9 @@
   },
   "Gnome Waiter": {
     "pageTitle": "Gnome Waiter",
+    "mapX": "2448",
+    "mapY": "3503",
+    "mapPlane": "1",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -16761,6 +16809,7 @@
     "location": "Rogues' Den (Burthorpe)",
     "mapX": "3050",
     "mapY": "4961",
+    "mapId": "10137",
     "tables": [
       {
         "currency": "Mark of grace",
@@ -17169,6 +17218,7 @@
     "location": "Prifddinas",
     "mapX": "3227",
     "mapY": "6059",
+    "mapId": "29",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -17346,6 +17396,7 @@
     "location": "Keldagrim",
     "mapX": "2871",
     "mapY": "10189",
+    "mapId": "10",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -17434,6 +17485,7 @@
     "location": "Prifddinas",
     "mapX": "3290",
     "mapY": "6044",
+    "mapId": "29",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -17775,6 +17827,7 @@
     "location": "Prifddinas",
     "mapX": "3236",
     "mapY": "6128",
+    "mapId": "29",
     "tables": [
       {
         "lines": [
@@ -18587,6 +18640,7 @@
     "mapX": "1437",
     "mapY": "9553",
     "mapPlane": "1",
+    "mapId": "-1",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -18907,6 +18961,7 @@
     "location": "Prifddinas",
     "mapX": "3258",
     "mapY": "6061",
+    "mapId": "29",
     "tables": [
       {
         "sellMultiplier": "1500",
@@ -18973,6 +19028,8 @@
   },
   "Iron Bill": {
     "pageTitle": "Iron Bill",
+    "mapX": "1867",
+    "mapY": "3298",
     "tables": [
       {
         "sellMultiplier": "2500",
@@ -19297,6 +19354,10 @@
   },
   "Islwyn": {
     "pageTitle": "Islwyn",
+    "mapX": "2206",
+    "mapY": "3158",
+    "mapPlane": "0",
+    "mapId": "0",
     "tables": [
       {
         "lines": [
@@ -19367,6 +19428,7 @@
     "location": "Prifddinas",
     "mapX": "3255",
     "mapY": "6128",
+    "mapId": "29",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -20697,6 +20759,7 @@
     "location": "Keldagrim",
     "mapX": "2849",
     "mapY": "10184",
+    "mapId": "10",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -20735,6 +20798,7 @@
     "location": "Keldagrim Palace",
     "mapX": "2892",
     "mapY": "10211",
+    "mapId": "10",
     "tables": [
       {
         "sellMultiplier": "1500",
@@ -20935,6 +20999,7 @@
     "location": "Western Keldagrim",
     "mapX": "2839",
     "mapY": "10195",
+    "mapId": "10",
     "tables": [
       {
         "lines": [
@@ -20962,6 +21027,7 @@
     "location": "Keldagrim",
     "mapX": "2905",
     "mapY": "10216",
+    "mapId": "10",
     "tables": [
       {
         "lines": [
@@ -22311,6 +22377,7 @@
     "location": "Prifddinas",
     "mapX": "3229",
     "mapY": "6070",
+    "mapId": "29",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -23033,6 +23100,8 @@
   },
   "Lucrezia": {
     "pageTitle": "Lucrezia",
+    "mapX": "1356",
+    "mapY": "2926",
     "tables": [
       {
         "lines": [
@@ -23352,6 +23421,8 @@
   },
   "Mac": {
     "pageTitle": "Mac",
+    "mapX": "2787",
+    "mapY": "3543",
     "tables": [
       {
         "lines": [
@@ -23630,6 +23701,7 @@
     "location": "Underwater",
     "mapX": "3765",
     "mapY": "10290",
+    "mapId": "30",
     "tables": [
       {
         "currency": "Mermaid's tear",
@@ -23864,6 +23936,7 @@
     "location": "Rogues' Den",
     "mapX": "3051",
     "mapY": "4974",
+    "mapId": "10137",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -24102,6 +24175,7 @@
     "location": "Dorgesh-Kaan",
     "mapX": "2721",
     "mapY": "5322",
+    "mapId": "5",
     "tables": [
       {
         "sellMultiplier": "1500",
@@ -24200,6 +24274,7 @@
     "location": "Miscellania and Etceteria Dungeon",
     "mapX": "2506",
     "mapY": "10253",
+    "mapId": "-1",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -24298,6 +24373,7 @@
     "location": "Miscellania and Etceteria Dungeon",
     "mapX": "2517",
     "mapY": "10253",
+    "mapId": "-1",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -24351,6 +24427,7 @@
     "location": "Miscellania and Etceteria Dungeon",
     "mapX": "2506",
     "mapY": "10260",
+    "mapId": "-1",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -24502,6 +24579,7 @@
     "location": "Mastering Mixology",
     "mapX": "1395",
     "mapY": "9312",
+    "mapId": "-1",
     "tables": [
       {
         "lines": [
@@ -24856,6 +24934,9 @@
   "Myreque's Rest": {
     "pageTitle": "Myreque's Rest",
     "location": "Burgh de Rott",
+    "mapX": "3495",
+    "mapY": "9628",
+    "mapId": "-1",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -26732,6 +26813,7 @@
     "location": "Keldagrim",
     "mapX": "2922",
     "mapY": "10215",
+    "mapId": "10",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -27586,6 +27668,7 @@
     "location": "Prifddinas",
     "mapX": "3276",
     "mapY": "6108",
+    "mapId": "29",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -27689,6 +27772,7 @@
     "location": "Prifddinas",
     "mapX": "3276",
     "mapY": "6099",
+    "mapId": "29",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -27722,6 +27806,7 @@
     "location": "Prifddinas",
     "mapX": "3301",
     "mapY": "6055",
+    "mapId": "29",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -27810,6 +27895,7 @@
     "location": "Prifddinas",
     "mapX": "3284",
     "mapY": "6121",
+    "mapId": "29",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -27858,6 +27944,7 @@
     "location": "Prifddinas",
     "mapX": "3282",
     "mapY": "6098",
+    "mapId": "29",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -27912,6 +27999,7 @@
     "location": "Prifddinas",
     "mapX": "3219",
     "mapY": "6077",
+    "mapId": "29",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -28187,6 +28275,7 @@
     "location": "Keldagrim",
     "mapX": "2825",
     "mapY": "10202",
+    "mapId": "10",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -28245,6 +28334,7 @@
     "location": "North-west corner of Keldagrim",
     "mapX": "2824",
     "mapY": "10234",
+    "mapId": "10",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -28837,6 +28927,7 @@
     "location": "Under Keldagrim",
     "mapX": "1932",
     "mapY": "4692",
+    "mapId": "-1",
     "tables": [
       {
         "lines": [
@@ -28859,6 +28950,7 @@
     "location": "Under Port Sarim",
     "mapX": "2979",
     "mapY": "9658",
+    "mapId": "-1",
     "tables": [
       {
         "lines": [
@@ -28881,6 +28973,7 @@
     "location": "Under Varrock",
     "mapX": "2905",
     "mapY": "5080",
+    "mapId": "-1",
     "tables": [
       {
         "lines": [
@@ -29481,6 +29574,9 @@
   },
   "Rick (Wizards' Tower)": {
     "pageTitle": "Rick (Wizards' Tower)",
+    "mapX": "3108",
+    "mapY": "3163",
+    "mapPlane": "1",
     "tables": [
       {
         "lines": [
@@ -30421,6 +30517,9 @@
   },
   "Seravel": {
     "pageTitle": "Seravel",
+    "mapX": "2870",
+    "mapY": "2973",
+    "mapPlane": "1",
     "tables": [
       {
         "lines": [
@@ -30755,6 +30854,7 @@
     "location": "Prifddinas",
     "mapX": "3306",
     "mapY": "6074",
+    "mapId": "29",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -31143,6 +31243,8 @@
   },
   "Slayer Equipment (shop)": {
     "pageTitle": "Slayer Equipment (shop)",
+    "mapX": "2931",
+    "mapY": "3537",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -31333,6 +31435,9 @@
   },
   "Sloane": {
     "pageTitle": "Sloane",
+    "mapX": "2855",
+    "mapY": "3553",
+    "mapPlane": "1",
     "tables": [
       {
         "lines": [
@@ -31972,6 +32077,9 @@
   },
   "Supervisor Lalo": {
     "pageTitle": "Supervisor Lalo",
+    "mapX": "1394",
+    "mapY": "9313",
+    "mapId": "43",
     "tables": [
       {
         "lines": [
@@ -32812,6 +32920,7 @@
     "location": "Miscellania and Etceteria dungeon",
     "mapX": "2526",
     "mapY": "10259",
+    "mapId": "-1",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -33191,6 +33300,7 @@
     "mapX": "1431",
     "mapY": "9584",
     "mapPlane": "1",
+    "mapId": "-1",
     "tables": [
       {
         "lines": [
@@ -33432,6 +33542,7 @@
     "mapX": "1426",
     "mapY": "9568",
     "mapPlane": "1",
+    "mapId": "-1",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -33654,6 +33765,7 @@
     "location": "Quetzacalli Gorge",
     "mapX": "1496",
     "mapY": "3223",
+    "mapId": "-1",
     "tables": [
       {
         "lines": [
@@ -33716,6 +33828,8 @@
   },
   "Thessalia": {
     "pageTitle": "Thessalia",
+    "mapX": "3206",
+    "mapY": "3416",
     "tables": [
       {
         "currency": "Frog token",
@@ -34102,6 +34216,7 @@
     "mapX": "1443",
     "mapY": "9553",
     "mapPlane": "1",
+    "mapId": "-1",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -34574,6 +34689,8 @@
   },
   "Trufitus": {
     "pageTitle": "Trufitus",
+    "mapX": "2809",
+    "mapY": "3086",
     "tables": [
       {
         "lines": [
@@ -36168,6 +36285,7 @@
     "location": "Keldagrim Palace",
     "mapX": "2888",
     "mapY": "10189",
+    "mapId": "10",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -36211,6 +36329,7 @@
     "location": "Keldagrim",
     "mapX": "2873",
     "mapY": "10209",
+    "mapId": "10",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -36561,6 +36680,7 @@
     "location": "The Warrens",
     "mapX": "1825",
     "mapY": "10145",
+    "mapId": "32",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -36694,6 +36814,7 @@
     "location": "The Warrens",
     "mapX": "1838",
     "mapY": "10149",
+    "mapId": "32",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -38409,6 +38530,9 @@
   },
   "Yadech Strongarm": {
     "pageTitle": "Yadech Strongarm",
+    "mapX": "2855",
+    "mapY": "3553",
+    "mapPlane": "1",
     "tables": [
       {
         "lines": [
@@ -38486,6 +38610,7 @@
     "mapX": "1443",
     "mapY": "9559",
     "mapPlane": "1",
+    "mapId": "-1",
     "tables": [
       {
         "sellMultiplier": "1000",
