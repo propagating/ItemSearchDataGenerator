@@ -1,0 +1,10 @@
+{{Infobox Monster
+|name = General Graardor
+|combat = 624
+|max hit = 60 (melee), 35 (ranged)
+|attack style = [[Crush]], [[Ranged]]
+|attack speed = 6
+|hitpoints = 255
+|id = 2215
+}}
+'''General Graardor''' is a boss.

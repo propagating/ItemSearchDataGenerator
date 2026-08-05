@@ -1,0 +1,6866 @@
+{
+  "A Doubt": {
+    "maxHit": "8",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Aberrant spectre": {
+    "maxHit": "8, 14 (without [[Nose peg]])",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Abhorrent spectre": {
+    "maxHit": "31",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Abyssal Sire": {
+    "maxHit": "66 ([[Melee]]), 96 (with explosion)",
+    "maxHits": [],
+    "attackStyle": "[[Melee]]",
+    "attackStyles": [],
+    "attackSpeed": "7",
+    "attackSpeeds": []
+  },
+  "Abyssal demon": {
+    "maxHit": "8",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Abyssal guardian": {
+    "maxHit": "11",
+    "maxHits": [],
+    "attackStyle": "[[Stab]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Abyssal leech": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "2",
+    "attackSpeeds": []
+  },
+  "Abyssal walker": {
+    "maxHit": "13",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Adamant dragon": {
+    "maxHit": "29 ([[Melee]]), 20 ([[Ranged]]), 20 ([[Magic]]), 50 ([[Dragonfire]]), 25 (Poison special)",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Ranged]], [[Magic]], [[Dragonfire]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Afflicted": {
+    "maxHits": [
+      "3",
+      "4",
+      "4",
+      "4"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Agrith Naar": {
+    "maxHit": "10 (Crush), 10 (Magic)",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Agrith-Na-Na": {
+    "maxHit": "16",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ahrim the Blighted": {
+    "maxHit": "20",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Air elemental": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Air wizard": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Albino bat": {
+    "maxHit": "7",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Alchemical Hydra": {
+    "maxHits": [
+      "17x2 (default), 26x2 (empowered)",
+      "35 (default), 26x2 (empowered)",
+      "35 (default), 52 (empowered)",
+      "55"
+    ],
+    "attackStyle": "[[Ranged]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeeds": [
+      "6",
+      "6",
+      "6",
+      "4"
+    ]
+  },
+  "Alexis": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Alomone": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ammonite Crab": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ancient Wizard": {
+    "maxHits": [
+      "18",
+      "23",
+      "36"
+    ],
+    "attackStyles": [
+      "[[Magic]]",
+      "[[Ranged]]",
+      "[[Stab]]"
+    ],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ancient Wyvern": {
+    "maxHit": "10 ([[Magic]]), 16 ([[Melee]]), 44 ([[Icy breath]]), 10 (Icy breath with [[Elemental shield]] equipped)",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Typeless]] [[Magic]], [[Icy breath]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Ancient Zygomite": {
+    "maxHit": "9 (melee), 10 (ranged)",
+    "maxHits": [],
+    "attackStyle": "[[Magical melee]], [[Magical ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Angry barbarian spirit": {
+    "maxHit": "18",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Angry giant rat": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Animated Adamant Armour": {
+    "maxHit": "12",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Animated Black Armour": {
+    "maxHit": "7",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Animated Bronze Armour": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Animated Iron Armour": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Animated Mithril Armour": {
+    "maxHit": "10",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Animated Rune Armour": {
+    "maxHit": "14",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Animated Steel Armour": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Animated spade": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Animated steel armour (Tarn's Lair)": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Anja": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ankou": {
+    "maxHits": [
+      "8",
+      "8",
+      "8",
+      "8",
+      "10"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Armadylean guard": {
+    "maxHit": "10",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Arrg": {
+    "maxHit": "38 (melee), 30 (ranged)",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Asyn Shade": {
+    "maxHit": "9",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Aviansie": {
+    "maxHits": [
+      "8",
+      "10",
+      "10",
+      "9",
+      "11",
+      "9",
+      "10",
+      "12",
+      "10",
+      "11",
+      "11",
+      "11",
+      "15",
+      "15",
+      "16"
+    ],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Baby Roc": {
+    "maxHit": "8",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Baby black dragon": {
+    "maxHit": "11",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Baby blue dragon": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Baby green dragon": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Baby red dragon": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Baby red dragon (Construction)": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Baby tanglefoot": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Balfrug Kreeyath": {
+    "maxHit": "16",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Bandit": {
+    "maxHits": [
+      "3",
+      "12"
+    ],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Bandit (Bandit Camp)": {
+    "maxHits": [
+      "6",
+      "7"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Bandit (Pollnivneach)": {
+    "maxHits": [
+      "7",
+      "9"
+    ],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Bandit (Shayzien)": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Bandit champion": {
+    "maxHit": "10",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Bandosian guard": {
+    "maxHit": "13",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Banshee": {
+    "maxHit": "2, 6 (without [[Earmuffs]])",
+    "maxHits": [],
+    "attackStyle": "[[Magical melee]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Barbarian": {
+    "maxHits": [
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "3",
+      "3",
+      "3",
+      "3",
+      "3"
+    ],
+    "attackStyles": [
+      "[[Stab]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Ranged]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]]"
+    ],
+    "attackSpeeds": [
+      "6",
+      "4",
+      "4",
+      "4",
+      "4",
+      "4",
+      "4",
+      "4",
+      "4",
+      "4",
+      "4",
+      "4",
+      "4",
+      "4",
+      "4",
+      "4",
+      "4",
+      "4"
+    ]
+  },
+  "Barbarian (Barbarian Camp)": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyles": [
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Ranged]]"
+    ],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Barbarian (historical)": {
+    "maxHit": "|aggressive =",
+    "maxHits": [],
+    "attackStyle": "|attack speed =",
+    "attackStyles": [],
+    "attackSpeed": "|hitpoints = 14",
+    "attackSpeeds": []
+  },
+  "Bark Blamish Snail": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Basilisk": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Basilisk Knight": {
+    "maxHit": "20",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "Varies",
+    "attackSpeeds": []
+  },
+  "Basilisk Sentinel": {
+    "maxHit": "28 (normal), 74+ (special attack)",
+    "maxHits": [],
+    "attackStyle": "[[Magic]], [[Melee]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Basilisk Youngling": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Bat": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Battle mage": {
+    "maxHit": "20",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Bear Cub": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Bedabin Nomad Fighter": {
+    "maxHit": "7",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Berry": {
+    "maxHit": "13",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Berserk barbarian spirit": {
+    "maxHit": "18",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Big Snake": {
+    "maxHit": "14",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Big Wolf": {
+    "maxHit": "7",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Big frog": {
+    "maxHits": [
+      "2",
+      "3"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Billy Goat": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Bird": {
+    "maxHits": [
+      "1",
+      "2"
+    ],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Black Guard": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Black Guard Berserker": {
+    "maxHit": "13",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "3",
+    "attackSpeeds": []
+  },
+  "Black Heather": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Black Knight": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Black Knight (Wanted!)": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Black Knight Titan": {
+    "maxHit": "15",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "7",
+    "attackSpeeds": []
+  },
+  "Black bear": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Black demon": {
+    "maxHits": [
+      "16",
+      "16",
+      "17",
+      "17"
+    ],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Black dragon": {
+    "maxHits": [
+      "21 ([[Melee]]), 50 ([[Dragonfire]])",
+      "22 ([[Melee]]), 50+ ([[Dragonfire]])"
+    ],
+    "attackStyle": "[[Slash]], [[Dragonfire]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Black unicorn": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Black unicorn Foal": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Blessed giant rat": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Blood Blamish Snail": {
+    "maxHits": [
+      "2",
+      "3"
+    ],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Bloodveld": {
+    "maxHits": [
+      "5",
+      "6"
+    ],
+    "attackStyle": "[[Magical melee]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Blue dragon": {
+    "maxHit": "10 ([[Slash]]), 50 ([[Dragonfire]])",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Dragonfire]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Boar": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Body Golem": {
+    "maxHit": "7",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Boris": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Borrokar": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Bouncer": {
+    "maxHit": "13",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Bouncer (ghost)": {
+    "maxHit": "15",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Brassican Mage": {
+    "maxHit": "16",
+    "maxHits": [],
+    "attackStyle": "[[Typeless]] [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "3",
+    "attackSpeeds": []
+  },
+  "Bree": {
+    "maxHit": "16",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Breoca": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Brine rat": {
+    "maxHit": "9",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Broddi": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Bronze dragon": {
+    "maxHits": [
+      "12 ([[Melee]]), 50 ([[Dragonfire]])",
+      "14 ([[Melee]]), 50 ([[Dragonfire]])"
+    ],
+    "attackStyle": "[[Slash]], [[Dragonfire]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Broodoo victim": {
+    "maxHit": "7",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Bruise Blamish Snail": {
+    "maxHits": [
+      "2",
+      "3"
+    ],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Brutal black dragon": {
+    "maxHit": "29 ([[Melee]]; [[Magic]]), 50 ([[Dragonfire]])",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Magic]], [[Dragonfire]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Brutal blue dragon": {
+    "maxHit": "21 ([[Melee]]; [[Magic]]), 50 ([[Dragonfire]])",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Magic]], [[Dragonfire]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Brutal green dragon": {
+    "maxHit": "18 ([[Melee]]; [[Magic]]), 50 ([[Dragonfire]])",
+    "maxHits": [],
+    "attackStyle": "[[Stab]], [[Magic]], [[Dragonfire]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Brutal red dragon": {
+    "maxHit": "22 ([[Melee]]; [[Magic]]), 50 ([[Dragonfire]])",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Magic]], [[Dragonfire]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Bryophyta": {
+    "maxHit": "16 ([[Melee]]), 10 ([[Magic]])",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Bunny": {
+    "maxHit": "0",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Bush snake": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "3",
+    "attackSpeeds": []
+  },
+  "Callisto": {
+    "maxHit": "55 ([[Crush]]), 31 ([[Ranged]]), 50 (Special)",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Magic]], [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Camp dweller": {
+    "maxHits": [
+      "3",
+      "5",
+      "5",
+      "5",
+      "5"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Carnivorous chinchompa": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Catablepon": {
+    "maxHits": [
+      "6",
+      "6",
+      "7"
+    ],
+    "attackStyle": "[[Stab]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Cave abomination": {
+    "maxHit": "24",
+    "maxHits": [],
+    "attackStyle": "[[Magical melee]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Cave bug": {
+    "maxHits": [
+      "1",
+      "9"
+    ],
+    "attackStyles": [
+      "[[Stab]]",
+      "[[Crush]]"
+    ],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Cave crawler": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Cave goblin guard": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Cave goblin miner": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Cave horror": {
+    "maxHit": "9",
+    "maxHits": [],
+    "attackStyle": "[[Magical melee]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Cave kraken": {
+    "maxHit": "13",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Cave lizard": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Cave slime": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ceolburg": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Cerberus": {
+    "maxHit": "23",
+    "maxHits": [],
+    "attackStyle": "[[Stab]], [[Ranged]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Chaos Elemental": {
+    "maxHit": "28",
+    "maxHits": [],
+    "attackStyle": "[[Magic]], [[Ranged]], [[Melee]] ([[Crush]]?)",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Chaos Fanatic": {
+    "maxHit": "21 (Magic attack)<br>",
+    "maxHits": [],
+    "attackStyle": "[[Ranged magic]]",
+    "attackStyles": [],
+    "attackSpeed": "2",
+    "attackSpeeds": []
+  },
+  "Chaos Golem": {
+    "maxHit": "10",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Chaos druid": {
+    "maxHit": "2 ([[Melee]])",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Chaos druid warrior": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Chaos dwarf": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Chaotic death spawn": {
+    "maxHit": "7",
+    "maxHits": [],
+    "attackStyles": [
+      "[[Slash]]",
+      "[[Ranged]]",
+      "[[Magic]]"
+    ],
+    "attackSpeed": "3",
+    "attackSpeeds": []
+  },
+  "Chasm Crawler": {
+    "maxHit": "7",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Chicken": {
+    "maxHit": "0",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Chicken (Tutorial Island)": {
+    "maxHit": "0",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Choke devil": {
+    "maxHit": "24",
+    "maxHits": [],
+    "attackStyle": "[[Ranged melee]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Chompy bird": {
+    "maxHit": "0",
+    "maxHits": [],
+    "attackStyle": "None",
+    "attackStyles": [],
+    "attackSpeed": "No",
+    "attackSpeeds": []
+  },
+  "Chronozon": {
+    "maxHit": "18",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Clivet": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Cockathrice": {
+    "maxHit": "9",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Cockatrice": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Colonel Radick": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Colossal Hydra": {
+    "maxHit": "34",
+    "maxHits": [],
+    "attackStyle": "[[Magic]], [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Commander Zilyana": {
+    "maxHit": "27 (melee), 20 (magic)",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "2",
+    "attackSpeeds": []
+  },
+  "Confused barbarian": {
+    "maxHit": "15",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Corporeal Beast": {
+    "maxHit": "33 (Melee), 65 (Magic), 51 (Stomp)",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Corrupt Lizardman": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Corrupted Bat": {
+    "maxHit": "11",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Corrupted Bear": {
+    "maxHit": "48",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Corrupted Dark Beast": {
+    "maxHit": "48",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Corrupted Dragon": {
+    "maxHit": "48",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Corrupted Rat": {
+    "maxHit": "14",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Corrupted Scorpion": {
+    "maxHit": "17",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Corrupted Spider": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Corrupted Unicorn": {
+    "maxHit": "17",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Corrupted Wolf": {
+    "maxHit": "19",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Cow": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Cow (Nightmare Zone)": {
+    "maxHits": [
+      "1",
+      "16"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Cow calf": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Crab": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Crawling Hand": {
+    "maxHits": [
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Crazy archaeologist": {
+    "maxHit": "14 (standard), 24 (special)",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]], [[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "3",
+    "attackSpeeds": []
+  },
+  "Crocodile": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Crushing hand": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Crypt rat": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Crystalline Bat": {
+    "maxHit": "8",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Crystalline Bear": {
+    "maxHit": "28",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Crystalline Dark Beast": {
+    "maxHit": "28",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Crystalline Dragon": {
+    "maxHit": "28",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Crystalline Rat": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Crystalline Scorpion": {
+    "maxHit": "11",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Crystalline Spider": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Crystalline Unicorn": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Crystalline Wolf": {
+    "maxHit": "8",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Cuffs": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Culinaromancer": {
+    "maxHit": "25 (Magic), 11 (Crush)",
+    "maxHits": [],
+    "attackStyle": "[[Melee]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Cyclops": {
+    "maxHits": [
+      "6",
+      "7",
+      "8"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Dad": {
+    "maxHit": "27",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "8",
+    "attackSpeeds": []
+  },
+  "Dagannoth": {
+    "maxHit": "8",
+    "maxHits": [],
+    "attackStyles": [
+      "[[Ranged]]",
+      "[[Stab]]",
+      "[[Stab]]",
+      "[[Stab]]"
+    ],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Dagannoth (Construction)": {
+    "maxHit": "22",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Dagannoth (Horror from the Deep)": {
+    "maxHit": "9",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Dagannoth Prime": {
+    "maxHit": "50",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Dagannoth Rex": {
+    "maxHit": "26",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Dagannoth Supreme": {
+    "maxHit": "30",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Dagannoth fledgeling": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Dagannoth mother": {
+    "maxHit": "9 ([[Melee]]), 12×2 ([[Ranged]])",
+    "maxHits": [],
+    "attackStyle": "[[Melee]], [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Dagannoth spawn": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Damis": {
+    "maxHits": [
+      "22",
+      "28"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeeds": [
+      "4",
+      "3"
+    ]
+  },
+  "Dark beast": {
+    "maxHit": "17 (melee), 8 (magic)",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Dark energy core": {
+    "maxHit": "13",
+    "maxHits": [],
+    "attackStyle": "None",
+    "attackStyles": [],
+    "attackSpeed": "2",
+    "attackSpeeds": []
+  },
+  "Dark warrior": {
+    "maxHits": [
+      "2",
+      "4",
+      "5",
+      "6",
+      "18"
+    ],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Dark wizard": {
+    "maxHits": [
+      "2",
+      "5",
+      "6",
+      "5",
+      "5"
+    ],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Deadly red spider": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Death spawn": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Typeless]] [[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Death wing": {
+    "maxHit": "8 (approx)",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Deathly mage": {
+    "maxHits": [
+      "22",
+      "|aggressive = No"
+    ],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Deathly ranger": {
+    "maxHits": [
+      "70",
+      "99"
+    ],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Demonic gorilla": {
+    "maxHit": "31 (normal), 40 (special attack)",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Ranged]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Deranged archaeologist": {
+    "maxHit": "25 (melee), 25 (range), 56 (special direct hit), 18+ (special indirect hit)",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]], [[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "3",
+    "attackSpeeds": []
+  },
+  "Derwen": {
+    "maxHit": "43 (Magic), 16 (Melee)",
+    "maxHits": [],
+    "attackStyle": "[[Magic]], [[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Desert Lizard": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Desert Wolf": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Dessourt": {
+    "maxHit": "19",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Magic]],",
+    "attackStyles": [],
+    "attackSpeed": "3",
+    "attackSpeeds": []
+  },
+  "Dessous": {
+    "maxHit": "19 (Melee), 5 (Magic), 5 (Ranged)",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Magic]], [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "3",
+    "attackSpeeds": []
+  },
+  "Deviant spectre": {
+    "maxHit": "8, 14 (without [[Nose peg]])",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Dharok the Wretched": {
+    "maxHit": "29 (normal), 57 (at 1 [[Hitpoint]]s)",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "7",
+    "attackSpeeds": []
+  },
+  "Dire Wolf": {
+    "maxHits": [
+      "8",
+      "7",
+      "3"
+    ],
+    "attackStyles": [
+      "[[Stab]]",
+      "[[Stab]]",
+      "[[Ranged]]"
+    ],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Disciple of Iban": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Donny the lad": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Doomion": {
+    "maxHit": "9",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Double agent": {
+    "maxHits": [
+      "5",
+      "14",
+      "19"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Drake": {
+    "maxHit": "15 ([[Ranged]]),15 ([[Ranged_melee|Ranged melee]]), 32 ([[Dragonfire]])",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]], [[Ranged melee]], [[Dragonfire]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Druid": {
+    "maxHit": "4 ([[Crush]]), 5 ([[Magic]])",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Drunken man": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Duck": {
+    "maxHit": "0",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Dungeon rat": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Dust devil": {
+    "maxHits": [
+      "8, 16 (without [[Facemask]])",
+      "8, 16 (without [[Facemask]])",
+      "10, 16 (without [[Facemask]])"
+    ],
+    "attackStyle": "[[Ranged melee]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Dwarf": {
+    "maxHits": [
+      "2",
+      "3",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2"
+    ],
+    "attackStyles": [
+      "[[Stab]]",
+      "[[Crush]]",
+      "[[Stab]]",
+      "[[Stab]]",
+      "[[Stab]]",
+      "[[Stab]]",
+      "[[Stab]]",
+      "[[Stab]]",
+      "[[Stab]]",
+      "[[Stab]]",
+      "[[Stab]]",
+      "[[Stab]]",
+      "[[Stab]]",
+      "[[Stab]]"
+    ],
+    "attackSpeeds": [
+      "5",
+      "6",
+      "5",
+      "5",
+      "5",
+      "4",
+      "4",
+      "4",
+      "6",
+      "6",
+      "4",
+      "4",
+      "4",
+      "4"
+    ]
+  },
+  "Dwarf gang member": {
+    "maxHits": [
+      "5",
+      "4",
+      "7"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Eadburg": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Earth elemental": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Earth warrior": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Earth wizard": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Eduard": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Einar": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Elder Chaos druid": {
+    "maxHit": "17",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Elf Archer": {
+    "maxHit": "11",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Elf Warrior": {
+    "maxHit": "10",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Elvarg": {
+    "maxHit": "8 ([[Slash]]), 70 ([[Dragonfire]]), 10 (with [[anti-dragon shield]])",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Magic]], [[Dragonfire]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Enclave guard": {
+    "maxHit": "10",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Enraged barbarian spirit": {
+    "maxHit": "18",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ent": {
+    "maxHit": "17",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Entrana firebird": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Evil Chicken": {
+    "maxHit": "21",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Evil Chicken (Recipe for Disaster)": {
+    "maxHit": "21",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Evil spirit": {
+    "maxHit": "28",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Experiment": {
+    "maxHits": [
+      "6",
+      "1",
+      "1"
+    ],
+    "attackStyles": [
+      "[[Stab]]",
+      "[[Crush]]",
+      "[[Crush]]"
+    ],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Experiment No.2": {
+    "maxHit": "11 (approx)",
+    "maxHits": [],
+    "attackStyle": "[[Stab]], [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Fareed": {
+    "maxHit": "37, 40 (without [[Ice gloves]])",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Farmer": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Feral Vampyre": {
+    "maxHits": [
+      "7",
+      "7",
+      "6",
+      "8",
+      "8",
+      "9",
+      "13"
+    ],
+    "attackStyles": [
+      "[[Stab]]",
+      "[[Slash]]",
+      "[[Slash]]",
+      "[[Stab]]",
+      "[[Slash]]",
+      "[[Slash]]",
+      "[[Slash]]"
+    ],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ferocious barbarian spirit": {
+    "maxHit": "18",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Fever spider": {
+    "maxHit": "4, 1–12 (without [[Slayer gloves]])",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Fire elemental": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Fire giant": {
+    "maxHits": [
+      "11",
+      "10",
+      "13"
+    ],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Fire wizard": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Fiyr Shade": {
+    "maxHit": "11",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Flaming pyrelord": {
+    "maxHit": "7",
+    "maxHits": [],
+    "attackStyle": "[[Magical melee]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Flawed Golem": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Flesh Crawler": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "3",
+    "attackSpeeds": []
+  },
+  "Flight Kilisa": {
+    "maxHit": "15",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Flockleader Geerin": {
+    "maxHit": "25",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Foreman": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Forgotten Soul": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Forgotten Soul (Soul Wars)": {
+    "maxHits": [
+      "5",
+      "8"
+    ],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Fortress Guard": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Fox": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Freidir": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Frog": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Frogeel": {
+    "maxHit": "10",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Galina": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Gang boss": {
+    "maxHits": [
+      "13",
+      "12"
+    ],
+    "attackStyles": [
+      "[[Ranged]]",
+      "[[Slash]]"
+    ],
+    "attackSpeed": "3",
+    "attackSpeeds": []
+  },
+  "Gangster": {
+    "maxHits": [
+      "5",
+      "6",
+      "6",
+      "8"
+    ],
+    "attackStyles": [
+      "[[Stab]]",
+      "[[Crush]]",
+      "[[Slash]]",
+      "[[Crush]]"
+    ],
+    "attackSpeeds": [
+      "4",
+      "4",
+      "7",
+      "4"
+    ]
+  },
+  "Gardener": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Gargoyle": {
+    "maxHit": "11",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "General Graardor": {
+    "maxHit": "60 (melee), 35 (ranged)",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Georgy": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ghast": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ghost": {
+    "maxHits": [
+      "2",
+      "7",
+      "7"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ghost (Grave of Scorpius)": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ghost (Melzar's Maze)": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ghoul": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Giant Champion": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Giant Mole": {
+    "maxHit": "21",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Giant Roc": {
+    "maxHit": "14 (Melee), 20 (Ranged)",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Giant Rock Crab": {
+    "maxHit": "9",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Giant Sea Snake": {
+    "maxHit": "14",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Giant bat": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Giant crypt rat": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Giant frog": {
+    "maxHits": [
+      "2",
+      "9"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Giant lobster (Ghosts Ahoy)": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Giant rat": {
+    "maxHits": [
+      "1",
+      "1",
+      "3"
+    ],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Giant rockslug": {
+    "maxHit": "9",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Giant snail": {
+    "maxHits": [
+      "8",
+      "13",
+      "17"
+    ],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Giant spider": {
+    "maxHits": [
+      "1",
+      "3",
+      "7"
+    ],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Glod": {
+    "maxHit": "25",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Gnome": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Gnome Archer": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Gnome Driver": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Gnome child": {
+    "maxHit": "0",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Gnome guard": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeeds": [
+      "6",
+      "4"
+    ]
+  },
+  "Gnome troop": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Gnome woman": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Goat": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Goblin": {
+    "maxHits": [
+      "1",
+      "1",
+      "1",
+      "2"
+    ],
+    "attackStyles": [
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Stab]]",
+      "[[Crush]]"
+    ],
+    "attackSpeeds": [
+      "4",
+      "4",
+      "6",
+      "4"
+    ]
+  },
+  "Goblin (Goblin Village)": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Goblin (God Wars Dungeon)": {
+    "maxHits": [
+      "2",
+      "2",
+      "2",
+      "2",
+      "3"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Goblin (Vault of War)": {
+    "maxHits": [
+      "1",
+      "1",
+      "2",
+      "3",
+      "3"
+    ],
+    "attackStyles": [
+      "[[Stab]]",
+      "[[Stab]]",
+      "[[Crush]]",
+      "[[Stab]]",
+      "[[Crush]]"
+    ],
+    "attackSpeeds": [
+      "6",
+      "6",
+      "4",
+      "6",
+      "4"
+    ]
+  },
+  "Goblin (historical)": {
+    "maxHit": "|aggressive =",
+    "maxHits": [],
+    "attackStyle": "|attack speed =",
+    "attackStyles": [],
+    "attackSpeed": "|hitpoints =",
+    "attackSpeeds": []
+  },
+  "Goblin guard": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Gorad": {
+    "maxHit": "7",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Gorak": {
+    "maxHit": "14",
+    "maxHits": [],
+    "attackStyle": "[[Typeless]] [[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Grave scorpion": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Greater Nechryael": {
+    "maxHit": "21",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Greater abyssal demon": {
+    "maxHit": "27",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Greater demon": {
+    "maxHits": [
+      "9",
+      "8",
+      "10",
+      "10",
+      "10"
+    ],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Green dragon": {
+    "maxHit": "8 ([[Slash]]), 50 ([[Dragonfire]])",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Dragonfire]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Grizzly bear": {
+    "maxHits": [
+      "3",
+      "5"
+    ],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Grizzly bear cub": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Growler": {
+    "maxHit": "16",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Guard": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Guard (Burthorpe)": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Guard (Cave goblin)": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Guard (Deadman Mode)": {
+    "maxHit": "Varies",
+    "maxHits": [],
+    "attackStyles": [
+      "[[Slash]]",
+      "[[Ranged]]",
+      "[[Slash]]",
+      "[[Ranged]]",
+      "[[Ranged]]",
+      "[[Ranged]]",
+      "[[Slash]]",
+      "[[Ranged]]",
+      "[[Slash]]",
+      "[[Ranged]]",
+      "[[Slash]]",
+      "[[Ranged]]",
+      "[[Slash]]",
+      "[[Ranged]]",
+      "[[Slash]]",
+      "[[Ranged]]",
+      "[[Slash]]",
+      "[[Ranged]]",
+      "[[Slash]]",
+      "[[Ranged]]",
+      "[[Slash]]",
+      "[[Ranged]]",
+      "[[Slash]]",
+      "[[Ranged]]",
+      "[[Slash]]",
+      "[[Ranged]]",
+      "[[Slash]]",
+      "[[Ranged]]",
+      "[[Slash]]",
+      "[[Ranged]]",
+      "[[Slash]]",
+      "[[Slash]]"
+    ],
+    "attackSpeed": "2",
+    "attackSpeeds": []
+  },
+  "Guard (Desert Mining Camp)": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Guard (Hosidius)": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyles": [
+      "[[Ranged]]",
+      "[[Crush]]"
+    ],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Guard (Prifddinas)": {
+    "maxHit": "10",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Guard (Ranging Guild)": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Guard (Shayzien)": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Guard (dwarf)": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Guard Bandit": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Guard dog": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Guard dog (Construction)": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Guardian Drake": {
+    "maxHit": "35 (melee), 39+ (spec)",
+    "maxHits": [],
+    "attackStyle": "[[Ranged melee]], [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Guardian of Armadyl": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Gunthor the brave": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Guthan the Infested": {
+    "maxHit": "24",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "H.A.M. Guard": {
+    "maxHits": [
+      "2",
+      "3",
+      "3"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeeds": [
+      "7",
+      "6",
+      "5"
+    ]
+  },
+  "Harpie Bug Swarm": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Head Guard": {
+    "maxHit": "10",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Head Thief": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Headless Beast": {
+    "maxHit": "10 (Melee), 16 (Special attack)",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Hellhound": {
+    "maxHits": [
+      "11",
+      "13",
+      "13"
+    ],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Hengel": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Hero": {
+    "maxHit": "9",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Hespori": {
+    "maxHit": "8x2 ([[Ranged]]), 14 ([[Magic]]), 40+ (special)",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Hespori (A Night at the Theatre)": {
+    "maxHit": "8 (x2) ([[Ranged]]), 14 ([[Magic]]), 40+ (special)",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Highwayman": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Hill Giant": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Hobgoblin": {
+    "maxHits": [
+      "3",
+      "5",
+      "3",
+      "3",
+      "3",
+      "3",
+      "5"
+    ],
+    "attackStyles": [
+      "[[Crush]]",
+      "[[Stab]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]]"
+    ],
+    "attackSpeeds": [
+      "4",
+      "6",
+      "4",
+      "4",
+      "4",
+      "4",
+      "4"
+    ]
+  },
+  "Hobgoblin guard": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Holthion": {
+    "maxHit": "9",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Hoop Snake": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Hydra": {
+    "maxHit": "22",
+    "maxHits": [],
+    "attackStyle": "[[Magic]], [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Hygd": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ice Queen": {
+    "maxHit": "10",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ice demon": {
+    "maxHit": "Varies",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "3",
+    "attackSpeeds": []
+  },
+  "Ice giant": {
+    "maxHit": "7",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Ice spider": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ice troll": {
+    "maxHits": [
+      "21",
+      "23",
+      "25",
+      "25"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ice troll grunt": {
+    "maxHit": "21",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ice warrior": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ice wolf": {
+    "maxHits": [
+      "10",
+      "16"
+    ],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Icefiend": {
+    "maxHits": [
+      "2",
+      "3"
+    ],
+    "attackStyle": "[[Magical melee]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Icelord": {
+    "maxHits": [
+      "5",
+      "5",
+      "5",
+      "1"
+    ],
+    "attackStyles": [
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Ranged]]"
+    ],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Imp": {
+    "maxHits": [
+      "0",
+      "1"
+    ],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Imre": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Infernal Mage": {
+    "maxHit": "8",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Infernal pyrelord": {
+    "maxHit": "10",
+    "maxHits": [],
+    "attackStyle": "[[Magical melee]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Insatiable Bloodveld": {
+    "maxHit": "15",
+    "maxHits": [],
+    "attackStyle": "[[Magical melee]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Insatiable mutated Bloodveld": {
+    "maxHit": "20",
+    "maxHits": [],
+    "attackStyle": "[[Magical melee]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Invrigar the Necromancer": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Magic]], [[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Iorwerth Archer": {
+    "maxHit": "11",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Iorwerth Warrior": {
+    "maxHit": "10",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Irina": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Iron dragon": {
+    "maxHits": [
+      "17 ([[Melee]]), 50 ([[Dragonfire]])",
+      "19 ([[Melee]]), 50 ([[Dragonfire]])"
+    ],
+    "attackStyle": "[[Slash]], [[Dragonfire]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ithoi the Navigator": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Jackal": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Jail guard": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Jailer": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Jake": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Jeff": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Jelly": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Magical melee]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Jennella": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Jogre": {
+    "maxHits": [
+      "7",
+      "8"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Joseph": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Jubbly bird": {
+    "maxHit": "0 (Does not attack)",
+    "maxHits": [],
+    "attackStyle": "None",
+    "attackStyles": [],
+    "attackSpeed": "No",
+    "attackSpeeds": []
+  },
+  "Jubster": {
+    "maxHit": "9",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Jungle Demon": {
+    "maxHit": "32",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Jungle Wolf": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Jungle horror": {
+    "maxHit": "8",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Jungle spider": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Jungle spider (Ape Atoll)": {
+    "maxHit": "10",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Justiciar Zachariah": {
+    "maxHit": "43 (melee), 26 (magic)",
+    "maxHits": [],
+    "attackStyle": "[[Magic]], [[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "K'ril Tsutsaroth": {
+    "maxHit": "30 (magic), 46 (melee), 49 (special attack)",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Kalphite Guardian": {
+    "maxHit": "12",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Kalphite Queen": {
+    "maxHit": "31",
+    "maxHits": [],
+    "attackStyle": "[[Stab]], [[Ranged]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Kalphite Soldier": {
+    "maxHit": "8",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Kalphite Worker": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Kalphite soldier (Construction)": {
+    "maxHit": "8",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Kamil": {
+    "maxHit": "23 ([[Melee]]), 5x2 ([[Magic]])",
+    "maxHits": [],
+    "attackStyle": "[[Melee]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Karamel": {
+    "maxHit": "7x2 ([[Magic]]), 20 ([[Ranged]])",
+    "maxHits": [],
+    "attackStyle": "[[Magic]], [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "3",
+    "attackSpeeds": []
+  },
+  "Karil the Tainted": {
+    "maxHit": "20",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Khazard Guard": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Khazard commander": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Khazard trooper": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyles": [
+      "[[Crush]]",
+      "[[Stab]]"
+    ],
+    "attackSpeeds": [
+      "5",
+      "6"
+    ]
+  },
+  "Khazard warlord": {
+    "maxHit": "10",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Killerwatt": {
+    "maxHit": "8 ([[Ranged]]), 6 ([[Melee]]), 15 ([[Ranged]]; without [[Insulated boots]])",
+    "maxHits": [],
+    "attackStyles": [
+      "[[Stab]], [[Magical ranged]]",
+      "[[Crush]], [[Magical ranged]]"
+    ],
+    "attackSpeed": "2",
+    "attackSpeeds": []
+  },
+  "King Black Dragon": {
+    "maxHit": "25 ([[Melee]]), 65 ([[Dragonfire]])",
+    "maxHits": [],
+    "attackStyle": "[[Stab]], [[Dragonfire]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "King Roald": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "King Sand Crab": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "King Scorpion": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "King kurask": {
+    "maxHit": "33",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Knight of Ardougne": {
+    "maxHit": "6 (regular hit), 3 (pickpocket failure)",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Knight of Ardougne (unused)": {
+    "maxHit": "|aggressive =",
+    "maxHits": [],
+    "attackStyle": "|attack speed =",
+    "attackStyles": [],
+    "attackSpeed": "|hitpoints = 52",
+    "attackSpeeds": []
+  },
+  "Knight of Saradomin": {
+    "maxHits": [
+      "12",
+      "11"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Koschei the deathless": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Kraka": {
+    "maxHit": "23",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Kraken": {
+    "maxHit": "28",
+    "maxHits": [],
+    "attackStyle": "[[Typeless]] [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Kree'arra": {
+    "maxHit": "69 (Ranged), 21 (Magic), 25 (Melee)",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]], [[Ranged magic]], [[Magical melee]]",
+    "attackStyles": [],
+    "attackSpeed": "3",
+    "attackSpeeds": []
+  },
+  "Ksenia": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Kurask": {
+    "maxHit": "11",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Lanzig": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Large mosquito": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Lava dragon": {
+    "maxHit": "23 ([[Melee]]), 50 ([[Dragonfire]])",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Dragonfire]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Lensa": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Lesser demon": {
+    "maxHits": [
+      "8",
+      "8",
+      "8",
+      "9"
+    ],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Lev": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Liliya": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Lizard": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Lizardman": {
+    "maxHits": [
+      "7",
+      "9"
+    ],
+    "attackStyle": "[[Crush]], [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Lizardman brute": {
+    "maxHit": "11",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Lizardman shaman": {
+    "maxHit": "31 ([[Melee]]), 21 ([[Ranged]])",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Lizardman shaman (Chambers of Xeric)": {
+    "maxHit": "65 (unconfirmed)",
+    "maxHits": [],
+    "attackStyle": "[[Melee]], [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Loar Shade": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Lobstrosity": {
+    "maxHit": "9",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Locust": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Locust rider": {
+    "maxHits": [
+      "22",
+      "22",
+      "15",
+      "15"
+    ],
+    "attackStyles": [
+      "[[Ranged]]",
+      "[[Ranged]]",
+      "[[Crush]]",
+      "[[Crush]]"
+    ],
+    "attackSpeeds": [
+      "6",
+      "6",
+      "4",
+      "4"
+    ]
+  },
+  "Long-tailed Wyvern": {
+    "maxHit": "13 ([[Melee]]), 10 ([[Magic]]), 10 (Icy breath with [[Elemental shield]])",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Typeless]] [[Magic]], [[Icy breath]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Lost barbarian": {
+    "maxHit": "12",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Lynx": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Lynx Tamer": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Magic axe": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Malevolent Mage": {
+    "maxHit": "20",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Mammoth": {
+    "maxHit": "7",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Man": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Maniacal Monkey Archer": {
+    "maxHit": "24",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Maniacal monkey": {
+    "maxHit": "18",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Marble gargoyle": {
+    "maxHit": "26 (melee)",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Ranged]], [[Magic]] (special)",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Market Guard": {
+    "maxHit": "8",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "3",
+    "attackSpeeds": []
+  },
+  "Market Guard (Draynor)": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Me": {
+    "maxHit": "9",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Menaphite Thug": {
+    "maxHit": "7",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Mercenary Captain": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Milla": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Mind Golem": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Minotaur": {
+    "maxHits": [
+      "2",
+      "3",
+      "|aggressive = No"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Mithril dragon": {
+    "maxHit": "28 ([[Melee]]), 18 ([[Magic]]), 18 ([[Magical ranged]]), 50 ([[Dragonfire]])",
+    "maxHits": [],
+    "attackStyle": "[[Stab]], [[Magic]], [[Magical ranged]], [[Dragonfire]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Mogre": {
+    "maxHit": "8",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Molanisk": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Monk": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Monk of Zamorak": {
+    "maxHits": [
+      "5",
+      "3 ([[Melee]]), 10 ([[Magic]])",
+      "2 ([[Melee]]), 10 ([[Magic]])",
+      "3 ([[Melee]]), 8 ([[Magic]])",
+      "5 ([[Melee]]), 13 ([[Magic]])"
+    ],
+    "attackStyle": "[[Crush]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Monkey Archer": {
+    "maxHit": "20",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Monkey Guard": {
+    "maxHit": "14",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Monkey Guard (ninja)": {
+    "maxHit": "14",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Monkey Zombie": {
+    "maxHits": [
+      "7",
+      "7",
+      "12"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Monstrous basilisk": {
+    "maxHit": "11",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Mosquito swarm": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "2",
+    "attackSpeeds": []
+  },
+  "Moss Guardian": {
+    "maxHit": "14",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Magical melee]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Moss giant": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Mountain troll": {
+    "maxHits": [
+      "11",
+      "13"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Mounted terrorbird gnome": {
+    "maxHits": [
+      "3",
+      "5"
+    ],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Mourner": {
+    "maxHits": [
+      "2",
+      "10"
+    ],
+    "attackStyles": [
+      "[[Crush]]",
+      "[[Stab]]"
+    ],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Mouse": {
+    "maxHit": "9",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Mudskipper": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Mugger": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Mutated Bloodveld": {
+    "maxHit": "12",
+    "maxHits": [],
+    "attackStyle": "[[Magical melee]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Muttadile": {
+    "maxHits": [
+      "28 ([[Melee]]), 30 ([[Ranged]])",
+      "72 (Stomp), 48 ([[Melee]]), 45 ([[Ranged]]), 23 ([[Magic]])",
+      "41 ([[Melee]]), 44 ([[Ranged]])",
+      "106 (Stomp), 71 ([[Melee]]), 67 ([[Ranged]]), 34 ([[Magic]])"
+    ],
+    "attackStyles": [
+      "[[Melee]], [[Ranged]]",
+      "[[Melee]], [[Ranged]], [[Magic]]",
+      "[[Melee]], [[Ranged]]",
+      "[[Melee]], [[Ranged]], [[Magic]]"
+    ],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Myre Blamish Snail": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Nail beast": {
+    "maxHits": [
+      "2 (x3)",
+      "3 (x3)",
+      "4 (x3)"
+    ],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "8",
+    "attackSpeeds": []
+  },
+  "Narf": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Nazastarool": {
+    "maxHits": [
+      "9",
+      "8",
+      "9"
+    ],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Nechryael": {
+    "maxHit": "11",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Necromancer": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Curse]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Newtroost": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Night beast": {
+    "maxHit": "31",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Nikita": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Nikolai": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Nuclear smoke devil": {
+    "maxHit": "29",
+    "maxHits": [],
+    "attackStyle": "[[Magical ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Nylocas Vasilias": {
+    "maxHits": [
+      "24",
+      "70",
+      "105"
+    ],
+    "attackStyle": "[[Stab]], [[Magic]], [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Obor": {
+    "maxHit": "22 ([[Melee]]), 26 ([[Ranged]])",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Ocga": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ochre Blamish Snail": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Ogre": {
+    "maxHits": [
+      "7",
+      "8",
+      "7"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeeds": [
+      "6",
+      "6",
+      "4"
+    ]
+  },
+  "Ogre chieftain": {
+    "maxHit": "9",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ogress Shaman": {
+    "maxHit": "8",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ogress Warrior": {
+    "maxHit": "8",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Oipuis": {
+    "maxHit": "14",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Oomlie bird": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ork": {
+    "maxHit": "12",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Othainian": {
+    "maxHit": "9",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Otherworldly being": {
+    "maxHit": "7",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ouhai": {
+    "maxHit": "14",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Outlaw": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Padulah": {
+    "maxHit": "20+",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Paladin": {
+    "maxHit": "8",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Palmer": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Pee Hat": {
+    "maxHit": "23",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Penance Fighter": {
+    "maxHits": [
+      "4",
+      "3",
+      "4",
+      "5",
+      "5",
+      "6",
+      "6",
+      "7",
+      "8"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Penance Ranger": {
+    "maxHits": [
+      "3",
+      "4",
+      "4",
+      "5",
+      "6",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Penda": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Pestilent Bloat": {
+    "maxHits": [
+      "8 (Flies), 40 (Stomp)",
+      "20 (Flies), 80 (Stomp)",
+      "20 (Flies), 80 (Stomp)"
+    ],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "1",
+    "attackSpeeds": []
+  },
+  "Phosani's Nightmare": {
+    "maxHit": "73 (melee), 80 (magic/ranged), ~85 (dash)",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Ranged]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Phrin Shade": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Pirate": {
+    "maxHits": [
+      "3",
+      "3",
+      "3",
+      "4",
+      "6",
+      "3"
+    ],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeeds": [
+      "5",
+      "4",
+      "4",
+      "5",
+      "4",
+      "4"
+    ]
+  },
+  "Pirate Guard": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Pit Scorpion": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Poison Scorpion": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Poison spider": {
+    "maxHits": [
+      "4",
+      "7"
+    ],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Poltenip": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Porazdir": {
+    "maxHit": "43 (Magic), 16 (Melee)",
+    "maxHits": [],
+    "attackStyle": "[[Magic]], [[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Possessed Priest": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Magic]], [[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Possessed pickaxe": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Pyrefiend": {
+    "maxHits": [
+      "4",
+      "5"
+    ],
+    "attackStyle": "[[Magical melee]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Pyrelord": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Magical melee]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Rabbit": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Rabbit (Prifddinas)": {
+    "maxHit": "40",
+    "maxHits": [],
+    "attackStyle": "[[Typeless]] [[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "3",
+    "attackSpeeds": []
+  },
+  "Radat": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ragnvald": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ram": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Rannveig": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Rat": {
+    "maxHit": "0",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Red dragon": {
+    "maxHit": "14 ([[Melee]]), 50 ([[Dragonfire]])",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Dragonfire]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Renegade knight": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Repugnant spectre": {
+    "maxHit": "39",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Revenant cyclops": {
+    "maxHit": "16",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Ranged]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Revenant dark beast": {
+    "maxHit": "23",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Ranged]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Revenant demon": {
+    "maxHit": "15",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Ranged]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Revenant dragon": {
+    "maxHit": "30",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Ranged]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Revenant goblin": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Ranged]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Revenant hellhound": {
+    "maxHit": "14",
+    "maxHits": [],
+    "attackStyle": "[[Stab]], [[Ranged]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Revenant hobgoblin": {
+    "maxHit": "8",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Ranged]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Revenant imp": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Stab]], [[Ranged]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Revenant knight": {
+    "maxHit": "27",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Ranged]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Revenant ork": {
+    "maxHit": "20",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Ranged]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Revenant pyrefiend": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Ranged]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "River troll": {
+    "maxHits": [
+      "2",
+      "4",
+      "5",
+      "7",
+      "11",
+      "14"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Riyl Shade": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Riyl shadow (Temple Trekking)": {
+    "maxHit": "7",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Rock Crab": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Rock lobster": {
+    "maxHit": "11",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "2",
+    "attackSpeeds": []
+  },
+  "Rockslug": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Rogue": {
+    "maxHits": [
+      "2",
+      "15"
+    ],
+    "attackStyles": [
+      "[[Stab]]",
+      "[[Crush]]"
+    ],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Rooster": {
+    "maxHits": [
+      "0",
+      "1"
+    ],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Rowdy slave": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Rune dragon": {
+    "maxHit": "29 ([[Melee]]), 31 ([[Ranged]]), 26 ([[Magic]]), 40 (range special), 50 ([[Dragonfire]])",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Ranged]], [[Magic]], [[Dragonfire]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Rune dragon (Construction)": {
+    "maxHit": "29 ([[Melee]]), 31 ([[Ranged]]), 26 ([[Magic]]), 40 (range special), 50 ([[Dragonfire]])",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Ranged]], [[Magic]], [[Dragonfire]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Rusty": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Salarin the twisted": {
+    "maxHit": "7",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Sand Crab": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Sarachnis": {
+    "maxHit": "31",
+    "maxHits": [],
+    "attackStyle": "[[Melee]], [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Saradomin priest": {
+    "maxHit": "20",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Saradomin wizard": {
+    "maxHit": "14 ([[Melee]]), 20 ([[Magic]])",
+    "maxHits": [],
+    "attackStyle": "[[Stab]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Scavenger beast": {
+    "maxHits": [
+      "13",
+      "27"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Scion": {
+    "maxHit": "16 ([[Ranged]]), 10 ([[Melee]])",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]], [[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Scorpia": {
+    "maxHit": "16",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Scorpia's guardian": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "None",
+    "attackStyles": [],
+    "attackSpeed": "N/A",
+    "attackSpeeds": []
+  },
+  "Scorpion": {
+    "maxHits": [
+      "0",
+      "2",
+      "4",
+      "15",
+      "6"
+    ],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Screaming banshee": {
+    "maxHit": "7",
+    "maxHits": [],
+    "attackStyle": "[[Magical melee]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Screaming twisted banshee": {
+    "maxHit": "12",
+    "maxHits": [],
+    "attackStyle": "[[Magical melee]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Sea Snake Hatchling": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Sea Snake Young": {
+    "maxHit": "8",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Sea troll": {
+    "maxHits": [
+      "6",
+      "7",
+      "8",
+      "10"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeeds": [
+      "4",
+      "3",
+      "4",
+      "4"
+    ]
+  },
+  "Seagull": {
+    "maxHit": "0",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Sergeant Grimspike": {
+    "maxHit": "21",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Sergeant Steelwill": {
+    "maxHit": "15",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Sergeant Strongstack": {
+    "maxHit": "15",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Shade": {
+    "maxHits": [
+      "14",
+      "15"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Shade (Temple Trekking)": {
+    "maxHit": "15",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Shadow Hound": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Shadow Wyrm": {
+    "maxHit": "28",
+    "maxHits": [],
+    "attackStyle": "[[Magic]], [[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Shadow spider": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Shadow warrior": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Shaeded Beast": {
+    "maxHit": "30",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Shantay Guard": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Shipyard worker": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Sigmund": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Sir Carl": {
+    "maxHit": "8",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Sir Harry": {
+    "maxHit": "8",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Sir Jerro": {
+    "maxHit": "8",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Sir Mordred": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Skeletal Mystic": {
+    "maxHit": "Varies",
+    "maxHits": [],
+    "attackStyle": "[[Magic]], [[Melee]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Skeletal Wyvern": {
+    "maxHit": "13 ([[Ranged]]), 13 ([[Melee]]), 50+ ([[Icy breath]])",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]], [[Slash]], [[Icy breath]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Skeletal miner": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Skeleton": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Skeleton (Ape Atoll)": {
+    "maxHit": "10",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Skeleton (Barrows)": {
+    "maxHit": "10",
+    "maxHits": [],
+    "attackStyles": [
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Slash]]",
+      "[[Slash]]"
+    ],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Skeleton (Draynor Manor)": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Skeleton (Melzar's Maze)": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Skeleton (Shayzien Crypts)": {
+    "maxHit": "19",
+    "maxHits": [],
+    "attackStyles": [
+      "[[Slash]]",
+      "[[Ranged]]",
+      "[[Magic]]"
+    ],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Skeleton (The Restless Ghost)": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Skeleton (mage)": {
+    "maxHit": "12 ([[Magic]]), 7 ([[Melee]])",
+    "maxHits": [],
+    "attackStyle": "[[Magic]], [[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Skeleton Hellhound": {
+    "maxHit": "12",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Skeleton Hellhound (Vet'ion)": {
+    "maxHit": "26",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Skeleton Mage": {
+    "maxHits": [
+      "3",
+      "11"
+    ],
+    "attackStyles": [
+      "[[Magic]], [[Crush]]",
+      "[[Magic]]"
+    ],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Skeleton brute": {
+    "maxHit": "15",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Skeleton fremennik": {
+    "maxHits": [
+      "5",
+      "6",
+      "8"
+    ],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Skeleton guard": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Skeleton heavy": {
+    "maxHit": "15",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Skeleton hero": {
+    "maxHit": "18",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Skeleton thug": {
+    "maxHit": "15",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Skeleton warlord": {
+    "maxHit": "15",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Skogre": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Skotizo": {
+    "maxHit": "38",
+    "maxHits": [],
+    "attackStyle": "[[Stab]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "Random",
+    "attackSpeeds": []
+  },
+  "Slagilith": {
+    "maxHit": "13",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Slash Bash": {
+    "maxHit": "13",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]], [[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Small Lizard": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Smoke devil": {
+    "maxHit": "20",
+    "maxHits": [],
+    "attackStyle": "[[Magical ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Snake": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Snake (Ape Atoll)": {
+    "maxHit": "10",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Snake (Mos Le'Harmless)": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "3",
+    "attackSpeeds": []
+  },
+  "Sofiya": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Sorebones": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Sotetseg": {
+    "maxHits": [
+      "20 ([[Melee]]), 22 ([[Ranged]]), 22 ([[Magic]])",
+      "45 ([[Melee]]), 50 ([[Ranged]]), 50 ([[Magic]])",
+      "45 ([[Melee]]), 50 ([[Ranged]]), 50 ([[Magic]])"
+    ],
+    "attackStyle": "[[Crush]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Soulless": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Sourhog": {
+    "maxHit": "6, 20-30 (without [[Reinforced goggles]])",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Spawn": {
+    "maxHit": "9 [[Ranged]], 4 [[Melee]]",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]], [[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Spawn (Dragon Slayer II)": {
+    "maxHit": "11",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Speedy Keith": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Spider": {
+    "maxHits": [
+      "0",
+      "1",
+      "6"
+    ],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Spider (Ape Atoll)": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Spider (Ungael)": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Spidine": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Spiked Turoth": {
+    "maxHit": "29",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Spinolyp": {
+    "maxHit": "10",
+    "maxHits": [],
+    "attackStyles": [
+      "[[Ranged magic]], [[Ranged]]",
+      "|attack speed1 = 4"
+    ],
+    "attackSpeeds": [
+      "4",
+      "|respawn1 = 10"
+    ]
+  },
+  "Spiritual mage": {
+    "maxHits": [
+      "19",
+      "20",
+      "17",
+      "17",
+      "38"
+    ],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeeds": [
+      "4",
+      "4",
+      "5",
+      "3",
+      "5"
+    ]
+  },
+  "Spiritual ranger": {
+    "maxHits": [
+      "15",
+      "16",
+      "13",
+      "16",
+      "20, 35 (special)"
+    ],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeeds": [
+      "4",
+      "4",
+      "4",
+      "3",
+      "5"
+    ]
+  },
+  "Spiritual warrior": {
+    "maxHits": [
+      "11",
+      "13",
+      "16",
+      "15",
+      "20, 40 (special)"
+    ],
+    "attackStyles": [
+      "[[Slash]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Ranged]]",
+      "[[Crush]]"
+    ],
+    "attackSpeeds": [
+      "4",
+      "5",
+      "5",
+      "3",
+      "5"
+    ]
+  },
+  "Spitting Wyvern": {
+    "maxHit": "9 ([[Melee]]), 8 ([[Ranged]]), 50+ ([[Icy breath]])",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Ranged]], [[Icy breath]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Stag": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Starlight": {
+    "maxHit": "15",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Steel dragon": {
+    "maxHits": [
+      "22 ([[Melee]]), 50 ([[Dragonfire]])",
+      "22 ([[Melee]]), 50 ([[Dragonfire]])",
+      "24 ([[Melee]]), 50 ([[Dragonfire]])"
+    ],
+    "attackStyle": "[[Slash]], [[Dragonfire]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Steel dragon (Construction)": {
+    "maxHit": "22 ([[Melee]]), 50+ ([[Dragonfire]])",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Dragonfire]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Stick": {
+    "maxHit": "27",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Sulphur Lizard": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Summoned Zombie": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Suqah": {
+    "maxHit": "10",
+    "maxHits": [],
+    "attackStyle": "[[Stab]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Svetlana": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Swamp Crab": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Swordchick": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Taloned Wyvern": {
+    "maxHit": "10 ([[Magic]]), 12 ([[Melee]]), 55 ([[Icy breath]])",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Typeless]] [[Magic]], [[Icy breath]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Tanglefoot": {
+    "maxHit": "11",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Tar Monster": {
+    "maxHit": "9",
+    "maxHits": [],
+    "attackStyle": "[[Typeless]] [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Tekton": {
+    "maxHits": [
+      "52",
+      "59",
+      "78",
+      "87"
+    ],
+    "attackStyle": "[[Stab]], [[Slash]], [[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "3",
+    "attackSpeeds": []
+  },
+  "Temple Spider": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Terror dog": {
+    "maxHits": [
+      "11",
+      "15"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Terrorbird": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "The Kendal": {
+    "maxHit": "9",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "The Maiden of Sugadinti": {
+    "maxHits": [
+      "18",
+      "36",
+      "36",
+      "36",
+      "36",
+      "36"
+    ],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "10",
+    "attackSpeeds": []
+  },
+  "The Mimic": {
+    "maxHit": "23",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "3",
+    "attackSpeeds": []
+  },
+  "The Nightmare": {
+    "maxHit": "50/60 ([[Melee]]), 33/39 ([[Ranged]] and [[Magic]]), Increased by 20% if using incorrect protection prayer",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Ranged]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "The Shaikahan": {
+    "maxHit": "9",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Thermonuclear smoke devil": {
+    "maxHit": "8",
+    "maxHits": [],
+    "attackStyle": "[[Typeless]] [[Magical ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "2",
+    "attackSpeeds": []
+  },
+  "Thief": {
+    "maxHits": [
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "2",
+      "3",
+      "3",
+      "3"
+    ],
+    "attackStyles": [
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Stab]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]]"
+    ],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Thorhild": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Thrower Troll": {
+    "maxHit": "10 [[Ranged]], 9 [[Melee]](?)",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]], [[Crush]](?)",
+    "attackStyles": [],
+    "attackSpeed": "7",
+    "attackSpeeds": []
+  },
+  "Thrower troll (Trollheim)": {
+    "maxHit": "10",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "7",
+    "attackSpeeds": []
+  },
+  "Thug": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Torag the Corrupted": {
+    "maxHit": "23",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Tortoise": {
+    "maxHits": [
+      "10",
+      "11"
+    ],
+    "attackStyles": [
+      "[[Crush]]",
+      "[[Crush]], [[Magic]], [[Ranged]]"
+    ],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Tortured gorilla": {
+    "maxHits": [
+      "13",
+      "29"
+    ],
+    "attackStyles": [
+      "[[Magic]], [[Ranged]], [[Crush]]",
+      "[[Crush]]"
+    ],
+    "attackSpeeds": [
+      "5",
+      "4"
+    ]
+  },
+  "Tortured soul": {
+    "maxHit": "7",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Tough Guy": {
+    "maxHit": "7",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Tower guard": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Tree spirit": {
+    "maxHits": [
+      "2",
+      "3",
+      "5",
+      "7",
+      "11",
+      "14"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Tree spirit (Lost City)": {
+    "maxHit": "10",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Treus Dayth": {
+    "maxHit": "15 ([[Ranged]]), 8 ([[Crush]])",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]], [[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Tribesman": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Troll general": {
+    "maxHit": "38",
+    "maxHits": [],
+    "attackStyles": [
+      "[[Slash]]",
+      "[[Crush]]",
+      "[[Crush]]"
+    ],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Troll spectator": {
+    "maxHit": "13",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Tstanon Karlak": {
+    "maxHit": "15",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Turoth": {
+    "maxHits": [
+      "9",
+      "9",
+      "10",
+      "10"
+    ],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Twig": {
+    "maxHit": "13 (approx)",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Twisted Banshee": {
+    "maxHit": "9",
+    "maxHits": [],
+    "attackStyle": "[[Magical melee]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Tyras guard": {
+    "maxHit": "15",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "TzHaar-Hur": {
+    "maxHit": "7",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "TzHaar-Ket": {
+    "maxHits": [
+      "15",
+      "19"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "TzHaar-Xil": {
+    "maxHits": [
+      "11",
+      "11",
+      "11, 16 (Ranged)"
+    ],
+    "attackStyles": [
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]], [[Ranged]]"
+    ],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "TzKal-Zuk": {
+    "maxHit": "148&thinsp;{{efn|The damage roll for Zuk's projectile attack consists of a single roll between 0 and the average of its maximum Magic hit and maximum Ranged hit.{{CiteTwitter|author=Mod Ash|url=https://twitter.com/JagexAsh/status/1706977187717320812|date=27 September 2023|archiveurl=https://archive.ph/eN8t5{{^|https://archive.ph/xGK06}}|archivedate=27 September 2023|quote=Your description of \"Zuk doing 1 damage roll, with the maxhit being the avg of it's mage+range maxhit\" is the correct interpretation. (...)|name=damage}} The max hit of the mage attack is 128, while the range attack's max hit is 169. The melee max hit is 251, but it is never used.}}",
+    "maxHits": [],
+    "attackStyle": "[[Typeless]] [[Magic]], [[Typeless]] [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeeds": [
+      "10",
+      "7"
+    ]
+  },
+  "TzTok-Jad": {
+    "maxHit": "97 ([[Melee]]), 97 ([[Ranged]]), 95 ([[Magic]])",
+    "maxHits": [],
+    "attackStyle": "[[Stab]], [[Magic]], [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "8",
+    "attackSpeeds": []
+  },
+  "Ugthanki": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Ulfric": {
+    "maxHit": "11",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Undead Druid": {
+    "maxHit": "22 ([[Magic]]), 11 ([[Melee]])",
+    "maxHits": [],
+    "attackStyle": "[[Crush]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Undead Lumberjack": {
+    "maxHits": [
+      "2",
+      "2",
+      "2",
+      "3",
+      "3",
+      "4",
+      "4",
+      "4",
+      "4"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Undead Zealot": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Undead chicken": {
+    "maxHit": "0",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Undead cow": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Undead one": {
+    "maxHits": [
+      "7",
+      "7",
+      "7",
+      "8"
+    ],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Unicorn": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Unicorn Foal": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Unicow": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Uodai": {
+    "maxHit": "14",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Urium Shade": {
+    "maxHit": "13",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Uyoro": {
+    "maxHit": "14",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Valgerd": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Vampyre Juvenile": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Vampyre Juvinate": {
+    "maxHits": [
+      "5",
+      "5",
+      "5",
+      "5",
+      "6",
+      "6",
+      "6",
+      "9",
+      "9"
+    ],
+    "attackStyles": [
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Crush]]",
+      "[[Slash]]",
+      "[[Crush]]",
+      "[[Slash]]",
+      "[[Slash]]",
+      "[[Slash]]"
+    ],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Vanguard": {
+    "maxHits": [
+      "22",
+      "18",
+      "22",
+      "33",
+      "27",
+      "33",
+      "|aggressive = Yes"
+    ],
+    "attackStyles": [
+      "[[Magic]]",
+      "[[Melee]]",
+      "[[Ranged]]",
+      "[[Magic]]",
+      "[[Melee]]",
+      "[[Ranged]]",
+      "None"
+    ],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Vasa Nistirio": {
+    "maxHit": "Varies",
+    "maxHits": [],
+    "attackStyle": "[[Magic]], [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "3",
+    "attackSpeeds": []
+  },
+  "Venenatis": {
+    "maxHit": "21 ([[Melee]]), 35 ([[Ranged]]), 30 ([[Magic]])",
+    "maxHits": [],
+    "attackStyle": "[[Stab]], [[Magic]], [[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Vera": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Verac the Defiled": {
+    "maxHit": "23 ([[Stab]]), 15 ([[Protect from Melee]])",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Verzik Vitur": {
+    "maxHits": [
+      "60",
+      "16, 16 (bounce), ~34 (bounce after standing underneath)",
+      "36 ([[melee]]), 20 ([[magic]]), 20 ([[ranged]])"
+    ],
+    "attackStyles": [
+      "[[Magic]]",
+      "[[Crush]], [[Magic]], [[Ranged]]",
+      "[[Typeless]] [[Crush]], [[Magic]], [[Ranged]]"
+    ],
+    "attackSpeeds": [
+      "14",
+      "4",
+      "7"
+    ]
+  },
+  "Vespula": {
+    "maxHits": [
+      "14 ([[Ranged]]), 8 (Stomp), 20 (Sting)",
+      "|aggressive = No"
+    ],
+    "attackStyle": "[[Ranged]] <br/> Typeless",
+    "attackStyles": [],
+    "attackSpeed": "3",
+    "attackSpeeds": []
+  },
+  "Vet'ion": {
+    "maxHit": "44",
+    "maxHits": [],
+    "attackStyle": "[[Slash]], [[Magic]]",
+    "attackStyles": [],
+    "attackSpeeds": [
+      "6",
+      "5"
+    ]
+  },
+  "Vitreous Jelly": {
+    "maxHit": "17",
+    "maxHits": [],
+    "attackStyle": "[[Magical melee]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Vorkath": {
+    "maxHits": [
+      "30 ([[Magic]]), 32 ([[Ranged]]), 32 ([[Melee]]), 80 ([[Dragonfire]]), 121 (Dragonfire Bomb/Special), 41 (Rapid Fire/Special)",
+      "30 ([[Magic]]), 28 ([[Ranged]]), 32 ([[Melee]]), 72 ([[Dragonfire]]), 121 (Dragonfire Bomb/Special)"
+    ],
+    "attackStyle": "[[Slash]], [[Magic]], [[Ranged]], [[Dragonfire]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Vulture": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Vyrewatch": {
+    "maxHits": [
+      "8",
+      "10",
+      "11",
+      "12",
+      "13"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeeds": [
+      "8",
+      "4",
+      "8",
+      "8",
+      "8"
+    ]
+  },
+  "Vyrewatch Sentinel": {
+    "maxHit": "17",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Wall beast": {
+    "maxHit": "4 ([[Melee]]), 18 (without [[Spiny helmet]])",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Wallasalki": {
+    "maxHit": "30",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Warped Jelly": {
+    "maxHit": "10",
+    "maxHits": [],
+    "attackStyle": "[[Magical melee]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Watchman": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Water elemental": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Water wizard": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Waterfiend": {
+    "maxHit": "11",
+    "maxHits": [],
+    "attackStyle": "[[Magic]], [[Magical ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Weaponsmaster": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Werewolf": {
+    "maxHits": [
+      "8",
+      "8",
+      "8",
+      "8",
+      "8",
+      "8",
+      "8",
+      "8",
+      "8",
+      "8",
+      "8",
+      "8",
+      "8",
+      "8",
+      "8",
+      "8",
+      "8",
+      "8",
+      "8",
+      "8",
+      "9",
+      "9"
+    ],
+    "attackStyles": [
+      "[[Slash]]",
+      "[[Slash]]",
+      "[[Slash]]",
+      "[[Slash]]",
+      "[[Slash]]",
+      "[[Slash]]",
+      "[[Slash]]",
+      "[[Slash]]",
+      "[[Slash]]",
+      "[[Slash]]",
+      "[[Slash]]",
+      "[[Slash]]",
+      "[[Slash]]",
+      "[[Slash]]",
+      "[[Slash]]",
+      "[[Slash]]",
+      "[[Slash]]",
+      "[[Slash]]",
+      "[[Slash]]",
+      "[[Slash]]",
+      "[[Crush]]",
+      "[[Crush]]"
+    ],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "White Knight": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "7",
+    "attackSpeeds": []
+  },
+  "White Knight (Burthorpe)": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "7",
+    "attackSpeeds": []
+  },
+  "White wolf": {
+    "maxHits": [
+      "3",
+      "4"
+    ],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Wild dog": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Wilson": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Wingman Skree": {
+    "maxHit": "16",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Wizard": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Wolf": {
+    "maxHits": [
+      "2",
+      "2",
+      "3",
+      "6",
+      "6"
+    ],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Wolf (Soul Wars)": {
+    "maxHit": "8",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Woman": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Wormbrain": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Wyrm": {
+    "maxHit": "13 ([[Magic]]), 10 ([[Melee]])",
+    "maxHits": [],
+    "attackStyle": "[[Magic]], [[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Xarpus": {
+    "maxHit": "6 (38+ recoil)",
+    "maxHits": [],
+    "attackStyle": "[[Typeless]] [[Ranged]], [[Poison]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Yadviga": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Yak": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Yuri": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Zakl'n Gritch": {
+    "maxHit": "21",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Zalcano": {
+    "maxHits": [
+      "53",
+      "N/A"
+    ],
+    "attackStyles": [
+      "Various",
+      "N/A"
+    ],
+    "attackSpeeds": [
+      "5",
+      "N/A"
+    ]
+  },
+  "Zamorak crafter": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Zamorak mage": {
+    "maxHit": "9",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Zamorak ranger": {
+    "maxHit": "9",
+    "maxHits": [],
+    "attackStyle": "[[Ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Zamorak warrior": {
+    "maxHit": "8",
+    "maxHits": [],
+    "attackStyles": [
+      "[[Slash]]",
+      "[[Crush]]"
+    ],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Zamorak wizard": {
+    "maxHit": "20",
+    "maxHits": [],
+    "attackStyle": "[[Magic]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Zogre": {
+    "maxHit": "5",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Zoja": {
+    "maxHit": "2",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Zombie": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Zombie (Entrana Dungeon)": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Zombie (Melzar's Maze)": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Zombie (Sepulchre of Death)": {
+    "maxHit": "14",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Zombie (Shayzien Crypts)": {
+    "maxHit": "19",
+    "maxHits": [],
+    "attackStyles": [
+      "[[Slash]]",
+      "[[Ranged]]",
+      "[[Magic]]"
+    ],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Zombie (Temple Trekking)": {
+    "maxHit": "3",
+    "maxHits": [],
+    "attackStyle": "[[Slash]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Zombie (Zogre Flesh Eaters)": {
+    "maxHit": "4",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "6",
+    "attackSpeeds": []
+  },
+  "Zombie pirate": {
+    "maxHits": [
+      "2",
+      "2",
+      "3"
+    ],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "5",
+    "attackSpeeds": []
+  },
+  "Zombie rat": {
+    "maxHit": "1",
+    "maxHits": [],
+    "attackStyle": "[[Stab]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Zombie swab": {
+    "maxHit": "6",
+    "maxHits": [],
+    "attackStyle": "[[Crush]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  },
+  "Zulrah": {
+    "maxHits": [
+      "41",
+      "30",
+      "41"
+    ],
+    "attackStyles": [
+      "[[Ranged]]",
+      "[[Typeless]]",
+      "[[Magic]], [[Ranged]]"
+    ],
+    "attackSpeed": "3",
+    "attackSpeeds": []
+  },
+  "Zygomite": {
+    "maxHit": "7 ([[Melee]]), 6 ([[Ranged]])",
+    "maxHits": [],
+    "attackStyle": "[[Magical melee]], [[Magical ranged]]",
+    "attackStyles": [],
+    "attackSpeed": "4",
+    "attackSpeeds": []
+  }
+}

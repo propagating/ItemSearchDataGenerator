@@ -1,0 +1,12 @@
+{
+  "General Graardor": {
+    "maxHit": "60 (melee), 35 (ranged)",
+    "attackStyle": "[[Crush]], [[Ranged]]",
+    "attackSpeed": "6"
+  },
+  "TzKal-Zuk": {
+    "maxHit": "148 (projectile attack)",
+    "attackStyle": "Typeless Magic, Typeless Ranged",
+    "attackSpeeds": ["10", "7"]
+  }
+}

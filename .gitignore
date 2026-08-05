@@ -216,3 +216,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Gradle
+.gradle/
+build/
+
+# Large pinned sources (see README) — do not commit
+monsters-complete.json
+npc-spawns.json

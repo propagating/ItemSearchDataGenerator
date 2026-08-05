@@ -1,0 +1,24 @@
+{
+  "100": {
+    "id": 100, "name": "Test Goblin", "combat_level": 2, "size": 1,
+    "wiki_name": "Test Goblin", "wiki_url": "https://example/Goblin",
+    "drops": [
+      { "id": 526, "name": "Bones", "members": false, "quantity": "1", "noted": false, "rarity": 1.0, "rolls": 1 },
+      { "id": 995, "name": "Coins", "members": false, "quantity": "5-35", "noted": false, "rarity": 0.5, "rolls": 1 },
+      { "id": 1205, "name": "Bronze dagger", "members": false, "quantity": "1", "noted": false, "rarity": 0.0234375, "rolls": 1 }
+    ]
+  },
+  "101": {
+    "id": 101, "name": "Multi Roller", "combat_level": 50, "size": 2,
+    "wiki_name": "Multi Roller", "wiki_url": "https://example/Multi",
+    "drops": [
+      { "id": 5000, "name": "Varies item", "members": true, "quantity": "1", "noted": false, "rarity": null, "rolls": 1 },
+      { "id": 5001, "name": "Rolled thrice", "members": true, "quantity": "10,20", "noted": true, "rarity": 0.1, "rolls": 3 }
+    ]
+  },
+  "102": {
+    "id": 102, "name": "No Drops NPC", "combat_level": 1, "size": 1,
+    "wiki_name": "No Drops NPC", "wiki_url": "https://example/None",
+    "drops": []
+  }
+}
