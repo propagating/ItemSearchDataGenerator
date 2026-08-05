@@ -24,10 +24,18 @@
  */
 package com.itemsearch.datagen;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import com.itemsearch.datagen.source.DropLineJson;
@@ -35,8 +43,8 @@ import com.itemsearch.datagen.source.DropPageJson;
 import com.itemsearch.datagen.source.DropTableJson;
 
 /**
- * Pure wikitext parsing of {{DropsLine}}/{{DropsLineReward}} drop tables (and their
- * {{Infobox ...}} header) from an OSRS Wiki page. No network I/O lives here.
+ * Fetches and parses {{DropsLine}}/{{DropsLineReward}} drop tables (and their
+ * {{Infobox ...}} header) from the live OSRS Wiki.
  */
 public final class WikiDropsFetch
 {
@@ -46,6 +54,7 @@ public final class WikiDropsFetch
     // "==heading==" / "===heading===" / ... (2-6 '=' fences, matching on both sides)
     private static final Pattern HEADING = Pattern.compile("(?m)^(={2,6})\\s*(.*?)\\s*\\1\\s*$");
     private static final String DROPS_TABLE_HEAD = "{{DropsTableHead";
+    private static final int BATCH = 50;
 
     private WikiDropsFetch()
     {
@@ -246,6 +255,77 @@ public final class WikiDropsFetch
             if (!topOnly || h.level == 2)
             {
                 result = WikiText.stripLinks(h.text);
+            }
+        }
+        return result;
+    }
+
+    /**
+     * All mainspace page titles that embed {{DropsLine}} or {{DropsLineReward}} — i.e. every
+     * page with a monster/NPC drop table or a reward-chest-style reward table.
+     */
+    public static List<String> fetchDropPageTitles(Gson gson) throws IOException
+    {
+        Set<String> titles = new TreeSet<>();
+        titles.addAll(WikiShopFetch.fetchTitlesEmbedding(gson, "Template:DropsLine"));
+        titles.addAll(WikiShopFetch.fetchTitlesEmbedding(gson, "Template:DropsLineReward"));
+        return new ArrayList<>(titles);
+    }
+
+    /** Fetches and parses each page's drop tables; pages with no usable table are omitted. */
+    public static Map<String, DropPageJson> fetchDropPages(Gson gson, Collection<String> pageTitles)
+        throws IOException
+    {
+        Map<String, DropPageJson> result = new TreeMap<>();
+        List<String> titles = new ArrayList<>(pageTitles);
+        for (int i = 0; i < titles.size(); i += BATCH)
+        {
+            List<String> batch = titles.subList(i, Math.min(i + BATCH, titles.size()));
+            String baseBatchUrl = WikiHttp.API
+                + "?action=query&prop=revisions&rvslots=main&rvprop=content&format=json"
+                + "&titles=" + URLEncoder.encode(String.join("|", batch), "UTF-8");
+            String continueSuffix = "";
+            while (true)
+            {
+                JsonObject response = WikiHttp.request(gson, baseBatchUrl + continueSuffix);
+                WikiHttp.sleep();
+                JsonObject query = response.getAsJsonObject("query");
+                JsonObject pages = query == null ? null : query.getAsJsonObject("pages");
+                if (pages == null)
+                {
+                    throw new IOException("Unexpected wiki API response for batch ["
+                        + String.join(", ", batch) + "]: "
+                        + (response.has("error") ? response.get("error").toString()
+                            : WikiHttp.snippet(response)));
+                }
+                for (Map.Entry<String, JsonElement> e : pages.entrySet())
+                {
+                    JsonObject page = e.getValue().getAsJsonObject();
+                    if (!page.has("revisions"))
+                    {
+                        continue; // missing page
+                    }
+                    String title = page.get("title").getAsString();
+                    String content = page.getAsJsonArray("revisions").get(0).getAsJsonObject()
+                        .getAsJsonObject("slots").getAsJsonObject("main").get("*").getAsString();
+                    DropPageJson drops = extract(title, content);
+                    if (drops != null)
+                    {
+                        result.put(title, drops);
+                    }
+                }
+                JsonObject cont = response.getAsJsonObject("continue");
+                if (cont == null)
+                {
+                    break;
+                }
+                StringBuilder next = new StringBuilder();
+                for (Map.Entry<String, JsonElement> e : cont.entrySet())
+                {
+                    next.append('&').append(e.getKey()).append('=')
+                        .append(URLEncoder.encode(e.getValue().getAsString(), "UTF-8"));
+                }
+                continueSuffix = next.toString();
             }
         }
         return result;

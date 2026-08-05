@@ -181,7 +181,8 @@ public final class WikiShopFetch
         return new ArrayList<>(titles);
     }
 
-    private static List<String> fetchTitlesEmbedding(Gson gson, String template) throws IOException
+    // package-visible so WikiDropsFetch can reuse the same embeddedin pagination loop
+    static List<String> fetchTitlesEmbedding(Gson gson, String template) throws IOException
     {
         List<String> titles = new ArrayList<>();
         String continueSuffix = "";
