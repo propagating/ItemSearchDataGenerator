@@ -63,35 +63,13 @@ public final class WikiFetch
         }
         String body = box.group(1);
         WikiCombatJson w = new WikiCombatJson();
-        w.maxHit = field(body, "max hit");
-        w.maxHits = numberedFields(body, "max hit");
-        w.attackStyle = field(body, "attack style");
-        w.attackStyles = numberedFields(body, "attack style");
-        w.attackSpeed = field(body, "attack speed");
-        w.attackSpeeds = numberedFields(body, "attack speed");
+        w.maxHit = WikiText.field(body, "max hit");
+        w.maxHits = WikiText.numberedFields(body, "max hit");
+        w.attackStyle = WikiText.field(body, "attack style");
+        w.attackStyles = WikiText.numberedFields(body, "attack style");
+        w.attackSpeed = WikiText.field(body, "attack speed");
+        w.attackSpeeds = WikiText.numberedFields(body, "attack speed");
         return w;
-    }
-
-    private static String field(String body, String name)
-    {
-        Matcher m = Pattern.compile("(?m)^\\s*\\|\\s*" + Pattern.quote(name)
-            + "\\s*=\\s*(.*?)\\s*$").matcher(body);
-        return m.find() ? m.group(1).trim() : null;
-    }
-
-    private static List<String> numberedFields(String body, String name)
-    {
-        List<String> out = new ArrayList<>();
-        for (int i = 1; ; i++)
-        {
-            String v = field(body, name + i);
-            if (v == null)
-            {
-                break;
-            }
-            out.add(v);
-        }
-        return out;
     }
 
     public static Map<String, WikiCombatJson> fetch(Collection<String> pageTitles) throws IOException

@@ -32,9 +32,7 @@ import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -56,11 +54,10 @@ public final class WikiShopFetch
     // exclusively by the TzHaar city shops (Tokkul currency), with the same param names.
     private static final Pattern STORE_LINE =
         Pattern.compile("\\{\\{(?:StoreLine|Tzhaar shop row)\\|(.*?)\\}\\}");
-    // first "x,y" coordinate pair inside a {{Map|...}} template (whole match spans the template
-    // body up to the pair, so a plane= param before the pair is captured by MAP_PLANE)
+    // locates the raw {{Map|...}} span (up to its first '}') so MAP_ID can be searched within
+    // just that template; coordinate/plane extraction itself is delegated to WikiText.mapCoords
     private static final Pattern MAP_COORDS =
         Pattern.compile("\\{\\{Map[^}]*?(\\d{3,5})\\s*,\\s*(\\d{3,5})[^}]*");
-    private static final Pattern MAP_PLANE = Pattern.compile("plane\\s*=\\s*(\\d+)");
     private static final Pattern MAP_ID = Pattern.compile("mapID\\s*=\\s*(-?\\d+)");
     private static final int BATCH = 50;
 
@@ -80,52 +77,22 @@ public final class WikiShopFetch
         if (infobox.find())
         {
             String body = infobox.group(1);
-            page.location = stripLinks(params(body).get("location"));
+            page.location = stripLinks(WikiText.params(body).get("location"));
             // the |map= value nests a {{Map|x,y|...}} template whose pipes defeat params();
             // pull the first coordinate pair (and optional plane) straight from the body
-            Matcher map = MAP_COORDS.matcher(body);
-            if (map.find())
-            {
-                page.mapX = map.group(1);
-                page.mapY = map.group(2);
-                Matcher plane = MAP_PLANE.matcher(map.group(0));
-                if (plane.find())
-                {
-                    page.mapPlane = plane.group(1);
-                }
-                Matcher mapId = MAP_ID.matcher(map.group(0));
-                if (mapId.find())
-                {
-                    page.mapId = mapId.group(1);
-                }
-            }
+            applyMap(page, body);
         }
         if (page.mapX == null)
         {
             // NPC-page shops have no {{Infobox Shop}}; fall back to the first {{Map}}
             // anywhere on the page — shop locations are static, so any page map points
             // at (or next to) the shop
-            Matcher map = MAP_COORDS.matcher(wikitext);
-            if (map.find())
-            {
-                page.mapX = map.group(1);
-                page.mapY = map.group(2);
-                Matcher plane = MAP_PLANE.matcher(map.group(0));
-                if (plane.find())
-                {
-                    page.mapPlane = plane.group(1);
-                }
-                Matcher mapId = MAP_ID.matcher(map.group(0));
-                if (mapId.find())
-                {
-                    page.mapId = mapId.group(1);
-                }
-            }
+            applyMap(page, wikitext);
         }
         Matcher head = STORE_TABLE_HEAD.matcher(wikitext);
         while (head.find())
         {
-            Map<String, String> headParams = params(head.group(1));
+            Map<String, String> headParams = WikiText.params(head.group(1));
             String bucket = headParams.get("bucket");
             if (bucket != null && bucket.trim().equalsIgnoreCase("no"))
             {
@@ -143,7 +110,7 @@ public final class WikiShopFetch
             Matcher line = STORE_LINE.matcher(body);
             while (line.find())
             {
-                Map<String, String> p = params(line.group(1));
+                Map<String, String> p = WikiText.params(line.group(1));
                 String name = stripLinks(p.get("name"));
                 if (name == null || name.isEmpty())
                 {
@@ -164,27 +131,37 @@ public final class WikiShopFetch
         return page.tables.isEmpty() ? null : page;
     }
 
-    // splits template params on '|' pipes that are not inside a [[wiki link]]
-    private static Map<String, String> params(String body)
-    {
-        Map<String, String> out = new HashMap<>();
-        for (String part : body.split("\\|(?![^\\[]*?\\]\\])"))
-        {
-            int eq = part.indexOf('=');
-            if (eq > 0)
-            {
-                out.put(part.substring(0, eq).trim().toLowerCase(Locale.ROOT),
-                    part.substring(eq + 1).trim());
-            }
-        }
-        return out;
-    }
-
     // "[[Al Kharid|Al-Kharid]]" -> "Al-Kharid", "[[Varrock]]" -> "Varrock"
     static String stripLinks(String s)
     {
-        return s == null ? null
-            : s.replaceAll("\\[\\[(?:[^\\]|]*\\|)?([^\\]]*)\\]\\]", "$1").trim();
+        return WikiText.stripLinks(s);
+    }
+
+    // locates the first {{Map|...}} template in `text` and, if it contains a coordinate pair,
+    // fills in mapX/mapY/mapPlane (via WikiText.mapCoords) and mapId (searched locally, since
+    // it isn't part of WikiText's mapCoords contract)
+    private static void applyMap(ShopPageJson page, String text)
+    {
+        Matcher map = MAP_COORDS.matcher(text);
+        if (!map.find())
+        {
+            return;
+        }
+        int[] coords = WikiText.mapCoords(map.group());
+        if (coords != null)
+        {
+            page.mapX = String.valueOf(coords[0]);
+            page.mapY = String.valueOf(coords[1]);
+            if (coords[2] != 0)
+            {
+                page.mapPlane = String.valueOf(coords[2]);
+            }
+        }
+        Matcher mapId = MAP_ID.matcher(map.group());
+        if (mapId.find())
+        {
+            page.mapId = mapId.group(1);
+        }
     }
 
     private static String emptyToNull(String s)

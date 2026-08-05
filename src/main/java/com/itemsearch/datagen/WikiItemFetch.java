@@ -64,22 +64,14 @@ public final class WikiItemFetch
         }
         String body = box.group(1);
         ItemInfoJson info = new ItemInfoJson();
-        String id = field(body, "id");
+        String id = WikiText.field(body, "id");
         if (id == null)
         {
-            id = field(body, "id1"); // multi-version items number their ids
+            id = WikiText.field(body, "id1"); // multi-version items number their ids
         }
         info.id = firstInt(id);
-        info.value = firstInt(field(body, "value"));
+        info.value = firstInt(WikiText.field(body, "value"));
         return info;
-    }
-
-    // "|field = value" on its own line, same convention as WikiFetch
-    private static String field(String body, String name)
-    {
-        Matcher m = Pattern.compile("(?m)^\\s*\\|\\s*" + Pattern.quote(name)
-            + "\\s*=\\s*(.*?)\\s*$").matcher(body);
-        return m.find() ? m.group(1).trim() : null;
     }
 
     // first integer of a possibly comma-separated value; null on junk
