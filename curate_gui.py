@@ -33,9 +33,10 @@ HYBRID_WORDS = {"melee", "ranged", "magic"}
 VARIANT_KINDS = {"gear", "prayer", "consumable", "combo"}
 
 
-def parse_variants(text):
-    """'8 @ Insulated boots (gear); 12-14 @ Antifire (consumable)' ->
-    (variants_list_or_None_if_empty, error_or_None). Kind defaults to gear."""
+def parse_variants(text, default_kind="gear"):
+    """'8 @ Insulated boots; 12-14 @ Antifire' ->
+    (variants_list_or_None_if_empty, error_or_None). Kind comes from the column
+    (default_kind); an explicit '(kind)' suffix on an entry overrides it."""
     import re as _re
     text = (text or "").strip()
     if not text:
@@ -51,34 +52,43 @@ def parse_variants(text):
         lo = int(m.group(1))
         hi = int(m.group(2)) if m.group(2) else lo
         label = m.group(3).strip()
-        kind = (m.group(4) or "gear").lower()
+        kind = (m.group(4) or default_kind).lower()
         if kind not in VARIANT_KINDS:
             return None, "Bad kind '{}' (gear/prayer/consumable/combo)".format(kind)
         out.append({"label": label, "kind": kind.upper(), "maxHit": lo, "maxHitMax": hi})
     return (out or None), None
 
 
-def fmt_variants(variants):
-    """Inverse of parse_variants, for loading an overlay entry back into the editor."""
+def fmt_variants(variants, column_kind):
+    """Entries for one column: the variants matching that kind (COMBO rides in the
+    gear column with an explicit suffix so it round-trips)."""
     if not variants:
         return ""
     parts = []
     for v in variants:
+        kind = (v.get("kind") or "GEAR").lower()
+        home = "gear" if kind == "combo" else kind
+        if home != column_kind:
+            continue
         lo, hi = v.get("maxHit", 0), v.get("maxHitMax", 0)
         hit = str(lo) if hi in (0, lo) else "{}-{}".format(lo, hi)
-        parts.append("{} @ {} ({})".format(hit, v.get("label", "?"), (v.get("kind") or "GEAR").lower()))
+        suffix = " (combo)" if kind == "combo" else ""
+        parts.append("{} @ {}{}".format(hit, v.get("label", "?"), suffix))
     return "; ".join(parts)
 
 
 def collect_attacks(rows):
-    """rows: iterable of (style, max_text, speed_text[, variants_text]) -> (attacks_list, error_or_None).
+    """rows: iterable of (style, max_text, speed_text[, gear_text, prayer_text,
+    consumable_text]) -> (attacks_list, error_or_None).
 
     Blank-style rows are dropped; max/speed accept 'N' or 'low-high' (bad input is an error).
     """
     attacks = []
     for row in rows:
         style, mx, sp = row[0], row[1], row[2]
-        variants_text = row[3] if len(row) > 3 else ""
+        kind_texts = [("gear", row[3] if len(row) > 3 else ""),
+                      ("prayer", row[4] if len(row) > 4 else ""),
+                      ("consumable", row[5] if len(row) > 5 else "")]
         style = (style or "").strip().lower()
         if not style:
             continue
@@ -92,9 +102,13 @@ def collect_attacks(rows):
         if len(words) == 2 and words[0] in HYBRID_WORDS and words[1] in HYBRID_WORDS and words[0] != words[1]:
             # hybrid: accuracy roll first, prayed-against style second
             attack["style"], attack["prayStyle"] = words[0], words[1]
-        variants, verr = parse_variants(variants_text)
-        if verr:
-            return None, verr
+        variants = []
+        for kind, text in kind_texts:
+            parsed, verr = parse_variants(text, kind)
+            if verr:
+                return None, verr
+            if parsed:
+                variants.extend(parsed)
         if variants:
             attack["variants"] = variants
         attacks.append(attack)
@@ -154,8 +168,9 @@ class CuratorApp:
         ttk.Label(hdr, text="Style", width=16).grid(row=0, column=0, sticky="w")
         ttk.Label(hdr, text="Max hit (N or lo-hi)", width=18).grid(row=0, column=1, sticky="w")
         ttk.Label(hdr, text="Atk speed (ticks)", width=15).grid(row=0, column=2, sticky="w")
-        ttk.Label(hdr, text="Conditional: N @ Label (gear/prayer/consumable/combo); ...",
-                  width=52).grid(row=0, column=3, sticky="w")
+        ttk.Label(hdr, text="Dmg w/ gear — N @ Label; ...", width=26).grid(row=0, column=3, sticky="w")
+        ttk.Label(hdr, text="Dmg w/ prayer", width=22).grid(row=0, column=4, sticky="w")
+        ttk.Label(hdr, text="Dmg w/ consumable", width=22).grid(row=0, column=5, sticky="w")
         self.attacks_frame = ttk.Frame(right)
         self.attacks_frame.pack(fill="x", pady=(2, 6))
 
@@ -204,17 +219,23 @@ class CuratorApp:
             r["frame"].destroy()
         self.rows = []
 
-    def _add_row(self, style="", mh_text="0", sp_text="0", variants_text=""):
+    def _add_row(self, style="", mh_text="0", sp_text="0",
+                 gear_text="", prayer_text="", consumable_text=""):
         fr = ttk.Frame(self.attacks_frame)
         fr.pack(fill="x", pady=1)
         style_var, max_var, speed_var = tk.StringVar(value=style), tk.StringVar(value=mh_text), tk.StringVar(value=sp_text)
-        variants_var = tk.StringVar(value=variants_text)
+        gear_var = tk.StringVar(value=gear_text)
+        prayer_var = tk.StringVar(value=prayer_text)
+        consumable_var = tk.StringVar(value=consumable_text)
         ttk.Combobox(fr, values=STYLES, textvariable=style_var, width=14).grid(row=0, column=0, sticky="w")
         ttk.Entry(fr, textvariable=max_var, width=12).grid(row=0, column=1, sticky="w", padx=4)
         ttk.Entry(fr, textvariable=speed_var, width=8).grid(row=0, column=2, sticky="w", padx=4)
-        ttk.Entry(fr, textvariable=variants_var, width=44).grid(row=0, column=3, sticky="w", padx=4)
-        row = {"frame": fr, "style": style_var, "max": max_var, "speed": speed_var, "variants": variants_var}
-        ttk.Button(fr, text="✕", width=3, command=lambda: self._remove_row(row)).grid(row=0, column=4, padx=4)
+        ttk.Entry(fr, textvariable=gear_var, width=24).grid(row=0, column=3, sticky="w", padx=4)
+        ttk.Entry(fr, textvariable=prayer_var, width=20).grid(row=0, column=4, sticky="w", padx=4)
+        ttk.Entry(fr, textvariable=consumable_var, width=20).grid(row=0, column=5, sticky="w", padx=4)
+        row = {"frame": fr, "style": style_var, "max": max_var, "speed": speed_var,
+               "gear": gear_var, "prayer": prayer_var, "consumable": consumable_var}
+        ttk.Button(fr, text="✕", width=3, command=lambda: self._remove_row(row)).grid(row=0, column=6, padx=4)
         self.rows.append(row)
 
     def _remove_row(self, row):
@@ -236,7 +257,9 @@ class CuratorApp:
             self._add_row(style,
                           core.fmt_range(a.get("maxHit", 0), a.get("maxHitMax", 0)),
                           core.fmt_range(a.get("speed", 0), a.get("speedMax", 0)),
-                          fmt_variants(a.get("variants")))
+                          fmt_variants(a.get("variants"), "gear"),
+                          fmt_variants(a.get("variants"), "prayer"),
+                          fmt_variants(a.get("variants"), "consumable"))
         if not self.rows:
             self._add_row()
 
@@ -245,7 +268,8 @@ class CuratorApp:
             webbrowser.open(self.link_url)
 
     def _gather(self):
-        return [(r["style"].get(), r["max"].get(), r["speed"].get(), r["variants"].get()) for r in self.rows]
+        return [(r["style"].get(), r["max"].get(), r["speed"].get(),
+                 r["gear"].get(), r["prayer"].get(), r["consumable"].get()) for r in self.rows]
 
     def _save(self):
         if self.current_id is None:
