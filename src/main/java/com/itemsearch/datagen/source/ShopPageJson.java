@@ -35,5 +35,6 @@ public class ShopPageJson
     public String mapX;
     public String mapY;
     public String mapPlane; // {{Map}}'s plane= param; null means ground level
+    public String mapId;    // {{Map}}'s mapID= param; identifies non-surface map layers
     public List<ShopTableJson> tables = new ArrayList<>();
 }

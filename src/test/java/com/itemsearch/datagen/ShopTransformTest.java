@@ -149,6 +149,7 @@ public class ShopTransformTest
         upstairs.mapX = "3100";
         upstairs.mapY = "3300";
         upstairs.mapPlane = "1";
+        upstairs.mapId = "31";
         pages.put("Upstairs", upstairs);
         pages.put("Nowhere", page("Nowhere", null, table(null, null, line("Pot", "1", null, null))));
 
@@ -161,9 +162,11 @@ public class ShopTransformTest
         assertEquals(Integer.valueOf(3100), shops.get(1).x);
         assertEquals(Integer.valueOf(3300), shops.get(1).y);
         assertEquals(Integer.valueOf(1), shops.get(1).plane);
+        assertEquals(Integer.valueOf(31), shops.get(1).mapId);
         assertEquals("Zaff", shops.get(2).name);
         assertEquals(Integer.valueOf(3203), shops.get(2).x);
         assertEquals(Integer.valueOf(0), shops.get(2).plane); // coords present -> ground level
+        assertNull(shops.get(2).mapId);
     }
 
     @Test

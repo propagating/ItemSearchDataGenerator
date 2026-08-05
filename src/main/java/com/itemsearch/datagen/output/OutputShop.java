@@ -37,5 +37,6 @@ public class OutputShop
     public Integer x;
     public Integer y;
     public Integer plane;
+    public Integer mapId; // wiki map layer id; null/<=0 means the ordinary surface map
     public List<OutputShopItem> items = new ArrayList<>();
 }

@@ -70,6 +70,7 @@ public final class ShopTransform
                     shop.y = mapY;
                     Integer plane = parseInt(page.mapPlane);
                     shop.plane = plane != null ? plane : 0;
+                    shop.mapId = parseInt(page.mapId);
                 }
                 Integer multiplier = parseInt(table.sellMultiplier);
                 for (ShopLineJson line : table.lines)

@@ -52,6 +52,7 @@ public class WikiShopFetchTest
         assertEquals("3203", page.mapX);
         assertEquals("3434", page.mapY);
         assertNull(page.mapPlane);
+        assertNull(page.mapId);
         assertEquals(1, page.tables.size());
         assertEquals("1000", page.tables.get(0).sellMultiplier);
         // nameless row dropped: 4 lines survive
@@ -161,6 +162,7 @@ public class WikiShopFetchTest
         ShopPageJson page = WikiShopFetch.extract("Shop keeper", npcPage);
         assertEquals("3212", page.mapX);
         assertEquals("3246", page.mapY);
+        assertEquals("0", page.mapId);
     }
 
     @Test

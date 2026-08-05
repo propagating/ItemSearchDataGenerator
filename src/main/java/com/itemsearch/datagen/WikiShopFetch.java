@@ -61,6 +61,7 @@ public final class WikiShopFetch
     private static final Pattern MAP_COORDS =
         Pattern.compile("\\{\\{Map[^}]*?(\\d{3,5})\\s*,\\s*(\\d{3,5})[^}]*");
     private static final Pattern MAP_PLANE = Pattern.compile("plane\\s*=\\s*(\\d+)");
+    private static final Pattern MAP_ID = Pattern.compile("mapID\\s*=\\s*(-?\\d+)");
     private static final int BATCH = 50;
 
     private WikiShopFetch()
@@ -92,6 +93,11 @@ public final class WikiShopFetch
                 {
                     page.mapPlane = plane.group(1);
                 }
+                Matcher mapId = MAP_ID.matcher(map.group(0));
+                if (mapId.find())
+                {
+                    page.mapId = mapId.group(1);
+                }
             }
         }
         if (page.mapX == null)
@@ -108,6 +114,11 @@ public final class WikiShopFetch
                 if (plane.find())
                 {
                     page.mapPlane = plane.group(1);
+                }
+                Matcher mapId = MAP_ID.matcher(map.group(0));
+                if (mapId.find())
+                {
+                    page.mapId = mapId.group(1);
                 }
             }
         }
