@@ -96,6 +96,8 @@
   "Aaron's Archery Appendages.": {
     "pageTitle": "Aaron's Archery Appendages.",
     "location": "Ranging Guild",
+    "mapX": "2666",
+    "mapY": "3440",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -167,6 +169,8 @@
   "Aemad's Adventuring Supplies.": {
     "pageTitle": "Aemad's Adventuring Supplies.",
     "location": "East Ardougne",
+    "mapX": "2614",
+    "mapY": "3293",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -251,6 +255,8 @@
   "Agelus' Farm Shop": {
     "pageTitle": "Agelus' Farm Shop",
     "location": "Ortus Farm",
+    "mapX": "1593",
+    "mapY": "3106",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -434,6 +440,8 @@
   "Agmundi Quality Clothes": {
     "pageTitle": "Agmundi Quality Clothes",
     "location": "Keldagrim",
+    "mapX": "2868",
+    "mapY": "10209",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -530,6 +538,8 @@
   "Al Kharid General Store": {
     "pageTitle": "Al Kharid General Store",
     "location": "Al Kharid",
+    "mapX": "3315",
+    "mapY": "3182",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -694,6 +704,8 @@
   "Aleck's Hunter Emporium.": {
     "pageTitle": "Aleck's Hunter Emporium.",
     "location": "Yanille",
+    "mapX": "2567",
+    "mapY": "3082",
     "tables": [
       {
         "sellMultiplier": "1200",
@@ -1183,6 +1195,8 @@
   "Alice's Farming shop.": {
     "pageTitle": "Alice's Farming shop.",
     "location": "Alice's farm",
+    "mapX": "3628",
+    "mapY": "3526",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -1349,6 +1363,8 @@
   "Allanna's Farming Shop": {
     "pageTitle": "Allanna's Farming Shop",
     "location": "Farming Guild",
+    "mapX": "1250",
+    "mapY": "3735",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -1526,6 +1542,8 @@
   "Amelia's Seed Shop": {
     "pageTitle": "Amelia's Seed Shop",
     "location": "Farming Guild",
+    "mapX": "1246",
+    "mapY": "3740",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -1718,6 +1736,8 @@
   "Aneirin's Armour": {
     "pageTitle": "Aneirin's Armour",
     "location": "Prifddinas",
+    "mapX": "3250",
+    "mapY": "6062",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -1865,6 +1885,8 @@
   "Arcuani's Archery Supplies": {
     "pageTitle": "Arcuani's Archery Supplies",
     "location": "Tal Teklan",
+    "mapX": "1210",
+    "mapY": "3096",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -1967,6 +1989,8 @@
   "Ardougne Baker's Stall.": {
     "pageTitle": "Ardougne Baker's Stall.",
     "location": "East Ardougne",
+    "mapX": "2656",
+    "mapY": "3310",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -2289,6 +2313,8 @@
   "Armour Shop (Jatizso)": {
     "pageTitle": "Armour Shop (Jatizso)",
     "location": "Jatizso",
+    "mapX": "2393",
+    "mapY": "3799",
     "tables": [
       {
         "sellMultiplier": "1100",
@@ -2340,6 +2366,8 @@
   "Armour store.": {
     "pageTitle": "Armour store.",
     "location": "Blast Furnace in Keldagrim",
+    "mapX": "1939",
+    "mapY": "4968",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -2471,6 +2499,8 @@
   "Armoury": {
     "pageTitle": "Armoury",
     "location": "Combat Training Camp",
+    "mapX": "2513",
+    "mapY": "3386",
     "tables": [
       {
         "sellMultiplier": "1500",
@@ -2653,6 +2683,8 @@
   "Artima's Crafting Supplies": {
     "pageTitle": "Artima's Crafting Supplies",
     "location": "Civitas illa Fortis",
+    "mapX": "1764",
+    "mapY": "3104",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -2724,6 +2756,8 @@
   "Atlazora's Rest": {
     "pageTitle": "Atlazora's Rest",
     "location": "Outer Fortis",
+    "mapX": "1720",
+    "mapY": "3076",
     "tables": [
       {
         "lines": [
@@ -2822,6 +2856,8 @@
   "Auburn Pub": {
     "pageTitle": "Auburn Pub",
     "location": "Auburnvale",
+    "mapX": "1395",
+    "mapY": "3354",
     "tables": [
       {
         "lines": [
@@ -2880,6 +2916,8 @@
   "Auburnvale General Store": {
     "pageTitle": "Auburnvale General Store",
     "location": "Auburnvale",
+    "mapX": "1377",
+    "mapY": "3347",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -2966,6 +3004,8 @@
   "Aubury's Rune Shop.": {
     "pageTitle": "Aubury's Rune Shop.",
     "location": "Varrock",
+    "mapX": "3250",
+    "mapY": "3403",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -3081,6 +3121,8 @@
   "Aurel's Supplies": {
     "pageTitle": "Aurel's Supplies",
     "location": "Burgh de Rott",
+    "mapX": "3515",
+    "mapY": "3241",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -3560,6 +3602,8 @@
   "Bandit Bargains": {
     "pageTitle": "Bandit Bargains",
     "location": "Bandit Camp",
+    "mapX": "3176",
+    "mapY": "2991",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -3761,6 +3805,8 @@
   "Barkers' Haberdashery": {
     "pageTitle": "Barkers' Haberdashery",
     "location": "Canifis",
+    "mapX": "3497",
+    "mapY": "3508",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -4214,6 +4260,8 @@
   "Betty's Magic Emporium": {
     "pageTitle": "Betty's Magic Emporium",
     "location": "Port Sarim",
+    "mapX": "3014",
+    "mapY": "3259",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -4395,6 +4443,8 @@
   "Blair's Armour": {
     "pageTitle": "Blair's Armour",
     "location": "Shayzien",
+    "mapX": "1561",
+    "mapY": "3572",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -4480,6 +4530,8 @@
   "Blue Moon Inn": {
     "pageTitle": "Blue Moon Inn",
     "location": "Varrock",
+    "mapX": "3216",
+    "mapY": "3397",
     "tables": [
       {
         "lines": [
@@ -4495,6 +4547,9 @@
   },
   "Blurberry Bar": {
     "pageTitle": "Blurberry Bar",
+    "mapX": "2482",
+    "mapY": "3488",
+    "mapPlane": "1",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -4541,6 +4596,8 @@
   "Bob's Brilliant Axes.": {
     "pageTitle": "Bob's Brilliant Axes.",
     "location": "Lumbridge",
+    "mapX": "3228",
+    "mapY": "3206",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -4873,6 +4930,8 @@
   "Branwen's Farming Shop": {
     "pageTitle": "Branwen's Farming Shop",
     "location": "Prifddinas",
+    "mapX": "3294",
+    "mapY": "6091",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -4969,6 +5028,8 @@
   "Brian's Archery Supplies.": {
     "pageTitle": "Brian's Archery Supplies.",
     "location": "Rimmington",
+    "mapX": "2957",
+    "mapY": "3204",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -5025,6 +5086,8 @@
   "Brian's Battleaxe Bazaar.": {
     "pageTitle": "Brian's Battleaxe Bazaar.",
     "location": "Port Sarim",
+    "mapX": "3027",
+    "mapY": "3249",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -5066,6 +5129,8 @@
   "Briget's Weapons": {
     "pageTitle": "Briget's Weapons",
     "location": "Shayzien",
+    "mapX": "1567",
+    "mapY": "3545",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -5382,6 +5447,9 @@
   "Cam Torum Blacksmith": {
     "pageTitle": "Cam Torum Blacksmith",
     "location": "Cam Torum",
+    "mapX": "1449",
+    "mapY": "9584",
+    "mapPlane": "0",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -5493,6 +5561,9 @@
   "Cam Torum General Store": {
     "pageTitle": "Cam Torum General Store",
     "location": "Cam Torum",
+    "mapX": "1426",
+    "mapY": "9556",
+    "mapPlane": "1",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -5594,6 +5665,8 @@
   "Candle Shop": {
     "pageTitle": "Candle Shop",
     "location": "Catherby",
+    "mapX": "2796",
+    "mapY": "3442",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -5644,6 +5717,8 @@
   "Carefree Crafting Stall": {
     "pageTitle": "Carefree Crafting Stall",
     "location": "Keldagrim",
+    "mapX": "2887",
+    "mapY": "10207",
     "tables": [
       {
         "sellMultiplier": "1500",
@@ -5775,6 +5850,8 @@
   "Cassie's Shield Shop.": {
     "pageTitle": "Cassie's Shield Shop.",
     "location": "Falador",
+    "mapX": "2972",
+    "mapY": "3387",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -5979,6 +6056,8 @@
   "Cobado's Groceries": {
     "pageTitle": "Cobado's Groceries",
     "location": "Civitas illa Fortis",
+    "mapX": "1703",
+    "mapY": "3120",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -6237,6 +6316,8 @@
   },
   "Construction supplies": {
     "pageTitle": "Construction supplies",
+    "mapX": "3314",
+    "mapY": "6120",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -6273,6 +6354,8 @@
   "Contraband yak produce.": {
     "pageTitle": "Contraband yak produce.",
     "location": "Jatizso",
+    "mapX": "2404",
+    "mapY": "3816",
     "tables": [
       {
         "sellMultiplier": "1100",
@@ -6319,6 +6402,8 @@
   "Crossbow Shop (Dwarven Mine)": {
     "pageTitle": "Crossbow Shop (Dwarven Mine)",
     "location": "Dwarven Mines",
+    "mapX": "3004",
+    "mapY": "9799",
     "tables": [
       {
         "sellMultiplier": "3600",
@@ -6425,6 +6510,8 @@
   "Crossbow Shop (Keldagrim)": {
     "pageTitle": "Crossbow Shop (Keldagrim)",
     "location": "Keldagrim Palace",
+    "mapX": "2887",
+    "mapY": "10203",
     "tables": [
       {
         "sellMultiplier": "3000",
@@ -6531,6 +6618,8 @@
   "Crossbow Shop (White Wolf Mountain)": {
     "pageTitle": "Crossbow Shop (White Wolf Mountain)",
     "location": "White Wolf Mountain",
+    "mapX": "2865",
+    "mapY": "9871",
     "tables": [
       {
         "sellMultiplier": "3600",
@@ -6637,6 +6726,8 @@
   "Culinaromancer's Chest": {
     "pageTitle": "Culinaromancer's Chest",
     "location": "Lumbridge Castle basement",
+    "mapX": "3219",
+    "mapY": "9623",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -8703,6 +8794,8 @@
   "Dancing Donkey Inn": {
     "pageTitle": "Dancing Donkey Inn",
     "location": "Varrock",
+    "mapX": "3266",
+    "mapY": "3395",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -8763,6 +8856,8 @@
   "Dargaud's Bow and Arrows.": {
     "pageTitle": "Dargaud's Bow and Arrows.",
     "location": "Ranging Guild",
+    "mapX": "2672",
+    "mapY": "3434",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -8909,6 +9004,8 @@
   "Darkmeyer General Store": {
     "pageTitle": "Darkmeyer General Store",
     "location": "Darkmeyer",
+    "mapX": "3641",
+    "mapY": "3336",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -8985,6 +9082,8 @@
   "Darkmeyer Lantern Shop": {
     "pageTitle": "Darkmeyer Lantern Shop",
     "location": "Darkmeyer",
+    "mapX": "3645",
+    "mapY": "3359",
     "tables": [
       {
         "sellMultiplier": "1200",
@@ -9026,6 +9125,8 @@
   "Darkmeyer Meat Shop": {
     "pageTitle": "Darkmeyer Meat Shop",
     "location": "Darkmeyer",
+    "mapX": "3620",
+    "mapY": "3387",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -9269,6 +9370,8 @@
   "Daryl's Ranging Surplus": {
     "pageTitle": "Daryl's Ranging Surplus",
     "location": "Shayzien",
+    "mapX": "1538",
+    "mapY": "3559",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -9432,6 +9535,8 @@
   "Dead Man's Chest": {
     "pageTitle": "Dead Man's Chest",
     "location": "Brimhaven",
+    "mapX": "2791",
+    "mapY": "3170",
     "tables": [
       {
         "lines": [
@@ -9510,6 +9615,8 @@
   "Deepfin Inn": {
     "pageTitle": "Deepfin Inn",
     "location": "Deepfin Point",
+    "mapX": "1938",
+    "mapY": "2764",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -9558,6 +9665,8 @@
   "Deepfin Point Ore Exchange": {
     "pageTitle": "Deepfin Point Ore Exchange",
     "location": "Deepfin Point",
+    "mapX": "1946",
+    "mapY": "2762",
     "tables": [
       {
         "sellMultiplier": "1100",
@@ -10937,6 +11046,8 @@
   "Dodgy Mike's Second Hand Clothing.": {
     "pageTitle": "Dodgy Mike's Second Hand Clothing.",
     "location": "Mos Le'Harmless",
+    "mapX": "3687",
+    "mapY": "2979",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -11114,6 +11225,8 @@
   "Dommik's Crafting Store.": {
     "pageTitle": "Dommik's Crafting Store.",
     "location": "Al Kharid",
+    "mapX": "3321",
+    "mapY": "3194",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -11236,6 +11349,8 @@
   "Dragon Inn": {
     "pageTitle": "Dragon Inn",
     "location": "Yanille",
+    "mapX": "2553",
+    "mapY": "3080",
     "tables": [
       {
         "lines": [
@@ -11264,6 +11379,8 @@
   "Draynor Seed Market": {
     "pageTitle": "Draynor Seed Market",
     "location": "Draynor Village",
+    "mapX": "3078",
+    "mapY": "3251",
     "tables": [
       {
         "sellMultiplier": "1200",
@@ -11504,6 +11621,8 @@
   "Durrik's Goods": {
     "pageTitle": "Durrik's Goods",
     "location": "Deepfin Mine",
+    "mapX": "1956",
+    "mapY": "9172",
     "tables": [
       {
         "sellMultiplier": "2500",
@@ -11702,6 +11821,8 @@
   "Dyes to Die For": {
     "pageTitle": "Dyes to Die For",
     "location": "Tal Teklan",
+    "mapX": "1203",
+    "mapY": "3119",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -11764,6 +11885,8 @@
   "Edgeville General Store": {
     "pageTitle": "Edgeville General Store",
     "location": "Edgeville",
+    "mapX": "3077",
+    "mapY": "3514",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -12009,6 +12132,8 @@
   "Elder Blunn's Spear and Shield Stall": {
     "pageTitle": "Elder Blunn's Spear and Shield Stall",
     "location": "The Summer Shore",
+    "mapX": "3170",
+    "mapY": "2416",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -12069,6 +12194,8 @@
   "Elder Coco's Crafting Stall": {
     "pageTitle": "Elder Coco's Crafting Stall",
     "location": "The Summer Shore",
+    "mapX": "3170",
+    "mapY": "2406",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -12141,6 +12268,8 @@
   "Elder Krill's Fishing Stall": {
     "pageTitle": "Elder Krill's Fishing Stall",
     "location": "The Summer Shore",
+    "mapX": "3164",
+    "mapY": "2416",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -12247,6 +12376,8 @@
   "Elder Raley's Herblore Stall": {
     "pageTitle": "Elder Raley's Herblore Stall",
     "location": "The Summer Shore",
+    "mapX": "3175",
+    "mapY": "2413",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -12298,6 +12429,8 @@
   "Elder Reggle's Farming Shop": {
     "pageTitle": "Elder Reggle's Farming Shop",
     "location": "The Great Conch",
+    "mapX": "3249",
+    "mapY": "2466",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -12394,6 +12527,8 @@
   "Elder Strom's Hunting Stall": {
     "pageTitle": "Elder Strom's Hunting Stall",
     "location": "The Summer Shore",
+    "mapX": "3160",
+    "mapY": "2410",
     "tables": [
       {
         "sellMultiplier": "1200",
@@ -12614,6 +12749,8 @@
   "Emelio's Kebab Shop": {
     "pageTitle": "Emelio's Kebab Shop",
     "location": "Varlamore",
+    "mapX": "1754",
+    "mapY": "3075",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -12764,6 +12901,8 @@
   "Etceteria Fish": {
     "pageTitle": "Etceteria Fish",
     "location": "Etceteria",
+    "mapX": "2600",
+    "mapY": "3878",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -12972,6 +13111,8 @@
   "Falador General Store": {
     "pageTitle": "Falador General Store",
     "location": "Falador",
+    "mapX": "2953",
+    "mapY": "3391",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -13048,6 +13189,8 @@
   "Falador Party Room": {
     "pageTitle": "Falador Party Room",
     "location": "Falador",
+    "mapX": "3036",
+    "mapY": "3385",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -13064,6 +13207,8 @@
   "Fancy Clothes Store": {
     "pageTitle": "Fancy Clothes Store",
     "location": "Varrock",
+    "mapX": "3278",
+    "mapY": "3401",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -13286,6 +13431,8 @@
   "Faustus' Fruit and Veg": {
     "pageTitle": "Faustus' Fruit and Veg",
     "location": "Aldarin",
+    "mapX": "1419",
+    "mapY": "2984",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -13426,6 +13573,8 @@
   "Fernahei's Fishing Hut.": {
     "pageTitle": "Fernahei's Fishing Hut.",
     "location": "Shilo Village",
+    "mapX": "2869",
+    "mapY": "2973",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -13533,6 +13682,8 @@
   "Fight Arena Bar": {
     "pageTitle": "Fight Arena Bar",
     "location": "South-western corner of the Fight Arena",
+    "mapX": "2563",
+    "mapY": "3155",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -13554,6 +13705,8 @@
   "Filamina's Wares": {
     "pageTitle": "Filamina's Wares",
     "location": "Arceuus",
+    "mapX": "1664",
+    "mapY": "3732",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -13595,6 +13748,9 @@
   "Fine Fashions": {
     "pageTitle": "Fine Fashions",
     "location": "Grand Tree",
+    "mapX": "2482",
+    "mapY": "3510",
+    "mapPlane": "1",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -13706,6 +13862,8 @@
   "Fishing Guild Shop.": {
     "pageTitle": "Fishing Guild Shop.",
     "location": "Fishing Guild",
+    "mapX": "2590",
+    "mapY": "3403",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -13827,6 +13985,8 @@
   "Floria's Fashion": {
     "pageTitle": "Floria's Fashion",
     "location": "Civitas illa Fortis",
+    "mapX": "1656",
+    "mapY": "3104",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -13893,6 +14053,8 @@
   "Flosi's Fishmongers": {
     "pageTitle": "Flosi's Fishmongers",
     "location": "Jatizso",
+    "mapX": "2415",
+    "mapY": "3817",
     "tables": [
       {
         "sellMultiplier": "1100",
@@ -13943,6 +14105,8 @@
   "Flying Horse Inn": {
     "pageTitle": "Flying Horse Inn",
     "location": "East Ardougne",
+    "mapX": "2572",
+    "mapY": "3327",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -13959,6 +14123,8 @@
   "Flynn's Mace Market.": {
     "pageTitle": "Flynn's Mace Market.",
     "location": "Falador",
+    "mapX": "2948",
+    "mapY": "3389",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -13995,6 +14161,8 @@
   "Food Store": {
     "pageTitle": "Food Store",
     "location": "Port Sarim",
+    "mapX": "3009",
+    "mapY": "3211",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -14061,6 +14229,8 @@
   "Forester's Arms": {
     "pageTitle": "Forester's Arms",
     "location": "Seers' Village",
+    "mapX": "2695",
+    "mapY": "3493",
     "tables": [
       {
         "lines": [
@@ -14085,6 +14255,8 @@
   },
   "Forestry Shop": {
     "pageTitle": "Forestry Shop",
+    "mapX": "3096",
+    "mapY": "3238",
     "tables": [
       {
         "currency": "Anima-infused bark",
@@ -14227,6 +14399,8 @@
   "Fortis Blacksmith": {
     "pageTitle": "Fortis Blacksmith",
     "location": "Civitas illa Fortis",
+    "mapX": "1656",
+    "mapY": "3143",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -14546,6 +14720,8 @@
   "Fortis General Store": {
     "pageTitle": "Fortis General Store",
     "location": "Civitas illa Fortis",
+    "mapX": "1667",
+    "mapY": "3126",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -14720,6 +14896,8 @@
   "Fossil Island General Store": {
     "pageTitle": "Fossil Island General Store",
     "location": "Museum Camp",
+    "mapX": "3727",
+    "mapY": "3815",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -14825,6 +15003,8 @@
   "Frankie's Fishing Emporium": {
     "pageTitle": "Frankie's Fishing Emporium",
     "location": "Port Piscarilius",
+    "mapX": "1829",
+    "mapY": "3724",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -14905,6 +15085,8 @@
   "Fremennik Fish Monger": {
     "pageTitle": "Fremennik Fish Monger",
     "location": "Rellekka",
+    "mapX": "2647",
+    "mapY": "3676",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -15107,6 +15289,8 @@
   "Frenita's Cookery Shop.": {
     "pageTitle": "Frenita's Cookery Shop.",
     "location": "Yanille",
+    "mapX": "2565",
+    "mapY": "3105",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -15178,6 +15362,8 @@
   "Frincos' Fabulous Herb Store.": {
     "pageTitle": "Frincos' Fabulous Herb Store.",
     "location": "Entrana",
+    "mapX": "2807",
+    "mapY": "3346",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -15292,6 +15478,9 @@
   "Funch's Fine Groceries": {
     "pageTitle": "Funch's Fine Groceries",
     "location": "Grand Tree",
+    "mapX": "2491",
+    "mapY": "3488",
+    "mapPlane": "1",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -16112,6 +16301,8 @@
   "General Store (Canifis)": {
     "pageTitle": "General Store (Canifis)",
     "location": "Canifis",
+    "mapX": "3474",
+    "mapY": "3500",
     "tables": [
       {
         "sellMultiplier": "2000",
@@ -16195,6 +16386,8 @@
   "Gerrant's Fishy Business.": {
     "pageTitle": "Gerrant's Fishy Business.",
     "location": "Port Sarim",
+    "mapX": "3011",
+    "mapY": "3230",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -16301,6 +16494,9 @@
   "Gianne's Restaurant": {
     "pageTitle": "Gianne's Restaurant",
     "location": "Grand Tree",
+    "mapX": "2449",
+    "mapY": "3502",
+    "mapPlane": "1",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -16377,6 +16573,8 @@
   "Giants' Foundry Reward Shop": {
     "pageTitle": "Giants' Foundry Reward Shop",
     "location": "Giants' Foundry",
+    "mapX": "3371",
+    "mapY": "11486",
     "tables": [
       {
         "currency": "Foundry Reputation",
@@ -16561,6 +16759,8 @@
   "Grace's Graceful Clothing": {
     "pageTitle": "Grace's Graceful Clothing",
     "location": "Rogues' Den (Burthorpe)",
+    "mapX": "3050",
+    "mapY": "4961",
     "tables": [
       {
         "currency": "Mark of grace",
@@ -16608,6 +16808,9 @@
   "Grand Tree Groceries": {
     "pageTitle": "Grand Tree Groceries",
     "location": "Grand Tree",
+    "mapX": "2448",
+    "mapY": "3508",
+    "mapPlane": "1",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -16876,6 +17079,8 @@
   "Grum's Gold Exchange.": {
     "pageTitle": "Grum's Gold Exchange.",
     "location": "Port Sarim",
+    "mapX": "3013",
+    "mapY": "3247",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -16962,6 +17167,8 @@
   "Guinevere's Dyes": {
     "pageTitle": "Guinevere's Dyes",
     "location": "Prifddinas",
+    "mapX": "3227",
+    "mapY": "6059",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -17003,6 +17210,9 @@
   "Gulluck and Sons": {
     "pageTitle": "Gulluck and Sons",
     "location": "Grand Tree, {{FloorNumber",
+    "mapX": "2469",
+    "mapY": "3488",
+    "mapPlane": "2",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -17134,6 +17344,8 @@
   "Gunslik's Assorted Items": {
     "pageTitle": "Gunslik's Assorted Items",
     "location": "Keldagrim",
+    "mapX": "2871",
+    "mapY": "10189",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -17220,6 +17432,8 @@
   "Gwyn's Mining Emporium": {
     "pageTitle": "Gwyn's Mining Emporium",
     "location": "Prifddinas",
+    "mapX": "3290",
+    "mapY": "6044",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -17261,6 +17475,8 @@
   "Hair of the Dog": {
     "pageTitle": "Hair of the Dog",
     "location": "Canifis",
+    "mapX": "3488",
+    "mapY": "3478",
     "tables": [
       {
         "lines": [
@@ -17281,6 +17497,8 @@
   "Hamab's Crafting Emporium": {
     "pageTitle": "Hamab's Crafting Emporium",
     "location": "Ape Atoll",
+    "mapX": "2781",
+    "mapY": "2792",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -17332,6 +17550,9 @@
   "Happy Heroes' H'emporium.": {
     "pageTitle": "Happy Heroes' H'emporium.",
     "location": "{{FloorNumber",
+    "mapX": "2895",
+    "mapY": "3511",
+    "mapPlane": "1",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -17397,6 +17618,8 @@
   "Harpoon Joe's House of 'Rum'.": {
     "pageTitle": "Harpoon Joe's House of 'Rum'.",
     "location": "Mos Le'Harmless",
+    "mapX": "3666",
+    "mapY": "2993",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -17428,6 +17651,8 @@
   "Harry's Fishing Shop.": {
     "pageTitle": "Harry's Fishing Shop.",
     "location": "Catherby",
+    "mapX": "2830",
+    "mapY": "3447",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -17548,6 +17773,8 @@
   "Hefin Inn": {
     "pageTitle": "Hefin Inn",
     "location": "Prifddinas",
+    "mapX": "3236",
+    "mapY": "6128",
     "tables": [
       {
         "lines": [
@@ -17777,6 +18004,8 @@
   "Herquin's Gems.": {
     "pageTitle": "Herquin's Gems.",
     "location": "Falador",
+    "mapX": "2945",
+    "mapY": "3335",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -17872,6 +18101,8 @@
   "Hickton's Archery Emporium.": {
     "pageTitle": "Hickton's Archery Emporium.",
     "location": "Catherby",
+    "mapX": "2823",
+    "mapY": "3443",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -18265,6 +18496,8 @@
   "Horvik's Armour Shop.": {
     "pageTitle": "Horvik's Armour Shop.",
     "location": "Varrock",
+    "mapX": "3230",
+    "mapY": "3437",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -18351,6 +18584,9 @@
   "Huito's Herbal Supplies": {
     "pageTitle": "Huito's Herbal Supplies",
     "location": "Cam Torum",
+    "mapX": "1437",
+    "mapY": "9553",
+    "mapPlane": "1",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -18452,6 +18688,8 @@
   "Ifaba's General Store": {
     "pageTitle": "Ifaba's General Store",
     "location": "Ape Atoll",
+    "mapX": "2753",
+    "mapY": "2775",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -18667,6 +18905,8 @@
   "Iorwerth's Arms": {
     "pageTitle": "Iorwerth's Arms",
     "location": "Prifddinas",
+    "mapX": "3258",
+    "mapY": "6061",
     "tables": [
       {
         "sellMultiplier": "1500",
@@ -18781,6 +19021,8 @@
   "Ishmael's Fish He Sells": {
     "pageTitle": "Ishmael's Fish He Sells",
     "location": "Ruins of Unkah",
+    "mapX": "3160",
+    "mapY": "2848",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -18887,6 +19129,8 @@
   "Island Fishmonger": {
     "pageTitle": "Island Fishmonger",
     "location": "Miscellania",
+    "mapX": "2516",
+    "mapY": "3865",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -19121,6 +19365,8 @@
   "Iwan's Maces": {
     "pageTitle": "Iwan's Maces",
     "location": "Prifddinas",
+    "mapX": "3255",
+    "mapY": "6128",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -19147,6 +19393,8 @@
   "Jamila's Craft Stall.": {
     "pageTitle": "Jamila's Craft Stall.",
     "location": "Sophanem",
+    "mapX": "3311",
+    "mapY": "2780",
     "tables": [
       {
         "sellMultiplier": "1500",
@@ -19208,6 +19456,8 @@
   "Jatix's Herblore Shop.": {
     "pageTitle": "Jatix's Herblore Shop.",
     "location": "Taverley",
+    "mapX": "2897",
+    "mapY": "3432",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -19254,6 +19504,8 @@
   "Jennifer's General Supplies": {
     "pageTitle": "Jennifer's General Supplies",
     "location": "Shayzien",
+    "mapX": "1517",
+    "mapY": "3594",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -19627,6 +19879,8 @@
   "Jolly Boar Inn": {
     "pageTitle": "Jolly Boar Inn",
     "location": "North-east of Varrock",
+    "mapX": "3275",
+    "mapY": "3507",
     "tables": [
       {
         "lines": [
@@ -20160,6 +20414,8 @@
   "Karamja Wines, Spirits, and Beers.": {
     "pageTitle": "Karamja Wines, Spirits, and Beers.",
     "location": "Karamja",
+    "mapX": "2918",
+    "mapY": "3145",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -20200,6 +20456,8 @@
   "Kastori Farming Supplies": {
     "pageTitle": "Kastori Farming Supplies",
     "location": "Kastori",
+    "mapX": "1357",
+    "mapY": "3061",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -20296,6 +20554,8 @@
   "Kastori General Store": {
     "pageTitle": "Kastori General Store",
     "location": "Kastori",
+    "mapX": "1377",
+    "mapY": "3044",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -20392,6 +20652,8 @@
   "Keepa Kettilon's store": {
     "pageTitle": "Keepa Kettilon's store",
     "location": "Jatizso",
+    "mapX": "2415",
+    "mapY": "3817",
     "tables": [
       {
         "sellMultiplier": "1100",
@@ -20433,6 +20695,8 @@
   "Keldagrim Stonemason": {
     "pageTitle": "Keldagrim Stonemason",
     "location": "Keldagrim",
+    "mapX": "2849",
+    "mapY": "10184",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -20469,6 +20733,8 @@
   "Keldagrim's Best Bread": {
     "pageTitle": "Keldagrim's Best Bread",
     "location": "Keldagrim Palace",
+    "mapX": "2892",
+    "mapY": "10211",
     "tables": [
       {
         "sellMultiplier": "1500",
@@ -20495,6 +20761,8 @@
   "Kenelme's Wares": {
     "pageTitle": "Kenelme's Wares",
     "location": "Port Piscarilius",
+    "mapX": "1785",
+    "mapY": "3757",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -20556,6 +20824,8 @@
   "Khazard General Store": {
     "pageTitle": "Khazard General Store",
     "location": "Port Khazard",
+    "mapX": "2656",
+    "mapY": "3152",
     "tables": [
       {
         "sellMultiplier": "1400",
@@ -20663,6 +20933,8 @@
   "King's Axe Inn": {
     "pageTitle": "King's Axe Inn",
     "location": "Western Keldagrim",
+    "mapX": "2839",
+    "mapY": "10195",
     "tables": [
       {
         "lines": [
@@ -20688,6 +20960,8 @@
   "Kjut's Kebabs": {
     "pageTitle": "Kjut's Kebabs",
     "location": "Keldagrim",
+    "mapX": "2905",
+    "mapY": "10216",
     "tables": [
       {
         "lines": [
@@ -20718,6 +20992,8 @@
   "Kourend Castle Baker's Stall.": {
     "pageTitle": "Kourend Castle Baker's Stall.",
     "location": "Kourend Castle",
+    "mapX": "1639",
+    "mapY": "3684",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -20918,6 +21194,8 @@
   "Larry's Wilderness Cape Shop.": {
     "pageTitle": "Larry's Wilderness Cape Shop.",
     "location": "Graveyard of Shadows/Bone Yard",
+    "mapX": "3205",
+    "mapY": "3718",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -21374,6 +21652,8 @@
   "Leenz's General Supplies": {
     "pageTitle": "Leenz's General Supplies",
     "location": "Port Piscarilius",
+    "mapX": "1808",
+    "mapY": "3726",
     "tables": [
       {
         "sellMultiplier": "1100",
@@ -21518,6 +21798,8 @@
   "Leprechaun Larry's Farming Supplies.": {
     "pageTitle": "Leprechaun Larry's Farming Supplies.",
     "location": "Troll Stronghold",
+    "mapX": "2825",
+    "mapY": "3685",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -21628,6 +21910,8 @@
   "Little Munty's Little Shop": {
     "pageTitle": "Little Munty's Little Shop",
     "location": "Lovakengj",
+    "mapX": "1548",
+    "mapY": "3755",
     "tables": [
       {
         "sellMultiplier": "1100",
@@ -21694,6 +21978,8 @@
   "Little Shop of Horace": {
     "pageTitle": "Little Shop of Horace",
     "location": "Hosidius",
+    "mapX": "1770",
+    "mapY": "3590",
     "tables": [
       {
         "sellMultiplier": "1250",
@@ -21795,6 +22081,8 @@
   "Lletya Archery Shop": {
     "pageTitle": "Lletya Archery Shop",
     "location": "Lletya",
+    "mapX": "2322",
+    "mapY": "3165",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -21963,6 +22251,8 @@
   "Lletya Seamstress": {
     "pageTitle": "Lletya Seamstress",
     "location": "Lletya",
+    "mapX": "2322",
+    "mapY": "3181",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -22019,6 +22309,8 @@
   "Lliann's Wares": {
     "pageTitle": "Lliann's Wares",
     "location": "Prifddinas",
+    "mapX": "3229",
+    "mapY": "6070",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -22120,6 +22412,8 @@
   "Logava Gricoller's Cooking Supplies": {
     "pageTitle": "Logava Gricoller's Cooking Supplies",
     "location": "Hosidius",
+    "mapX": "1767",
+    "mapY": "3599",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -22544,6 +22838,8 @@
   "Lovecraft's Tackle": {
     "pageTitle": "Lovecraft's Tackle",
     "location": "Witchaven",
+    "mapX": "2731",
+    "mapY": "3295",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -22650,6 +22946,8 @@
   "Lowe's Archery Emporium": {
     "pageTitle": "Lowe's Archery Emporium",
     "location": "Varrock",
+    "mapX": "3230",
+    "mapY": "3427",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -22750,6 +23048,8 @@
   "Lumbridge General Store": {
     "pageTitle": "Lumbridge General Store",
     "location": "Lumbridge",
+    "mapX": "3210",
+    "mapY": "3252",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -22836,6 +23136,8 @@
   "Lunami's Axe Shop": {
     "pageTitle": "Lunami's Axe Shop",
     "location": "Auburnvale",
+    "mapX": "1402",
+    "mapY": "3344",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -23273,6 +23575,8 @@
   "Mahogany Homes Reward Shop": {
     "pageTitle": "Mahogany Homes Reward Shop",
     "location": "Falador",
+    "mapX": "2988",
+    "mapY": "3368",
     "tables": [
       {
         "currency": "Points",
@@ -23324,6 +23628,8 @@
   "Mairin's Market": {
     "pageTitle": "Mairin's Market",
     "location": "Underwater",
+    "mapX": "3765",
+    "mapY": "10290",
     "tables": [
       {
         "currency": "Mermaid's tear",
@@ -23556,6 +23862,8 @@
   "Martin Thwait's Lost and Found.": {
     "pageTitle": "Martin Thwait's Lost and Found.",
     "location": "Rogues' Den",
+    "mapX": "3051",
+    "mapY": "4974",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -23792,6 +24100,8 @@
   "Miltog's Lamps": {
     "pageTitle": "Miltog's Lamps",
     "location": "Dorgesh-Kaan",
+    "mapX": "2721",
+    "mapY": "5322",
     "tables": [
       {
         "sellMultiplier": "1500",
@@ -23888,6 +24198,8 @@
   "Miscellanian Clothes Shop": {
     "pageTitle": "Miscellanian Clothes Shop",
     "location": "Miscellania and Etceteria Dungeon",
+    "mapX": "2506",
+    "mapY": "10253",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -23984,6 +24296,8 @@
   "Miscellanian Food Shop": {
     "pageTitle": "Miscellanian Food Shop",
     "location": "Miscellania and Etceteria Dungeon",
+    "mapX": "2517",
+    "mapY": "10253",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -24035,6 +24349,8 @@
   "Miscellanian General Store": {
     "pageTitle": "Miscellanian General Store",
     "location": "Miscellania and Etceteria Dungeon",
+    "mapX": "2506",
+    "mapY": "10260",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -24101,6 +24417,8 @@
   "Mistrock Mining Supplies": {
     "pageTitle": "Mistrock Mining Supplies",
     "location": "Mistrock",
+    "mapX": "1398",
+    "mapY": "2870",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -24182,6 +24500,8 @@
   "Mixology Rewards": {
     "pageTitle": "Mixology Rewards",
     "location": "Mastering Mixology",
+    "mapX": "1395",
+    "mapY": "9312",
     "tables": [
       {
         "lines": [
@@ -24252,6 +24572,8 @@
   "Moon Clan Fine Clothes.": {
     "pageTitle": "Moon Clan Fine Clothes.",
     "location": "Lunar Isle",
+    "mapX": "2102",
+    "mapY": "3912",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -24308,6 +24630,8 @@
   "Moon Clan General Store.": {
     "pageTitle": "Moon Clan General Store.",
     "location": "Lunar Isle",
+    "mapX": "2096",
+    "mapY": "3907",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -24422,6 +24746,8 @@
   "Mount Karuulm Weapon Shop": {
     "pageTitle": "Mount Karuulm Weapon Shop",
     "location": "Mount Karuulm",
+    "mapX": "1298",
+    "mapY": "3797",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -24638,6 +24964,9 @@
   "Mythical Cape Store": {
     "pageTitle": "Mythical Cape Store",
     "location": "{{FloorNumber",
+    "mapX": "2448",
+    "mapY": "2849",
+    "mapPlane": "2",
     "tables": [
       {
         "lines": [
@@ -24720,6 +25049,9 @@
   "Myths' Guild Weaponry": {
     "pageTitle": "Myths' Guild Weaponry",
     "location": "{{FloorNumber",
+    "mapX": "2461",
+    "mapY": "2848",
+    "mapPlane": "2",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -24751,6 +25083,8 @@
   "Nardah General Store.": {
     "pageTitle": "Nardah General Store.",
     "location": "Nardah",
+    "mapX": "3413",
+    "mapY": "2912",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -24822,6 +25156,8 @@
   "Nardah Hunter Shop.": {
     "pageTitle": "Nardah Hunter Shop.",
     "location": "Nardah",
+    "mapX": "3438",
+    "mapY": "2903",
     "tables": [
       {
         "sellMultiplier": "1200",
@@ -24934,6 +25270,8 @@
   "Nathifa's Bake Stall.": {
     "pageTitle": "Nathifa's Bake Stall.",
     "location": "Sophanem",
+    "mapX": "3304",
+    "mapY": "2770",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -24992,6 +25330,8 @@
   "Neil's Wilderness Cape Shop.": {
     "pageTitle": "Neil's Wilderness Cape Shop.",
     "location": "Bandit Camp",
+    "mapX": "3026",
+    "mapY": "3707",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -25028,6 +25368,8 @@
   "Neitiznot supplies.": {
     "pageTitle": "Neitiznot supplies.",
     "location": "Neitiznot",
+    "mapX": "2337",
+    "mapY": "3807",
     "tables": [
       {
         "sellMultiplier": "1050",
@@ -25069,6 +25411,8 @@
   "Nemus Retreat (pub)": {
     "pageTitle": "Nemus Retreat (pub)",
     "location": "Nemus Retreat",
+    "mapX": "1366",
+    "mapY": "3304",
     "tables": [
       {
         "lines": [
@@ -25247,6 +25591,8 @@
   "Obli's General Store.": {
     "pageTitle": "Obli's General Store.",
     "location": "Shilo Village",
+    "mapX": "2822",
+    "mapY": "2960",
     "tables": [
       {
         "sellMultiplier": "1500",
@@ -25630,6 +25976,8 @@
   "Oobapohk's Javelin Store": {
     "pageTitle": "Oobapohk's Javelin Store",
     "location": "Marim",
+    "mapX": "2775",
+    "mapY": "2778",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -25717,6 +26065,8 @@
   "Ore store": {
     "pageTitle": "Ore store",
     "location": "Jatizso",
+    "mapX": "2393",
+    "mapY": "3799",
     "tables": [
       {
         "sellMultiplier": "1100",
@@ -25940,6 +26290,8 @@
   "Oziach (shop)": {
     "pageTitle": "Oziach (shop)",
     "location": "Edgeville",
+    "mapX": "3069",
+    "mapY": "3517",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -25966,6 +26318,9 @@
   "Paramaya Inn": {
     "pageTitle": "Paramaya Inn",
     "location": "Shilo Village",
+    "mapX": "2857",
+    "mapY": "2999",
+    "mapPlane": "1",
     "tables": [
       {
         "lines": [
@@ -26122,6 +26477,8 @@
   "Perry's Chop-chop Shop": {
     "pageTitle": "Perry's Chop-chop Shop",
     "location": "Woodcutting Guild",
+    "mapX": "1649",
+    "mapY": "3502",
     "tables": [
       {
         "sellMultiplier": "3200",
@@ -26270,6 +26627,8 @@
   "Picaria's Fishing Shop": {
     "pageTitle": "Picaria's Fishing Shop",
     "location": "Sunset Coast",
+    "mapX": "1557",
+    "mapY": "2962",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -26371,6 +26730,8 @@
   "Pickaxe-Is-Mine": {
     "pageTitle": "Pickaxe-Is-Mine",
     "location": "Keldagrim",
+    "mapX": "2922",
+    "mapY": "10215",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -26407,6 +26768,8 @@
   "Pie Shop": {
     "pageTitle": "Pie Shop",
     "location": "Cooks' Guild",
+    "mapX": "3142",
+    "mapY": "3444",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -26468,6 +26831,8 @@
   "Pollnivneach general store.": {
     "pageTitle": "Pollnivneach general store.",
     "location": "Pollnivneach",
+    "mapX": "3358",
+    "mapY": "2988",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -26564,6 +26929,8 @@
   "Port Phasmatys General Store": {
     "pageTitle": "Port Phasmatys General Store",
     "location": "Port Phasmatys",
+    "mapX": "3659",
+    "mapY": "3477",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -26863,6 +27230,8 @@
   "Port Roberts General Store": {
     "pageTitle": "Port Roberts General Store",
     "location": "Port Roberts",
+    "mapX": "1887",
+    "mapY": "3294",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -27215,6 +27584,8 @@
   "Prifddinas Foodstuffs": {
     "pageTitle": "Prifddinas Foodstuffs",
     "location": "Prifddinas",
+    "mapX": "3276",
+    "mapY": "6108",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -27316,6 +27687,8 @@
   "Prifddinas Gem Stall": {
     "pageTitle": "Prifddinas Gem Stall",
     "location": "Prifddinas",
+    "mapX": "3276",
+    "mapY": "6099",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -27347,6 +27720,8 @@
   "Prifddinas General Store": {
     "pageTitle": "Prifddinas General Store",
     "location": "Prifddinas",
+    "mapX": "3301",
+    "mapY": "6055",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -27433,6 +27808,8 @@
   "Prifddinas Herbal Supplies": {
     "pageTitle": "Prifddinas Herbal Supplies",
     "location": "Prifddinas",
+    "mapX": "3284",
+    "mapY": "6121",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -27479,6 +27856,8 @@
   "Prifddinas Silver Stall": {
     "pageTitle": "Prifddinas Silver Stall",
     "location": "Prifddinas",
+    "mapX": "3282",
+    "mapY": "6098",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -27531,6 +27910,8 @@
   "Prifddinas' Seamstress": {
     "pageTitle": "Prifddinas' Seamstress",
     "location": "Prifddinas",
+    "mapX": "3219",
+    "mapY": "6077",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -27804,6 +28185,8 @@
   "Quality Armour Shop": {
     "pageTitle": "Quality Armour Shop",
     "location": "Keldagrim",
+    "mapX": "2825",
+    "mapY": "10202",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -27860,6 +28243,8 @@
   "Quality Weapons Shop": {
     "pageTitle": "Quality Weapons Shop",
     "location": "North-west corner of Keldagrim",
+    "mapX": "2824",
+    "mapY": "10234",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -28007,6 +28392,8 @@
   "Quetzacalli Gorge General Store": {
     "pageTitle": "Quetzacalli Gorge General Store",
     "location": "Quetzacalli Gorge",
+    "mapX": "1515",
+    "mapY": "3226",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -28093,6 +28480,8 @@
   "Raetul and Co's Cloth Store.": {
     "pageTitle": "Raetul and Co's Cloth Store.",
     "location": "Sophanem",
+    "mapX": "3313",
+    "mapY": "2789",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -28428,6 +28817,8 @@
   "Rat & Bat": {
     "pageTitle": "Rat & Bat",
     "location": "Slepe",
+    "mapX": "3746",
+    "mapY": "3301",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -28444,6 +28835,8 @@
   "Ratpit bar (Keldagrim)": {
     "pageTitle": "Ratpit bar (Keldagrim)",
     "location": "Under Keldagrim",
+    "mapX": "1932",
+    "mapY": "4692",
     "tables": [
       {
         "lines": [
@@ -28464,6 +28857,8 @@
   "Ratpit bar (Port Sarim)": {
     "pageTitle": "Ratpit bar (Port Sarim)",
     "location": "Under Port Sarim",
+    "mapX": "2979",
+    "mapY": "9658",
     "tables": [
       {
         "lines": [
@@ -28484,6 +28879,8 @@
   "Ratpit bar (Varrock)": {
     "pageTitle": "Ratpit bar (Varrock)",
     "location": "Under Varrock",
+    "mapX": "2905",
+    "mapY": "5080",
     "tables": [
       {
         "lines": [
@@ -28626,6 +29023,8 @@
   "Regath's Wares": {
     "pageTitle": "Regath's Wares",
     "location": "Arceuus",
+    "mapX": "1717",
+    "mapY": "3732",
     "tables": [
       {
         "sellMultiplier": "1400",
@@ -28763,6 +29162,8 @@
   "Rellekka Longhall Bar": {
     "pageTitle": "Rellekka Longhall Bar",
     "location": "Rellekka",
+    "mapX": "2659",
+    "mapY": "3672",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -28877,6 +29278,8 @@
   "Richard's Farming shop.": {
     "pageTitle": "Richard's Farming shop.",
     "location": "North of East Ardougne",
+    "mapX": "2645",
+    "mapY": "3360",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -29170,6 +29573,8 @@
   "Rising Sun Inn": {
     "pageTitle": "Rising Sun Inn",
     "location": "Falador",
+    "mapX": "2955",
+    "mapY": "3379",
     "tables": [
       {
         "lines": [
@@ -29231,6 +29636,8 @@
   "Rommik's Crafty Supplies.": {
     "pageTitle": "Rommik's Crafty Supplies.",
     "location": "Rimmington",
+    "mapX": "2946",
+    "mapY": "3209",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -29341,6 +29748,8 @@
   "Rufus' Meat Emporium": {
     "pageTitle": "Rufus' Meat Emporium",
     "location": "Canifis",
+    "mapX": "3505",
+    "mapY": "3499",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -29406,6 +29815,8 @@
   "Rusty Anchor Inn": {
     "pageTitle": "Rusty Anchor Inn",
     "location": "Port Sarim",
+    "mapX": "3050",
+    "mapY": "3257",
     "tables": [
       {
         "lines": [
@@ -29421,6 +29832,8 @@
   "Salius' Armour Shop": {
     "pageTitle": "Salius' Armour Shop",
     "location": "Salvager Overlook",
+    "mapX": "1618",
+    "mapY": "3293",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -29455,6 +29868,8 @@
   "Salvager Overlook General Store": {
     "pageTitle": "Salvager Overlook General Store",
     "location": "Salvager Overlook",
+    "mapX": "1625",
+    "mapY": "3291",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -29587,6 +30002,8 @@
   "Sarah's Farming shop.": {
     "pageTitle": "Sarah's Farming shop.",
     "location": "South Falador Farm",
+    "mapX": "3038",
+    "mapY": "3294",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -29753,6 +30170,9 @@
   "Scavvo's Rune Store.": {
     "pageTitle": "Scavvo's Rune Store.",
     "location": "Champions' Guild",
+    "mapX": "3191",
+    "mapY": "3354",
+    "mapPlane": "1",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -29846,6 +30266,8 @@
   "Sebamo's Sublime Staffs": {
     "pageTitle": "Sebamo's Sublime Staffs",
     "location": "Auburnvale",
+    "mapX": "1412",
+    "mapY": "3343",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -29887,6 +30309,8 @@
   "Seddu's Adventurer's Store.": {
     "pageTitle": "Seddu's Adventurer's Store.",
     "location": "Nardah",
+    "mapX": "3402",
+    "mapY": "2929",
     "tables": [
       {
         "sellMultiplier": "950",
@@ -30012,6 +30436,8 @@
   },
   "Shantay Pass Shop": {
     "pageTitle": "Shantay Pass Shop",
+    "mapX": "3165",
+    "mapY": "2818",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -30123,6 +30549,8 @@
   "Shayzien Styles": {
     "pageTitle": "Shayzien Styles",
     "location": "Shayzien",
+    "mapX": "1504",
+    "mapY": "3596",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -30208,6 +30636,8 @@
   "Shields of Mistrock": {
     "pageTitle": "Shields of Mistrock",
     "location": "Mistrock",
+    "mapX": "1384",
+    "mapY": "2872",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -30323,6 +30753,8 @@
   "Sian's Ranged Weaponry": {
     "pageTitle": "Sian's Ranged Weaponry",
     "location": "Prifddinas",
+    "mapX": "3306",
+    "mapY": "6074",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -30981,6 +31413,8 @@
   "Solihib's Food Stall": {
     "pageTitle": "Solihib's Food Stall",
     "location": "Ape Atoll",
+    "mapX": "2769",
+    "mapY": "2789",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -31071,6 +31505,8 @@
   "Spike's Spikes": {
     "pageTitle": "Spike's Spikes",
     "location": "Outer Fortis",
+    "mapX": "1772",
+    "mapY": "3062",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -31179,6 +31615,8 @@
   "Stick Your Ore Inn": {
     "pageTitle": "Stick Your Ore Inn",
     "location": "Mistrock",
+    "mapX": "1390",
+    "mapY": "2856",
     "tables": [
       {
         "lines": [
@@ -31269,6 +31707,8 @@
   "Sulisal's Superb Fishing Store": {
     "pageTitle": "Sulisal's Superb Fishing Store",
     "location": "Kastori",
+    "mapX": "1375",
+    "mapY": "3037",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -31370,6 +31810,8 @@
   "Sunlight's Sanctum": {
     "pageTitle": "Sunlight's Sanctum",
     "location": "Aldarin",
+    "mapX": "1382",
+    "mapY": "2931",
     "tables": [
       {
         "lines": [
@@ -31448,6 +31890,8 @@
   "Sunset Coast General Store": {
     "pageTitle": "Sunset Coast General Store",
     "location": "Sunset Coast",
+    "mapX": "1514",
+    "mapY": "2988",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -31598,6 +32042,8 @@
   "Supplies's Supplies": {
     "pageTitle": "Supplies's Supplies",
     "location": "Wyrmscraig",
+    "mapX": "2564",
+    "mapY": "2257",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -31696,6 +32142,8 @@
   "Tal Teklan General Store": {
     "pageTitle": "Tal Teklan General Store",
     "location": "Tal Teklan",
+    "mapX": "1241",
+    "mapY": "3109",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -31787,6 +32235,8 @@
   "Tal Teklan Rune Shop": {
     "pageTitle": "Tal Teklan Rune Shop",
     "location": "Tal Teklan",
+    "mapX": "1211",
+    "mapY": "3118",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -32186,6 +32636,8 @@
   "The Asp & Snake Bar.": {
     "pageTitle": "The Asp & Snake Bar.",
     "location": "Pollnivneach",
+    "mapX": "3359",
+    "mapY": "2957",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -32227,6 +32679,8 @@
   "The Big Heist Lodge": {
     "pageTitle": "The Big Heist Lodge",
     "location": "Bandit Village in the Kharidian Desert",
+    "mapX": "3157",
+    "mapY": "2990",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -32263,6 +32717,8 @@
   "The Cloak and Stagger": {
     "pageTitle": "The Cloak and Stagger",
     "location": "Shayzien",
+    "mapX": "1548",
+    "mapY": "3569",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -32299,6 +32755,8 @@
   "The Crypt": {
     "pageTitle": "The Crypt",
     "location": "Darkmeyer",
+    "mapX": "3594",
+    "mapY": "3397",
     "tables": [
       {
         "lines": [
@@ -32314,6 +32772,8 @@
   "The Deeper Lode": {
     "pageTitle": "The Deeper Lode",
     "location": "Lovakengj",
+    "mapX": "1561",
+    "mapY": "3767",
     "tables": [
       {
         "sellMultiplier": "1400",
@@ -32350,6 +32810,8 @@
   "The Esoterican Arms": {
     "pageTitle": "The Esoterican Arms",
     "location": "Miscellania and Etceteria dungeon",
+    "mapX": "2526",
+    "mapY": "10259",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -32381,6 +32843,8 @@
   "The Flaming Arrow": {
     "pageTitle": "The Flaming Arrow",
     "location": "Civitas illa Fortis",
+    "mapX": "1711",
+    "mapY": "3121",
     "tables": [
       {
         "lines": [
@@ -32451,6 +32915,8 @@
   "The Golden Field": {
     "pageTitle": "The Golden Field",
     "location": "Hosidius",
+    "mapX": "1737",
+    "mapY": "3623",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -32482,6 +32948,8 @@
   "The King's Inn": {
     "pageTitle": "The King's Inn",
     "location": "Tal Teklan",
+    "mapX": "1226",
+    "mapY": "3118",
     "tables": [
       {
         "lines": [
@@ -32552,6 +33020,8 @@
   "The Legless Faun": {
     "pageTitle": "The Legless Faun",
     "location": "Kingstown",
+    "mapX": "1766",
+    "mapY": "3686",
     "tables": [
       {
         "lines": [
@@ -32718,6 +33188,9 @@
   "The Lost Pickaxe": {
     "pageTitle": "The Lost Pickaxe",
     "location": "Cam Torum",
+    "mapX": "1431",
+    "mapY": "9584",
+    "mapPlane": "1",
     "tables": [
       {
         "lines": [
@@ -32768,6 +33241,8 @@
   "The Old Nite": {
     "pageTitle": "The Old Nite",
     "location": "Ferox Enclave",
+    "mapX": "3152",
+    "mapY": "3644",
     "tables": [
       {
         "lines": [
@@ -32783,6 +33258,8 @@
   "The Other Inn.": {
     "pageTitle": "The Other Inn.",
     "location": "Mos Le'Harmless",
+    "mapX": "3662",
+    "mapY": "2985",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -32895,6 +33372,8 @@
   "The Rolling Tide": {
     "pageTitle": "The Rolling Tide",
     "location": "Port Roberts",
+    "mapX": "1888",
+    "mapY": "3314",
     "tables": [
       {
         "lines": [
@@ -32950,6 +33429,9 @@
   "The Runic Emporium": {
     "pageTitle": "The Runic Emporium",
     "location": "Cam Torum",
+    "mapX": "1426",
+    "mapY": "9568",
+    "mapPlane": "1",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -33041,6 +33523,8 @@
   "The Sheared Ram": {
     "pageTitle": "The Sheared Ram",
     "location": "Lumbridge",
+    "mapX": "3226",
+    "mapY": "3243",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -33057,6 +33541,8 @@
   "The Shrimp and Parrot": {
     "pageTitle": "The Shrimp and Parrot",
     "location": "Brimhaven",
+    "mapX": "2794",
+    "mapY": "3187",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -33138,6 +33624,8 @@
   },
   "The Toad and Chicken": {
     "pageTitle": "The Toad and Chicken",
+    "mapX": "2910",
+    "mapY": "3540",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -33164,6 +33652,8 @@
   "The Windbreaker": {
     "pageTitle": "The Windbreaker",
     "location": "Quetzacalli Gorge",
+    "mapX": "1496",
+    "mapY": "3223",
     "tables": [
       {
         "lines": [
@@ -33261,6 +33751,8 @@
   "Thessalia's Fine Clothes.": {
     "pageTitle": "Thessalia's Fine Clothes.",
     "location": "Varrock",
+    "mapX": "3201",
+    "mapY": "3417",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -33332,6 +33824,8 @@
   "Thirus Urkar's Fine Dynamite Store": {
     "pageTitle": "Thirus Urkar's Fine Dynamite Store",
     "location": "Lovakengj",
+    "mapX": "1517",
+    "mapY": "3834",
     "tables": [
       {
         "sellMultiplier": "11500",
@@ -33372,6 +33866,8 @@
   "Thurid's Brain Buckets": {
     "pageTitle": "Thurid's Brain Buckets",
     "location": "Sunset Coast",
+    "mapX": "1515",
+    "mapY": "2994",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -33433,6 +33929,8 @@
   "Thyria's Wares": {
     "pageTitle": "Thyria's Wares",
     "location": "Arceuus",
+    "mapX": "1716",
+    "mapY": "3750",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -33601,6 +34099,9 @@
   "Tizoro's Pickaxes": {
     "pageTitle": "Tizoro's Pickaxes",
     "location": "Cam Torum",
+    "mapX": "1443",
+    "mapY": "9553",
+    "mapPlane": "1",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -33652,6 +34153,8 @@
   "Toci's Gem Store": {
     "pageTitle": "Toci's Gem Store",
     "location": "Aldarin",
+    "mapX": "1430",
+    "mapY": "2975",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -33703,6 +34206,8 @@
   "Tony's Pizza Bases": {
     "pageTitle": "Tony's Pizza Bases",
     "location": "Wilderness Bandit Camp",
+    "mapX": "3038",
+    "mapY": "3707",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -33808,6 +34313,8 @@
   },
   "Trader Stan's Trading Post": {
     "pageTitle": "Trader Stan's Trading Post",
+    "mapX": "3041",
+    "mapY": "3193",
     "tables": [
       {
         "sellMultiplier": "2500",
@@ -34212,6 +34719,8 @@
   "Two Feet Charley's Fish Shop.": {
     "pageTitle": "Two Feet Charley's Fish Shop.",
     "location": "Mos Le'Harmless",
+    "mapX": "3671",
+    "mapY": "2972",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -34273,6 +34782,8 @@
   "Tynan's Fishing Supplies": {
     "pageTitle": "Tynan's Fishing Supplies",
     "location": "Port Piscarilius",
+    "mapX": "1841",
+    "mapY": "3786",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -35099,6 +35610,8 @@
   "Vale Research Exchange": {
     "pageTitle": "Vale Research Exchange",
     "location": "Auburnvale",
+    "mapX": "1366",
+    "mapY": "3367",
     "tables": [
       {
         "currency": "points",
@@ -35134,6 +35647,8 @@
   "Vanessa's Farming shop.": {
     "pageTitle": "Vanessa's Farming shop.",
     "location": "Catherby",
+    "mapX": "2820",
+    "mapY": "3462",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -35300,6 +35815,8 @@
   "Vannah's Farming Stall": {
     "pageTitle": "Vannah's Farming Stall",
     "location": "Hosidius",
+    "mapX": "1763",
+    "mapY": "3594",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -35396,6 +35913,8 @@
   "Varrock General Store": {
     "pageTitle": "Varrock General Store",
     "location": "Varrock",
+    "mapX": "3214",
+    "mapY": "3420",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -35472,6 +35991,8 @@
   "Varrock Swordshop": {
     "pageTitle": "Varrock Swordshop",
     "location": "Varrock",
+    "mapX": "3202",
+    "mapY": "3404",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -35645,6 +36166,8 @@
   "Vermundi's Clothes Stall": {
     "pageTitle": "Vermundi's Clothes Stall",
     "location": "Keldagrim Palace",
+    "mapX": "2888",
+    "mapY": "10189",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -35686,6 +36209,8 @@
   "Vigr's Warhammers": {
     "pageTitle": "Vigr's Warhammers",
     "location": "Keldagrim",
+    "mapX": "2873",
+    "mapY": "10209",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -35727,6 +36252,8 @@
   "Void Knight Archery Store": {
     "pageTitle": "Void Knight Archery Store",
     "location": "Void Knights' Outpost",
+    "mapX": "2665",
+    "mapY": "2660",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -36032,6 +36559,8 @@
   "Warrens Fish Monger": {
     "pageTitle": "Warrens Fish Monger",
     "location": "The Warrens",
+    "mapX": "1825",
+    "mapY": "10145",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -36163,6 +36692,8 @@
   "Warrens General Store": {
     "pageTitle": "Warrens General Store",
     "location": "The Warrens",
+    "mapX": "1838",
+    "mapY": "10149",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -36229,6 +36760,9 @@
   "Warrior Guild Armoury": {
     "pageTitle": "Warrior Guild Armoury",
     "location": "{{FloorNumber",
+    "mapX": "2848",
+    "mapY": "3538",
+    "mapPlane": "1",
     "tables": [
       {
         "sellMultiplier": "1200",
@@ -36430,6 +36964,8 @@
   "Warrior Guild Food Shop": {
     "pageTitle": "Warrior Guild Food Shop",
     "location": "{{FloorNumber",
+    "mapX": "2841",
+    "mapY": "3552",
     "tables": [
       {
         "sellMultiplier": "1200",
@@ -36507,6 +37043,8 @@
   "Wayne's Chains! - Chainmail specialist.": {
     "pageTitle": "Wayne's Chains! - Chainmail specialist.",
     "location": "Falador",
+    "mapX": "2972",
+    "mapY": "3312",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -36548,6 +37086,8 @@
   "Weapons galore": {
     "pageTitle": "Weapons galore",
     "location": "Jatizso",
+    "mapX": "2394",
+    "mapY": "3807",
     "tables": [
       {
         "sellMultiplier": "1100",
@@ -37035,6 +37575,9 @@
   "White Knight Armoury": {
     "pageTitle": "White Knight Armoury",
     "location": "Falador",
+    "mapX": "2980",
+    "mapY": "3344",
+    "mapPlane": "2",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -37940,6 +38483,9 @@
   "Yarnio's Baked Goods": {
     "pageTitle": "Yarnio's Baked Goods",
     "location": "Cam Torum",
+    "mapX": "1443",
+    "mapY": "9559",
+    "mapPlane": "1",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -38043,6 +38589,8 @@
   "Yrsa's Accoutrements": {
     "pageTitle": "Yrsa's Accoutrements",
     "location": "Rellekka",
+    "mapX": "2624",
+    "mapY": "3674",
     "tables": [
       {
         "sellMultiplier": "1300",
@@ -38203,6 +38751,8 @@
   "Zaff's Superior Staffs!": {
     "pageTitle": "Zaff's Superior Staffs!",
     "location": "Varrock",
+    "mapX": "3203",
+    "mapY": "3434",
     "tables": [
       {
         "sellMultiplier": "1000",
@@ -38371,6 +38921,8 @@
   "Zenesha's Plate Mail Body Shop.": {
     "pageTitle": "Zenesha's Plate Mail Body Shop.",
     "location": "East Ardougne",
+    "mapX": "2649",
+    "mapY": "3297",
     "tables": [
       {
         "sellMultiplier": "1000",
