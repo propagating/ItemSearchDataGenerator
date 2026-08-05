@@ -76,6 +76,16 @@ out-of-stock line — `0` is kept in `shops.json` for completeness but the
 plugin's item-to-shop join excludes `stock == 0` lines, since a shop that
 never stocks an item isn't a place to buy it.
 
+**Duplicate-listing dedup.** The same shop is sometimes documented on two
+wiki pages (its own store page and the owning NPC's page). The wiki's own
+convention for this is a `bucket=No` param on the duplicate `{{StoreTableHead}}`
+table; the parser skips any table so marked, keeping just the other copy. A
+page whose only table is `bucket=No` (nothing else survives) is dropped
+entirely, same as a page with no store table at all. Some genuinely distinct
+shops still end up with identical item lists after this (e.g. every F2P
+general store, or every Farming Guild supplies NPC, legitimately sells the
+same stock) — that's real game content, not a dedup miss.
+
 ## Regenerate drops.json
 
 From the repository root:
