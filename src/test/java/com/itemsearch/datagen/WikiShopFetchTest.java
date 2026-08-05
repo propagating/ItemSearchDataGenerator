@@ -106,6 +106,29 @@ public class WikiShopFetchTest
     }
 
     @Test
+    public void skipsBucketNoTablesAsWikisOwnDedupMarker()
+    {
+        // one normal table + one bucket=No table (the wiki's marker that this table duplicates
+        // the shop's listing elsewhere, e.g. Zaff (NPC page, bucket=No) vs
+        // Zaff's Superior Staffs! (store page, no bucket) both listing the same stock)
+        String page = "{{Infobox Shop\n|location = [[Varrock]]\n}}\n"
+            + "{{StoreTableHead|sellmultiplier=1300|namenotes=standard}}\n"
+            + "{{StoreLine|name=Pot|stock=5|restock=10}}\n{{StoreTableBottom}}\n"
+            + "{{StoreTableHead|sellmultiplier=1000|bucket=No}}\n"
+            + "{{StoreLine|name=Jug|stock=2|restock=10}}\n{{StoreTableBottom}}\n";
+        ShopPageJson result = WikiShopFetch.extract("Shop assistant (Varrock)", page);
+        assertEquals(1, result.tables.size());
+        assertEquals("standard", result.tables.get(0).nameNotes);
+        assertEquals("Pot", result.tables.get(0).lines.get(0).name);
+
+        // a page whose only table is bucket=No has nothing left to report: null, like any
+        // page with no usable store table
+        String onlyBucketed = "{{StoreTableHead|sellmultiplier=1000|bucket=no}}\n"
+            + "{{StoreLine|name=Jug|stock=2|restock=10}}\n{{StoreTableBottom}}\n";
+        assertNull(WikiShopFetch.extract("Shop assistant (Lumbridge)", onlyBucketed));
+    }
+
+    @Test
     public void returnsNullWhenNoStoreTable()
     {
         assertNull(WikiShopFetch.extract("Some Page", "Just prose, no shop."));

@@ -79,10 +79,18 @@ public final class WikiShopFetch
         while (head.find())
         {
             Map<String, String> headParams = params(head.group(1));
+            String bucket = headParams.get("bucket");
+            if (bucket != null && bucket.trim().equalsIgnoreCase("no"))
+            {
+                // the wiki's own dedup marker: this table duplicates another page's listing of
+                // the same shop (e.g. shown on both the store page and the NPC page) — skip it
+                continue;
+            }
             ShopTableJson table = new ShopTableJson();
             table.currency = stripLinks(headParams.get("currency"));
             table.sellMultiplier = headParams.get("sellmultiplier");
             table.nameNotes = headParams.get("namenotes");
+            table.bucket = bucket;
             int end = wikitext.indexOf("{{StoreTableBottom", head.end());
             String body = wikitext.substring(head.end(), end < 0 ? wikitext.length() : end);
             Matcher line = STORE_LINE.matcher(body);

@@ -32,5 +32,8 @@ public class ShopTableJson
     public String currency;       // {{StoreTableHead}} |currency=, links stripped; null -> "Coins" at transform
     public String sellMultiplier; // raw |sellmultiplier= value
     public String nameNotes;      // raw |namenotes= value, may be null
+    public String bucket;         // raw |bucket= value; "No" means the wiki itself flags this table
+                                   // as a duplicate listing (e.g. shown on both the store page and
+                                   // the NPC page) and it should be excluded from output
     public List<ShopLineJson> lines = new ArrayList<>();
 }
