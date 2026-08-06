@@ -138,6 +138,20 @@ public final class WikiDropsFetch
         }
 
         List<HeadingMatch> headings = findHeadings(text);
+        page.tables.addAll(parseTables(text));
+        appendSharedTables(page, text, headings, sharedTables);
+        return page.tables.isEmpty() ? null : page;
+    }
+
+    /**
+     * Every drop table in a stretch of wikitext, with the headings standing above each. Used for a
+     * page's own text and, unchanged, for the body of a shared table template: a big shared table
+     * is itself sectioned (the revenant one has 100%, Unique, Ancient statuettes and more), and
+     * those sections are what the client groups by.
+     */
+    private static List<DropTableJson> parseTables(String text)
+    {
+        List<HeadingMatch> headings = findHeadings(text);
         List<Integer> headOffsets = findHeadOffsets(text);
         // DropsLineSkill is the wiki's line template for skilling loot — it is how every
         // pickpocketing table is written, and carries the same name/quantity/rarity params
@@ -163,6 +177,7 @@ public final class WikiDropsFetch
             grouped.computeIfAbsent(tableIndex, k -> new ArrayList<>()).add(found);
         }
 
+        List<DropTableJson> tables = new ArrayList<>();
         for (List<WikiText.Found> group : grouped.values())
         {
             DropTableJson table = new DropTableJson();
@@ -181,11 +196,9 @@ public final class WikiDropsFetch
             int firstLineStart = group.get(0).start;
             table.sectionHeading = headingBefore(headings, firstLineStart, false);
             table.topHeading = headingBefore(headings, firstLineStart, true);
-            page.tables.add(table);
+            tables.add(table);
         }
-
-        appendSharedTables(page, text, headings, sharedTables);
-        return page.tables.isEmpty() ? null : page;
+        return tables;
     }
 
     /** One {{DropsLine...}} template call as a parsed line, or null when it names no item. */
@@ -220,18 +233,26 @@ public final class WikiDropsFetch
         String[] names = sharedTables.keySet().toArray(new String[0]);
         for (WikiText.Found found : WikiText.templates(text, names))
         {
-            List<DropLineJson> lines = new ArrayList<>();
-            collectTemplateLines(found.name, sharedTables, lines, new HashSet<>(), 0);
-            if (lines.isEmpty())
+            List<DropTableJson> tables = new ArrayList<>();
+            collectTemplateTables(found.name, sharedTables, tables, new HashSet<>(), 0);
+            String canonical = canonicalTableName(found.name);
+            String pageTop = headingBefore(headings, found.start, true);
+            for (DropTableJson table : tables)
             {
-                continue;
+                // A template's own sections win. Failing that it is named after itself rather
+                // than after whatever heading preceded the transclusion: revenant pages pull the
+                // wilderness slayer table in under an unrelated "Prayer info" heading.
+                if (table.sectionHeading == null)
+                {
+                    table.sectionHeading = canonical;
+                }
+                if (table.topHeading == null)
+                {
+                    table.topHeading = pageTop;
+                }
+                table.dropTable = canonical;
+                page.tables.add(table);
             }
-            DropTableJson table = new DropTableJson();
-            table.lines = lines;
-            table.sectionHeading = headingBefore(headings, found.start, false);
-            table.topHeading = headingBefore(headings, found.start, true);
-            table.dropTable = canonicalTableName(found.name);
-            page.tables.add(table);
         }
     }
 
@@ -240,8 +261,8 @@ public final class WikiDropsFetch
      * reach their drops through {{Revenants}} -> {{Revenants/Drops}}, so one level is not enough.
      * The visited set stops a template cycle, and the depth limit stops a deep chain.
      */
-    private static void collectTemplateLines(String name, Map<String, String> sharedTables,
-        List<DropLineJson> out, Set<String> visited, int depth)
+    private static void collectTemplateTables(String name, Map<String, String> sharedTables,
+        List<DropTableJson> out, Set<String> visited, int depth)
     {
         String body = sharedTables.get(name);
         if (body == null || depth > MAX_TEMPLATE_DEPTH || !visited.add(name))
@@ -249,18 +270,11 @@ public final class WikiDropsFetch
             return;
         }
         String text = WikiText.stripComments(body);
-        for (WikiText.Found found : WikiText.templates(text, LINE_TEMPLATES))
-        {
-            DropLineJson line = toLine(found);
-            if (line != null)
-            {
-                out.add(line);
-            }
-        }
+        out.addAll(parseTables(text));
         for (WikiText.Found nested
             : WikiText.templates(text, sharedTables.keySet().toArray(new String[0])))
         {
-            collectTemplateLines(nested.name, sharedTables, out, visited, depth + 1);
+            collectTemplateTables(nested.name, sharedTables, out, visited, depth + 1);
         }
     }
 

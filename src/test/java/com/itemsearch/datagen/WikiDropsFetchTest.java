@@ -239,7 +239,8 @@ public class WikiDropsFetchTest
 
         DropTableJson herbs = tableContaining(p, "Grimy ranarr weed");
         assertEquals("Herb drop table", herbs.dropTable);
-        assertEquals("the heading above the transclusion still applies", "Herbs", herbs.sectionHeading);
+        assertEquals("a headingless shared table is named after itself",
+            "Herb drop table", herbs.sectionHeading);
         assertNull("a page's own table belongs to no shared table",
             tableContaining(p, "Coins").dropTable);
     }
@@ -259,6 +260,50 @@ public class WikiDropsFetchTest
         DropPageJson p = WikiDropsFetch.extract("Revenant goblin", page, templates);
         assertNotNull("the page must now yield a drop table", p);
         assertEquals("Revenant cave teleport", p.tables.get(0).lines.get(0).name);
+    }
+
+    /**
+     * A big shared table is itself sectioned — the revenant template carries ==Drops== plus
+     * ===100%===, ===Unique===, ===Ancient statuettes=== and more. Flattening it into one table
+     * filed under whatever heading preceded the transclusion loses all of that.
+     */
+    @Test
+    public void aSharedTableKeepsItsOwnInternalSections()
+    {
+        Map<String, String> templates = new HashMap<>();
+        templates.put("Revenants/Drops",
+            "==Drops==\n===100%===\n{{DropsTableHead}}\n"
+            + "{{DropsLine|name=Revenant ether|quantity=1-10|rarity=Always}}\n"
+            + "{{DropsTableBottom}}\n"
+            + "===Ancient statuettes===\n{{DropsTableHead}}\n"
+            + "{{DropsLine|name=Ancient emblem|quantity=1|rarity=1/1000}}\n"
+            + "{{DropsTableBottom}}\n");
+
+        String page = "{{Infobox Monster\n|name = Revenant hobgoblin\n|id = 7934}}\n"
+            + "==Prayer info==\nsome prose\n{{Revenants/Drops}}\n";
+        DropPageJson p = WikiDropsFetch.extract("Revenant hobgoblin", page, templates);
+
+        assertEquals("each section of the shared table is its own table", 2, p.tables.size());
+        assertEquals("100%", p.tables.get(0).sectionHeading);
+        assertEquals("Revenant ether", p.tables.get(0).lines.get(0).name);
+        assertEquals("Ancient statuettes", p.tables.get(1).sectionHeading);
+        for (DropTableJson t : p.tables)
+        {
+            assertEquals("Revenant drop table", t.dropTable);
+        }
+    }
+
+    @Test
+    public void aSharedTableWithNoHeadingsIsNamedAfterItself()
+    {
+        Map<String, String> templates = new HashMap<>();
+        templates.put("WildernessSlayerDropTable",
+            "{{DropsLine|name=Larran's key|quantity=1|rarity=1/100}}\n");
+        // revenant pages pull this table in under a heading that has nothing to do with drops
+        String page = "{{Infobox Monster\n|name = Revenant hobgoblin\n|id = 7934}}\n"
+            + "==Prayer info==\nprose\n{{WildernessSlayerDropTable}}\n";
+        DropPageJson p = WikiDropsFetch.extract("Revenant hobgoblin", page, templates);
+        assertEquals("Wilderness slayer drop table", p.tables.get(0).sectionHeading);
     }
 
     @Test

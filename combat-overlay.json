@@ -239,21 +239,30 @@
   "470": {
     "attacks": [
       {
-        "style": "stab, magical ranged",
-        "maxHit": 0,
-        "maxHitMax": 0,
-        "speed": 0,
-        "speedMax": 0
+        "style": "magic",
+        "prayStyle": "ranged",
+        "maxHit": 15,
+        "maxHitMax": 15,
+        "speed": 2,
+        "speedMax": 2,
+        "variants": [
+          {
+            "label": "Insulated Boots",
+            "kind": "GEAR",
+            "maxHit": 8,
+            "maxHitMax": 8
+          }
+        ]
       },
       {
-        "style": "crush, magical ranged",
-        "maxHit": 0,
-        "maxHitMax": 0,
-        "speed": 0,
-        "speedMax": 0
+        "style": "stab",
+        "maxHit": 6,
+        "maxHitMax": 6,
+        "speed": 2,
+        "speedMax": 2
       }
     ],
-    "needsReview": true
+    "needsReview": false
   },
   "511": {
     "attacks": [
