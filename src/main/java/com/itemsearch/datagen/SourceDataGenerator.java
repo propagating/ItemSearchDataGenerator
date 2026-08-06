@@ -164,7 +164,53 @@ public final class SourceDataGenerator
             SourceTransform.transform(pages, itemInfo, spawns, wiki, combatOverlay, typeOverlay);
         Files.write(output, (gson.toJson(sources) + "\n").getBytes(StandardCharsets.UTF_8));
 
-        report(pages, sources, wiki, output);
+        // seed stubs for every combat gap not already curated, then rewrite the overlay — this is
+        // what refills the curator's queue, and it must survive the retirement of DropDataGenerator
+        Set<Integer> gaps = combatGapIds(sources, wiki);
+        Map<Integer, CombatOverlayJson> seeded =
+            MonsterTransform.seedStubs(sources, combatOverlay, gaps);
+        writeOverlay(gson, Paths.get(DEFAULT_COMBAT_OVERLAY), seeded);
+        long stubs = seeded.values().stream().filter(o -> o.needsReview).count();
+
+        report(pages, sources, output, gaps.size(), stubs);
+    }
+
+    /**
+     * KILL sources whose wiki record exists but will not parse into attacks. Only kills qualify:
+     * nothing else has combat data, so nothing else belongs in the curator's review queue.
+     */
+    static Set<Integer> combatGapIds(List<OutputSource> sources, Map<String, WikiCombatJson> wiki)
+    {
+        Set<Integer> gaps = new HashSet<>();
+        for (OutputSource s : sources)
+        {
+            if (!"KILL".equals(s.type))
+            {
+                continue;
+            }
+            WikiCombatJson w = wiki.get(s.name);
+            if (w != null && WikiCombat.toAttacks(w).gap)
+            {
+                gaps.add(s.id);
+            }
+        }
+        return gaps;
+    }
+
+    private static void writeOverlay(Gson gson, Path path, Map<Integer, CombatOverlayJson> overlay)
+        throws IOException
+    {
+        Path parent = path.getParent();
+        if (parent != null && !Files.exists(parent))
+        {
+            // the default path is repo-root-relative (matching the runSources working directory);
+            // skip rather than fail when main() is driven from somewhere else
+            return;
+        }
+        // string keys, sorted numerically, for a stable committed file
+        Map<String, CombatOverlayJson> byString = new LinkedHashMap<>();
+        overlay.keySet().stream().sorted().forEach(k -> byString.put(String.valueOf(k), overlay.get(k)));
+        Files.write(path, (gson.toJson(byString) + "\n").getBytes(StandardCharsets.UTF_8));
     }
 
     /**
@@ -283,7 +329,7 @@ public final class SourceDataGenerator
     }
 
     private static void report(Map<String, DropPageJson> pages, List<OutputSource> sources,
-        Map<String, WikiCombatJson> wiki, Path output)
+        Path output, int gaps, long stubs)
     {
         Map<String, Integer> byType = new TreeMap<>();
         int drops = 0;
@@ -305,21 +351,13 @@ public final class SourceDataGenerator
                 }
             }
         }
-        Set<String> gaps = new HashSet<>();
-        for (OutputSource s : sources)
-        {
-            WikiCombatJson w = "KILL".equals(s.type) ? wiki.get(s.name) : null;
-            if (w != null && WikiCombat.toAttacks(w).gap)
-            {
-                gaps.add(s.name);
-            }
-        }
         System.out.println("Wrote " + sources.size() + " sources from " + pages.size()
             + " pages to " + output);
         System.out.println("Types: " + byType);
         System.out.println(drops + " drops, " + percent(unresolved, drops) + " without item ids, "
             + percent(unknownRarity, drops) + " with unknown rarity");
-        System.out.println("Combat: " + gaps.size() + " KILL sources with unparsed wiki combat");
+        System.out.println("Combat: " + gaps + " gaps, " + stubs
+            + " overlay stubs awaiting review");
     }
 
     private static String percent(int part, int total)
