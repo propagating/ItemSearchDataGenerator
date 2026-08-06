@@ -438,8 +438,36 @@ public final class MonsterTransform
         {
             return base;
         }
+        List<OutputAttack> attacks = new ArrayList<>();
+        for (OutputAttack a : ov.attacks)
+        {
+            attacks.add(resolveHybrid(a));
+        }
         return new OutputCombat(base.attackLevel, base.strengthLevel, base.defenceLevel,
-            base.magicLevel, base.rangedLevel, base.hitpoints, new ArrayList<>(ov.attacks));
+            base.magicLevel, base.rangedLevel, base.hitpoints, attacks);
+    }
+
+    /**
+     * Applies to a curated attack the same hybrid split the wiki parse gets. The curator stores
+     * the style text as typed, so "magical melee" arrives as one token; left alone it reaches the
+     * client as an unknown style and the combat card claims nothing protects against it. An
+     * explicit prayStyle from the curator always wins.
+     */
+    private static OutputAttack resolveHybrid(OutputAttack a)
+    {
+        if (a == null || a.style == null || a.prayStyle != null)
+        {
+            return a;
+        }
+        String[] hybrid = CombatParser.hybridOf(a.style.toLowerCase(Locale.ROOT).trim());
+        if (hybrid == null)
+        {
+            return a;
+        }
+        OutputAttack out = new OutputAttack(hybrid[0], a.maxHit, a.maxHitMax, a.speed, a.speedMax);
+        out.prayStyle = hybrid[1];
+        out.variants = a.variants;
+        return out;
     }
 
     public static Map<Integer, CombatOverlayJson> seedStubs(List<OutputSource> npcs,

@@ -38,10 +38,50 @@ import com.itemsearch.datagen.source.CombatOverlayJson;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 public class CombatOverlayTest
 {
+    /**
+     * The curator stores whatever style text was typed, so a curated entry can carry a hybrid
+     * as one string. It must be resolved on the way out exactly as the wiki parse is, or curated
+     * monsters ship an unknown style and the client claims no prayer protects against them.
+     */
+    @Test
+    public void curatedHybridStylesResolveLikeParsedOnes()
+    {
+        CombatOverlayJson ov = new CombatOverlayJson();
+        ov.attacks = Arrays.asList(
+            new OutputAttack("magical melee", 30, 4),
+            new OutputAttack("crush", 20, 5));
+        ov.needsReview = false;
+
+        OutputCombat result = MonsterTransform.applyCombatOverlay(
+            combat(new OutputAttack("typeless", 0, 10)), ov);
+
+        assertEquals("magic", result.attacks.get(0).style);
+        assertEquals("melee", result.attacks.get(0).prayStyle);
+        assertEquals(30, result.attacks.get(0).maxHit);
+        assertEquals("crush", result.attacks.get(1).style);
+        assertNull(result.attacks.get(1).prayStyle);
+    }
+
+    @Test
+    public void curatorSuppliedPrayStyleIsLeftAlone()
+    {
+        OutputAttack explicit = new OutputAttack("magic", 30, 4);
+        explicit.prayStyle = "ranged";
+        CombatOverlayJson ov = new CombatOverlayJson();
+        ov.attacks = Collections.singletonList(explicit);
+        ov.needsReview = false;
+
+        OutputCombat result = MonsterTransform.applyCombatOverlay(
+            combat(new OutputAttack("typeless", 0, 10)), ov);
+        assertEquals("magic", result.attacks.get(0).style);
+        assertEquals("ranged", result.attacks.get(0).prayStyle);
+    }
+
     private OutputCombat combat(OutputAttack... attacks)
     {
         return new OutputCombat(1, 1, 1, 1, 1, 10, new ArrayList<>(Arrays.asList(attacks)));

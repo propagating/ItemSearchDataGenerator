@@ -25,6 +25,9 @@
 package com.itemsearch.datagen;
 
 import java.util.ArrayList;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
@@ -42,6 +45,9 @@ public final class CombatParser
     // a run of digits, optionally followed by a "(annotation)"
     private static final Pattern MAX_HIT = Pattern.compile("(\\d+)\\s*(?:\\(([^)]*)\\))?");
     private static final Pattern INT = Pattern.compile("\\d+");
+    // the three styles a hybrid can be built from; anything else is not a hybrid pair
+    private static final Set<String> COMBAT_CLASSES =
+        new HashSet<>(Arrays.asList("melee", "ranged", "magic"));
 
     private CombatParser()
     {
@@ -162,6 +168,28 @@ public final class CombatParser
         return out;
     }
 
+    /**
+     * Splits a hybrid style token into {accuracy roll, what it is prayed against}, or null when
+     * the token names one plain style.
+     *
+     * <p>The wiki writes these as two words ("Magical melee", "Ranged magic"): the first is the
+     * style the accuracy roll uses, the second is the style that defends against it — Magical
+     * melee rolls magic accuracy but is blocked by Protect from Melee. Without this the token
+     * reaches the client as an unknown style and the combat card claims nothing protects.
+     */
+    public static String[] hybridOf(String token)
+    {
+        String[] words = token.split("\\s+");
+        if (words.length != 2)
+        {
+            return null;
+        }
+        String roll = styleClass(words[0]);
+        String pray = styleClass(words[1]);
+        boolean bothKnown = COMBAT_CLASSES.contains(roll) && COMBAT_CLASSES.contains(pray);
+        return bothKnown && !roll.equals(pray) ? new String[]{roll, pray} : null;
+    }
+
     // melee sub-styles collapse to "melee"; ranged/projectile to "ranged"; magic to "magic".
     private static String styleClass(String token)
     {
@@ -234,7 +262,14 @@ public final class CombatParser
             }
 
             int speed = speedFor(speeds, i);
-            attacks.add(new OutputAttack(style, maxHit, speed));
+            String[] hybrid = hybridOf(style);
+            OutputAttack attack = new OutputAttack(
+                hybrid == null ? style : hybrid[0], maxHit, speed);
+            if (hybrid != null)
+            {
+                attack.prayStyle = hybrid[1];
+            }
+            attacks.add(attack);
         }
 
         boolean gap = styles.size() > 1 && annotatedMatches < styles.size();

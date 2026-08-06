@@ -34,6 +34,9 @@ STYLES = ["stab", "slash", "crush", "melee", "ranged", "magic",
           "ranged magic", "melee magic", "melee ranged"]
 
 HYBRID_WORDS = {"melee", "ranged", "magic"}
+# wiki spellings that mean the same combat class, so "magical melee" splits like "magic melee"
+STYLE_ALIASES = {"magical": "magic", "mage": "magic", "range": "ranged",
+                 "stab": "melee", "slash": "melee", "crush": "melee"}
 VARIANT_KINDS = {"gear", "prayer", "consumable", "combo"}
 
 # Palette: the OSRS stone-panel interface (warm, brown-shifted dark) with
@@ -120,13 +123,18 @@ def collect_attacks(rows):
         style = (style or "").strip().lower()
         if not style:
             continue
+        if "," in style:
+            # one attack per row: a comma here ships to the client as a single unknown style,
+            # and the combat card then claims no prayer protects against it
+            return None, ("Put one attack per row — '{}' lists several. "
+                          "Use '+ Add attack' for each.".format(style))
         mh = core.parse_range(mx)
         spd = core.parse_range(sp)
         if mh is None or spd is None:
             return None, "Attack '{}' has a bad max hit or speed (use N or low-high).".format(style)
         attack = {"style": style, "maxHit": mh[0], "maxHitMax": mh[1],
                   "speed": spd[0], "speedMax": spd[1]}
-        words = style.split()
+        words = [STYLE_ALIASES.get(w, w) for w in style.split()]
         if len(words) == 2 and words[0] in HYBRID_WORDS and words[1] in HYBRID_WORDS and words[0] != words[1]:
             # hybrid: accuracy roll first, prayed-against style second
             attack["style"], attack["prayStyle"] = words[0], words[1]

@@ -30,10 +30,63 @@ import com.itemsearch.datagen.output.OutputAttack;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 public class CombatParserTest
 {
+    /**
+     * "Magical melee" is one attack that rolls magic accuracy but is blocked by Protect from
+     * Melee. Left unresolved it reaches the client as an unknown style, which renders as
+     * "no prayer protects against this attack" — the opposite of the truth.
+     */
+    @Test
+    public void hybridStylesSplitIntoAccuracyAndPrayerStyle()
+    {
+        OutputAttack a = CombatParser.assemble(
+            CombatParser.parseStyles("[[Magical melee]]"),
+            CombatParser.parseMaxHits("30"), Arrays.asList(4)).attacks.get(0);
+        assertEquals("accuracy roll", "magic", a.style);
+        assertEquals("prayed against as", "melee", a.prayStyle);
+
+        OutputAttack r = CombatParser.assemble(
+            CombatParser.parseStyles("[[Magical ranged]]"),
+            CombatParser.parseMaxHits("30"), Arrays.asList(4)).attacks.get(0);
+        assertEquals("magic", r.style);
+        assertEquals("ranged", r.prayStyle);
+
+        // word order carries the meaning: first is the roll, second the defence
+        OutputAttack rm = CombatParser.assemble(
+            CombatParser.parseStyles("Ranged magic"),
+            CombatParser.parseMaxHits("30"), Arrays.asList(4)).attacks.get(0);
+        assertEquals("ranged", rm.style);
+        assertEquals("magic", rm.prayStyle);
+    }
+
+    @Test
+    public void plainStylesKeepNoPrayerStyle()
+    {
+        for (String plain : new String[]{"[[Crush]]", "[[Magic]]", "Melee", "[[Dragonfire]]"})
+        {
+            OutputAttack a = CombatParser.assemble(CombatParser.parseStyles(plain),
+                CombatParser.parseMaxHits("10"), Arrays.asList(4)).attacks.get(0);
+            assertNull(plain + " is not a hybrid", a.prayStyle);
+        }
+    }
+
+    @Test
+    public void hybridMixesWithPlainStylesOnOnePage()
+    {
+        CombatParser.ParsedCombat pc = CombatParser.assemble(
+            CombatParser.parseStyles("[[Stab]], [[Magical ranged]]"),
+            CombatParser.parseMaxHits("20 (melee), 30 (magic)"), Arrays.asList(4));
+        assertEquals(2, pc.attacks.size());
+        assertEquals("stab", pc.attacks.get(0).style);
+        assertNull(pc.attacks.get(0).prayStyle);
+        assertEquals("magic", pc.attacks.get(1).style);
+        assertEquals("ranged", pc.attacks.get(1).prayStyle);
+    }
+
     @Test
     public void parsesWikiLinkedStylesLowercased()
     {
