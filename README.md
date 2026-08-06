@@ -56,15 +56,41 @@ combat that wouldn't parse.
 
 After a refresh, check the run summary and the output before committing:
 
-- total sources ≥ 3000
 - `Lunar Chest` present as `REWARD`, including `Blood moon helm`
 - `Zulrah`, `Vorkath`, and `Nex` present as `KILL` with non-empty `npcIds`
-- `Master Farmer` present as `PICKPOCKET`
+- `Master Farmer (pickpocket)` present as `PICKPOCKET`
 - unresolved-item rate < 5%
+- source count and per-type counts within a few percent of the last run
+
+Baseline from the 2026-08-05 sweep, for comparing future runs against:
+
+| Measure | Value |
+| --- | --- |
+| pages enumerated / parsed | 2375 / 2226 |
+| sources | 2277 |
+| by type | KILL 1187, REWARD 627, GATHER 388, PICKPOCKET 75 |
+| drops | 27038 |
+| unresolved items | 1341 (5.0%) |
+| unknown rarity | 3001 (11.1%) |
+| combat gaps / overlay stubs | 83 / 105 |
+
+An earlier draft of these gates expected ≥3000 sources. That was an estimate
+made before the sweep; the wiki only has ~2375 pages carrying drop tables, so
+~2280 sources is full coverage of what the templates actually mark up. Judge
+future runs against the table above, not the old estimate.
 
 A systematic parsing gap (a whole template variant missed, a heading shape
 mishandled) should be fixed in the parser with a regression test **before**
 committing regenerated data — not papered over with an overlay entry.
+
+### Known gap: transcluded drop tables
+
+149 of the 2375 enumerated pages (6.3%) produce no drop table. They embed a
+line template only *indirectly* — the table lives in a shared template the page
+transcludes (`{{Revenants}}`, the Deadman and elf variants) — and the fetch
+reads raw wikitext, which does not expand transclusions. Every revenant is
+missing for this reason. Fixing it means resolving those transclusions before
+parsing, which is a change to the fetch strategy rather than the parser.
 
 ## Source types
 
