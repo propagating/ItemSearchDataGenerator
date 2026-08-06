@@ -63,6 +63,7 @@ import com.itemsearch.datagen.source.WikiCombatJson;
 public final class SourceDataGenerator
 {
     private static final String DEFAULT_DROPS_SNAPSHOT = "wiki-drops.json";
+    private static final String DEFAULT_TABLES_SNAPSHOT = "wiki-drop-tables.json";
     private static final String DEFAULT_ITEMS_SNAPSHOT = "wiki-items.json";
     private static final String DEFAULT_SHOPS_SNAPSHOT = "wiki-shops.json";
     private static final String DEFAULT_SPAWNS = "npc-spawns.json";
@@ -108,11 +109,19 @@ public final class SourceDataGenerator
         Path output = Paths.get(positional.isEmpty() ? DEFAULT_OUTPUT : positional.get(0));
         Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
 
+        Path tablesSnapshot = Paths.get(DEFAULT_TABLES_SNAPSHOT);
         if (refreshDrops)
         {
+            // the shared tables must be in hand before pages are parsed: a monster's herb and
+            // rare drops arrive by transcluding one of them, not from its own wikitext
+            Map<String, String> tables = WikiDropsFetch.fetchSharedDropTables(gson);
+            Files.write(tablesSnapshot,
+                (gson.toJson(new TreeMap<>(tables)) + "\n").getBytes(StandardCharsets.UTF_8));
+            System.out.println("Wrote " + tables.size() + " shared drop tables to " + tablesSnapshot);
+
             List<String> titles = WikiDropsFetch.fetchDropPageTitles(gson);
             System.out.println("Fetching " + titles.size() + " drop pages...");
-            Map<String, DropPageJson> fetched = WikiDropsFetch.fetchDropPages(gson, titles);
+            Map<String, DropPageJson> fetched = WikiDropsFetch.fetchDropPages(gson, titles, tables);
             Files.write(dropsSnapshot,
                 (gson.toJson(new TreeMap<>(fetched)) + "\n").getBytes(StandardCharsets.UTF_8));
             System.out.println("Wrote " + fetched.size() + " drop pages to " + dropsSnapshot);

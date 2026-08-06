@@ -30,8 +30,13 @@ import com.google.gson.JsonObject;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -54,6 +59,24 @@ public final class WikiDropsFetch
     // "==heading==" / "===heading===" / ... (2-6 '=' fences, matching on both sides)
     private static final Pattern HEADING = Pattern.compile("(?m)^(={2,6})\\s*(.*?)\\s*\\1\\s*$");
     private static final String DROPS_TABLE_HEAD = "{{DropsTableHead";
+    private static final String[] LINE_TEMPLATES =
+        {"DropsLine", "DropsLineReward", "DropsLineSkill"};
+    // Revenant goblin -> {{Revenants}} -> {{Revenants/Drops}} is two; a little headroom beyond
+    private static final int MAX_TEMPLATE_DEPTH = 4;
+    // template names whose canonical title cannot be derived from the name itself
+    private static final Map<String, String> TABLE_ALIASES = new HashMap<>();
+    // transclude a drop line but are not shared tables: Rarity is a formatting helper used on
+    // thousands of pages, CalculateRDTNaked is a calculator, and Ecumenical is a line template
+    // whose body is parameter placeholders rather than real drops
+    private static final Set<String> NON_TABLE_TEMPLATES = new HashSet<>(
+        Arrays.asList("Rarity", "CalculateRDTNaked", "DropsLineEcumenical"));
+
+    static
+    {
+        TABLE_ALIASES.put("GWDRDT", "God Wars Dungeon rare drop table");
+        TABLE_ALIASES.put("Revenants/Drops", "Revenant drop table");
+        TABLE_ALIASES.put("CalculateRDTNaked", "Rare drop table");
+    }
     private static final int BATCH = 50;
 
     private WikiDropsFetch()
@@ -61,6 +84,19 @@ public final class WikiDropsFetch
     }
 
     public static DropPageJson extract(String pageTitle, String wikitext)
+    {
+        return extract(pageTitle, wikitext, Collections.emptyMap());
+    }
+
+    /**
+     * Parses a page, expanding the wiki's shared drop-table templates.
+     *
+     * @param sharedTables bare template name (no "Template:" prefix) to that template's wikitext.
+     *                     A monster's herb, seed, and rare drops live in these rather than on the
+     *                     page, so without them Aberrant spectre parses to ten drops and no herbs.
+     */
+    public static DropPageJson extract(String pageTitle, String wikitext,
+        Map<String, String> sharedTables)
     {
         if (wikitext == null)
         {
@@ -105,8 +141,7 @@ public final class WikiDropsFetch
         List<Integer> headOffsets = findHeadOffsets(text);
         // DropsLineSkill is the wiki's line template for skilling loot — it is how every
         // pickpocketing table is written, and carries the same name/quantity/rarity params
-        List<WikiText.Found> lineFounds =
-            WikiText.templates(text, "DropsLine", "DropsLineReward", "DropsLineSkill");
+        List<WikiText.Found> lineFounds = WikiText.templates(text, LINE_TEMPLATES);
 
         // group lines by how many {{DropsTableHead occurrences preceded them: a head between
         // two lines starts a new table; lines before any head form their own (leading) table
@@ -133,19 +168,11 @@ public final class WikiDropsFetch
             DropTableJson table = new DropTableJson();
             for (WikiText.Found found : group)
             {
-                Map<String, String> p = WikiText.params(found.body);
-                String name = itemName(WikiText.stripLinks(p.get("name")));
-                if (name == null)
+                DropLineJson line = toLine(found);
+                if (line != null)
                 {
-                    continue; // no usable item name, or a "no drop" placeholder
+                    table.lines.add(line);
                 }
-                DropLineJson line = new DropLineJson();
-                line.reward = found.name.equals("DropsLineReward");
-                line.name = name;
-                line.quantity = p.get("quantity");
-                line.rarity = p.get("rarity");
-                line.rolls = p.get("rolls");
-                table.lines.add(line);
             }
             if (table.lines.isEmpty())
             {
@@ -157,7 +184,108 @@ public final class WikiDropsFetch
             page.tables.add(table);
         }
 
+        appendSharedTables(page, text, headings, sharedTables);
         return page.tables.isEmpty() ? null : page;
+    }
+
+    /** One {{DropsLine...}} template call as a parsed line, or null when it names no item. */
+    private static DropLineJson toLine(WikiText.Found found)
+    {
+        Map<String, String> p = WikiText.params(found.body);
+        String name = itemName(WikiText.stripLinks(p.get("name")));
+        if (name == null)
+        {
+            return null; // no usable item name, or a "no drop" placeholder
+        }
+        DropLineJson line = new DropLineJson();
+        line.reward = found.name.equals("DropsLineReward");
+        line.name = name;
+        line.quantity = p.get("quantity");
+        line.rarity = p.get("rarity");
+        line.rolls = p.get("rolls");
+        return line;
+    }
+
+    /**
+     * Adds a table for every shared drop-table template the page transcludes, attributed to that
+     * table and filed under whatever heading the transclusion sits beneath.
+     */
+    private static void appendSharedTables(DropPageJson page, String text,
+        List<HeadingMatch> headings, Map<String, String> sharedTables)
+    {
+        if (sharedTables.isEmpty())
+        {
+            return;
+        }
+        String[] names = sharedTables.keySet().toArray(new String[0]);
+        for (WikiText.Found found : WikiText.templates(text, names))
+        {
+            List<DropLineJson> lines = new ArrayList<>();
+            collectTemplateLines(found.name, sharedTables, lines, new HashSet<>(), 0);
+            if (lines.isEmpty())
+            {
+                continue;
+            }
+            DropTableJson table = new DropTableJson();
+            table.lines = lines;
+            table.sectionHeading = headingBefore(headings, found.start, false);
+            table.topHeading = headingBefore(headings, found.start, true);
+            table.dropTable = canonicalTableName(found.name);
+            page.tables.add(table);
+        }
+    }
+
+    /**
+     * Lines contributed by one shared template, following its own transclusions. Revenant pages
+     * reach their drops through {{Revenants}} -> {{Revenants/Drops}}, so one level is not enough.
+     * The visited set stops a template cycle, and the depth limit stops a deep chain.
+     */
+    private static void collectTemplateLines(String name, Map<String, String> sharedTables,
+        List<DropLineJson> out, Set<String> visited, int depth)
+    {
+        String body = sharedTables.get(name);
+        if (body == null || depth > MAX_TEMPLATE_DEPTH || !visited.add(name))
+        {
+            return;
+        }
+        String text = WikiText.stripComments(body);
+        for (WikiText.Found found : WikiText.templates(text, LINE_TEMPLATES))
+        {
+            DropLineJson line = toLine(found);
+            if (line != null)
+            {
+                out.add(line);
+            }
+        }
+        for (WikiText.Found nested
+            : WikiText.templates(text, sharedTables.keySet().toArray(new String[0])))
+        {
+            collectTemplateLines(nested.name, sharedTables, out, visited, depth + 1);
+        }
+    }
+
+    /**
+     * Human name for a shared table template: "HerbDropLines" -> "Herb drop table". The wiki's
+     * template names are camel-cased and inconsistently suffixed, so the suffix is stripped and
+     * the remaining words spaced out.
+     */
+    static String canonicalTableName(String template)
+    {
+        String alias = TABLE_ALIASES.get(template);
+        if (alias != null)
+        {
+            return alias;
+        }
+        String base = template.replace("/Drops", "")
+            .replaceAll("(DropLines|DropTable|DropLine)$", "");
+        String spaced = base.replaceAll("(?<=[a-z0-9])(?=[A-Z])", " ").trim();
+        if (spaced.isEmpty())
+        {
+            return template;
+        }
+        String lowered = spaced.substring(0, 1).toUpperCase(Locale.ROOT)
+            + spaced.substring(1).toLowerCase(Locale.ROOT);
+        return lowered + " drop table";
     }
 
     /**
@@ -294,9 +422,72 @@ public final class WikiDropsFetch
         return new ArrayList<>(titles);
     }
 
+    /**
+     * The wiki's shared drop-table templates, keyed by bare name, with their wikitext.
+     *
+     * <p>Found by asking which Template-namespace pages transclude a drop line template: those are
+     * exactly the shared tables (herb, seed, superior, revenant, ...). A monster's herb and rare
+     * drops live in one of these rather than on its own page, so without them Aberrant spectre
+     * parses to ten drops and no herbs.
+     */
+    public static Map<String, String> fetchSharedDropTables(Gson gson) throws IOException
+    {
+        Set<String> titles = new TreeSet<>();
+        for (String line : LINE_TEMPLATES)
+        {
+            for (String t : WikiShopFetch.fetchTitlesEmbedding(gson, "Template:" + line, 10))
+            {
+                String bare = bareTemplateName(t);
+                if (!bare.contains("/doc") && !bare.contains("/Sandbox")
+                    && !NON_TABLE_TEMPLATES.contains(bare))
+                {
+                    titles.add(t);
+                }
+            }
+        }
+        Map<String, String> out = new TreeMap<>();
+        List<String> list = new ArrayList<>(titles);
+        for (int i = 0; i < list.size(); i += BATCH)
+        {
+            List<String> batch = list.subList(i, Math.min(i + BATCH, list.size()));
+            JsonObject response = WikiHttp.request(gson, WikiHttp.API
+                + "?action=query&prop=revisions&rvslots=main&rvprop=content&format=json"
+                + "&titles=" + URLEncoder.encode(String.join("|", batch), "UTF-8"));
+            WikiHttp.sleep();
+            JsonObject query = response.getAsJsonObject("query");
+            JsonObject pages = query == null ? null : query.getAsJsonObject("pages");
+            if (pages == null)
+            {
+                continue;
+            }
+            for (Map.Entry<String, JsonElement> e : pages.entrySet())
+            {
+                JsonObject page = e.getValue().getAsJsonObject();
+                if (page.has("revisions"))
+                {
+                    out.put(bareTemplateName(page.get("title").getAsString()),
+                        page.getAsJsonArray("revisions").get(0).getAsJsonObject()
+                            .getAsJsonObject("slots").getAsJsonObject("main").get("*").getAsString());
+                }
+            }
+        }
+        return out;
+    }
+
+    private static String bareTemplateName(String title)
+    {
+        return title.startsWith("Template:") ? title.substring("Template:".length()) : title;
+    }
+
     /** Fetches and parses each page's drop tables; pages with no usable table are omitted. */
     public static Map<String, DropPageJson> fetchDropPages(Gson gson, Collection<String> pageTitles)
         throws IOException
+    {
+        return fetchDropPages(gson, pageTitles, Collections.emptyMap());
+    }
+
+    public static Map<String, DropPageJson> fetchDropPages(Gson gson, Collection<String> pageTitles,
+        Map<String, String> sharedTables) throws IOException
     {
         Map<String, DropPageJson> result = new TreeMap<>();
         List<String> titles = new ArrayList<>(pageTitles);
@@ -330,7 +521,7 @@ public final class WikiDropsFetch
                     String title = page.get("title").getAsString();
                     String content = page.getAsJsonArray("revisions").get(0).getAsJsonObject()
                         .getAsJsonObject("slots").getAsJsonObject("main").get("*").getAsString();
-                    DropPageJson drops = extract(title, content);
+                    DropPageJson drops = extract(title, content, sharedTables);
                     if (drops != null)
                     {
                         result.put(title, drops);

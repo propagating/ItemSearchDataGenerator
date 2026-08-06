@@ -66,13 +66,14 @@ Baseline from the 2026-08-05 sweep, for comparing future runs against:
 
 | Measure | Value |
 | --- | --- |
-| pages enumerated / parsed | 2375 / 2226 |
-| sources | 2277 |
-| by type | KILL 1187, REWARD 627, GATHER 388, PICKPOCKET 75 |
-| drops | 27038 |
-| unresolved items | 1341 (5.0%) |
-| unknown rarity | 3001 (11.1%) |
-| combat gaps / overlay stubs | 83 / 105 |
+| shared drop tables | 30 |
+| pages enumerated / parsed | 2375 / 2281 |
+| sources | 2333 |
+| by type | KILL 1240, REWARD 628, GATHER 390, PICKPOCKET 75 |
+| drops | 37323 |
+| unresolved items | 1745 (4.7%) |
+| unknown rarity | 9420 (25.2%) — see shared drop tables below |
+| combat gaps / overlay stubs | 94 / 104 |
 
 An earlier draft of these gates expected ≥3000 sources. That was an estimate
 made before the sweep; the wiki only has ~2375 pages carrying drop tables, so
@@ -83,14 +84,31 @@ A systematic parsing gap (a whole template variant missed, a heading shape
 mishandled) should be fixed in the parser with a regression test **before**
 committing regenerated data — not papered over with an overlay entry.
 
-### Known gap: transcluded drop tables
+### Shared drop tables
 
-149 of the 2375 enumerated pages (6.3%) produce no drop table. They embed a
-line template only *indirectly* — the table lives in a shared template the page
-transcludes (`{{Revenants}}`, the Deadman and elf variants) — and the fetch
-reads raw wikitext, which does not expand transclusions. Every revenant is
-missing for this reason. Fixing it means resolving those transclusions before
-parsing, which is a change to the fetch strategy rather than the parser.
+A monster's herb, seed, and rare drops usually are not on its own page: the page
+transcludes one of the wiki's shared table templates. `--refresh-drops` first
+fetches those templates into `wiki-drop-tables.json` (found by asking which
+Template-namespace pages transclude a drop line template) and expands them while
+parsing, following nesting and stopping on cycles. Each expanded table records
+which shared table it came from, which is what the client's "group drops by drop
+table" setting groups on.
+
+Before this, Aberrant spectre parsed to 10 drops with no herbs at all, and every
+revenant was missing.
+
+**Rarities from shared tables are usually unknown.** The templates compute them
+with MediaWiki parser functions — `{{HerbDropLines|78/128}}` expands through
+`{{#expr:1/(32*{{#var:herbbase}})}}` — and the generator does not evaluate wiki
+expressions. Those drops are emitted with `rarityKnown: false`, so the item is
+searchable and attributed but shows "rate unknown". This is why the unknown-rarity
+rate jumped from 11% to 25%. Getting real numbers means rendering pages through
+`action=parse` and reading the drop table out of the HTML, rather than parsing
+wikitext.
+
+`Rarity`, `CalculateRDTNaked`, and `DropsLineEcumenical` are excluded: they
+transclude a drop line without being shared tables, and expanding them would
+inject placeholder rows into thousands of pages.
 
 ## Source types
 

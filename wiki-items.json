@@ -653,6 +653,10 @@
     "id": 1595,
     "value": 5
   },
+  "Amulet of avarice": {
+    "id": 22557,
+    "value": 45000
+  },
   "Amulet of defence": {
     "id": 1729,
     "value": 1275
@@ -809,6 +813,10 @@
   "Ancient crozier": {
     "id": 12199,
     "value": 5000
+  },
+  "Ancient crystal": {
+    "id": 21804,
+    "value": 250000
   },
   "Ancient d'hide body": {
     "id": 12492,
@@ -3114,6 +3122,9 @@
     "id": 11065,
     "value": 5
   },
+  "Bracelet of ethereum (uncharged)": {
+    "id": 21817
+  },
   "Brain tongs": {
     "id": 10894,
     "value": 1
@@ -4026,6 +4037,10 @@
     "id": 1755,
     "value": 1
   },
+  "Chitin": {
+    "id": 29643,
+    "value": 1
+  },
   "Choc saturday": {
     "id": 2074,
     "value": 30
@@ -4575,6 +4590,10 @@
   "Crate ring": {
     "id": 26939,
     "value": 1
+  },
+  "Craw's bow (u)": {
+    "id": 22547,
+    "value": 120000
   },
   "Crawling hand (item)": {
     "id": 7975,
@@ -9371,10 +9390,6 @@
     "id": 1547,
     "value": 1
   },
-  "Key (medium)": {
-    "id": 2832,
-    "value": 20
-  },
   "Key (orange)": {
     "id": 1544,
     "value": 1
@@ -10114,6 +10129,9 @@
   "Magic potion(1)": {
     "id": 3046
   },
+  "Magic potion(4)": {
+    "id": 3046
+  },
   "Magic roots": {
     "id": 6051,
     "value": 1
@@ -10495,6 +10513,10 @@
   "Mind talisman": {
     "id": 1448,
     "value": 4
+  },
+  "Minecart ticket (Ice Mountain to Keldagrim)": {
+    "id": 5020,
+    "value": 1
   },
   "Minecart ticket (White Wolf Mountain to Keldagrim)": {
     "id": 5020,
@@ -11418,10 +11440,6 @@
     "value": 1
   },
   "Noble robe top (pink)": {
-    "id": 33836,
-    "value": 50000
-  },
-  "Noble robe top (white)": {
     "id": 33836,
     "value": 50000
   },
@@ -12350,6 +12368,9 @@
     "value": 40
   },
   "Prayer mix(1)": {
+    "id": 11467
+  },
+  "Prayer mix(2)": {
     "id": 11467
   },
   "Prayer potion(3)": {
@@ -13454,6 +13475,17 @@
   },
   "Restore potion(2)": {
     "id": 131
+  },
+  "Restore potion(3)": {
+    "id": 131
+  },
+  "Revenant cave teleport": {
+    "id": 21802,
+    "value": 10
+  },
+  "Revenant ether": {
+    "id": 21820,
+    "value": 250
   },
   "Revitalisation (+)(4)": {
     "id": 20957,
@@ -16990,10 +17022,6 @@
     "id": 7702,
     "value": 1
   },
-  "Teapot (trimmed)": {
-    "id": 7702,
-    "value": 1
-  },
   "Teasing stick": {
     "id": 10029,
     "value": 50
@@ -17056,6 +17084,10 @@
   "Terrorbird wing": {
     "id": 7878,
     "value": 1
+  },
+  "Thammaron's sceptre (u)": {
+    "id": 22552,
+    "value": 120000
   },
   "Thanksgiving dinner": {
     "id": 12861,
@@ -17528,6 +17560,18 @@
     "id": 28567,
     "value": 100000
   },
+  "Trinket of avarice": {
+    "id": 33044,
+    "value": 100000
+  },
+  "Trinket of fairies": {
+    "id": 28564,
+    "value": 100000
+  },
+  "Trinket of fortuity (inactive)": {
+    "id": 33047,
+    "value": 100000
+  },
   "Trinket of undead": {
     "id": 28570,
     "value": 100000
@@ -17978,6 +18022,10 @@
   "Victor's cape (500)": {
     "id": 24215,
     "value": 4
+  },
+  "Viggora's chainmace (u)": {
+    "id": 22542,
+    "value": 120000
   },
   "Vile ashes": {
     "id": 25769,
@@ -18785,15 +18833,15 @@
     "id": 33908,
     "value": 400
   },
+  "Wyrmscraig villager robe bottom (A, yellow)": {
+    "id": 33908,
+    "value": 400
+  },
   "Wyrmscraig villager robe bottom (B, pink)": {
     "id": 33929,
     "value": 400
   },
   "Wyrmscraig villager robe top (A, beige)": {
-    "id": 33884,
-    "value": 500
-  },
-  "Wyrmscraig villager robe top (A, pink)": {
     "id": 33884,
     "value": 500
   },
@@ -18893,9 +18941,6 @@
     "value": 500
   },
   "Yellow spice (1)": {
-    "id": 7495
-  },
-  "Yellow spice (4)": {
     "id": 7495
   },
   "Yellowfin": {

@@ -26,14 +26,18 @@ package com.itemsearch.datagen;
 
 import com.itemsearch.datagen.source.DropLineJson;
 import com.itemsearch.datagen.source.DropPageJson;
+import com.itemsearch.datagen.source.DropTableJson;
 import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import java.util.Map;
 import static org.junit.Assert.assertTrue;
 
 public class WikiDropsFetchTest
@@ -202,6 +206,85 @@ public class WikiDropsFetchTest
             + "{{DropsTableBottom}}\n";
         List<DropLineJson> lines = WikiDropsFetch.extract("Bird", page).tables.get(0).lines;
         assertEquals("Bird nest (egg)", lines.get(0).name);
+    }
+
+    /**
+     * A monster's herb/seed/rare drops live in a shared template the page transcludes, not in the
+     * page's own wikitext. Without expanding them Aberrant spectre ships 10 drops and no herbs.
+     */
+    @Test
+    public void transcludedDropTablesAreExpandedAndAttributed()
+    {
+        Map<String, String> templates = new HashMap<>();
+        templates.put("HerbDropLines",
+            "{{DropsLine|name=Grimy guam leaf|quantity=1|rarity=1/25}}\n"
+            + "{{DropsLine|name=Grimy ranarr weed|quantity=1|rarity=1/128}}\n");
+
+        String page = "{{Infobox Monster\n|name = Aberrant spectre\n|id = 2}}\n"
+            + "==Drops==\n===Herbs===\n{{HerbDropLines}}\n"
+            + "===Other===\n{{DropsTableHead}}\n"
+            + "{{DropsLine|name=Coins|quantity=100|rarity=1/2}}\n{{DropsTableBottom}}\n";
+
+        DropPageJson p = WikiDropsFetch.extract("Aberrant spectre", page, templates);
+        List<String> all = new ArrayList<>();
+        for (DropTableJson t : p.tables)
+        {
+            for (DropLineJson l : t.lines)
+            {
+                all.add(l.name);
+            }
+        }
+        assertTrue("herbs from the shared table must be present", all.contains("Grimy ranarr weed"));
+        assertTrue("the page's own drops must survive", all.contains("Coins"));
+
+        DropTableJson herbs = tableContaining(p, "Grimy ranarr weed");
+        assertEquals("Herb drop table", herbs.dropTable);
+        assertEquals("the heading above the transclusion still applies", "Herbs", herbs.sectionHeading);
+        assertNull("a page's own table belongs to no shared table",
+            tableContaining(p, "Coins").dropTable);
+    }
+
+    // Revenant pages transclude {{Revenants}}, which transcludes {{Revenants/Drops}}; one level
+    // of expansion is not enough to reach the lines.
+    @Test
+    public void nestedTransclusionsAreFollowed()
+    {
+        Map<String, String> templates = new HashMap<>();
+        templates.put("Revenants", "Some prose.\n{{Revenants/Drops}}\n");
+        templates.put("Revenants/Drops",
+            "{{DropsLine|name=Revenant cave teleport|quantity=1|rarity=1/50}}\n");
+
+        String page = "{{Infobox Monster\n|name = Revenant goblin\n|id = 7931}}\n"
+            + "==Drops==\n{{Revenants}}\n";
+        DropPageJson p = WikiDropsFetch.extract("Revenant goblin", page, templates);
+        assertNotNull("the page must now yield a drop table", p);
+        assertEquals("Revenant cave teleport", p.tables.get(0).lines.get(0).name);
+    }
+
+    @Test
+    public void aTemplateCycleTerminates()
+    {
+        Map<String, String> templates = new HashMap<>();
+        templates.put("A", "{{B}}");
+        templates.put("B", "{{A}}\n{{DropsLine|name=Bones|quantity=1|rarity=Always}}\n");
+        DropPageJson p = WikiDropsFetch.extract("Loopy",
+            "{{Infobox Monster\n|name = Loopy\n|id = 3}}\n==Drops==\n{{A}}\n", templates);
+        assertEquals("Bones", p.tables.get(0).lines.get(0).name);
+    }
+
+    private static DropTableJson tableContaining(DropPageJson page, String itemName)
+    {
+        for (DropTableJson t : page.tables)
+        {
+            for (DropLineJson l : t.lines)
+            {
+                if (itemName.equals(l.name))
+                {
+                    return t;
+                }
+            }
+        }
+        return null;
     }
 
     @Test

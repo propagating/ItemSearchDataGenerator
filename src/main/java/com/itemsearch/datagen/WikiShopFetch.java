@@ -184,13 +184,20 @@ public final class WikiShopFetch
     // package-visible so WikiDropsFetch can reuse the same embeddedin pagination loop
     static List<String> fetchTitlesEmbedding(Gson gson, String template) throws IOException
     {
+        return fetchTitlesEmbedding(gson, template, 0);
+    }
+
+    /** @param namespace 0 for articles, 10 for templates that transclude {@code template}. */
+    static List<String> fetchTitlesEmbedding(Gson gson, String template, int namespace)
+        throws IOException
+    {
         List<String> titles = new ArrayList<>();
         String continueSuffix = "";
         while (true)
         {
             JsonObject response = WikiHttp.request(gson, WikiHttp.API
                 + "?action=query&list=embeddedin&eititle=" + URLEncoder.encode(template, "UTF-8")
-                + "&einamespace=0&eilimit=500&format=json" + continueSuffix);
+                + "&einamespace=" + namespace + "&eilimit=500&format=json" + continueSuffix);
             WikiHttp.sleep();
             titles.addAll(titlesFrom(response));
             JsonObject cont = response.getAsJsonObject("continue");

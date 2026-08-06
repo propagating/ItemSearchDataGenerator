@@ -33,5 +33,8 @@ public class DropTableJson
     public String sectionHeading;
     // nearest preceding top-level (exactly "==heading==") heading, stripped; null if none
     public String topHeading;
+    // the shared drop table these lines came from ("Herb drop table"), when they arrived by
+    // transcluding one of the wiki's shared table templates; null for a page's own table
+    public String dropTable;
     public List<DropLineJson> lines = new ArrayList<>();
 }

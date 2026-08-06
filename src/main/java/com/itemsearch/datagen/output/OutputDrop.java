@@ -35,6 +35,9 @@ public class OutputDrop
     // the wiki drop-table subsection this line came from (e.g. "Rare drop table"); null when the
     // page has one unheaded table or the heading is generic ("Drops"/"Rewards"/"Loot")
     public String category;
+    // the wiki's shared drop table these lines came from ("Herb drop table"); null when the drop
+    // is part of the source's own table rather than a shared one
+    public String dropTable;
 
     public OutputDrop(int itemId, String itemName, double rarity, int quantity, boolean noted, boolean rarityKnown)
     {

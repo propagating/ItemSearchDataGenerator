@@ -136,7 +136,7 @@ public final class SourceTransform
                     {
                         continue;
                     }
-                    b.drops.add(transformLine(line, category, itemInfo));
+                    b.drops.add(transformLine(line, category, table.dropTable, itemInfo));
                 }
             }
             result.add(b);
@@ -178,7 +178,8 @@ public final class SourceTransform
         return GENERIC_CATEGORIES.contains(sectionHeading.toLowerCase(Locale.ROOT)) ? null : sectionHeading;
     }
 
-    private static OutputDrop transformLine(DropLineJson line, String category, Map<String, ItemInfoJson> itemInfo)
+    private static OutputDrop transformLine(DropLineJson line, String category,
+        String dropTable, Map<String, ItemInfoJson> itemInfo)
     {
         ItemInfoJson info = itemInfo == null ? null : itemInfo.get(line.name);
         int itemId = info != null && info.id != null ? info.id : -1;
@@ -190,6 +191,7 @@ public final class SourceTransform
         boolean noted = line.quantity != null && line.quantity.contains("(noted)");
         OutputDrop drop = new OutputDrop(itemId, line.name, rarity, quantity, noted, rarityKnown);
         drop.category = category;
+        drop.dropTable = dropTable;
         return drop;
     }
 
