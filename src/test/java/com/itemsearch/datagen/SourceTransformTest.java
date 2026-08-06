@@ -98,6 +98,35 @@ public class SourceTransformTest
         return i;
     }
 
+    /**
+     * A common monster has hundreds of static spawn tiles (Rat: 731). Every one becomes a marker
+     * on the in-game world map when the player opens it, so the data must not carry more than the
+     * client can reasonably draw.
+     */
+    @Test
+    public void spawnPointsAreCappedPerSource()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        pages.put("Rat", page("Rat", "Monster", Collections.singletonList("500"), "1",
+            table("Drops", "Drops", line(false, "Bones", "1", "Always", null))));
+
+        List<OutputSpawn> many = new ArrayList<>();
+        for (int i = 0; i < 400; i++)
+        {
+            many.add(new OutputSpawn(3000 + i, 3000, 0));
+        }
+        Map<Integer, List<OutputSpawn>> spawns = new HashMap<>();
+        spawns.put(500, many);
+
+        OutputSource rat = SourceTransform.transform(pages, Collections.emptyMap(), spawns,
+            Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap()).get(0);
+
+        assertEquals(25, rat.spawnPoints.size());
+        // deterministic across regenerations: the first N in id order, not an arbitrary subset
+        assertEquals(3000, rat.spawnPoints.get(0).x);
+        assertEquals(3024, rat.spawnPoints.get(24).x);
+    }
+
     @Test
     public void killPageJoinsIdsCombatLevelAndCombat()
     {

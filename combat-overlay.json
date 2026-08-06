@@ -1225,27 +1225,34 @@
     "attacks": [
       {
         "style": "crush",
-        "maxHit": 0,
-        "maxHitMax": 0,
+        "maxHit": 31,
+        "maxHitMax": 31,
         "speed": 5,
         "speedMax": 5
       },
       {
         "style": "ranged",
-        "maxHit": 0,
-        "maxHitMax": 0,
+        "maxHit": 31,
+        "maxHitMax": 31,
         "speed": 5,
         "speedMax": 5
       },
       {
         "style": "magic",
-        "maxHit": 0,
-        "maxHitMax": 0,
+        "maxHit": 31,
+        "maxHitMax": 31,
         "speed": 5,
         "speedMax": 5
+      },
+      {
+        "style": "typeless",
+        "maxHit": 40,
+        "maxHitMax": 40,
+        "speed": 0,
+        "speedMax": 0
       }
     ],
-    "needsReview": true
+    "needsReview": false
   },
   "7253": {
     "attacks": [

@@ -56,6 +56,8 @@ public final class SourceTransform
     private static final Set<String> GENERIC_CATEGORIES = new HashSet<>(
         java.util.Arrays.asList("drops", "rewards", "loot"));
     private static final int FIRST_SYNTHETIC_ID = -1000;
+    // matches MonsterTransform.MAX_SPAWNS_PER_NPC: the client draws one map marker per spawn
+    private static final int MAX_SPAWNS_PER_SOURCE = 25;
 
     private SourceTransform()
     {
@@ -295,6 +297,12 @@ public final class SourceTransform
             b.type, x, y, plane);
     }
 
+    /**
+     * Spawn tiles for a source, deduplicated and capped. A common monster has hundreds of static
+     * spawns (Rat: 731) and the client turns every one into a world-map marker, so shipping them
+     * all would let the data stall the UI. Takes the first {@value #MAX_SPAWNS_PER_SOURCE} in npc
+     * id order, which keeps the choice stable across regenerations.
+     */
     private static List<OutputSpawn> collectSpawns(List<Integer> npcIds, Map<Integer, List<OutputSpawn>> spawns)
     {
         List<OutputSpawn> out = new ArrayList<>();
@@ -307,6 +315,10 @@ public final class SourceTransform
         {
             for (OutputSpawn sp : spawns.getOrDefault(id, Collections.emptyList()))
             {
+                if (out.size() >= MAX_SPAWNS_PER_SOURCE)
+                {
+                    return out;
+                }
                 if (seen.add(sp.x + ":" + sp.y + ":" + sp.plane))
                 {
                     out.add(sp);
