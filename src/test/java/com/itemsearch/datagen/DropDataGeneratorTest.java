@@ -30,7 +30,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-import com.itemsearch.datagen.output.OutputNpc;
+import com.itemsearch.datagen.output.OutputSource;
 import com.itemsearch.datagen.source.MonsterJson;
 import org.junit.Assume;
 import org.junit.Test;
@@ -65,7 +65,7 @@ public class DropDataGeneratorTest
     {
         Path input = copyResource("/monsters-sample.json", "monsters.json");
         Path overlay = copyResource("/spawns-overlay-sample.json", "overlay.json");
-        List<OutputNpc> npcs = DropDataGenerator.generate(new Gson(), input, missing("nospawns.json"), overlay);
+        List<OutputSource> npcs = DropDataGenerator.generate(new Gson(), input, missing("nospawns.json"), overlay);
 
         assertEquals(2, npcs.size());
         assertEquals(100, npcs.get(0).id);
@@ -80,10 +80,10 @@ public class DropDataGeneratorTest
         Path input = copyResource("/monsters-sample.json", "monsters.json");
         Path overlay = copyResource("/spawns-overlay-sample.json", "overlay.json");
         Path spawns = copyResource("/npc-spawns-sample.json", "spawns.json");
-        List<OutputNpc> npcs = DropDataGenerator.generate(new Gson(), input, spawns, overlay);
+        List<OutputSource> npcs = DropDataGenerator.generate(new Gson(), input, spawns, overlay);
 
-        OutputNpc n100 = npcs.stream().filter(n -> n.id == 100).findFirst().get();
-        OutputNpc n101 = npcs.stream().filter(n -> n.id == 101).findFirst().get();
+        OutputSource n100 = npcs.stream().filter(n -> n.id == 100).findFirst().get();
+        OutputSource n101 = npcs.stream().filter(n -> n.id == 101).findFirst().get();
         assertEquals(1, n100.spawnPoints.size());          // no cache spawn -> overlay fallback
         assertEquals(1, n101.spawnPoints.size());          // two identical cache spawns deduped to one
         assertEquals(50, n101.spawnPoints.get(0).x);
@@ -115,10 +115,10 @@ public class DropDataGeneratorTest
         Files.write(combatOverlay, ("{\"100\":{\"attacks\":[{\"style\":\"crush\",\"maxHit\":99,"
             + "\"speed\":5}],\"needsReview\":false}}").getBytes(java.nio.charset.StandardCharsets.UTF_8));
 
-        List<OutputNpc> npcs = DropDataGenerator.generate(new Gson(), input,
+        List<OutputSource> npcs = DropDataGenerator.generate(new Gson(), input,
             missing("nospawns.json"), missing("nooverlay.json"), wiki, combatOverlay);
 
-        OutputNpc goblin = npcs.stream().filter(n -> n.id == 100).findFirst().get();
+        OutputSource goblin = npcs.stream().filter(n -> n.id == 100).findFirst().get();
         assertEquals(99, goblin.combat.attacks.get(0).maxHit); // overlay wins over the wiki's 30
     }
 
@@ -128,7 +128,7 @@ public class DropDataGeneratorTest
     {
         Path real = Paths.get("monsters-complete.json");
         Assume.assumeTrue("skipped: pinned monsters-complete.json not present", Files.exists(real));
-        List<OutputNpc> npcs = DropDataGenerator.generate(new Gson(), real,
+        List<OutputSource> npcs = DropDataGenerator.generate(new Gson(), real,
             Paths.get("npc-spawns.json"), Paths.get("spawns-overlay.json"));
         assertTrue("expected many monsters, got " + npcs.size(), npcs.size() > 1000);
         assertTrue("expected many monsters to have spawns",

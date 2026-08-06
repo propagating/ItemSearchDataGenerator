@@ -42,7 +42,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import com.itemsearch.datagen.output.OutputCombat;
-import com.itemsearch.datagen.output.OutputNpc;
+import com.itemsearch.datagen.output.OutputSource;
 import com.itemsearch.datagen.output.OutputSpawn;
 import com.itemsearch.datagen.source.CombatOverlayJson;
 import com.itemsearch.datagen.source.MonsterJson;
@@ -97,7 +97,7 @@ public final class DropDataGenerator
             refreshWiki(gson, input, wikiPath);
         }
 
-        List<OutputNpc> npcs = generate(gson, input, spawns, overlay, wikiPath, combatOverlayPath);
+        List<OutputSource> npcs = generate(gson, input, spawns, overlay, wikiPath, combatOverlayPath);
         Files.write(output, (gson.toJson(npcs) + "\n").getBytes(StandardCharsets.UTF_8));
 
         // seed stubs for any gap not already curated, then rewrite the overlay
@@ -139,13 +139,13 @@ public final class DropDataGenerator
     }
 
     /** Backward-compatible 4-arg form (no wiki join, no combat overlay). */
-    public static List<OutputNpc> generate(Gson gson, Path input, Path spawnsPath, Path overlayPath)
+    public static List<OutputSource> generate(Gson gson, Path input, Path spawnsPath, Path overlayPath)
         throws IOException
     {
         return generate(gson, input, spawnsPath, overlayPath, null, null);
     }
 
-    public static List<OutputNpc> generate(Gson gson, Path input, Path spawnsPath, Path overlayPath,
+    public static List<OutputSource> generate(Gson gson, Path input, Path spawnsPath, Path overlayPath,
         Path wikiCombatPath, Path combatOverlayPath) throws IOException
     {
         Map<String, MonsterJson> monsters = readMonsters(gson, input);
@@ -156,8 +156,8 @@ public final class DropDataGenerator
         Map<Integer, CombatOverlayJson> combatOverlay = MonsterTransform.parseCombatOverlay(gson,
             combatOverlayPath == null ? null : readIfPresent(combatOverlayPath));
 
-        List<OutputNpc> npcs = MonsterTransform.transformAll(monsters, overlay, cacheSpawns, wiki);
-        for (OutputNpc npc : npcs)
+        List<OutputSource> npcs = MonsterTransform.transformAll(monsters, overlay, cacheSpawns, wiki);
+        for (OutputSource npc : npcs)
         {
             if (npc.combat == null)
             {
@@ -175,10 +175,10 @@ public final class DropDataGenerator
     }
 
     // an NPC is a gap when its representative wiki record parses as a gap (see CombatParser.assemble)
-    private static Set<Integer> gapIds(List<OutputNpc> npcs, Map<String, WikiCombatJson> wiki)
+    private static Set<Integer> gapIds(List<OutputSource> npcs, Map<String, WikiCombatJson> wiki)
     {
         Set<Integer> gaps = new HashSet<>();
-        for (OutputNpc npc : npcs)
+        for (OutputSource npc : npcs)
         {
             WikiCombatJson w = wiki.get(npc.name);
             if (w != null && WikiCombat.toAttacks(w).gap)

@@ -37,7 +37,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import com.itemsearch.datagen.output.OutputDrop;
-import com.itemsearch.datagen.output.OutputNpc;
+import com.itemsearch.datagen.output.OutputSource;
 import com.itemsearch.datagen.output.OutputSpawn;
 import com.itemsearch.datagen.source.DropJson;
 import com.itemsearch.datagen.source.MonsterJson;
@@ -89,15 +89,15 @@ public class MonsterTransformTest
         src.put("b", monster(499, "Goblin", 2, drop(526, "Bones", 1.0), drop(995, "Coins", 0.5)));
         src.put("c", monster(600, "Goblin", 5, drop(526, "Bones", 1.0)));
 
-        List<OutputNpc> out = MonsterTransform.transformAll(src, Collections.emptyMap());
+        List<OutputSource> out = MonsterTransform.transformAll(src, Collections.emptyMap());
         assertEquals(2, out.size()); // lvl-2 variants collapse; lvl-5 stays separate
 
-        OutputNpc lvl2 = out.stream().filter(n -> n.combatLevel == 2).findFirst().get();
+        OutputSource lvl2 = out.stream().filter(n -> n.combatLevel == 2).findFirst().get();
         assertEquals(499, lvl2.id); // representative = the variant with the most drops
         assertEquals(Arrays.asList(499, 500), lvl2.npcIds); // every underlying id, sorted
         assertEquals(2, lvl2.drops.size());
 
-        OutputNpc lvl5 = out.stream().filter(n -> n.combatLevel == 5).findFirst().get();
+        OutputSource lvl5 = out.stream().filter(n -> n.combatLevel == 5).findFirst().get();
         assertEquals(Collections.singletonList(600), lvl5.npcIds);
     }
 
@@ -108,7 +108,7 @@ public class MonsterTransformTest
         src.put("a", monster(648, "Ice Troll", 124, drop(526, "Bones", 1.0)));
         src.put("b", monster(699, "Ice troll", 124, drop(526, "Bones", 1.0)));
 
-        List<OutputNpc> out = MonsterTransform.transformAll(src, Collections.emptyMap());
+        List<OutputSource> out = MonsterTransform.transformAll(src, Collections.emptyMap());
         assertEquals(1, out.size()); // same monster, differing source casing
         assertEquals(Arrays.asList(648, 699), out.get(0).npcIds);
     }
@@ -123,7 +123,7 @@ public class MonsterTransformTest
         Map<Integer, List<OutputSpawn>> overlay = new HashMap<>();
         overlay.put(500, Collections.singletonList(new OutputSpawn(1, 2, 0))); // overlay on the non-canonical id
 
-        List<OutputNpc> out = MonsterTransform.transformAll(src, overlay);
+        List<OutputSource> out = MonsterTransform.transformAll(src, overlay);
         assertEquals(1, out.size());
         assertEquals(1, out.get(0).spawnPoints.size()); // spawn attaches to the merged entry
     }
@@ -143,14 +143,14 @@ public class MonsterTransformTest
         Map<Integer, List<OutputSpawn>> cache = new HashMap<>();
         cache.put(200, many);
 
-        List<OutputNpc> out = MonsterTransform.transformAll(src, Collections.emptyMap(), cache);
+        List<OutputSource> out = MonsterTransform.transformAll(src, Collections.emptyMap(), cache);
         assertEquals(25, out.get(0).spawnPoints.size()); // 30 distinct, deduped, capped at 25
     }
 
     @Test
     public void singleMonsterHasItselfAsOnlyNpcId()
     {
-        OutputNpc npc = MonsterTransform.transformMonster(
+        OutputSource npc = MonsterTransform.transformMonster(
             monster(42, "Lonely", 3, drop(1, "Thing", 0.25)), Collections.emptyMap());
         assertEquals(Collections.singletonList(42), npc.npcIds);
     }
@@ -178,7 +178,7 @@ public class MonsterTransformTest
     @Test
     public void nullRarityMarkedUnknown()
     {
-        OutputNpc multi = MonsterTransform.transformMonster(sample().get("101"), java.util.Collections.emptyMap());
+        OutputSource multi = MonsterTransform.transformMonster(sample().get("101"), java.util.Collections.emptyMap());
         // drops sorted rarity desc: Rolled thrice (0.271) then Varies (0.0)
         OutputDrop varies = multi.drops.get(1);
         assertEquals(5000, varies.itemId);
@@ -194,7 +194,7 @@ public class MonsterTransformTest
     @Test
     public void filtersZeroDropMonstersAndSortsById()
     {
-        List<OutputNpc> npcs = MonsterTransform.transformAll(sample(), java.util.Collections.emptyMap());
+        List<OutputSource> npcs = MonsterTransform.transformAll(sample(), java.util.Collections.emptyMap());
         assertEquals(2, npcs.size()); // 102 (no drops) dropped
         assertEquals(100, npcs.get(0).id);
         assertEquals(101, npcs.get(1).id);
@@ -203,7 +203,7 @@ public class MonsterTransformTest
     @Test
     public void dropsSortedByRarityDescThenItemId()
     {
-        OutputNpc goblin = MonsterTransform.transformMonster(sample().get("100"), java.util.Collections.emptyMap());
+        OutputSource goblin = MonsterTransform.transformMonster(sample().get("100"), java.util.Collections.emptyMap());
         assertEquals(526, goblin.drops.get(0).itemId);  // 1.0
         assertEquals(995, goblin.drops.get(1).itemId);  // 0.5, qty 35
         assertEquals(1205, goblin.drops.get(2).itemId); // 0.0234
@@ -216,7 +216,7 @@ public class MonsterTransformTest
         Gson gson = new Gson();
         Map<Integer, List<OutputSpawn>> overlay =
             MonsterTransform.parseOverlay(gson, "{ \"100\": [ { \"x\": 3246, \"y\": 3235, \"plane\": 0 } ] }");
-        List<OutputNpc> npcs = MonsterTransform.transformAll(sample(), overlay);
+        List<OutputSource> npcs = MonsterTransform.transformAll(sample(), overlay);
         assertEquals(1, npcs.get(0).spawnPoints.size()); // id 100
         assertEquals(3246, npcs.get(0).spawnPoints.get(0).x);
         assertTrue(npcs.get(1).spawnPoints.isEmpty());   // id 101, no overlay
@@ -249,7 +249,7 @@ public class MonsterTransformTest
         w.attackSpeed = "5";
         Map<String, WikiCombatJson> wiki = Collections.singletonMap("Ogre", w);
 
-        OutputNpc npc = MonsterTransform.transformMonster(m, Collections.emptyMap(), wiki);
+        OutputSource npc = MonsterTransform.transformMonster(m, Collections.emptyMap(), wiki);
         assertEquals(20, npc.combat.attackLevel);
         assertEquals(60, npc.combat.hitpoints);
         assertEquals(1, npc.combat.attacks.size());
@@ -274,12 +274,12 @@ public class MonsterTransformTest
         wiki.put("Steel dragon", w);
         wiki.put("Green dragon", w);
 
-        OutputNpc steelNpc = MonsterTransform.transformMonster(steel, Collections.emptyMap(), wiki);
+        OutputSource steelNpc = MonsterTransform.transformMonster(steel, Collections.emptyMap(), wiki);
         assertTrue(steelNpc.combat.attacks.stream().anyMatch(a -> "metallic dragonfire".equals(a.style)));
         assertFalse(steelNpc.combat.attacks.stream().anyMatch(a -> "dragonfire".equals(a.style)));
 
         // a chromatic dragon keeps plain dragonfire
-        OutputNpc greenNpc = MonsterTransform.transformMonster(green, Collections.emptyMap(), wiki);
+        OutputSource greenNpc = MonsterTransform.transformMonster(green, Collections.emptyMap(), wiki);
         assertTrue(greenNpc.combat.attacks.stream().anyMatch(a -> "dragonfire".equals(a.style)));
     }
 
@@ -290,7 +290,7 @@ public class MonsterTransformTest
         DropJson c1 = drop(2011, "Curry", 0.0078125);
         DropJson c2 = drop(2011, "Curry", 0.0078125);
         c2.quantity = "2";
-        OutputNpc npc = MonsterTransform.transformMonster(
+        OutputSource npc = MonsterTransform.transformMonster(
             monster(500, "Dragon", 246, c1, c2), Collections.emptyMap());
 
         assertEquals(1L, npc.drops.stream().filter(o -> o.itemId == 2011).count());
@@ -305,7 +305,7 @@ public class MonsterTransformTest
         DropJson a = drop(995, "Coins", 0.5);
         DropJson b = drop(995, "Coins", 0.25);
         b.quantity = "20";
-        OutputNpc npc = MonsterTransform.transformMonster(
+        OutputSource npc = MonsterTransform.transformMonster(
             monster(501, "Thing", 5, a, b), Collections.emptyMap());
 
         OutputDrop coins = npc.drops.stream().filter(o -> o.itemId == 995).findFirst().get();
@@ -316,7 +316,7 @@ public class MonsterTransformTest
     @Test
     public void missingWikiEntryYieldsEmptyAttacks()
     {
-        OutputNpc npc = MonsterTransform.transformMonster(
+        OutputSource npc = MonsterTransform.transformMonster(
             monster(701, "Thing", 1, drop(1, "X", 0.5)), Collections.emptyMap(), Collections.emptyMap());
         assertTrue(npc.combat.attacks.isEmpty()); // no wiki record -> no attack data
     }
@@ -337,7 +337,7 @@ public class MonsterTransformTest
         w.attackStyle = "[[Crush]]";
         w.attackSpeed = "5";
 
-        List<OutputNpc> out = MonsterTransform.transformAll(src, Collections.emptyMap(),
+        List<OutputSource> out = MonsterTransform.transformAll(src, Collections.emptyMap(),
             Collections.emptyMap(), Collections.singletonMap("Goblin", w));
         assertEquals(1, out.size());
         assertEquals(7, out.get(0).combat.attacks.get(0).maxHit);

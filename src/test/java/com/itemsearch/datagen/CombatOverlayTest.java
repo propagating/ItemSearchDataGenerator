@@ -33,7 +33,7 @@ import java.util.List;
 import java.util.Map;
 import com.itemsearch.datagen.output.OutputAttack;
 import com.itemsearch.datagen.output.OutputCombat;
-import com.itemsearch.datagen.output.OutputNpc;
+import com.itemsearch.datagen.output.OutputSource;
 import com.itemsearch.datagen.source.CombatOverlayJson;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
@@ -82,11 +82,13 @@ public class CombatOverlayTest
     @Test
     public void seedStubsAppendsOnlyNewGapsPreservingExisting()
     {
-        List<OutputNpc> npcs = new ArrayList<>();
-        npcs.add(new OutputNpc(2215, Collections.singletonList(2215), "General Graardor", 624, null,
-            new ArrayList<>(), new ArrayList<>(), combat(new OutputAttack("crush", 30, 6))));
-        npcs.add(new OutputNpc(7706, Collections.singletonList(7706), "TzKal-Zuk", 1400, null,
-            new ArrayList<>(), new ArrayList<>(), combat(new OutputAttack("typeless", 0, 10))));
+        List<OutputSource> npcs = new ArrayList<>();
+        npcs.add(new OutputSource(2215, Collections.singletonList(2215), "General Graardor", 624, null,
+            new ArrayList<>(), new ArrayList<>(), combat(new OutputAttack("crush", 30, 6)),
+            "KILL", null, null, null));
+        npcs.add(new OutputSource(7706, Collections.singletonList(7706), "TzKal-Zuk", 1400, null,
+            new ArrayList<>(), new ArrayList<>(), combat(new OutputAttack("typeless", 0, 10)),
+            "KILL", null, null, null));
 
         Map<Integer, CombatOverlayJson> existing = new HashMap<>();
         CombatOverlayJson filled = new CombatOverlayJson();

@@ -1,0 +1,313 @@
+/*
+ * Copyright (c) 2026, propagating <propagating@protonmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+package com.itemsearch.datagen;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import com.itemsearch.datagen.output.OutputDrop;
+import com.itemsearch.datagen.output.OutputSource;
+import com.itemsearch.datagen.output.OutputSpawn;
+import com.itemsearch.datagen.source.CombatOverlayJson;
+import com.itemsearch.datagen.source.DropLineJson;
+import com.itemsearch.datagen.source.DropPageJson;
+import com.itemsearch.datagen.source.DropTableJson;
+import com.itemsearch.datagen.source.ItemInfoJson;
+import com.itemsearch.datagen.source.WikiCombatJson;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+public class SourceTransformTest
+{
+    private static DropLineJson line(boolean reward, String name, String quantity, String rarity, String rolls)
+    {
+        DropLineJson l = new DropLineJson();
+        l.reward = reward;
+        l.name = name;
+        l.quantity = quantity;
+        l.rarity = rarity;
+        l.rolls = rolls;
+        return l;
+    }
+
+    private static DropTableJson table(String sectionHeading, String topHeading, DropLineJson... lines)
+    {
+        DropTableJson t = new DropTableJson();
+        t.sectionHeading = sectionHeading;
+        t.topHeading = topHeading;
+        for (DropLineJson l : lines)
+        {
+            t.lines.add(l);
+        }
+        return t;
+    }
+
+    private static DropPageJson page(String title, String infobox, List<String> npcIds, String combatLevel,
+        DropTableJson... tables)
+    {
+        DropPageJson p = new DropPageJson();
+        p.pageTitle = title;
+        p.infobox = infobox;
+        if (npcIds != null)
+        {
+            p.npcIds = new ArrayList<>(npcIds);
+        }
+        p.combatLevel = combatLevel;
+        for (DropTableJson t : tables)
+        {
+            p.tables.add(t);
+        }
+        return p;
+    }
+
+    private static ItemInfoJson item(Integer id)
+    {
+        ItemInfoJson i = new ItemInfoJson();
+        i.id = id;
+        return i;
+    }
+
+    @Test
+    public void killPageJoinsIdsCombatLevelAndCombat()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        pages.put("Ogre", page("Ogre", "Monster", Arrays.asList("500", "501"), "53",
+            table("Drops", "Drops", line(false, "Bones", "1", "Always", null))));
+
+        WikiCombatJson w = new WikiCombatJson();
+        w.maxHit = "9";
+        w.attackStyle = "[[Crush]]";
+        w.attackSpeed = "5";
+        Map<String, WikiCombatJson> wiki = Collections.singletonMap("Ogre", w);
+
+        Map<Integer, List<OutputSpawn>> spawns = new HashMap<>();
+        spawns.put(500, Collections.singletonList(new OutputSpawn(3200, 3200, 0)));
+
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(), spawns, wiki,
+            Collections.emptyMap(), Collections.emptyMap());
+
+        assertEquals(1, out.size());
+        OutputSource ogre = out.get(0);
+        assertEquals("Ogre", ogre.name);
+        assertEquals("KILL", ogre.type);
+        assertEquals(500, ogre.id); // canonical id = first npcId
+        assertEquals(Arrays.asList(500, 501), ogre.npcIds);
+        assertEquals(53, ogre.combatLevel);
+        assertEquals(1, ogre.spawnPoints.size());
+        assertEquals(3200, ogre.spawnPoints.get(0).x);
+        assertNotNull(ogre.combat);
+        assertEquals(1, ogre.combat.attacks.size());
+        assertEquals("crush", ogre.combat.attacks.get(0).style);
+        assertEquals(9, ogre.combat.attacks.get(0).maxHit);
+        assertNull(ogre.x); // NPC source: no synthetic map coords
+    }
+
+    @Test
+    public void rewardChestGetsSyntheticIdAndSingleSpawnPoint()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        DropPageJson chest = page("Lunar Chest", "Scenery", null, null,
+            table("Rewards", "Rewards", line(true, "Blood moon helm", "1", "1/224", null)));
+        chest.mapX = 1512;
+        chest.mapY = 9581;
+        chest.mapPlane = 0;
+        pages.put("Lunar Chest", chest);
+
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap());
+
+        assertEquals(1, out.size());
+        OutputSource lunar = out.get(0);
+        assertEquals("REWARD", lunar.type);
+        assertEquals(-1000, lunar.id); // only source needing a synthetic id
+        assertTrue(lunar.npcIds.isEmpty());
+        assertEquals(0, lunar.combatLevel); // unparseable/absent combatLevel -> 0
+        assertEquals(Integer.valueOf(1512), lunar.x);
+        assertEquals(Integer.valueOf(9581), lunar.y);
+        assertEquals(Integer.valueOf(0), lunar.plane);
+        assertEquals(1, lunar.spawnPoints.size());
+        assertEquals(1512, lunar.spawnPoints.get(0).x);
+        assertEquals(9581, lunar.spawnPoints.get(0).y);
+        assertNull(lunar.combat); // non-KILL -> no combat
+    }
+
+    @Test
+    public void pickpocketSectionBecomesSeparateSuffixedSource()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        pages.put("Master Farmer", page("Master Farmer", "NPC", Collections.singletonList("3257"), null,
+            table("Drops", "Drops", line(false, "Coins", "5", "Always", null)),
+            table("Pickpocketing loot", "Pickpocketing loot",
+                line(false, "Potato seed", "1-4", "1/2.2", null))));
+
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap());
+
+        assertEquals(2, out.size());
+        OutputSource kill = out.stream().filter(s -> "KILL".equals(s.type)).findFirst().get();
+        OutputSource pickpocket = out.stream().filter(s -> "PICKPOCKET".equals(s.type)).findFirst().get();
+        assertEquals("Master Farmer", kill.name);
+        assertEquals("Master Farmer (pickpocket)", pickpocket.name);
+        assertEquals(1, kill.drops.size());
+        assertEquals("Coins", kill.drops.get(0).itemName);
+        assertEquals(1, pickpocket.drops.size());
+        assertEquals("Potato seed", pickpocket.drops.get(0).itemName);
+        assertEquals(3257, kill.id);
+        assertEquals(3257, pickpocket.id); // same npcIds -> same canonical id
+    }
+
+    @Test
+    public void typeOverlayForcesAllTablesToOverlaidType()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        pages.put("Weird Tree", page("Weird Tree", "Monster", Collections.singletonList("999"), "1",
+            table("Drops", "Drops", line(false, "Bird nest", "1", "1/8", null))));
+
+        Map<String, String> typeOverlay = Collections.singletonMap("Weird Tree", "GATHER");
+
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap(), typeOverlay);
+
+        assertEquals(1, out.size());
+        assertEquals("GATHER", out.get(0).type);
+        assertEquals("Weird Tree", out.get(0).name); // no pickpocket suffix
+        assertNull(out.get(0).combat); // non-KILL -> no combat despite Monster infobox
+    }
+
+    @Test
+    public void rarityKnownAndUnknownPathsComputeCorrectly()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        pages.put("Thing", page("Thing", "Monster", Collections.singletonList("1"), "1",
+            table("Drops", "Drops",
+                line(false, "Known item", "1", "1/128", null),
+                line(false, "Unknown item", "1", "Common", null))));
+
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap());
+
+        OutputDrop known = out.get(0).drops.get(0);
+        OutputDrop unknown = out.get(0).drops.get(1);
+        assertTrue(known.rarityKnown);
+        assertEquals(1.0 / 128, known.rarity, 1e-9);
+        assertFalse(unknown.rarityKnown);
+        assertEquals(0.0, unknown.rarity, 1e-9);
+    }
+
+    @Test
+    public void notedQuantityDetected()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        pages.put("Thing", page("Thing", "Monster", Collections.singletonList("1"), "1",
+            table("Drops", "Drops", line(false, "Flax", "1000 (noted)", "10/249", null))));
+
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap());
+
+        OutputDrop flax = out.get(0).drops.get(0);
+        assertTrue(flax.noted);
+        assertEquals(1000, flax.quantity);
+    }
+
+    @Test
+    public void itemIdResolvedFromItemInfoOrFallsBackToNegativeOne()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        pages.put("Thing", page("Thing", "Monster", Collections.singletonList("1"), "1",
+            table("Drops", "Drops",
+                line(false, "Known item", "1", "1/2", null),
+                line(false, "Mystery item", "1", "1/2", null))));
+        Map<String, ItemInfoJson> itemInfo = new HashMap<>();
+        itemInfo.put("Known item", item(4151));
+
+        List<OutputSource> out = SourceTransform.transform(pages, itemInfo,
+            Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap());
+
+        assertEquals(4151, out.get(0).drops.get(0).itemId);
+        assertEquals(-1, out.get(0).drops.get(1).itemId);
+    }
+
+    @Test
+    public void categoryNulledForGenericHeadingsKeptForSpecificOnes()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        pages.put("Kalphite Queen", page("Kalphite Queen", "Monster", Collections.singletonList("963"), "333",
+            table("Drops", "Drops", line(false, "Bones", "1", "Always", null)),
+            table("Rare drop table", "Drops", line(false, "Loop half of key", "1", "1/128", null))));
+
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap());
+
+        assertEquals(1, out.size()); // both tables are KILL -> merged into one source
+        List<OutputDrop> drops = out.get(0).drops;
+        OutputDrop bones = drops.stream().filter(d -> "Bones".equals(d.itemName)).findFirst().get();
+        OutputDrop key = drops.stream().filter(d -> "Loop half of key".equals(d.itemName)).findFirst().get();
+        assertNull(bones.category); // generic "Drops" heading nulled
+        assertEquals("Rare drop table", key.category);
+    }
+
+    @Test
+    public void outputSortedByNameCaseInsensitiveRegardlessOfInputOrder()
+    {
+        Map<String, DropPageJson> pages = new LinkedHashMap<>();
+        pages.put("Zulu Thing", page("Zulu Thing", "Monster", Collections.singletonList("2"), "1",
+            table("Drops", "Drops", line(false, "X", "1", "1/2", null))));
+        pages.put("alpha thing", page("alpha thing", "Monster", Collections.singletonList("1"), "1",
+            table("Drops", "Drops", line(false, "Y", "1", "1/2", null))));
+
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap());
+
+        assertEquals("alpha thing", out.get(0).name);
+        assertEquals("Zulu Thing", out.get(1).name);
+    }
+
+    @Test
+    public void combatOverlayAppliesToKillSourceByCanonicalId()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        pages.put("Goblin", page("Goblin", "Monster", Collections.singletonList("100"), "2",
+            table("Drops", "Drops", line(false, "Bones", "1", "Always", null))));
+
+        CombatOverlayJson overlay = new CombatOverlayJson();
+        overlay.attacks = Collections.singletonList(new com.itemsearch.datagen.output.OutputAttack("crush", 99, 5));
+        overlay.needsReview = false;
+        Map<Integer, CombatOverlayJson> combatOverlay = Collections.singletonMap(100, overlay);
+
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), combatOverlay, Collections.emptyMap());
+
+        assertEquals(99, out.get(0).combat.attacks.get(0).maxHit); // overlay wins
+    }
+}

@@ -44,7 +44,7 @@ import java.util.regex.Pattern;
 import com.itemsearch.datagen.output.OutputAttack;
 import com.itemsearch.datagen.output.OutputCombat;
 import com.itemsearch.datagen.output.OutputDrop;
-import com.itemsearch.datagen.output.OutputNpc;
+import com.itemsearch.datagen.output.OutputSource;
 import com.itemsearch.datagen.output.OutputSpawn;
 import com.itemsearch.datagen.source.CombatOverlayJson;
 import com.itemsearch.datagen.source.DropJson;
@@ -173,18 +173,19 @@ public final class MonsterTransform
         return new OutputDrop(first.itemId, first.itemName, rarity, maxQty, noted, known);
     }
 
-    public static OutputNpc transformMonster(MonsterJson m, Map<Integer, List<OutputSpawn>> overlay)
+    public static OutputSource transformMonster(MonsterJson m, Map<Integer, List<OutputSpawn>> overlay)
     {
         return transformMonster(m, overlay, Collections.emptyMap());
     }
 
-    public static OutputNpc transformMonster(MonsterJson m, Map<Integer, List<OutputSpawn>> overlay,
+    public static OutputSource transformMonster(MonsterJson m, Map<Integer, List<OutputSpawn>> overlay,
         Map<String, WikiCombatJson> wiki)
     {
         List<OutputDrop> drops = transformDrops(m);
         List<OutputSpawn> spawns = new ArrayList<>(overlay.getOrDefault(m.id, Collections.emptyList()));
-        return new OutputNpc(m.id, new ArrayList<>(Collections.singletonList(m.id)),
-            m.name, m.combatLevel, null, spawns, drops, transformCombat(m, wiki));
+        return new OutputSource(m.id, new ArrayList<>(Collections.singletonList(m.id)),
+            m.name, m.combatLevel, null, spawns, drops, transformCombat(m, wiki),
+            "KILL", null, null, null);
     }
 
     // metallic dragons breathe typeless dragonfire (no Protect from Magic), unlike chromatic dragons
@@ -228,7 +229,7 @@ public final class MonsterTransform
      * (tie-break: lowest id), and its spawn tiles are the union of the overlay for
      * any member id. Returns null if the group has no usable drops.
      */
-    public static OutputNpc mergeGroup(List<MonsterJson> group, Map<Integer, List<OutputSpawn>> overlay,
+    public static OutputSource mergeGroup(List<MonsterJson> group, Map<Integer, List<OutputSpawn>> overlay,
         Map<Integer, List<OutputSpawn>> cacheSpawns, Map<String, WikiCombatJson> wiki)
     {
         MonsterJson rep = null;
@@ -267,8 +268,8 @@ public final class MonsterTransform
             spawns = collectSpawns(ids, overlay, Integer.MAX_VALUE);
         }
 
-        return new OutputNpc(rep.id, ids, rep.name, rep.combatLevel, null, spawns, drops,
-            transformCombat(rep, wiki));
+        return new OutputSource(rep.id, ids, rep.name, rep.combatLevel, null, spawns, drops,
+            transformCombat(rep, wiki), "KILL", null, null, null);
     }
 
     private static List<OutputSpawn> collectSpawns(List<Integer> ids,
@@ -327,19 +328,19 @@ public final class MonsterTransform
         return m.drops == null ? 0 : m.drops.size();
     }
 
-    public static List<OutputNpc> transformAll(Map<String, MonsterJson> monsters,
+    public static List<OutputSource> transformAll(Map<String, MonsterJson> monsters,
         Map<Integer, List<OutputSpawn>> overlay)
     {
         return transformAll(monsters, overlay, Collections.emptyMap(), Collections.emptyMap());
     }
 
-    public static List<OutputNpc> transformAll(Map<String, MonsterJson> monsters,
+    public static List<OutputSource> transformAll(Map<String, MonsterJson> monsters,
         Map<Integer, List<OutputSpawn>> overlay, Map<Integer, List<OutputSpawn>> cacheSpawns)
     {
         return transformAll(monsters, overlay, cacheSpawns, Collections.emptyMap());
     }
 
-    public static List<OutputNpc> transformAll(Map<String, MonsterJson> monsters,
+    public static List<OutputSource> transformAll(Map<String, MonsterJson> monsters,
         Map<Integer, List<OutputSpawn>> overlay, Map<Integer, List<OutputSpawn>> cacheSpawns,
         Map<String, WikiCombatJson> wiki)
     {
@@ -359,10 +360,10 @@ public final class MonsterTransform
             }
         }
 
-        List<OutputNpc> out = new ArrayList<>();
+        List<OutputSource> out = new ArrayList<>();
         for (List<MonsterJson> group : groups.values())
         {
-            OutputNpc npc = mergeGroup(group, overlay, cacheSpawns, wiki);
+            OutputSource npc = mergeGroup(group, overlay, cacheSpawns, wiki);
             if (npc != null && !npc.drops.isEmpty())
             {
                 out.add(npc);
@@ -441,11 +442,11 @@ public final class MonsterTransform
             base.magicLevel, base.rangedLevel, base.hitpoints, new ArrayList<>(ov.attacks));
     }
 
-    public static Map<Integer, CombatOverlayJson> seedStubs(List<OutputNpc> npcs,
+    public static Map<Integer, CombatOverlayJson> seedStubs(List<OutputSource> npcs,
         Map<Integer, CombatOverlayJson> existing, Set<Integer> gapIds)
     {
         Map<Integer, CombatOverlayJson> out = new LinkedHashMap<>(existing);
-        for (OutputNpc npc : npcs)
+        for (OutputSource npc : npcs)
         {
             if (!gapIds.contains(npc.id) || out.containsKey(npc.id) || npc.combat == null)
             {

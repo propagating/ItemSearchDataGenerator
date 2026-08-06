@@ -32,6 +32,9 @@ public class OutputDrop
     public int quantity;
     public boolean noted;
     public boolean rarityKnown;
+    // the wiki drop-table subsection this line came from (e.g. "Rare drop table"); null when the
+    // page has one unheaded table or the heading is generic ("Drops"/"Rewards"/"Loot")
+    public String category;
 
     public OutputDrop(int itemId, String itemName, double rarity, int quantity, boolean noted, boolean rarityKnown)
     {

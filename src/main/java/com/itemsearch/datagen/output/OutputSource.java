@@ -26,7 +26,7 @@ package com.itemsearch.datagen.output;
 
 import java.util.List;
 
-public class OutputNpc
+public class OutputSource
 {
     public int id;
     // every source NPC id that maps to this monster (same name + combat level);
@@ -38,9 +38,16 @@ public class OutputNpc
     public List<OutputSpawn> spawnPoints;
     public List<OutputDrop> drops;
     public OutputCombat combat;
+    // KILL, REWARD, PICKPOCKET, or GATHER
+    public String type;
+    // wiki {{Map}} location for chest/node sources; null for NPC-backed sources
+    public Integer x;
+    public Integer y;
+    public Integer plane;
 
-    public OutputNpc(int id, List<Integer> npcIds, String name, int combatLevel, String wikiImageUrl,
-        List<OutputSpawn> spawnPoints, List<OutputDrop> drops, OutputCombat combat)
+    public OutputSource(int id, List<Integer> npcIds, String name, int combatLevel, String wikiImageUrl,
+        List<OutputSpawn> spawnPoints, List<OutputDrop> drops, OutputCombat combat,
+        String type, Integer x, Integer y, Integer plane)
     {
         this.id = id;
         this.npcIds = npcIds;
@@ -50,5 +57,9 @@ public class OutputNpc
         this.spawnPoints = spawnPoints;
         this.drops = drops;
         this.combat = combat;
+        this.type = type;
+        this.x = x;
+        this.y = y;
+        this.plane = plane;
     }
 }
