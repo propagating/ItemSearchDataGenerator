@@ -103,7 +103,10 @@ public final class WikiDropsFetch
 
         List<HeadingMatch> headings = findHeadings(text);
         List<Integer> headOffsets = findHeadOffsets(text);
-        List<WikiText.Found> lineFounds = WikiText.templates(text, "DropsLine", "DropsLineReward");
+        // DropsLineSkill is the wiki's line template for skilling loot — it is how every
+        // pickpocketing table is written, and carries the same name/quantity/rarity params
+        List<WikiText.Found> lineFounds =
+            WikiText.templates(text, "DropsLine", "DropsLineReward", "DropsLineSkill");
 
         // group lines by how many {{DropsTableHead occurrences preceded them: a head between
         // two lines starts a new table; lines before any head form their own (leading) table
@@ -131,10 +134,10 @@ public final class WikiDropsFetch
             for (WikiText.Found found : group)
             {
                 Map<String, String> p = WikiText.params(found.body);
-                String name = WikiText.stripLinks(p.get("name"));
-                if (name == null || name.isEmpty())
+                String name = itemName(WikiText.stripLinks(p.get("name")));
+                if (name == null)
                 {
-                    continue; // a drop line without an item name is unusable
+                    continue; // no usable item name, or a "no drop" placeholder
                 }
                 DropLineJson line = new DropLineJson();
                 line.reward = found.name.equals("DropsLineReward");
@@ -155,6 +158,24 @@ public final class WikiDropsFetch
         }
 
         return page.tables.isEmpty() ? null : page;
+    }
+
+    /**
+     * A drop line's item name, or null when the line names no obtainable item.
+     *
+     * <p>"Nothing" is the wiki's placeholder for a roll that yields no item, so it is not a drop.
+     * A "#section" fragment ("Bird nest (egg)#Red egg") points at part of an item's page; it is a
+     * display detail, and keeping it leaves the name matching no item id at all.
+     */
+    private static String itemName(String raw)
+    {
+        if (raw == null)
+        {
+            return null;
+        }
+        int anchor = raw.indexOf('#');
+        String name = (anchor >= 0 ? raw.substring(0, anchor) : raw).trim();
+        return name.isEmpty() || "nothing".equalsIgnoreCase(name) ? null : name;
     }
 
     // returns the raw content between the "{{" at `start` and its brace-balanced matching "}}"
@@ -261,14 +282,15 @@ public final class WikiDropsFetch
     }
 
     /**
-     * All mainspace page titles that embed {{DropsLine}} or {{DropsLineReward}} — i.e. every
-     * page with a monster/NPC drop table or a reward-chest-style reward table.
+     * All mainspace page titles that embed {{DropsLine}}, {{DropsLineReward}} or {{DropsLineSkill}}
+     * — i.e. every page with a drop table, reward table, or skilling/pickpocket loot table.
      */
     public static List<String> fetchDropPageTitles(Gson gson) throws IOException
     {
         Set<String> titles = new TreeSet<>();
         titles.addAll(WikiShopFetch.fetchTitlesEmbedding(gson, "Template:DropsLine"));
         titles.addAll(WikiShopFetch.fetchTitlesEmbedding(gson, "Template:DropsLineReward"));
+        titles.addAll(WikiShopFetch.fetchTitlesEmbedding(gson, "Template:DropsLineSkill"));
         return new ArrayList<>(titles);
     }
 

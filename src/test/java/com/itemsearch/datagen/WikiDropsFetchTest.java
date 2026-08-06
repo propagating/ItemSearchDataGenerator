@@ -32,6 +32,7 @@ import java.util.List;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
@@ -120,6 +121,87 @@ public class WikiDropsFetchTest
         assertEquals("NPC", page.infobox);
         assertEquals(Collections.singletonList("3257"), page.npcIds);
         assertEquals("Pickpocketing loot", page.tables.get(0).sectionHeading);
+    }
+
+    // The real Master Farmer page: skilling loot uses {{DropsLineSkill}}, and the tables sit
+    // three levels under the ==Pickpocketing== section that classifies them.
+    @Test
+    public void skillDropLinesAreParsedAndKeepTheirTopLevelSection()
+    {
+        String farmer = "{{Infobox NPC\n|name = Master Farmer\n|id = 3257\n}}\n"
+            + "==Pickpocketing==\n===Loot===\n====Allotments====\n"
+            + "{{DropsTableHead}}\n"
+            + "{{DropsLineSkill|name=Potato seed|quantity=1-4|rarity=1/5.65|skill=Thieving}}\n"
+            + "{{DropsLineSkill|name=Onion seed|quantity=1-3|rarity=1/7.53|skill=Thieving}}\n"
+            + "{{DropsTableBottom}}\n";
+        DropPageJson page = WikiDropsFetch.extract("Master Farmer", farmer);
+        assertNotNull("a page whose only drop lines are skill lines must still parse", page);
+        assertEquals("NPC", page.infobox);
+        assertEquals(1, page.tables.size());
+        assertEquals("Allotments", page.tables.get(0).sectionHeading);
+        assertEquals("Pickpocketing", page.tables.get(0).topHeading);
+        List<DropLineJson> lines = page.tables.get(0).lines;
+        assertEquals(2, lines.size());
+        assertEquals("Potato seed", lines.get(0).name);
+        assertEquals("1/5.65", lines.get(0).rarity);
+        assertFalse("skill loot is not a reward-chest line", lines.get(0).reward);
+    }
+
+    // guards the shared prefix: {{DropsLineSkill}} must never be read as {{DropsLine}}, and
+    // {{DropsLineReward}} must keep its reward flag when all three names are scanned together
+    @Test
+    public void similarlyPrefixedTemplateNamesDoNotCollide()
+    {
+        String mixed = "{{Infobox Monster\n|name = Mixed\n|id = 1\n}}\n==Drops==\n"
+            + "{{DropsTableHead}}\n"
+            + "{{DropsLine|name=Bones|quantity=1|rarity=Always}}\n"
+            + "{{DropsLineSkill|name=Herb|quantity=1|rarity=1/10|skill=Thieving}}\n"
+            + "{{DropsLineReward|name=Prize|quantity=1|rarity=1/50}}\n"
+            + "{{DropsTableBottom}}\n";
+        List<DropLineJson> lines = WikiDropsFetch.extract("Mixed", mixed).tables.get(0).lines;
+        assertEquals(3, lines.size());
+        assertFalse(lines.get(0).reward);
+        assertFalse(lines.get(1).reward);
+        assertTrue("only DropsLineReward marks a reward line", lines.get(2).reward);
+    }
+
+    // "Nothing" is the wiki's placeholder for a roll that yields no item — it is not a drop,
+    // and rendering it would tell the player an NPC drops something called "Nothing"
+    @Test
+    public void placeholderNothingLinesAreNotDrops()
+    {
+        String page = "{{Infobox Monster\n|name = Rat\n|id = 1\n}}\n==Drops==\n"
+            + "{{DropsTableHead}}\n"
+            + "{{DropsLine|name=Nothing|quantity=1|rarity=1/2}}\n"
+            + "{{DropsLine|name=nothing|quantity=1|rarity=1/3}}\n"
+            + "{{DropsLine|name=Bones|quantity=1|rarity=Always}}\n"
+            + "{{DropsTableBottom}}\n";
+        List<DropLineJson> lines = WikiDropsFetch.extract("Rat", page).tables.get(0).lines;
+        assertEquals(1, lines.size());
+        assertEquals("Bones", lines.get(0).name);
+    }
+
+    @Test
+    public void aTableOfOnlyPlaceholdersIsDropped()
+    {
+        String page = "{{Infobox Monster\n|name = Rat\n|id = 1\n}}\n==Drops==\n"
+            + "{{DropsTableHead}}\n{{DropsLine|name=Nothing|quantity=1|rarity=1/2}}\n"
+            + "{{DropsTableBottom}}\n";
+        assertNull("a page whose only line is a placeholder has no drop table",
+            WikiDropsFetch.extract("Rat", page));
+    }
+
+    // the wiki links to a section of an item page ("Bird nest (egg)#Red egg"); the fragment is
+    // a display detail, and keeping it makes the name unresolvable to any item id
+    @Test
+    public void anchorFragmentsAreStrippedFromItemNames()
+    {
+        String page = "{{Infobox Monster\n|name = Bird\n|id = 1\n}}\n==Drops==\n"
+            + "{{DropsTableHead}}\n"
+            + "{{DropsLine|name=Bird nest (egg)#Red egg|quantity=1|rarity=1/50}}\n"
+            + "{{DropsTableBottom}}\n";
+        List<DropLineJson> lines = WikiDropsFetch.extract("Bird", page).tables.get(0).lines;
+        assertEquals("Bird nest (egg)", lines.get(0).name);
     }
 
     @Test
