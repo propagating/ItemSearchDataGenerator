@@ -28,3 +28,10 @@ tasks.register<JavaExec>("runShops") {
     classpath = sourceSets["main"].runtimeClasspath
     workingDir = projectDir
 }
+
+// third entry point: the wiki drop sweep that produces sources.json
+tasks.register<JavaExec>("runSources") {
+    mainClass.set("com.itemsearch.datagen.SourceDataGenerator")
+    classpath = sourceSets["main"].runtimeClasspath
+    workingDir = projectDir
+}

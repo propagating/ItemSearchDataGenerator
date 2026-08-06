@@ -1,37 +1,162 @@
 # ItemSearchDataGenerator
 
-Offline generator that turns the osrsbox monster database into the Item Search
-RuneLite plugin's `drops.json`. Not part of the plugin build.
+Offline generator that turns OSRS Wiki sweeps into the Item Search RuneLite
+plugin's data files. Not part of the plugin build.
 
 The plugin lives at `E:\Projects\JAVA\ItemSearch`; generated output is written
 into its `src/main/resources/com/itemsearch/` directory (the default output
 path assumes that sibling layout; pass an explicit output path otherwise).
 
-## Source (pinned)
+| Output | Entry point | Gradle task |
+| --- | --- | --- |
+| `sources.json` | `SourceDataGenerator` | `runSources` |
+| `shops.json` | `ShopDataGenerator` | `runShops` |
+| `drops.json` (legacy, retiring) | `DropDataGenerator` | `run` |
 
-Repo: https://github.com/osrsbox/osrsbox-db (archived, read-only — a stable pin)
-Commit: `dae12e3400add0c71465f07a334f9d8f86bebce8`
-File: `docs/monsters-complete.json`
+## Snapshots are the reproducibility pin
 
-The source file (~12 MB) is intentionally **not** committed.
+Wiki content can change at any time, so every generator reads **committed
+snapshots** and never hits the network unless you pass a `--refresh-*` flag.
+The snapshot files (dated by their commit) are what makes a regeneration
+reproducible.
 
-Note: this is the original `osrsbox/osrsbox-db` (~3000 monsters, ~2383 with
-drops), which is far more complete than the `0xNeffarion/osrsreboxed-db` fork
-originally trialled (that fork's snapshot was missing major bosses such as
-Vorkath, Cerberus, and Alchemical Hydra). Because osrsbox-db is archived, its
-data is frozen (~2021), so content added later (e.g. Nex) is absent, and raid
-rewards obtained from Chambers of Xeric / Theatre of Blood (e.g. Twisted bow)
-are not monster drops and so never appear here.
+| Snapshot | Refreshed by | Holds |
+| --- | --- | --- |
+| `wiki-drops.json` | `--refresh-drops` | every page embedding `{{DropsLine}}`/`{{DropsLineReward}}`: infobox kind, npc ids, combat level, map coords, drop tables with their section headings |
+| `wiki-items.json` | `--refresh-items` | item id + shop value per item name (shared with the shop generator) |
+| `wiki-combat.json` | `--refresh-wiki` | `{{Infobox Monster}}` combat wikitext, keyed by page title |
+| `wiki-shops.json` | `--refresh-shops` (`runShops`) | shop store tables |
 
-## Spawn source (pinned)
+`wiki-items.json` is **shared**. `runSources --refresh-items` fetches the union
+of drop-line names and shop-line names, so refreshing from either generator
+keeps the other's items resolvable.
+
+## Regenerate sources.json
+
+From the repository root:
+
+```bash
+# full sweep: enumerate + fetch drop pages, then refresh the shared item lookup
+./gradlew runSources --args="--refresh-drops --refresh-items"
+
+# reuse the committed snapshots (no network)
+./gradlew runSources
+```
+
+Flags may be combined; `--refresh-wiki` additionally re-fetches combat wikitext
+for every Monster-infobox page in the drop snapshot. A positional argument
+overrides the output path. A missing snapshot raises an `IOException` naming
+the flag that produces it.
+
+Each run prints page/source counts, a per-type breakdown, the share of drops
+without item ids and with unknown rarity, and how many KILL sources have wiki
+combat that wouldn't parse.
+
+### Sanity gates
+
+After a refresh, check the run summary and the output before committing:
+
+- total sources ≥ 3000
+- `Lunar Chest` present as `REWARD`, including `Blood moon helm`
+- `Zulrah`, `Vorkath`, and `Nex` present as `KILL` with non-empty `npcIds`
+- `Master Farmer` present as `PICKPOCKET`
+- unresolved-item rate < 5%
+
+A systematic parsing gap (a whole template variant missed, a heading shape
+mishandled) should be fixed in the parser with a regression test **before**
+committing regenerated data — not papered over with an overlay entry.
+
+## Source types
+
+Every source is one of `KILL`, `REWARD`, `PICKPOCKET`, or `GATHER`, inferred
+per drop table:
+
+- `{{DropsLineReward}}` rows → `REWARD`
+- `{{DropsLine}}` under an `Infobox Monster`/`Infobox NPC` page → `KILL`,
+  unless the table's section or top-level heading mentions pickpocketing →
+  `PICKPOCKET`
+- any other infobox (Scenery, Object, ...) or none → `GATHER`
+
+A page carrying more than one type yields one source per type; the pickpocket
+one is suffixed ` (pickpocket)` so the two don't collide.
+
+`source-type-overlay.json` (page title → type string) overrides the inference
+and forces **all** of that page's tables to the given type. Use it for pages
+the heuristics genuinely can't read.
+
+Sources with no npc id (chests, gathering nodes) get a synthetic negative id
+assigned from -1000 in sorted-name order. These are **not stable across
+regenerations** — nothing persists against them.
+
+## Add curated spawn tiles
+
+Edit `spawns-overlay.json` (`"npcId": [ { "x", "y", "plane" } ]`) and
+regenerate. Static spawns from `npc-spawns.json` win where they exist; the
+overlay covers instanced monsters (Zulrah, Vorkath, Graardor, ...) that have no
+static spawn tile. Chest and node pages with `{{Map}}` coordinates get a single
+synthetic spawn point so the map-marker flow works for them too.
+
+### Spawn source (pinned)
 
 Repo: https://github.com/mejrs/data_osrs
 Commit: `6a3ca6f19d65c5609434b51cac8dee9d4af97c02`
 File: `NPCList_OSRS.json` (~10 MB, static NPC spawn tiles: id, x, y, plane)
 
-Static spawns cover most world monsters. Instanced monsters (Zulrah, Vorkath,
-Graardor, ...) have no static spawn, so `spawns-overlay.json` supplies their
-locations as a fallback. The spawn file is **not** committed.
+Download to `npc-spawns.json`; it is **not** committed.
+
+```bash
+curl -sL "https://raw.githubusercontent.com/mejrs/data_osrs/6a3ca6f19d65c5609434b51cac8dee9d4af97c02/NPCList_OSRS.json" \
+  -o npc-spawns.json
+```
+
+## Combat data (OSRS Wiki)
+
+Per-attack-style combat data (max hit, attack style, attack speed) comes from
+the OSRS Wiki's `{{Infobox Monster}}` wikitext, joined to `KILL` sources by page
+title. Non-KILL sources have no combat block.
+
+- Monsters whose wiki data can't be parsed into attacks ("gaps") are seeded
+  into `combat-overlay.json` as `"needsReview": true` stubs. Fill in the real
+  `attacks` and set `"needsReview": false` to make an entry authoritative;
+  `combat-overlay.json` always takes precedence over the wiki join.
+- An attack may carry a `prayStyle` (hybrid attacks: the accuracy roll is
+  `style`, but it is prayed against as `prayStyle` — "magic ranged" rolls magic
+  accuracy and is blocked by Protect from Missiles).
+- An attack may carry `variants`: conditional max hits, each with a `label`,
+  a `kind` (`GEAR`/`PRAYER`/`CONSUMABLE`/`COMBO`), and its own max hit — e.g.
+  Killerwatt hitting 15, or 8 with Insulated boots.
+
+### Curating the stubs
+
+`curate_gui.py` is the desktop editor for filling in `needsReview` stubs. It
+lists the pending mobs, links each one's wiki page, and gives you a style
+dropdown plus max hit, attack speed, and the three conditional-damage columns.
+An "In the plugin" panel renders your input the way the combat card will, so
+you can see the result before saving.
+
+```bash
+python curate_gui.py
+```
+
+Conditional damage uses `N @ Label`, semicolon-separated, with `lo-hi` ranges
+allowed and a `(combo)` suffix for combined mitigations:
+
+```
+8 @ Insulated boots;  12-14 @ Antifire;  3 @ Antifire + shield (combo)
+```
+
+The column you type in sets the kind. Shortcuts: `Ctrl+S` save, `Ctrl+Enter`
+save & next, `Ctrl+N` add attack, `Ctrl+F` search.
+
+`curate_combat.py` is the terminal equivalent (and the shared data layer):
+
+```bash
+python curate_combat.py            # curate mobs needing review
+python curate_combat.py --list      # just print them + wiki links
+python curate_combat.py --all        # revisit every overlay entry
+```
+
+Re-run the generator afterwards to bake the curated values into `sources.json`.
 
 ## Shop data (OSRS Wiki)
 
@@ -50,14 +175,6 @@ Regenerate with:
 ```bash
 ./gradlew runShops --args="--refresh-shops --refresh-items"
 ```
-
-Since wiki content can change at any time, the committed `wiki-shops.json` /
-`wiki-items.json` snapshots (dated in the commit) are the reproducibility pin
-for shop data, the same way `wiki-combat.json` is the pin for combat data.
-Normal runs (without the `--refresh-*` flags) reuse the committed snapshots
-as-is and never hit the network; `monsters-complete.json` (see above) is
-still read as a fallback source of item ids for names the wiki item lookup
-couldn't resolve.
 
 **Derived price.** Each shop line's sell price is `floor(value * sellmultiplier
 / 1000)`, where `value` is the item's shop value from `wiki-items.json` and
@@ -86,74 +203,21 @@ shops still end up with identical item lists after this (e.g. every F2P
 general store, or every Farming Guild supplies NPC, legitimately sells the
 same stock) — that's real game content, not a dedup miss.
 
-## Regenerate drops.json
+## Legacy: the osrsbox path (retiring)
 
-From the repository root:
+`DropDataGenerator` (`./gradlew run`) built the plugin's older `drops.json`
+from the archived osrsbox monster database. The wiki sweep replaces it:
+osrsbox's data is frozen (~2021), so content added later (Nex) is absent, and
+non-monster sources — raid reward chests, pickpocketing, gathering nodes —
+were never representable at all.
 
-```bash
-# 1. Download the pinned sources (do not commit them)
-curl -sL "https://raw.githubusercontent.com/osrsbox/osrsbox-db/dae12e3400add0c71465f07a334f9d8f86bebce8/docs/monsters-complete.json" \
-  -o monsters-complete.json
-curl -sL "https://raw.githubusercontent.com/mejrs/data_osrs/6a3ca6f19d65c5609434b51cac8dee9d4af97c02/NPCList_OSRS.json" \
-  -o npc-spawns.json
+It is kept only until the wiki-swept `sources.json` is confirmed in-game, then
+deleted along with `MonsterTransform`'s osrsbox-driven paths. Its pinned input:
 
-# 2. Generate (defaults: spawns = npc-spawns.json, overlay = spawns-overlay.json,
-#    output = ../../JAVA/ItemSearch/src/main/resources/com/itemsearch/drops.json)
-./gradlew run --args="monsters-complete.json"
-```
+Repo: https://github.com/osrsbox/osrsbox-db (archived, read-only)
+Commit: `dae12e3400add0c71465f07a334f9d8f86bebce8`
+File: `docs/monsters-complete.json` (~12 MB, **not** committed)
 
-## Refresh to a newer source
-
-Pick a newer commit SHA (or a more current database), update the pinned SHA
-above and the download URL, re-run the two steps, and review the `drops.json`
-diff before committing.
-
-## Add curated spawn tiles
-
-Edit `spawns-overlay.json` (`"npcId": [ { "x", "y", "plane" } ]`) and regenerate.
-Spawn tiles are not present in the source database; this overlay is how they are
-carried across regenerations.
-
-## Combat data (OSRS Wiki)
-
-Per-attack-style combat data (max hit, attack style, attack speed) is not in the
-osrsbox source, so it is joined in from the OSRS Wiki's `{{Infobox Monster}}`
-wikitext, keyed by each monster's `wiki_name`.
-
-- `--refresh-wiki` fetches live wikitext for every droppable monster's
-  `wiki_name` and writes the committed `wiki-combat.json` snapshot. Since the
-  wiki content can change at any time, this snapshot (dated in the commit) is
-  the reproducibility pin for combat data, the same way the pinned
-  `monsters-complete.json` commit is the pin for drop data.
-- Normal runs (without `--refresh-wiki`) reuse the committed `wiki-combat.json`
-  as-is and never hit the network.
-- Monsters whose wiki data can't be parsed into attacks ("gaps") are
-  auto-seeded into `combat-overlay.json` as `"needsReview": true` stubs. Fill
-  in the real `attacks` for a stub and set `"needsReview": false` (or delete
-  the flag) to make that entry authoritative; entries in `combat-overlay.json`
-  always take precedence over the wiki join.
-- Each run prints a coverage summary: how many NPCs have attacks, how many
-  wiki gaps were found, and how many overlay stubs are still awaiting review.
-
-### Curating the stubs
-
-`curate_combat.py` is an interactive helper for filling in the `needsReview`
-stubs. It walks each flagged mob, prints its OSRS Wiki page link (with the
-`#version` anchor) so you can look up the real numbers, and prompts for the max
-hit per attack style. It marks each mob reviewed and saves as you go.
-
-```bash
-python curate_combat.py            # curate mobs needing review
-python curate_combat.py --list      # just print them + wiki links
-python curate_combat.py --all        # revisit every overlay entry
-```
-
-It reads `monsters-complete.json` for exact wiki links (falling back to the
-committed `drops.json` name if that source isn't present). Re-run the generator
-afterwards to bake the curated values into `drops.json`.
-
-To refresh the wiki snapshot and regenerate:
-
-```bash
-./gradlew run --args="--refresh-wiki monsters-complete.json"
-```
+`monsters-complete.json` is still read opportunistically by the shop generator
+as a fallback source of item ids, and by `curate_combat.py` for exact wiki
+links.

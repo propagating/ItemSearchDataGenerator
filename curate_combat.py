@@ -25,7 +25,7 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 OVERLAY = os.path.join(BASE, "combat-overlay.json")
 MONSTERS = os.path.join(BASE, "monsters-complete.json")
 DROPS = os.path.abspath(os.path.join(BASE, "..", "..", "JAVA", "ItemSearch",
-                        "src", "main", "resources", "com", "itemsearch", "drops.json"))
+                        "src", "main", "resources", "com", "itemsearch", "sources.json"))
 WIKI = "https://oldschool.runescape.wiki/w/"
 
 
