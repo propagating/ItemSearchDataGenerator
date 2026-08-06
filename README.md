@@ -67,13 +67,12 @@ Baseline from the 2026-08-05 sweep, for comparing future runs against:
 | Measure | Value |
 | --- | --- |
 | shared drop tables | 30 |
-| pages enumerated / parsed | 2375 / 2281 |
-| sources | 2333 |
-| by type | KILL 1240, REWARD 628, GATHER 390, PICKPOCKET 75 |
-| drops | 37323 |
-| unresolved items | 1745 (4.7%) |
-| unknown rarity | 9420 (25.2%) — see shared drop tables below |
-| combat gaps / overlay stubs | 94 / 104 |
+| pages enumerated / parsed | 2375 / 2285 |
+| sources | 2338 |
+| drops | 39008 |
+| unresolved items | 1745 (4.5%) |
+| unknown rarity | 3836 (9.8%) |
+| combat gaps / overlay stubs | 94 / 103 |
 
 An earlier draft of these gates expected ≥3000 sources. That was an estimate
 made before the sweep; the wiki only has ~2375 pages carrying drop tables, so
@@ -97,14 +96,16 @@ table" setting groups on.
 Before this, Aberrant spectre parsed to 10 drops with no herbs at all, and every
 revenant was missing.
 
-**Rarities from shared tables are usually unknown.** The templates compute them
-with MediaWiki parser functions — `{{HerbDropLines|78/128}}` expands through
-`{{#expr:1/(32*{{#var:herbbase}})}}` — and the generator does not evaluate wiki
-expressions. Those drops are emitted with `rarityKnown: false`, so the item is
-searchable and attributed but shows "rate unknown". This is why the unknown-rarity
-rate jumped from 11% to 25%. Getting real numbers means rendering pages through
-`action=parse` and reading the drop table out of the HTML, rather than parsing
-wikitext.
+**Shared tables compute their rates rather than stating them.** Killerwatt writes
+`{{HerbDropLines|35/140}}`, and the template derives each herb from it through
+`{{{1}}}` substitution, `#vardefine`/`#var`, and `#expr` arithmetic. `WikiExpr`
+evaluates enough of that template language to read the result: a 35/140 chance of
+the herb table times guam's 32/128 share gives 1/16, matching the wiki.
+
+It is deliberately not a MediaWiki implementation — parameters, `#expr`,
+`#vardefine`/`#var`, `#if`, and the arithmetic those need. Any other parser
+function evaluates to empty rather than being left as markup for the drop parser
+to trip over, and a malformed expression yields no rarity rather than throwing.
 
 `Rarity`, `CalculateRDTNaked`, and `DropsLineEcumenical` are excluded: they
 transclude a drop line without being shared tables, and expanding them would

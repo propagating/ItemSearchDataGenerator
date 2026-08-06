@@ -234,7 +234,8 @@ public final class WikiDropsFetch
         for (WikiText.Found found : WikiText.templates(text, names))
         {
             List<DropTableJson> tables = new ArrayList<>();
-            collectTemplateTables(found.name, sharedTables, tables, new HashSet<>(), 0);
+            collectTemplateTables(found.name, WikiExpr.arguments(found.body), sharedTables,
+                tables, new HashSet<>(), 0);
             String canonical = canonicalTableName(found.name);
             String pageTop = headingBefore(headings, found.start, true);
             for (DropTableJson table : tables)
@@ -261,20 +262,24 @@ public final class WikiDropsFetch
      * reach their drops through {{Revenants}} -> {{Revenants/Drops}}, so one level is not enough.
      * The visited set stops a template cycle, and the depth limit stops a deep chain.
      */
-    private static void collectTemplateTables(String name, Map<String, String> sharedTables,
-        List<DropTableJson> out, Set<String> visited, int depth)
+    private static void collectTemplateTables(String name, Map<String, String> arguments,
+        Map<String, String> sharedTables, List<DropTableJson> out, Set<String> visited, int depth)
     {
         String body = sharedTables.get(name);
         if (body == null || depth > MAX_TEMPLATE_DEPTH || !visited.add(name))
         {
             return;
         }
-        String text = WikiText.stripComments(body);
+        // Substitute the transclusion's arguments and evaluate the template's parser functions
+        // before parsing. Shared tables compute their rates rather than stating them, so skipping
+        // this leaves every herb and seed drop with an unreadable rarity.
+        String text = WikiExpr.render(WikiText.stripComments(body), arguments);
         out.addAll(parseTables(text));
         for (WikiText.Found nested
             : WikiText.templates(text, sharedTables.keySet().toArray(new String[0])))
         {
-            collectTemplateTables(nested.name, sharedTables, out, visited, depth + 1);
+            collectTemplateTables(nested.name, WikiExpr.arguments(nested.body), sharedTables,
+                out, visited, depth + 1);
         }
     }
 
