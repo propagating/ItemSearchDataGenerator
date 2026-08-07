@@ -224,3 +224,4 @@ build/
 # Large pinned sources (see README) — do not commit
 monsters-complete.json
 npc-spawns.json
+transports_osrs.json

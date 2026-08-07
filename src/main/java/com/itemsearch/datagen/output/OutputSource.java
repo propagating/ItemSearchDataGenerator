@@ -40,6 +40,9 @@ public class OutputSource
     public int combatLevel;
     public String wikiImageUrl;
     public List<OutputSpawn> spawnPoints;
+    // the surface tile you enter by, for a monster whose own tiles the world map does not draw.
+    // Null when it spawns above ground (its own markers suffice) or when nothing leads there.
+    public OutputSpawn entrance;
     // set while building; cleared once the rows move onto shared tables (see DropTableIndex)
     public List<OutputDrop> drops;
     // indexes into OutputData.tables; this source's drops are those tables concatenated

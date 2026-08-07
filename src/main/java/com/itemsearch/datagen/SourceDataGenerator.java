@@ -69,6 +69,7 @@ public final class SourceDataGenerator
     private static final String DEFAULT_SHOPS_SNAPSHOT = "wiki-shops.json";
     private static final String DEFAULT_SPAWNS = "npc-spawns.json";
     private static final String DEFAULT_SPAWN_OVERLAY = "spawns-overlay.json";
+    private static final String DEFAULT_TRANSPORTS = "transports_osrs.json";
     private static final String DEFAULT_WIKI = "wiki-combat.json";
     private static final String DEFAULT_COMBAT_OVERLAY = "combat-overlay.json";
     private static final String DEFAULT_TYPE_OVERLAY = "source-type-overlay.json";
@@ -172,6 +173,33 @@ public final class SourceDataGenerator
 
         List<OutputSource> sources =
             SourceTransform.transform(pages, itemInfo, spawns, wiki, combatOverlay, typeOverlay);
+
+        // where to go in, for the monsters whose tiles the world map does not draw
+        DungeonEntrance entrances = DungeonEntrance.parse(gson,
+            readIfPresent(Paths.get(DEFAULT_TRANSPORTS)));
+        int withEntrance = 0;
+        int undergroundOnly = 0;
+        for (OutputSource s : sources)
+        {
+            if (s.spawnPoints == null || s.spawnPoints.isEmpty())
+            {
+                continue;
+            }
+            boolean surfaced = false;
+            for (OutputSpawn sp : s.spawnPoints)
+            {
+                surfaced |= sp.y < DungeonEntrance.UNDERGROUND_Y;
+            }
+            if (surfaced)
+            {
+                continue;
+            }
+            undergroundOnly++;
+            s.entrance = entrances.forSpawns(s.spawnPoints);
+            withEntrance += s.entrance != null ? 1 : 0;
+        }
+        System.out.println("Entrances: " + withEntrance + " of " + undergroundOnly
+            + " underground-only sources resolved to a surface way in");
 
         // count the flat rows before they fold onto shared tables, so the summary keeps
         // describing what a player sees rather than how it is stored
