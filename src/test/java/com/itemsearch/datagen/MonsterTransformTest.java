@@ -36,14 +36,17 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import com.itemsearch.datagen.output.OutputAttack;
 import com.itemsearch.datagen.output.OutputDrop;
 import com.itemsearch.datagen.output.OutputSource;
 import com.itemsearch.datagen.output.OutputSpawn;
+import com.itemsearch.datagen.output.OutputVariant;
 import com.itemsearch.datagen.source.DropJson;
 import com.itemsearch.datagen.source.MonsterJson;
 import com.itemsearch.datagen.source.WikiCombatJson;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -281,6 +284,35 @@ public class MonsterTransformTest
         // a chromatic dragon keeps plain dragonfire
         OutputSource greenNpc = MonsterTransform.transformMonster(green, Collections.emptyMap(), wiki);
         assertTrue(greenNpc.combat.attacks.stream().anyMatch(a -> "dragonfire".equals(a.style)));
+    }
+
+    /**
+     * Relabelling the breath must not throw away everything else the attack carries.
+     *
+     * <p>It rebuilt each attack from five fields, and it runs after the curated overlay is
+     * applied, so for metallic dragons alone — the only monsters it touches — every note,
+     * conditional max hit and effect was dropped on the way out. Steel dragon's dragonfire lost
+     * its "prayer has no effect" note and all four of its mitigations.
+     */
+    @Test
+    public void relabellingKeepsWhatTheCuratorPutOnTheAttack()
+    {
+        OutputAttack breath = new OutputAttack("dragonfire", 50, 50, 4, 4);
+        breath.notes = "Prayer has no effect on metallic dragonfire.";
+        breath.variants = Collections.singletonList(
+            new OutputVariant("Anti-dragon shield", "GEAR", 5, 5));
+        breath.effects = Collections.singletonList("POISON");
+        breath.prayStyle = "magic";
+
+        OutputAttack out = MonsterTransform.relabelMetallicDragonfire(
+            "Steel dragon", Collections.singletonList(breath)).get(0);
+
+        assertEquals("metallic dragonfire", out.style);
+        assertEquals("Prayer has no effect on metallic dragonfire.", out.notes);
+        assertNotNull("the conditional max hits must survive", out.variants);
+        assertEquals(1, out.variants.size());
+        assertEquals(Collections.singletonList("POISON"), out.effects);
+        assertEquals("magic", out.prayStyle);
     }
 
     @Test

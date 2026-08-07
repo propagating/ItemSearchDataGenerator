@@ -215,8 +215,18 @@ public final class MonsterTransform
         List<OutputAttack> out = new ArrayList<>();
         for (OutputAttack a : attacks)
         {
-            String style = "dragonfire".equals(a.style) ? "metallic dragonfire" : a.style;
-            out.add(new OutputAttack(style, a.maxHit, a.maxHitMax, a.speed, a.speedMax));
+            OutputAttack copy = new OutputAttack(
+                "dragonfire".equals(a.style) ? "metallic dragonfire" : a.style,
+                a.maxHit, a.maxHitMax, a.speed, a.speedMax);
+            // this runs after the curated overlay is applied and is the only pass that rebuilds
+            // an attack, so whatever is not copied here is lost — and lost for metallic dragons
+            // alone, which is why it went unnoticed: Steel dragon's breath reached the client
+            // without the note or any of the four mitigations that had been curated onto it
+            copy.prayStyle = a.prayStyle;
+            copy.variants = a.variants;
+            copy.notes = a.notes;
+            copy.effects = a.effects;
+            out.add(copy);
         }
         return out;
     }
