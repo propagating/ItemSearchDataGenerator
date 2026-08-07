@@ -16,6 +16,7 @@ Shortcuts: Ctrl+S save · Ctrl+Enter save & next · Ctrl+N add attack · Ctrl+F 
 
 Reuses the data helpers from curate_combat.py (same folder).
 """
+import copy
 import os
 import sys
 import webbrowser
@@ -208,14 +209,29 @@ def collect_attacks(rows):
     return attacks, None
 
 
+MAX_HIT_STEPS = 4  # mirrors SourceResultView.MAX_HIT_STEPS
+
+
 def headline_max_hit(attack):
-    """The combat card's max-hit headline: best mitigated case first, base in parens."""
+    """The combat card's max-hit headline: every conditional value, lowest to highest.
+
+    "0/5/35/50", not "0 (50)" — the mitigations are a ladder, and showing only its ends reads as
+    a choice between two outcomes. Past MAX_HIT_STEPS rungs it collapses to "50*", as the client
+    does, so this preview keeps telling the truth about what the plugin will render.
+    """
     base = core.fmt_range(attack.get("maxHit", 0), attack.get("maxHitMax", 0))
     variants = attack.get("variants")
     if not variants:
         return base
-    best = min(variants, key=lambda v: max(v.get("maxHit", 0), v.get("maxHitMax", 0)))
-    return "{} ({})".format(core.fmt_range(best.get("maxHit", 0), best.get("maxHitMax", 0)), base)
+    rungs = [(max(attack.get("maxHit", 0), attack.get("maxHitMax", 0)), base)]
+    for v in variants:
+        rungs.append((max(v.get("maxHit", 0), v.get("maxHitMax", 0)),
+                      core.fmt_range(v.get("maxHit", 0), v.get("maxHitMax", 0))))
+    steps = []
+    for _, text in sorted(rungs, key=lambda r: r[0]):
+        if text not in steps:            # two mitigations on the same number are one rung
+            steps.append(text)
+    return steps[-1] + "*" if len(steps) > MAX_HIT_STEPS else "/".join(steps)
 
 
 def hover_line(attack):
@@ -224,12 +240,13 @@ def hover_line(attack):
     parts = []
     variants = attack.get("variants")
     if variants:
-        bits = ["{} unprotected".format(
-            core.fmt_range(attack.get("maxHit", 0), attack.get("maxHitMax", 0)))]
-        for v in sorted(variants, key=lambda v: max(v.get("maxHit", 0), v.get("maxHitMax", 0)),
-                        reverse=True):
+        # lowest first, so the lines read in the same order as the slashes on the headline
+        bits = []
+        for v in sorted(variants, key=lambda v: max(v.get("maxHit", 0), v.get("maxHitMax", 0))):
             bits.append("{} with {}".format(
                 core.fmt_range(v.get("maxHit", 0), v.get("maxHitMax", 0)), v.get("label", "?")))
+        bits.append("{} unprotected".format(
+            core.fmt_range(attack.get("maxHit", 0), attack.get("maxHitMax", 0))))
         parts.append("   ·   ".join(bits))
     for e in attack.get("effects") or []:
         word = (e or "").lower().replace("_", " ")
@@ -378,7 +395,12 @@ class CuratorApp:
         self.overlay = core.load_json(core.OVERLAY, {}) or {}
         self.meta = core.build_meta()
         self.canonical, self.variants = id_roles()
-        self.ids = []            # ids currently shown in the listbox, in order
+        self.entries = self._merge_sources()
+        self.ids = []            # ids currently shown in the list, in order
+        # which column the queue is ordered by, and whether reversed. Pending-first is the
+        # default because that is the work; clicking a heading overrides it.
+        self.sort_key = "queue"
+        self.sort_reverse = False
         self.current_id = None
         self.rows = []
         self.link_url = ""
@@ -411,6 +433,15 @@ class CuratorApp:
                        {"sticky": "ns",
                         "children": [("Vertical.Scrollbar.thumb",
                                       {"expand": "1", "sticky": "nswe"})]})])
+        style.configure("Curator.Treeview", background=PANEL, fieldbackground=PANEL,
+                        foreground=TEXT, borderwidth=0, rowheight=19, font=F_MONO_SM)
+        style.configure("Curator.Treeview.Heading", background=INK, foreground=MUTED,
+                        relief="flat", font=F_SMALL, borderwidth=0)
+        style.map("Curator.Treeview.Heading", background=[("active", PANEL_HI)],
+                  foreground=[("active", GOLD)])
+        style.map("Curator.Treeview", background=[("selected", GOLD_DEEP)],
+                  foreground=[("selected", GOLD)])
+        style.layout("Curator.Treeview", [("Curator.Treeview.treearea", {"sticky": "nswe"})])
         style.configure("Curator.Vertical.TScrollbar", background=RULE, troughcolor=INK,
                         bordercolor=INK, lightcolor=RULE, darkcolor=RULE,
                         relief="flat", width=8)
@@ -448,7 +479,7 @@ class CuratorApp:
         left = tk.Frame(self.root, bg=INK, padx=14, pady=14)
         left.pack(side="left", fill="y")
         left.pack_propagate(False)
-        left.configure(width=252)
+        left.configure(width=330)
 
         self._eyebrow(left, "Review queue").pack(anchor="w")
 
@@ -469,18 +500,37 @@ class CuratorApp:
         ttk.Checkbutton(left, text="Show reviewed too", variable=self.show_all,
                         style="Curator.TCheckbutton",
                         command=self._refresh_list).pack(anchor="w")
+        self.show_imported = tk.BooleanVar(value=False)
+        ttk.Checkbutton(left, text="Show cleanly imported too", variable=self.show_imported,
+                        style="Curator.TCheckbutton",
+                        command=self._refresh_list).pack(anchor="w")
 
         lf = tk.Frame(left, bg=INK)
         lf.pack(fill="both", expand=True, pady=(10, 0))
-        self.listbox = tk.Listbox(lf, activestyle="none", font=F_MONO_SM, bg=PANEL,
-                                  fg=TEXT, selectbackground=GOLD_DEEP, selectforeground=GOLD,
-                                  relief="flat", highlightthickness=0, bd=0)
+        # a Treeview rather than a Listbox: the columns need naming, since a bare row of numbers
+        # gives no way to tell a combat level from an npc id, and they need to be sortable
+        self.listbox = ttk.Treeview(lf, style="Curator.Treeview", show="headings",
+                                    selectmode="browse",
+                                    columns=("state", "name", "level", "id"))
+        for column, title, width, anchor in (
+                ("state", "", 22, "center"),
+                ("name", "Name", 196, "w"),
+                ("level", "Lvl", 38, "e"),
+                ("id", "NPC id", 58, "e")):
+            self.listbox.heading(column, text=title,
+                                 command=lambda c=column: self._sort_by(c))
+            self.listbox.column(column, width=width, anchor=anchor, stretch=(column == "name"))
         sb = ttk.Scrollbar(lf, orient="vertical", command=self.listbox.yview,
                            style="Curator.Vertical.TScrollbar")
         self.listbox.configure(yscrollcommand=sb.set)
         self.listbox.pack(side="left", fill="both", expand=True)
         sb.pack(side="left", fill="y")
-        self.listbox.bind("<<ListboxSelect>>", self._on_select)
+        self.listbox.bind("<<TreeviewSelect>>", self._on_select)
+        # rows are tinted by what the generator will do with them, not by hand per row
+        self.listbox.tag_configure("stale", foreground=RED)
+        self.listbox.tag_configure("variant", foreground=MUTED)
+        self.listbox.tag_configure("reviewed", foreground=FAINT)
+        self.listbox.tag_configure("imported", foreground=FAINT)
         # registered last: the search field's placeholder writes on construction
         self.filter_var.trace_add("write", lambda *_: self._refresh_list())
 
@@ -619,13 +669,38 @@ class CuratorApp:
         return "variant" if npc_id in self.variants else "stale"
 
     # ---------- list ----------
+    def _merge_sources(self):
+        """Every npc that has combat stats, not only the ones the generator flagged.
+
+        The overlay holds what the sweep could not work out, but notes and effects are worth
+        adding to monsters it parsed perfectly well too, and there is no way to reach those from
+        a queue built out of the overlay alone. So the queue is the overlay plus a stub for every
+        generated source carrying that source's parsed attacks. Stubs are marked ``imported`` and
+        are *not* written to combat-overlay.json until one is saved — a file of a thousand
+        untouched entries would say nothing the generator did not already know, and every one of
+        them would then override the sweep forever.
+        """
+        entries = dict(self.overlay)
+        for s in core.load_sources():
+            key = str(s.get("id"))
+            attacks = (s.get("combat") or {}).get("attacks") or []
+            if s.get("id") is None or key in entries or not attacks:
+                continue
+            entries[key] = {"attacks": copy.deepcopy(attacks),
+                            "needsReview": False, "imported": True}
+        return entries
+
     def _visible_ids(self):
         needle = self.filter_var.get().strip().lower()
         if needle == "search by name or id":
             needle = ""
         ids = []
-        for k, v in self.overlay.items():
-            if not (self.show_all.get() or v.get("needsReview")):
+        for k, v in self.entries.items():
+            if v.get("imported"):
+                # cleanly parsed and never touched: browsable, but not part of the queue
+                if not self.show_imported.get():
+                    continue
+            elif not (self.show_all.get() or v.get("needsReview")):
                 continue
             if needle:
                 name, _, _ = core.describe(self.meta, k)
@@ -633,31 +708,52 @@ class CuratorApp:
                     continue
             ids.append(k)
         # pending first, then by numeric id
-        ids.sort(key=lambda k: (not self.overlay[k].get("needsReview"), int(k)))
+        ids.sort(key=self._sort_value, reverse=self.sort_reverse)
         return ids
+
+    def _sort_value(self, k):
+        """Ordering for one row under the current sort. Pending-first is the default, so the
+        queue opens on the work rather than on whatever happens to have the lowest id."""
+        name, _, level = core.describe(self.meta, k)
+        if self.sort_key == "name":
+            return (name.lower(), int(k))
+        if self.sort_key == "level":
+            return (level if isinstance(level, int) else -1, name.lower())
+        if self.sort_key == "id":
+            return (int(k),)
+        if self.sort_key == "state":
+            return (self._state_rank(k), name.lower())
+        return (self._state_rank(k), int(k))
+
+    def _state_rank(self, k):
+        """Flagged first, then hand-reviewed, then the ones that just imported cleanly."""
+        entry = self.entries[k]
+        if entry.get("needsReview"):
+            return 0
+        return 2 if entry.get("imported") else 1
+
+    def _sort_by(self, column):
+        # clicking the same heading again reverses it, the usual table behaviour
+        self.sort_reverse = not self.sort_reverse if self.sort_key == column else False
+        self.sort_key = column
+        selected = self.current_id
+        self._refresh_list()
+        if selected is not None:
+            self._select_in_list(selected)
 
     def _refresh_list(self):
         self.ids = self._visible_ids()
-        self.listbox.delete(0, "end")
+        self.listbox.delete(*self.listbox.get_children())
         for k in self.ids:
             name, _, level = core.describe(self.meta, k)
-            mark = "•" if self.overlay[k].get("needsReview") else "✓"
-            # the id is the only thing separating same-name, same-level mobs (two Killerwatts,
-            # two Skeletal Wyverns), and it is the overlay's key
             role = self._role(k)
-            if len(name) > 17:
-                name = name[:16] + "…"
-            suffix = {"variant": "  ~", "stale": "  ✗"}.get(role, "")
-            self.listbox.insert("end", " {} {:<18}{:>4} {:>6}{}".format(
-                mark, name, level or "—", k, suffix))
-        for i, k in enumerate(self.ids):
-            role = self._role(k)
-            if role == "stale":
-                self.listbox.itemconfigure(i, foreground=RED)
-            elif role == "variant":
-                self.listbox.itemconfigure(i, foreground=MUTED)
-            elif not self.overlay[k].get("needsReview"):
-                self.listbox.itemconfigure(i, foreground=FAINT)
+            # the id column is the only thing separating same-name, same-level mobs: two
+            # Killerwatts at 55, two Skeletal Wyverns at 140. It is the overlay's key besides.
+            rank = self._state_rank(k)
+            state = {"variant": "~", "stale": "✗"}.get(role, ("•", "✓", "·")[rank])
+            tag = role if role in ("stale", "variant") else ("", "reviewed", "imported")[rank]
+            self.listbox.insert("", "end", iid=k, tags=(tag,) if tag else (),
+                                values=(state, name, level if level is not None else "—", k))
         pending = sum(1 for v in self.overlay.values() if v.get("needsReview"))
         done = len(self.overlay) - pending
         roles = [self._role(k) for k in self.overlay]
@@ -667,22 +763,24 @@ class CuratorApp:
             extra.append("{} variants".format(roles.count("variant")))
         if roles.count("stale"):
             extra.append("{} stale".format(roles.count("stale")))
+        imported = sum(1 for v in self.entries.values() if v.get("imported"))
+        if imported:
+            extra.append("{} imported".format(imported))
         if extra:
-            text += "   ·   " + ", ".join(extra)
-        self.count_label.configure(text=text)
+            # its own line: beside the count it ran off the edge of the pane
+            text += "\n" + ", ".join(extra)
+        self.count_label.configure(text=text, justify="left")
         self._draw_meter()
 
     def _on_select(self, _evt):
-        sel = self.listbox.curselection()
-        if sel:
-            self._load(self.ids[sel[0]])
+        selection = self.listbox.selection()
+        if selection:
+            self._load(selection[0])
 
     def _select_in_list(self, idstr):
         if idstr in self.ids:
-            i = self.ids.index(idstr)
-            self.listbox.selection_clear(0, "end")
-            self.listbox.selection_set(i)
-            self.listbox.see(i)
+            self.listbox.selection_set(idstr)
+            self.listbox.see(idstr)
 
     # ---------- editor rows ----------
     def _clear_rows(self):
@@ -793,6 +891,8 @@ class CuratorApp:
         self.name_label.configure(text=name)
         role = self._role(idstr)
         note = ""
+        if self.entries[idstr].get("imported"):
+            note = "  ·  imported cleanly — saving adds an overlay entry that overrides the sweep"
         if role == "variant":
             note = "  ·  another version of {} — the generator keeps only the main one".format(
                 self.variants.get(int(idstr)) or "this monster")
@@ -808,7 +908,7 @@ class CuratorApp:
             text="Open wiki page  ↗" if self.link_url else "No wiki link")
         self.status.configure(text="")
         self._clear_rows()
-        for a in self.overlay[idstr].get("attacks") or []:
+        for a in self.entries[idstr].get("attacks") or []:
             style = a.get("style", "")
             if a.get("prayStyle"):
                 style = style + " " + a["prayStyle"]
@@ -843,9 +943,12 @@ class CuratorApp:
             self.status.configure(text=err, fg=RED)
             self._render_preview()
             return False
-        entry = self.overlay[self.current_id]
+        entry = self.entries[self.current_id]
         entry["attacks"] = attacks
         entry["needsReview"] = False
+        # saving is what promotes a browsed-only source into the overlay the generator reads
+        entry.pop("imported", None)
+        self.overlay[self.current_id] = entry
         core.save(self.overlay)
         self.status.configure(text="Saved  ·  " + core.fmt_attacks(attacks), fg=GREEN)
         saved_id = self.current_id
@@ -856,7 +959,7 @@ class CuratorApp:
     def _save_next(self):
         if not self._save():
             return
-        pending = [k for k in self.ids if self.overlay[k].get("needsReview")]
+        pending = [k for k in self.ids if self.entries[k].get("needsReview")]
         if pending:
             self._load(pending[0])
             self._select_in_list(pending[0])

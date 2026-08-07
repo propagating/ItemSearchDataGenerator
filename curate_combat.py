@@ -49,17 +49,28 @@ def load_sources():
 
 
 def build_meta():
-    """id(str) -> (name, wiki_url, combat_level); exact from osrsbox, else drops.json."""
+    """id(str) -> (name, wiki_url, combat_level).
+
+    Generated sources first, since they are current and cover ids osrsbox never had — synthetic
+    ids, and the per-version splits like "Killerwatt (Attacking)". The frozen osrsbox export
+    fills in anything the sweep does not carry, mainly for its exact wiki links.
+    """
     meta = {}
     monsters = load_json(MONSTERS)
     if monsters:
         for v in monsters.values():
             if v and v.get("id") is not None:
                 meta[str(v["id"])] = (v.get("name"), v.get("wiki_url"), v.get("combat_level"))
-        return meta
     for n in load_sources():
+        if n.get("id") is None:
+            continue
         name = n.get("name", "")
-        meta[str(n["id"])] = (name, WIKI + name.replace(" ", "_"), n.get("combatLevel"))
+        # a version split names the page it came from, which is what the wiki link needs
+        page = name.split(" (")[0] if " (" in name else name
+        meta[str(n["id"])] = (name, WIKI + page.replace(" ", "_"), n.get("combatLevel"))
+        for npc_id in n.get("npcIds") or []:
+            meta.setdefault(str(npc_id),
+                            (name, WIKI + page.replace(" ", "_"), n.get("combatLevel")))
     return meta
 
 
