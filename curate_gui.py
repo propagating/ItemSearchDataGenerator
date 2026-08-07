@@ -108,16 +108,26 @@ def fmt_variants(variants, column_kind):
     return "; ".join(parts)
 
 
-def canonical_ids():
-    """Npc ids the generator will actually read an overlay entry for.
+def id_roles():
+    """(canonical ids, {variant id: source name}) from the generated sources.
 
-    The overlay is keyed by npc id, but a monster with several ids is one source keyed by its
-    canonical id, and applyCombatOverlay only ever looks that one up. An entry under any other
-    id is never applied, so curating it does nothing — Killerwatt is one source (470) with ids
-    470 and 469, and the queue used to show both identically.
+    The overlay is keyed by npc id, but a monster with several ids becomes one source keyed by
+    its canonical id, and applyCombatOverlay only looks that one up. Two very different things
+    end up unread as a result, and the queue must not conflate them:
+
+    - a *variant* id, which is a real other version of a live monster. The wiki gives Killerwatt
+      an Idle version (470, stab) and an Attacking one (469, crush); curating 469 is real work
+      that the generator currently discards rather than pointless work.
+    - a *stale* id matching no source at all, left over from the osrsbox-era overlay.
     """
-    sources = core.load_json(core.DROPS, [])
-    return {s["id"] for s in (sources or []) if s.get("id") is not None}
+    sources = core.load_json(core.DROPS, []) or []
+    canonical = {s["id"] for s in sources if s.get("id") is not None}
+    variants = {}
+    for s in sources:
+        for npc_id in s.get("npcIds") or []:
+            if npc_id != s.get("id"):
+                variants[npc_id] = s.get("name")
+    return canonical, variants
 
 
 def collect_attacks(rows):
@@ -333,7 +343,7 @@ class CuratorApp:
 
         self.overlay = core.load_json(core.OVERLAY, {}) or {}
         self.meta = core.build_meta()
-        self.canonical = canonical_ids()
+        self.canonical, self.variants = id_roles()
         self.ids = []            # ids currently shown in the listbox, in order
         self.current_id = None
         self.rows = []
@@ -564,6 +574,16 @@ class CuratorApp:
             self.root.after_cancel(self._preview_job)
         self._preview_job = self.root.after(150, self._render_preview)
 
+    def _role(self, idstr):
+        """"main" (the generator reads it), "variant" (a real other version whose curation is
+        currently discarded), or "stale" (matches no source at all)."""
+        if not self.canonical:
+            return "main"
+        npc_id = int(idstr)
+        if npc_id in self.canonical:
+            return "main"
+        return "variant" if npc_id in self.variants else "stale"
+
     # ---------- list ----------
     def _visible_ids(self):
         needle = self.filter_var.get().strip().lower()
@@ -590,22 +610,31 @@ class CuratorApp:
             mark = "•" if self.overlay[k].get("needsReview") else "✓"
             # the id is the only thing separating same-name, same-level mobs (two Killerwatts,
             # two Skeletal Wyverns), and it is the overlay's key
-            unused = self.canonical and int(k) not in self.canonical
+            role = self._role(k)
             if len(name) > 17:
                 name = name[:16] + "…"
+            suffix = {"variant": "  ~", "stale": "  ✗"}.get(role, "")
             self.listbox.insert("end", " {} {:<18}{:>4} {:>6}{}".format(
-                mark, name, level or "—", k, "  ✗" if unused else ""))
+                mark, name, level or "—", k, suffix))
         for i, k in enumerate(self.ids):
-            if self.canonical and int(k) not in self.canonical:
+            role = self._role(k)
+            if role == "stale":
                 self.listbox.itemconfigure(i, foreground=RED)
+            elif role == "variant":
+                self.listbox.itemconfigure(i, foreground=MUTED)
             elif not self.overlay[k].get("needsReview"):
                 self.listbox.itemconfigure(i, foreground=FAINT)
         pending = sum(1 for v in self.overlay.values() if v.get("needsReview"))
         done = len(self.overlay) - pending
-        unused = sum(1 for k in self.overlay if self.canonical and int(k) not in self.canonical)
+        roles = [self._role(k) for k in self.overlay]
         text = "{} / {} reviewed".format(done, len(self.overlay))
-        if unused:
-            text += "   ·   {} unused".format(unused)
+        extra = []
+        if roles.count("variant"):
+            extra.append("{} variants".format(roles.count("variant")))
+        if roles.count("stale"):
+            extra.append("{} stale".format(roles.count("stale")))
+        if extra:
+            text += "   ·   " + ", ".join(extra)
         self.count_label.configure(text=text)
         self._draw_meter()
 
@@ -721,11 +750,16 @@ class CuratorApp:
         self.current_id = idstr
         name, url, level = core.describe(self.meta, idstr)
         self.name_label.configure(text=name)
-        unused = self.canonical and int(idstr) not in self.canonical
+        role = self._role(idstr)
+        note = ""
+        if role == "variant":
+            note = "  ·  another version of {} — the generator keeps only the main one".format(
+                self.variants.get(int(idstr)) or "this monster")
+        elif role == "stale":
+            note = "  ·  matches no source; nothing reads this"
         self.sub_label.configure(
-            text="level {}  ·  id {}{}".format(level or "—", idstr,
-                                               "  ·  not used by the generator" if unused else ""),
-            fg=RED if unused else MUTED)
+            text="level {}  ·  id {}{}".format(level or "—", idstr, note),
+            fg=RED if role == "stale" else (GOLD if role == "variant" else MUTED))
         self.link_url = "" if url.startswith("(") else url
         self.wiki_button.label.configure(
             fg=GOLD if self.link_url else FAINT,
