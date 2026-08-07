@@ -238,14 +238,17 @@ public final class WikiDropsFetch
                 tables, new HashSet<>(), 0);
             String canonical = canonicalTableName(found.name);
             String pageTop = headingBefore(headings, found.start, true);
+            // The two groupings answer different questions and each keeps its own answer:
+            // sectionHeading is where the table sits on the page (revenant pages carry the
+            // wilderness slayer table under "Prayer info", oddly but truthfully), dropTable is
+            // what the table actually is. Collapsing them left the client's grouping toggle
+            // doing nothing on most sources.
+            String pageSection = headingBefore(headings, found.start, false);
             for (DropTableJson table : tables)
             {
-                // A template's own sections win. Failing that it is named after itself rather
-                // than after whatever heading preceded the transclusion: revenant pages pull the
-                // wilderness slayer table in under an unrelated "Prayer info" heading.
                 if (table.sectionHeading == null)
                 {
-                    table.sectionHeading = canonical;
+                    table.sectionHeading = pageSection;
                 }
                 if (table.topHeading == null)
                 {
@@ -256,6 +259,7 @@ public final class WikiDropsFetch
             }
         }
     }
+
 
     /**
      * Lines contributed by one shared template, following its own transclusions. Revenant pages

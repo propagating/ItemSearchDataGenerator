@@ -249,7 +249,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -333,7 +333,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -524,7 +524,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -608,7 +608,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -713,7 +713,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -1027,7 +1027,7 @@
         ]
       },
       {
-        "sectionHeading": "Tree herb seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Tree herb seed drop table",
         "lines": [
@@ -1146,7 +1146,7 @@
         ]
       },
       {
-        "sectionHeading": "Talisman drop table",
+        "sectionHeading": "Talismans",
         "topHeading": "Drops",
         "dropTable": "Talisman drop table",
         "lines": [
@@ -1589,7 +1589,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -1673,7 +1673,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -1704,7 +1704,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -1788,7 +1788,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -1807,7 +1807,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer cave drop table",
+        "sectionHeading": "Wilderness Slayer Cave tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer cave drop table",
         "lines": [
@@ -2761,7 +2761,7 @@
         ]
       },
       {
-        "sectionHeading": "Useful herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Useful herb drop table",
         "lines": [
@@ -2909,7 +2909,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre-roll",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -3680,7 +3680,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -4380,7 +4380,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -4729,7 +4729,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -5393,7 +5393,7 @@
         ]
       },
       {
-        "sectionHeading": "Tree herb seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Tree herb seed drop table",
         "lines": [
@@ -5742,7 +5742,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -6403,7 +6403,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre roll drops",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -6637,7 +6637,7 @@
         ]
       },
       {
-        "sectionHeading": "Fossil drop table",
+        "sectionHeading": "Tertiary",
         "topHeading": "Drops",
         "dropTable": "Fossil drop table",
         "lines": [
@@ -7105,7 +7105,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -7351,7 +7351,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -7435,7 +7435,7 @@
         ]
       },
       {
-        "sectionHeading": "Allotment seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Allotment seed drop table",
         "lines": [
@@ -7808,7 +7808,7 @@
         ]
       },
       {
-        "sectionHeading": "Tree herb seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Tree herb seed drop table",
         "lines": [
@@ -7927,7 +7927,7 @@
         ]
       },
       {
-        "sectionHeading": "Fossil drop table",
+        "sectionHeading": "Fossils",
         "topHeading": "Drops",
         "dropTable": "Fossil drop table",
         "lines": [
@@ -8131,7 +8131,7 @@
         ]
       },
       {
-        "sectionHeading": "Tree herb seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Tree herb seed drop table",
         "lines": [
@@ -8250,7 +8250,7 @@
         ]
       },
       {
-        "sectionHeading": "Fossil drop table",
+        "sectionHeading": "Tertiary",
         "topHeading": "Drops",
         "dropTable": "Fossil drop table",
         "lines": [
@@ -8691,7 +8691,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre-roll drops",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -9001,7 +9001,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -9635,7 +9635,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -10129,7 +10129,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Members' worlds drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -10213,7 +10213,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Members' worlds drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -10395,7 +10395,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Members' worlds drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -10426,7 +10426,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Members' worlds drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -10445,7 +10445,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Wilderness Slayer Cave drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -10529,7 +10529,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Wilderness Slayer Cave drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -10711,7 +10711,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Wilderness Slayer Cave drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -10730,7 +10730,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer cave drop table",
+        "sectionHeading": "Wilderness Slayer Cave tertiary",
         "topHeading": "Wilderness Slayer Cave drops",
         "dropTable": "Wilderness slayer cave drop table",
         "lines": [
@@ -11590,7 +11590,7 @@
         ]
       },
       {
-        "sectionHeading": "Tree herb seed drop table",
+        "sectionHeading": "Tree-herb seed drop table",
         "topHeading": "Drops",
         "dropTable": "Tree herb seed drop table",
         "lines": [
@@ -12036,7 +12036,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Level 96 drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -12120,7 +12120,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Level 96 drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -12302,7 +12302,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Level 146 drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -12386,7 +12386,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Level 146 drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -12939,7 +12939,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -13406,7 +13406,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -13713,7 +13713,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -13964,7 +13964,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -14224,7 +14224,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -14308,7 +14308,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -14858,7 +14858,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -14931,7 +14931,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre-roll",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -15569,7 +15569,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -15653,7 +15653,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -16384,7 +16384,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -17290,7 +17290,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Level 22 drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -17374,7 +17374,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Level 22 drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -17393,7 +17393,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Level 130 drops (members only)",
         "dropTable": "Herb drop table",
         "lines": [
@@ -17628,7 +17628,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -17880,7 +17880,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -18086,7 +18086,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -18352,7 +18352,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -18578,7 +18578,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -20986,7 +20986,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre-roll",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -21222,7 +21222,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -21496,7 +21496,7 @@
         ]
       },
       {
-        "sectionHeading": "Useful herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Useful herb drop table",
         "lines": [
@@ -21724,7 +21724,7 @@
         ]
       },
       {
-        "sectionHeading": "Useful herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Useful herb drop table",
         "lines": [
@@ -21759,7 +21759,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -23291,7 +23291,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -23375,7 +23375,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -23807,7 +23807,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -27867,7 +27867,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops (level 48)",
         "dropTable": "Herb drop table",
         "lines": [
@@ -28099,7 +28099,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -28343,7 +28343,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -28427,7 +28427,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -28653,7 +28653,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -28737,7 +28737,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -28964,7 +28964,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -29554,7 +29554,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Level 172, 178, and 184 drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -29638,7 +29638,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Level 172, 178, and 184 drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -29669,7 +29669,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Level 172, 178, and 184 drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -29688,7 +29688,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Wilderness Slayer Cave drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -29772,7 +29772,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Wilderness Slayer Cave drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -29791,7 +29791,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer cave drop table",
+        "sectionHeading": "Wilderness Slayer Cave tertiary",
         "topHeading": "Wilderness Slayer Cave drops",
         "dropTable": "Wilderness slayer cave drop table",
         "lines": [
@@ -30378,7 +30378,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -30397,7 +30397,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Wilderness Slayer Cave drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -30416,7 +30416,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer cave drop table",
+        "sectionHeading": "Wilderness Slayer Cave tertiary",
         "topHeading": "Wilderness Slayer Cave drops",
         "dropTable": "Wilderness slayer cave drop table",
         "lines": [
@@ -32921,7 +32921,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -33366,7 +33366,7 @@
         ]
       },
       {
-        "sectionHeading": "Useful herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Useful herb drop table",
         "lines": [
@@ -33684,7 +33684,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -34001,7 +34001,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -34260,7 +34260,7 @@
         ]
       },
       {
-        "sectionHeading": "Allotment seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Allotment seed drop table",
         "lines": [
@@ -34323,7 +34323,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -34775,7 +34775,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -34859,7 +34859,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -35410,7 +35410,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -35494,7 +35494,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -36017,7 +36017,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer Cave tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -36896,7 +36896,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -36999,7 +36999,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -37030,7 +37030,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -37114,7 +37114,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -37219,7 +37219,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -37250,7 +37250,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer Cave tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -37624,7 +37624,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -37708,7 +37708,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -38041,7 +38041,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -38125,7 +38125,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -38230,7 +38230,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -38566,7 +38566,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -38650,7 +38650,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -38971,7 +38971,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -39055,7 +39055,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -39397,7 +39397,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -39668,7 +39668,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -39752,7 +39752,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -39857,7 +39857,7 @@
         ]
       },
       {
-        "sectionHeading": "Allotment seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Allotment seed drop table",
         "lines": [
@@ -40284,7 +40284,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -40368,7 +40368,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -40399,7 +40399,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer Cave tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -40619,7 +40619,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -40946,7 +40946,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -41315,7 +41315,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -41399,7 +41399,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -41430,7 +41430,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer Cave tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -42215,7 +42215,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -42299,7 +42299,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -42721,7 +42721,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -43364,7 +43364,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -43639,7 +43639,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -43723,7 +43723,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -44056,7 +44056,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -44140,7 +44140,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -44245,7 +44245,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -44490,7 +44490,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -44574,7 +44574,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -44889,7 +44889,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -45129,7 +45129,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre-roll",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -45872,7 +45872,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -46164,7 +46164,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -46464,7 +46464,7 @@
         ]
       },
       {
-        "sectionHeading": "Fossil drop table",
+        "sectionHeading": "Fossils",
         "topHeading": "Drops",
         "dropTable": "Fossil drop table",
         "lines": [
@@ -47580,7 +47580,7 @@
         ]
       },
       {
-        "sectionHeading": "Fossil drop table",
+        "sectionHeading": "Loot",
         "topHeading": "Loot",
         "dropTable": "Fossil drop table",
         "lines": [
@@ -48287,7 +48287,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -48371,7 +48371,7 @@
         ]
       },
       {
-        "sectionHeading": "Allotment seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Allotment seed drop table",
         "lines": [
@@ -48727,7 +48727,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -50758,7 +50758,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -52150,7 +52150,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -52453,7 +52453,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -52704,7 +52704,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -53048,7 +53048,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -53697,7 +53697,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Members' worlds drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -53781,7 +53781,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Members' worlds drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -54992,7 +54992,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -55174,7 +55174,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Unnoted herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -55258,7 +55258,7 @@
         ]
       },
       {
-        "sectionHeading": "Combat herb drop table",
+        "sectionHeading": "Noted herbs",
         "topHeading": "Drops",
         "dropTable": "Combat herb drop table",
         "lines": [
@@ -55711,7 +55711,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre-roll",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -56112,7 +56112,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -56500,7 +56500,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -58238,7 +58238,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -58322,7 +58322,7 @@
         ]
       },
       {
-        "sectionHeading": "Allotment seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Allotment seed drop table",
         "lines": [
@@ -58518,7 +58518,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -58976,7 +58976,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -59060,7 +59060,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -59165,7 +59165,7 @@
         ]
       },
       {
-        "sectionHeading": "Allotment seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Allotment seed drop table",
         "lines": [
@@ -59228,7 +59228,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -60137,7 +60137,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Level 6 drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -60221,7 +60221,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Level 96 drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -60453,7 +60453,7 @@
         ]
       },
       {
-        "sectionHeading": "Allotment seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Allotment seed drop table",
         "lines": [
@@ -60516,7 +60516,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -61195,7 +61195,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -61279,7 +61279,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -61384,7 +61384,7 @@
         ]
       },
       {
-        "sectionHeading": "Allotment seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Allotment seed drop table",
         "lines": [
@@ -61668,7 +61668,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -61752,7 +61752,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -62189,7 +62189,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -63714,7 +63714,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -63959,7 +63959,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -64239,7 +64239,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -64323,7 +64323,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -64508,7 +64508,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -64979,7 +64979,7 @@
         ]
       },
       {
-        "sectionHeading": "Allotment seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Allotment seed drop table",
         "lines": [
@@ -65042,7 +65042,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -65126,7 +65126,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -65314,7 +65314,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Loot",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -66462,7 +66462,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Members drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -66546,7 +66546,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Members drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -68901,7 +68901,7 @@
         ]
       },
       {
-        "sectionHeading": "Fossil drop table",
+        "sectionHeading": "Drops",
         "topHeading": "Drops",
         "dropTable": "Fossil drop table",
         "lines": [
@@ -70165,7 +70165,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -70249,7 +70249,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -70280,7 +70280,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer Cave tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -70299,7 +70299,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -70869,7 +70869,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -71082,7 +71082,7 @@
         ]
       },
       {
-        "sectionHeading": "Fossil drop table",
+        "sectionHeading": "Drops",
         "topHeading": "Drops",
         "dropTable": "Fossil drop table",
         "lines": [
@@ -71144,7 +71144,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre-roll",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -71621,7 +71621,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre-roll",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -71873,7 +71873,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -71957,7 +71957,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -72160,7 +72160,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -73073,7 +73073,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -73157,7 +73157,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -73262,7 +73262,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -73585,7 +73585,7 @@
         ]
       },
       {
-        "sectionHeading": "God Wars Dungeon rare drop table",
+        "sectionHeading": "Rare drop table",
         "topHeading": "Drops",
         "dropTable": "God Wars Dungeon rare drop table",
         "lines": [
@@ -74575,7 +74575,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre-roll",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -76148,7 +76148,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -76261,7 +76261,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre-roll",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -77373,7 +77373,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -77489,7 +77489,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -77786,7 +77786,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -79200,7 +79200,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -80017,7 +80017,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -80101,7 +80101,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -80283,7 +80283,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -80367,7 +80367,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -80769,7 +80769,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -81031,7 +81031,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -81115,7 +81115,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -81297,7 +81297,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -81507,7 +81507,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -81591,7 +81591,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -82222,7 +82222,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -82327,7 +82327,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -82787,7 +82787,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops (Level 88)",
         "dropTable": "Herb drop table",
         "lines": [
@@ -82871,7 +82871,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops (Level 88)",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -82976,7 +82976,7 @@
         ]
       },
       {
-        "sectionHeading": "Talisman drop table",
+        "sectionHeading": "Talismans",
         "topHeading": "Drops (Level 88)",
         "dropTable": "Talisman drop table",
         "lines": [
@@ -83037,7 +83037,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops (Level 90)",
         "dropTable": "Herb drop table",
         "lines": [
@@ -83121,7 +83121,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops (Level 90)",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -83226,7 +83226,7 @@
         ]
       },
       {
-        "sectionHeading": "Talisman drop table",
+        "sectionHeading": "Talismans",
         "topHeading": "Drops (Level 90)",
         "dropTable": "Talisman drop table",
         "lines": [
@@ -83560,7 +83560,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -83665,7 +83665,7 @@
         ]
       },
       {
-        "sectionHeading": "Talisman drop table",
+        "sectionHeading": "Talismans",
         "topHeading": "Drops",
         "dropTable": "Talisman drop table",
         "lines": [
@@ -84704,7 +84704,7 @@
         ]
       },
       {
-        "sectionHeading": "Talisman drop table",
+        "sectionHeading": "Talismans",
         "topHeading": "Drops",
         "dropTable": "Talisman drop table",
         "lines": [
@@ -85695,7 +85695,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -85800,7 +85800,7 @@
         ]
       },
       {
-        "sectionHeading": "Talisman drop table",
+        "sectionHeading": "Talismans",
         "topHeading": "Drops",
         "dropTable": "Talisman drop table",
         "lines": [
@@ -87395,7 +87395,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -87479,7 +87479,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -87563,7 +87563,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -88204,7 +88204,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Level 8 drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -88288,7 +88288,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Level 8 drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -88307,7 +88307,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Level 37, 51 and 62 drops (members only)",
         "dropTable": "Herb drop table",
         "lines": [
@@ -88391,7 +88391,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Level 145 drops (members only)",
         "dropTable": "Herb drop table",
         "lines": [
@@ -88475,7 +88475,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Level 145 drops (members only)",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -89241,7 +89241,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -91262,7 +91262,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -91691,7 +91691,7 @@
         ]
       },
       {
-        "sectionHeading": "Tree herb seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Tree herb seed drop table",
         "lines": [
@@ -92066,7 +92066,7 @@
         ]
       },
       {
-        "sectionHeading": "Tree herb seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Tree herb seed drop table",
         "lines": [
@@ -92185,7 +92185,7 @@
         ]
       },
       {
-        "sectionHeading": "Fossil drop table",
+        "sectionHeading": "Tertiary",
         "topHeading": "Drops",
         "dropTable": "Fossil drop table",
         "lines": [
@@ -93060,7 +93060,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -93417,7 +93417,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -93501,7 +93501,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -93606,7 +93606,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -94790,7 +94790,7 @@
         ]
       },
       {
-        "sectionHeading": "Allotment seed drop table",
+        "sectionHeading": "Seeds and frags",
         "topHeading": "Drops",
         "dropTable": "Allotment seed drop table",
         "lines": [
@@ -94853,7 +94853,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -94937,7 +94937,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -95481,7 +95481,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -95565,7 +95565,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -96592,7 +96592,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Standard herb drop table",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -96676,7 +96676,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -97060,7 +97060,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -97144,7 +97144,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -97326,7 +97326,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -97712,7 +97712,7 @@
         ]
       },
       {
-        "sectionHeading": "Fossil drop table",
+        "sectionHeading": "Pre-roll",
         "topHeading": "Rewards",
         "dropTable": "Fossil drop table",
         "lines": [
@@ -99394,7 +99394,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -99706,7 +99706,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -101273,7 +101273,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -101357,7 +101357,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -101388,7 +101388,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -101472,7 +101472,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -101491,7 +101491,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer cave drop table",
+        "sectionHeading": "Wilderness Slayer Cave tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer cave drop table",
         "lines": [
@@ -102025,7 +102025,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -102207,7 +102207,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Unnoted herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -102291,7 +102291,7 @@
         ]
       },
       {
-        "sectionHeading": "Combat herb drop table",
+        "sectionHeading": "Noted herbs",
         "topHeading": "Drops",
         "dropTable": "Combat herb drop table",
         "lines": [
@@ -102439,7 +102439,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Normal variant drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -102949,7 +102949,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -103033,7 +103033,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -103215,7 +103215,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -104045,7 +104045,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -104703,7 +104703,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -104787,7 +104787,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -105012,7 +105012,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -105770,7 +105770,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -106021,7 +106021,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -107871,7 +107871,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -108108,7 +108108,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -108378,7 +108378,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -108874,7 +108874,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -109838,7 +109838,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -110634,7 +110634,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -111048,7 +111048,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Members' worlds drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -111132,7 +111132,7 @@
         ]
       },
       {
-        "sectionHeading": "Allotment seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Members' worlds drops",
         "dropTable": "Allotment seed drop table",
         "lines": [
@@ -111444,7 +111444,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -111528,7 +111528,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -111948,7 +111948,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -112244,7 +112244,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -112543,7 +112543,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -112627,7 +112627,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -112658,7 +112658,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -115377,7 +115377,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -116370,7 +116370,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Members' worlds drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -117408,7 +117408,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -118354,7 +118354,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -119072,7 +119072,7 @@
         ]
       },
       {
-        "sectionHeading": "Bird nest drop table",
+        "sectionHeading": "Bird nests",
         "topHeading": "Drops",
         "dropTable": "Bird nest drop table",
         "lines": [
@@ -120557,7 +120557,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -121978,7 +121978,7 @@
         ]
       },
       {
-        "sectionHeading": "God Wars Dungeon rare drop table",
+        "sectionHeading": "Rare drop table",
         "topHeading": "Drops",
         "dropTable": "God Wars Dungeon rare drop table",
         "lines": [
@@ -123093,7 +123093,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -123328,7 +123328,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -124006,7 +124006,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -124090,7 +124090,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -124195,7 +124195,7 @@
         ]
       },
       {
-        "sectionHeading": "Talisman drop table",
+        "sectionHeading": "Talismans",
         "topHeading": "Drops",
         "dropTable": "Talisman drop table",
         "lines": [
@@ -124454,7 +124454,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -124538,7 +124538,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -126216,7 +126216,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -126420,7 +126420,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -126802,7 +126802,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -126941,7 +126941,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -128430,7 +128430,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drop table 2",
         "dropTable": "Herb drop table",
         "lines": [
@@ -128738,7 +128738,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -129027,7 +129027,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -129320,7 +129320,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -133102,7 +133102,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre-roll",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -133368,7 +133368,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -133770,7 +133770,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "\"Full\" Gorak drop table",
         "dropTable": "Herb drop table",
         "lines": [
@@ -135386,7 +135386,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops (regular)",
         "dropTable": "Herb drop table",
         "lines": [
@@ -135470,7 +135470,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops (regular)",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -135575,7 +135575,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops (regular)",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -135606,7 +135606,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops (Wilderness Slayer Cave)",
         "dropTable": "Herb drop table",
         "lines": [
@@ -135690,7 +135690,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops (Wilderness Slayer Cave)",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -135795,7 +135795,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops (Wilderness Slayer Cave)",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -135814,7 +135814,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer cave drop table",
+        "sectionHeading": "Wilderness Slayer Cave tertiary",
         "topHeading": "Drops (Wilderness Slayer Cave)",
         "dropTable": "Wilderness slayer cave drop table",
         "lines": [
@@ -135999,7 +135999,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -136058,7 +136058,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -136302,7 +136302,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -136386,7 +136386,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -136417,7 +136417,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer Cave tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -136436,7 +136436,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -137498,7 +137498,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Level 92, 100, 101, and 113 drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -137529,7 +137529,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Level 92, 100, 101, and 113 drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -137548,7 +137548,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Wilderness Slayer Cave drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -137567,7 +137567,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer cave drop table",
+        "sectionHeading": "Wilderness Slayer Cave tertiary",
         "topHeading": "Wilderness Slayer Cave drops",
         "dropTable": "Wilderness slayer cave drop table",
         "lines": [
@@ -138170,7 +138170,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Level 79 drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -138254,7 +138254,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Level 79 drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -138273,7 +138273,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Wilderness Slayer Cave drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -138357,7 +138357,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Wilderness Slayer Cave drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -138376,7 +138376,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer cave drop table",
+        "sectionHeading": "Wilderness Slayer Cave tertiary",
         "topHeading": "Wilderness Slayer Cave drops",
         "dropTable": "Wilderness slayer cave drop table",
         "lines": [
@@ -138700,7 +138700,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -138784,7 +138784,7 @@
         ]
       },
       {
-        "sectionHeading": "Useful herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Useful herb drop table",
         "lines": [
@@ -138819,7 +138819,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -138982,7 +138982,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -140014,7 +140014,7 @@
         ]
       },
       {
-        "sectionHeading": "Allotment seed drop table",
+        "sectionHeading": "Seeds and frags",
         "topHeading": "Drops",
         "dropTable": "Allotment seed drop table",
         "lines": [
@@ -140077,7 +140077,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -142389,7 +142389,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -143154,7 +143154,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -143542,7 +143542,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Standard herb drop table",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -143626,7 +143626,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -143731,7 +143731,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -146382,7 +146382,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Level 122 drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -146413,7 +146413,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Level 122 drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -146432,7 +146432,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Level 136 (Wilderness Slayer Cave) drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -146451,7 +146451,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer cave drop table",
+        "sectionHeading": "Wilderness Slayer Cave tertiary",
         "topHeading": "Level 136 (Wilderness Slayer Cave) drops",
         "dropTable": "Wilderness slayer cave drop table",
         "lines": [
@@ -146781,7 +146781,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -147070,7 +147070,7 @@
         ]
       },
       {
-        "sectionHeading": "Fossil drop table",
+        "sectionHeading": "Trail inspection (fossil drop table)",
         "topHeading": "Loot",
         "dropTable": "Fossil drop table",
         "lines": [
@@ -148303,7 +148303,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -148387,7 +148387,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -148418,7 +148418,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -148857,7 +148857,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Unarmed hobgoblin drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -148941,7 +148941,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Armed hobgoblin drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -149025,7 +149025,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Armed hobgoblin drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -149294,7 +149294,7 @@
         ]
       },
       {
-        "sectionHeading": "Fossil drop table",
+        "sectionHeading": "Other",
         "topHeading": "Drops",
         "dropTable": "Fossil drop table",
         "lines": [
@@ -150908,7 +150908,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -150992,7 +150992,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -151239,7 +151239,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -152504,7 +152504,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -152686,7 +152686,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -152705,7 +152705,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Wilderness Slayer Cave drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -152887,7 +152887,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Wilderness Slayer Cave drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -152906,7 +152906,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer cave drop table",
+        "sectionHeading": "Wilderness Slayer Cave tertiary",
         "topHeading": "Wilderness Slayer Cave drops",
         "dropTable": "Wilderness slayer cave drop table",
         "lines": [
@@ -153087,7 +153087,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -153293,7 +153293,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -153568,7 +153568,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops (variant 1)",
         "dropTable": "Herb drop table",
         "lines": [
@@ -153652,7 +153652,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops (variant 1)",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -153998,7 +153998,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -154082,7 +154082,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -154593,7 +154593,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops (variant 1)",
         "dropTable": "Herb drop table",
         "lines": [
@@ -154677,7 +154677,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops (variant 1)",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -154859,7 +154859,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops (variant 2)",
         "dropTable": "Herb drop table",
         "lines": [
@@ -154943,7 +154943,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops (variant 2)",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -155454,7 +155454,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops (variant 1)",
         "dropTable": "Herb drop table",
         "lines": [
@@ -155538,7 +155538,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops (variant 1)",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -155720,7 +155720,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops (variant 2)",
         "dropTable": "Herb drop table",
         "lines": [
@@ -155804,7 +155804,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops (variant 2)",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -156118,7 +156118,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -156202,7 +156202,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -156384,7 +156384,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -157118,7 +157118,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -157654,7 +157654,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -157710,7 +157710,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre roll drops",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -157766,7 +157766,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre roll drops",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -158023,7 +158023,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -158107,7 +158107,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -158371,7 +158371,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -158402,7 +158402,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -158757,7 +158757,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -158841,7 +158841,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -159292,7 +159292,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops (Iorwerth Camp)",
         "dropTable": "Herb drop table",
         "lines": [
@@ -159376,7 +159376,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops (Iorwerth Camp)",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -159481,7 +159481,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops (Iorwerth Dungeon)",
         "dropTable": "Herb drop table",
         "lines": [
@@ -159797,7 +159797,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -160113,7 +160113,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -160213,7 +160213,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre-roll",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -162162,7 +162162,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -162586,7 +162586,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -162605,7 +162605,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer cave drop table",
+        "sectionHeading": "Wilderness Slayer Cave tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer cave drop table",
         "lines": [
@@ -162958,7 +162958,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -163334,7 +163334,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -163418,7 +163418,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -163871,7 +163871,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -164287,7 +164287,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -164371,7 +164371,7 @@
         ]
       },
       {
-        "sectionHeading": "Allotment seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Allotment seed drop table",
         "lines": [
@@ -165586,7 +165586,7 @@
         ]
       },
       {
-        "sectionHeading": "God Wars Dungeon rare drop table",
+        "sectionHeading": "Rare drop table",
         "topHeading": "Drops",
         "dropTable": "God Wars Dungeon rare drop table",
         "lines": [
@@ -166581,7 +166581,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -167200,7 +167200,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -167455,7 +167455,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -167733,7 +167733,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -168069,7 +168069,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -168696,7 +168696,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -170024,7 +170024,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -170108,7 +170108,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -170213,7 +170213,7 @@
         ]
       },
       {
-        "sectionHeading": "Talisman drop table",
+        "sectionHeading": "Talismans",
         "topHeading": "Drops",
         "dropTable": "Talisman drop table",
         "lines": [
@@ -170274,7 +170274,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -170333,7 +170333,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -170603,7 +170603,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -170687,7 +170687,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -170792,7 +170792,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -171286,7 +171286,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -171895,7 +171895,7 @@
         ]
       },
       {
-        "sectionHeading": "God Wars Dungeon rare drop table",
+        "sectionHeading": "Rare drop table",
         "topHeading": "Drops",
         "dropTable": "God Wars Dungeon rare drop table",
         "lines": [
@@ -172976,7 +172976,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -173239,7 +173239,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -173323,7 +173323,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -173686,7 +173686,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -174762,7 +174762,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -175090,7 +175090,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -175174,7 +175174,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -175254,7 +175254,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre roll drops",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -175518,7 +175518,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -175968,7 +175968,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Level 82, 87, and 94 drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -176052,7 +176052,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Level 82, 87, and 94 drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -176083,7 +176083,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Level 82, 87, and 94 drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -176102,7 +176102,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Wilderness Slayer Cave drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -176186,7 +176186,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Wilderness Slayer Cave drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -176205,7 +176205,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer cave drop table",
+        "sectionHeading": "Wilderness Slayer Cave tertiary",
         "topHeading": "Wilderness Slayer Cave drops",
         "dropTable": "Wilderness slayer cave drop table",
         "lines": [
@@ -176656,7 +176656,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -177407,7 +177407,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -177542,7 +177542,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre-roll",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -177774,7 +177774,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -177970,7 +177970,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Level 53 drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -178152,7 +178152,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Level 62 drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -178398,7 +178398,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -178795,7 +178795,7 @@
         ]
       },
       {
-        "sectionHeading": "Tree herb seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Tree herb seed drop table",
         "lines": [
@@ -179184,7 +179184,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Standard herb drop table",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -179268,7 +179268,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -179450,7 +179450,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -179555,7 +179555,7 @@
         ]
       },
       {
-        "sectionHeading": "Fossil drop table",
+        "sectionHeading": "Tertiary",
         "topHeading": "Drops",
         "dropTable": "Fossil drop table",
         "lines": [
@@ -179816,7 +179816,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -179900,7 +179900,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -180457,7 +180457,7 @@
         ]
       },
       {
-        "sectionHeading": "Fossil drop table",
+        "sectionHeading": "Tertiary",
         "topHeading": "Drops",
         "dropTable": "Fossil drop table",
         "lines": [
@@ -181089,7 +181089,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre-roll",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -183088,7 +183088,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -183107,7 +183107,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Catacombs drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -183764,7 +183764,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -183848,7 +183848,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -184621,7 +184621,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -185602,7 +185602,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -185686,7 +185686,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -185903,7 +185903,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -186633,7 +186633,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -186815,7 +186815,7 @@
         ]
       },
       {
-        "sectionHeading": "Combat herb drop table",
+        "sectionHeading": "Noted herbs",
         "topHeading": "Drops",
         "dropTable": "Combat herb drop table",
         "lines": [
@@ -187308,7 +187308,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -187575,7 +187575,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -189702,7 +189702,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -189979,7 +189979,7 @@
     "mapPlane": 0,
     "tables": [
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Gems",
         "topHeading": "Mineable items",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -190434,7 +190434,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre-roll",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -190706,7 +190706,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -191046,7 +191046,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -191316,7 +191316,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -191874,7 +191874,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -191958,7 +191958,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -192534,7 +192534,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -192961,7 +192961,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -193045,7 +193045,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -193591,7 +193591,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -193675,7 +193675,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -193857,7 +193857,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -193888,7 +193888,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -194132,7 +194132,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -194216,7 +194216,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -194682,7 +194682,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Level 108 drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -194985,7 +194985,7 @@
     "mapPlane": 0,
     "tables": [
       {
-        "sectionHeading": "Fossil drop table",
+        "sectionHeading": "Loot",
         "topHeading": "Loot",
         "dropTable": "Fossil drop table",
         "lines": [
@@ -195198,7 +195198,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -195501,7 +195501,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -195674,7 +195674,7 @@
     "mapPlane": 0,
     "tables": [
       {
-        "sectionHeading": "Fossil drop table",
+        "sectionHeading": "Loot",
         "topHeading": "Loot",
         "dropTable": "Fossil drop table",
         "lines": [
@@ -195976,7 +195976,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -196197,7 +196197,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -196424,7 +196424,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -197207,7 +197207,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -198061,7 +198061,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -198530,7 +198530,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops (regular nechryael + Iorwerth)",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -198633,7 +198633,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops (regular nechryael + Iorwerth)",
         "dropTable": "Superior drop table",
         "lines": [
@@ -198664,7 +198664,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops (greater nechryael)",
         "dropTable": "Herb drop table",
         "lines": [
@@ -198748,7 +198748,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops (greater nechryael)",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -198853,7 +198853,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops (greater nechryael)",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -198884,7 +198884,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer Cave tertiary",
         "topHeading": "Drops (greater nechryael)",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -198903,7 +198903,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops (greater nechryael)",
         "dropTable": "Superior drop table",
         "lines": [
@@ -199763,7 +199763,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre roll drops",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -200023,7 +200023,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -200107,7 +200107,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -200212,7 +200212,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -201145,7 +201145,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -201461,7 +201461,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -202124,7 +202124,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -202208,7 +202208,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -203141,7 +203141,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Members' worlds drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -203451,7 +203451,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -203645,7 +203645,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -204085,7 +204085,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -204367,7 +204367,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -204869,7 +204869,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -205284,7 +205284,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -206566,7 +206566,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre roll drops",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -207344,7 +207344,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -207589,7 +207589,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -207947,7 +207947,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -208474,7 +208474,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -208894,7 +208894,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -210326,7 +210326,7 @@
         ]
       },
       {
-        "sectionHeading": "Tree herb seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Tree herb seed drop table",
         "lines": [
@@ -212188,7 +212188,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -212840,7 +212840,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -212973,7 +212973,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -213835,7 +213835,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Catacombs of Kourend drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -214915,7 +214915,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -215097,7 +215097,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -217451,7 +217451,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -218269,7 +218269,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -218353,7 +218353,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -218458,7 +218458,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -218489,7 +218489,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -218935,7 +218935,7 @@
         ]
       },
       {
-        "sectionHeading": "Revenant drop table",
+        "sectionHeading": "Prayer info",
         "topHeading": "Prayer info",
         "dropTable": "Revenant drop table",
         "lines": [
@@ -219369,7 +219369,7 @@
         ]
       },
       {
-        "sectionHeading": "Revenant drop table",
+        "sectionHeading": "Prayer info",
         "topHeading": "Prayer info",
         "dropTable": "Revenant drop table",
         "lines": [
@@ -219803,7 +219803,7 @@
         ]
       },
       {
-        "sectionHeading": "Revenant drop table",
+        "sectionHeading": "Prayer info",
         "topHeading": "Prayer info",
         "dropTable": "Revenant drop table",
         "lines": [
@@ -220237,7 +220237,7 @@
         ]
       },
       {
-        "sectionHeading": "Revenant drop table",
+        "sectionHeading": "Prayer info",
         "topHeading": "Prayer info",
         "dropTable": "Revenant drop table",
         "lines": [
@@ -220671,7 +220671,7 @@
         ]
       },
       {
-        "sectionHeading": "Revenant drop table",
+        "sectionHeading": "Prayer info",
         "topHeading": "Prayer info",
         "dropTable": "Revenant drop table",
         "lines": [
@@ -221105,7 +221105,7 @@
         ]
       },
       {
-        "sectionHeading": "Revenant drop table",
+        "sectionHeading": "Prayer info",
         "topHeading": "Prayer info",
         "dropTable": "Revenant drop table",
         "lines": [
@@ -221539,7 +221539,7 @@
         ]
       },
       {
-        "sectionHeading": "Revenant drop table",
+        "sectionHeading": "Prayer info",
         "topHeading": "Prayer info",
         "dropTable": "Revenant drop table",
         "lines": [
@@ -221973,7 +221973,7 @@
         ]
       },
       {
-        "sectionHeading": "Revenant drop table",
+        "sectionHeading": "Prayer info",
         "topHeading": "Prayer info",
         "dropTable": "Revenant drop table",
         "lines": [
@@ -222407,7 +222407,7 @@
         ]
       },
       {
-        "sectionHeading": "Revenant drop table",
+        "sectionHeading": "Prayer info",
         "topHeading": "Prayer info",
         "dropTable": "Revenant drop table",
         "lines": [
@@ -222841,7 +222841,7 @@
         ]
       },
       {
-        "sectionHeading": "Revenant drop table",
+        "sectionHeading": "Drop mechanics",
         "topHeading": "Mechanics",
         "dropTable": "Revenant drop table",
         "lines": [
@@ -223275,7 +223275,7 @@
         ]
       },
       {
-        "sectionHeading": "Revenant drop table",
+        "sectionHeading": "Money making",
         "topHeading": "Money making",
         "dropTable": "Revenant drop table",
         "lines": [
@@ -223709,7 +223709,7 @@
         ]
       },
       {
-        "sectionHeading": "Revenant drop table",
+        "sectionHeading": "Prayer info",
         "topHeading": "Prayer info",
         "dropTable": "Revenant drop table",
         "lines": [
@@ -232763,7 +232763,7 @@
     ],
     "tables": [
       {
-        "sectionHeading": "Reward pool/rewards unique drop table",
+        "sectionHeading": "Unique",
         "topHeading": "Rewards",
         "dropTable": "Reward pool/rewards unique drop table",
         "lines": [
@@ -232836,7 +232836,7 @@
         ]
       },
       {
-        "sectionHeading": "Reward pool/rewards levels 35–39 drop table",
+        "sectionHeading": "Levels 35–39",
         "topHeading": "Rewards",
         "dropTable": "Reward pool/rewards levels 35–39 drop table",
         "lines": [
@@ -232873,7 +232873,7 @@
         ]
       },
       {
-        "sectionHeading": "Reward pool/rewards levels 40–45 drop table",
+        "sectionHeading": "Levels 40–45",
         "topHeading": "Rewards",
         "dropTable": "Reward pool/rewards levels 40–45 drop table",
         "lines": [
@@ -232910,7 +232910,7 @@
         ]
       },
       {
-        "sectionHeading": "Reward pool/rewards levels 46–49 drop table",
+        "sectionHeading": "Levels 46–49",
         "topHeading": "Rewards",
         "dropTable": "Reward pool/rewards levels 46–49 drop table",
         "lines": [
@@ -232947,7 +232947,7 @@
         ]
       },
       {
-        "sectionHeading": "Reward pool/rewards levels 50–75 drop table",
+        "sectionHeading": "Levels 50–75",
         "topHeading": "Rewards",
         "dropTable": "Reward pool/rewards levels 50–75 drop table",
         "lines": [
@@ -232984,7 +232984,7 @@
         ]
       },
       {
-        "sectionHeading": "Reward pool/rewards levels 76–78 drop table",
+        "sectionHeading": "Levels 76–78",
         "topHeading": "Rewards",
         "dropTable": "Reward pool/rewards levels 76–78 drop table",
         "lines": [
@@ -233021,7 +233021,7 @@
         ]
       },
       {
-        "sectionHeading": "Reward pool/rewards levels 79–80 drop table",
+        "sectionHeading": "Levels 79–80",
         "topHeading": "Rewards",
         "dropTable": "Reward pool/rewards levels 79–80 drop table",
         "lines": [
@@ -233058,7 +233058,7 @@
         ]
       },
       {
-        "sectionHeading": "Reward pool/rewards levels 81+ drop table",
+        "sectionHeading": "Levels 81+",
         "topHeading": "Rewards",
         "dropTable": "Reward pool/rewards levels 81+ drop table",
         "lines": [
@@ -233095,7 +233095,7 @@
         ]
       },
       {
-        "sectionHeading": "Reward pool/rewards other drop table",
+        "sectionHeading": "Other",
         "topHeading": "Rewards",
         "dropTable": "Reward pool/rewards other drop table",
         "lines": [
@@ -235374,7 +235374,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -236032,7 +236032,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -236116,7 +236116,7 @@
         ]
       },
       {
-        "sectionHeading": "Allotment seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Allotment seed drop table",
         "lines": [
@@ -236179,7 +236179,7 @@
         ]
       },
       {
-        "sectionHeading": "Talisman drop table",
+        "sectionHeading": "Talismans",
         "topHeading": "Drops",
         "dropTable": "Talisman drop table",
         "lines": [
@@ -236999,7 +236999,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Level 15 drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -237083,7 +237083,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Level 15 drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -237102,7 +237102,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Level 135 drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -237774,7 +237774,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre-roll",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -237872,7 +237872,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre-roll",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -238175,7 +238175,7 @@
         ]
       },
       {
-        "sectionHeading": "Useful herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Useful herb drop table",
         "lines": [
@@ -238254,7 +238254,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre-roll",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -238445,7 +238445,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -239218,7 +239218,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -240241,7 +240241,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -241173,7 +241173,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -241257,7 +241257,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -241957,7 +241957,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -242004,7 +242004,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -242051,7 +242051,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -242117,7 +242117,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -242334,7 +242334,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -242418,7 +242418,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -242629,7 +242629,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -242713,7 +242713,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -242818,7 +242818,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -242849,7 +242849,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -244198,7 +244198,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -244282,7 +244282,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -244624,7 +244624,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -244802,7 +244802,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -245226,7 +245226,7 @@
     "mapPlane": 0,
     "tables": [
       {
-        "sectionHeading": "Fossil drop table",
+        "sectionHeading": "Loot",
         "topHeading": "Loot",
         "dropTable": "Fossil drop table",
         "lines": [
@@ -246786,7 +246786,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -247064,7 +247064,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -247148,7 +247148,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -247253,7 +247253,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -247309,7 +247309,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -247428,7 +247428,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -251417,7 +251417,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre-roll",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -252012,7 +252012,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -252226,7 +252226,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -252440,7 +252440,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -252880,7 +252880,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -253112,7 +253112,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -253605,7 +253605,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops (Plain)",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -253624,7 +253624,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops (Unarmed)",
         "dropTable": "Herb drop table",
         "lines": [
@@ -253708,7 +253708,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops (Unarmed)",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -253727,7 +253727,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops (Armed)",
         "dropTable": "Herb drop table",
         "lines": [
@@ -253811,7 +253811,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops (Armed)",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -254136,7 +254136,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -254220,7 +254220,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -254533,7 +254533,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -254926,7 +254926,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -255918,7 +255918,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Level 42 and 59 drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -256002,7 +256002,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Level 40, 63, 72 and 77 drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -256086,7 +256086,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Level 81 and 87 drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -256352,7 +256352,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -256669,7 +256669,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -256793,7 +256793,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -256898,7 +256898,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -257059,7 +257059,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Level 83 drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -257417,7 +257417,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -257665,7 +257665,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -258121,7 +258121,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -258479,7 +258479,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -258882,7 +258882,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -259240,7 +259240,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -259917,7 +259917,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -260694,7 +260694,7 @@
     "mapPlane": 0,
     "tables": [
       {
-        "sectionHeading": "Fossil drop table",
+        "sectionHeading": "Loot",
         "topHeading": "Loot",
         "dropTable": "Fossil drop table",
         "lines": [
@@ -260963,7 +260963,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -261592,7 +261592,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -261732,7 +261732,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre-roll",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -262083,7 +262083,7 @@
         ]
       },
       {
-        "sectionHeading": "Fossil drop table",
+        "sectionHeading": "Fossil Island",
         "topHeading": "Fossil Island",
         "dropTable": "Fossil drop table",
         "lines": [
@@ -262951,7 +262951,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -264275,7 +264275,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -264567,7 +264567,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -264651,7 +264651,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -264833,7 +264833,7 @@
         ]
       },
       {
-        "sectionHeading": "Allotment seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Allotment seed drop table",
         "lines": [
@@ -265174,7 +265174,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -265258,7 +265258,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -265347,7 +265347,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -265562,7 +265562,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -265646,7 +265646,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -265751,7 +265751,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -266122,7 +266122,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -266316,7 +266316,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -266421,7 +266421,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -267026,7 +267026,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -267421,7 +267421,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -267810,7 +267810,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -268211,7 +268211,7 @@
         ]
       },
       {
-        "sectionHeading": "Fossil drop table",
+        "sectionHeading": "Tertiary",
         "topHeading": "Drops",
         "dropTable": "Fossil drop table",
         "lines": [
@@ -270795,7 +270795,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -272333,7 +272333,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -272778,7 +272778,7 @@
         ]
       },
       {
-        "sectionHeading": "Combat herb drop table",
+        "sectionHeading": "Noted herbs",
         "topHeading": "Drops",
         "dropTable": "Combat herb drop table",
         "lines": [
@@ -272930,7 +272930,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -273807,7 +273807,7 @@
         ]
       },
       {
-        "sectionHeading": "Fossil drop table",
+        "sectionHeading": "Pre-roll drops",
         "topHeading": "Woodcutting info",
         "dropTable": "Fossil drop table",
         "lines": [
@@ -274000,7 +274000,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -276170,7 +276170,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -277051,7 +277051,7 @@
         ]
       },
       {
-        "sectionHeading": "Fossil drop table",
+        "sectionHeading": "Tertiary",
         "topHeading": "Drops",
         "dropTable": "Fossil drop table",
         "lines": [
@@ -277163,7 +277163,7 @@
         ]
       },
       {
-        "sectionHeading": "Fossil drop table",
+        "sectionHeading": "Fossils",
         "topHeading": "Drops",
         "dropTable": "Fossil drop table",
         "lines": [
@@ -278459,7 +278459,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -278543,7 +278543,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -279365,7 +279365,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Level 100 drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -279449,7 +279449,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Level 110 drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -282629,7 +282629,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -282860,7 +282860,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -283210,7 +283210,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -283294,7 +283294,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -283671,7 +283671,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -283933,7 +283933,7 @@
         ]
       },
       {
-        "sectionHeading": "Mining pre gem drop table",
+        "sectionHeading": "Pre-roll",
         "topHeading": "Mining info",
         "dropTable": "Mining pre gem drop table",
         "lines": [
@@ -284609,7 +284609,7 @@
         ]
       },
       {
-        "sectionHeading": "Tree herb seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Tree herb seed drop table",
         "lines": [
@@ -285055,7 +285055,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops without riders",
         "dropTable": "Herb drop table",
         "lines": [
@@ -285139,7 +285139,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops with riders",
         "dropTable": "Herb drop table",
         "lines": [
@@ -285450,7 +285450,7 @@
         ]
       },
       {
-        "sectionHeading": "Tree herb seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Tree herb seed drop table",
         "lines": [
@@ -285699,7 +285699,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -286674,7 +286674,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -286758,7 +286758,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -287033,7 +287033,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -287284,7 +287284,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -287644,7 +287644,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -287915,7 +287915,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -287999,7 +287999,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -289214,7 +289214,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -289298,7 +289298,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -289600,7 +289600,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -289684,7 +289684,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -290026,7 +290026,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -290110,7 +290110,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -290215,7 +290215,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -292322,7 +292322,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -292406,7 +292406,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Uncommon",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -292588,7 +292588,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Rare",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -294708,7 +294708,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -294792,7 +294792,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -296362,7 +296362,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -297070,7 +297070,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -297321,7 +297321,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -298127,7 +298127,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -298457,7 +298457,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -298633,7 +298633,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer Cave tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -298652,7 +298652,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -298848,7 +298848,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -298879,7 +298879,7 @@
         ]
       },
       {
-        "sectionHeading": "Superior drop table",
+        "sectionHeading": "Superior Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Superior drop table",
         "lines": [
@@ -300259,7 +300259,7 @@
         ]
       },
       {
-        "sectionHeading": "Tree herb seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Tree herb seed drop table",
         "lines": [
@@ -300768,7 +300768,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -301079,7 +301079,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -301163,7 +301163,7 @@
         ]
       },
       {
-        "sectionHeading": "Uncommon seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Uncommon seed drop table",
         "lines": [
@@ -301728,7 +301728,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -301812,7 +301812,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -301917,7 +301917,7 @@
         ]
       },
       {
-        "sectionHeading": "Talisman drop table",
+        "sectionHeading": "Talismans",
         "topHeading": "Drops",
         "dropTable": "Talisman drop table",
         "lines": [
@@ -302306,7 +302306,7 @@
         ]
       },
       {
-        "sectionHeading": "Catacombs drop table",
+        "sectionHeading": "Catacombs tertiary",
         "topHeading": "Drops",
         "dropTable": "Catacombs drop table",
         "lines": [
@@ -302871,7 +302871,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -303176,7 +303176,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -303647,7 +303647,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -303731,7 +303731,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -304185,7 +304185,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -305088,7 +305088,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Level 36 drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -305172,7 +305172,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Level 38 drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -305256,7 +305256,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Level 39 drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -305340,7 +305340,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Level 42 drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -307338,7 +307338,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -308062,7 +308062,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -308146,7 +308146,7 @@
         ]
       },
       {
-        "sectionHeading": "Rare seed drop table",
+        "sectionHeading": "Seeds",
         "topHeading": "Drops",
         "dropTable": "Rare seed drop table",
         "lines": [
@@ -308636,7 +308636,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -310798,7 +310798,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -312810,7 +312810,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -313264,7 +313264,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops (level 13)",
         "dropTable": "Herb drop table",
         "lines": [
@@ -313348,7 +313348,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops (level 24)",
         "dropTable": "Herb drop table",
         "lines": [
@@ -313554,7 +313554,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops (Entrana)",
         "dropTable": "Herb drop table",
         "lines": [
@@ -313812,7 +313812,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -314346,7 +314346,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -314520,7 +314520,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -315458,7 +315458,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Level 40–56 drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -315542,7 +315542,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Level 61–80 drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -315626,7 +315626,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Levels 81–100",
         "dropTable": "Herb drop table",
         "lines": [
@@ -315952,7 +315952,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -316036,7 +316036,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -316748,7 +316748,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Medium Wilderness Diary drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -316767,7 +316767,7 @@
         ]
       },
       {
-        "sectionHeading": "Wilderness slayer drop table",
+        "sectionHeading": "Wilderness Slayer tertiary",
         "topHeading": "Regular drops",
         "dropTable": "Wilderness slayer drop table",
         "lines": [
@@ -316969,7 +316969,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [
@@ -317270,7 +317270,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops (Harmony Island)",
         "dropTable": "Herb drop table",
         "lines": [
@@ -317579,7 +317579,7 @@
         ]
       },
       {
-        "sectionHeading": "Herb drop table",
+        "sectionHeading": "Herbs",
         "topHeading": "Drops",
         "dropTable": "Herb drop table",
         "lines": [

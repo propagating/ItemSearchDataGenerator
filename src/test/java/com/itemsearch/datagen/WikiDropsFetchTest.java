@@ -239,8 +239,8 @@ public class WikiDropsFetchTest
 
         DropTableJson herbs = tableContaining(p, "Grimy ranarr weed");
         assertEquals("Herb drop table", herbs.dropTable);
-        assertEquals("a headingless shared table is named after itself",
-            "Herb drop table", herbs.sectionHeading);
+        assertEquals("the heading introducing the transclusion still applies",
+            "Herbs", herbs.sectionHeading);
         assertNull("a page's own table belongs to no shared table",
             tableContaining(p, "Coins").dropTable);
     }
@@ -294,16 +294,36 @@ public class WikiDropsFetchTest
     }
 
     @Test
-    public void aSharedTableWithNoHeadingsIsNamedAfterItself()
+    public void aHeadingIntroducingATransclusionIsInherited()
+    {
+        Map<String, String> templates = new HashMap<>();
+        templates.put("HerbDropLines",
+            "{{DropsLine|name=Grimy guam leaf|quantity=1|rarity=1/25}}\n");
+        // the heading sits directly above the transclusion, so it names it
+        String page = "{{Infobox Monster\n|name = Spectre\n|id = 2}}\n"
+            + "==Drops==\n===Herbs===\n{{HerbDropLines}}\n";
+        DropPageJson p = WikiDropsFetch.extract("Spectre", page, templates);
+        assertEquals("Herbs", p.tables.get(0).sectionHeading);
+        assertEquals("Herb drop table", p.tables.get(0).dropTable);
+    }
+
+    /**
+     * The two fields answer different questions and must not collapse into one: the section is
+     * where the table sits on the page, the drop table is what it is. Revenant pages carry the
+     * wilderness slayer table under a "Prayer info" heading — odd, but that is where it is, and
+     * the client's grouping setting is what lets the player pick which answer they want.
+     */
+    @Test
+    public void sectionAndDropTableStayDistinct()
     {
         Map<String, String> templates = new HashMap<>();
         templates.put("WildernessSlayerDropTable",
             "{{DropsLine|name=Larran's key|quantity=1|rarity=1/100}}\n");
-        // revenant pages pull this table in under a heading that has nothing to do with drops
         String page = "{{Infobox Monster\n|name = Revenant hobgoblin\n|id = 7934}}\n"
-            + "==Prayer info==\nprose\n{{WildernessSlayerDropTable}}\n";
+            + "==Prayer info==\nsome prose about prayer\n\n{{WildernessSlayerDropTable}}\n";
         DropPageJson p = WikiDropsFetch.extract("Revenant hobgoblin", page, templates);
-        assertEquals("Wilderness slayer drop table", p.tables.get(0).sectionHeading);
+        assertEquals("Prayer info", p.tables.get(0).sectionHeading);
+        assertEquals("Wilderness slayer drop table", p.tables.get(0).dropTable);
     }
 
     @Test
