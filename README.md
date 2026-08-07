@@ -192,6 +192,31 @@ curl -sL "https://raw.githubusercontent.com/mejrs/data_osrs/6a3ca6f19d65c5609434
   -o npc-spawns.json
 ```
 
+Note the dump stops at npc id 11151, so anything added to the game since it was
+taken has no spawn tiles — Elite Black Knights (13463) among them. The newer
+upstream commit is byte-identical, so re-pinning does not help.
+
+### Dungeon entrances (pinned)
+
+Same repo, commit `7777c539839b`, file `transports_osrs.json` (~7 MB): every
+ladder, staircase, rope and rift, as a start tile and the tiles it lands on.
+
+```bash
+curl -sL "https://raw.githubusercontent.com/mejrs/data_osrs/7777c539839b/transports_osrs.json" \
+  -o transports_osrs.json
+```
+
+Underground areas use ordinary world coordinates at y >= 6400, which the surface
+world map does not draw — so a marker on a steel dragon's tile is correct and
+useless until you are already in Brimhaven Dungeon. Nothing states dungeon
+entrances directly (the wiki has only prose and a picture), so `DungeonEntrance`
+walks this transport graph backwards from a spawn until it surfaces. Taking the
+single nearest transport is not enough: the first hop out of a dungeon is
+usually another part of the same dungeon.
+
+224 of 241 underground-only sources resolve. Without the file the sweep still
+runs; sources simply get no `entrance`.
+
 ## Combat data (OSRS Wiki)
 
 Per-attack-style combat data (max hit, attack style, attack speed) comes from
