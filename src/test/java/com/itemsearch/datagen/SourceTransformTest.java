@@ -40,6 +40,7 @@ import com.itemsearch.datagen.source.DropLineJson;
 import com.itemsearch.datagen.source.DropPageJson;
 import com.itemsearch.datagen.source.DropTableJson;
 import com.itemsearch.datagen.source.ItemInfoJson;
+import com.itemsearch.datagen.source.VersionJson;
 import com.itemsearch.datagen.source.WikiCombatJson;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
@@ -125,6 +126,115 @@ public class SourceTransformTest
         // deterministic across regenerations: the first N in id order, not an arbitrary subset
         assertEquals(3000, rat.spawnPoints.get(0).x);
         assertEquals(3024, rat.spawnPoints.get(24).x);
+    }
+
+    private static VersionJson version(String label, String combatLevel, String... ids)
+    {
+        VersionJson v = new VersionJson();
+        v.label = label;
+        v.combatLevel = combatLevel;
+        v.npcIds.addAll(Arrays.asList(ids));
+        return v;
+    }
+
+    private static WikiCombatJson versioned(List<String> styles, List<String> maxHits,
+        List<String> speeds)
+    {
+        WikiCombatJson w = new WikiCombatJson();
+        w.attackStyles = styles;
+        w.maxHits = maxHits;
+        w.attackSpeeds = speeds;
+        return w;
+    }
+
+    /**
+     * Killerwatt is Idle (470, stab) and Attacking (469, crush) sharing one drop table. Folding
+     * them into one source lost the crush outright, and told the player the thing fighting them
+     * stabs.
+     */
+    @Test
+    public void versionsWithDifferentCombatBecomeSeparateSources()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        DropPageJson p = page("Killerwatt", "Monster", Arrays.asList("470", "469"), "55",
+            table("Drops", "Drops", line(false, "Bones", "1", "Always", null)));
+        p.versions.add(version("Idle", "55", "470"));
+        p.versions.add(version("Attacking", "55", "469"));
+        pages.put("Killerwatt", p);
+
+        Map<String, WikiCombatJson> wiki = Collections.singletonMap("Killerwatt",
+            versioned(Arrays.asList("[[Stab]]", "[[Crush]]"), Arrays.asList("6", "6"),
+                Arrays.asList("2", "2")));
+
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), wiki, Collections.emptyMap(), Collections.emptyMap());
+
+        assertEquals(2, out.size());
+        OutputSource attacking = byName(out, "Killerwatt (Attacking)");
+        OutputSource idle = byName(out, "Killerwatt (Idle)");
+        assertNotNull("each version is its own source", attacking);
+        assertNotNull(idle);
+        assertEquals(Collections.singletonList(469), attacking.npcIds);
+        assertEquals("crush", attacking.combat.attacks.get(0).style);
+        assertEquals(Collections.singletonList(470), idle.npcIds);
+        assertEquals("stab", idle.combat.attacks.get(0).style);
+        // the shared drop table belongs to both
+        assertEquals(1, attacking.drops.size());
+        assertEquals(1, idle.drops.size());
+    }
+
+    /**
+     * Barbarian lists 36 versions that mostly fight identically. One source per version would
+     * bury the search results, so versions that are actually the same monster stay together.
+     */
+    @Test
+    public void versionsThatFightTheSameStayOneSource()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        DropPageJson p = page("Barbarian", "Monster", Arrays.asList("1", "2", "3"), "10",
+            table("Drops", "Drops", line(false, "Bones", "1", "Always", null)));
+        p.versions.add(version("Level 10 (Fafner)", "10", "1"));
+        p.versions.add(version("Level 10 (Hagen)", "10", "2"));
+        p.versions.add(version("Level 9 (Sieglinde)", "9", "3"));
+        pages.put("Barbarian", p);
+
+        Map<String, WikiCombatJson> wiki = Collections.singletonMap("Barbarian",
+            versioned(Arrays.asList("[[Crush]]", "[[Crush]]", "[[Crush]]"),
+                Arrays.asList("3", "3", "2"), Arrays.asList("4", "4", "4")));
+
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), wiki, Collections.emptyMap(), Collections.emptyMap());
+
+        assertEquals("the two identical level 10 barbarians merge", 2, out.size());
+        OutputSource lvl10 = byName(out, "Barbarian (Level 10 (Fafner))");
+        assertNotNull(lvl10);
+        assertEquals(Arrays.asList(1, 2), lvl10.npcIds);
+        assertNotNull(byName(out, "Barbarian (Level 9 (Sieglinde))"));
+    }
+
+    @Test
+    public void aPageWithOneVersionKeepsItsPlainName()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        pages.put("Ogre", page("Ogre", "Monster", Arrays.asList("500"), "53",
+            table("Drops", "Drops", line(false, "Bones", "1", "Always", null))));
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap(),
+            Collections.emptyMap());
+        assertEquals(1, out.size());
+        assertEquals("Ogre", out.get(0).name);
+    }
+
+    private static OutputSource byName(List<OutputSource> sources, String name)
+    {
+        for (OutputSource s : sources)
+        {
+            if (name.equals(s.name))
+            {
+                return s;
+            }
+        }
+        return null;
     }
 
     @Test

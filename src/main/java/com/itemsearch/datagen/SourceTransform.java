@@ -34,6 +34,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+import com.itemsearch.datagen.output.OutputAttack;
 import com.itemsearch.datagen.output.OutputCombat;
 import com.itemsearch.datagen.output.OutputDrop;
 import com.itemsearch.datagen.output.OutputSource;
@@ -43,6 +44,7 @@ import com.itemsearch.datagen.source.DropLineJson;
 import com.itemsearch.datagen.source.DropPageJson;
 import com.itemsearch.datagen.source.DropTableJson;
 import com.itemsearch.datagen.source.ItemInfoJson;
+import com.itemsearch.datagen.source.VersionJson;
 import com.itemsearch.datagen.source.WikiCombatJson;
 
 /**
@@ -73,7 +75,7 @@ public final class SourceTransform
         {
             for (DropPageJson page : pages.values())
             {
-                buckets.addAll(bucketsForPage(page, itemInfo, typeOverlay));
+                buckets.addAll(bucketsForPage(page, itemInfo, typeOverlay, wiki));
             }
         }
 
@@ -91,7 +93,7 @@ public final class SourceTransform
     }
 
     private static List<Bucket> bucketsForPage(DropPageJson page, Map<String, ItemInfoJson> itemInfo,
-        Map<String, String> typeOverlay)
+        Map<String, String> typeOverlay, Map<String, WikiCombatJson> wiki)
     {
         List<Bucket> result = new ArrayList<>();
         if (page == null || page.tables == null || page.pageTitle == null)
@@ -141,7 +143,93 @@ public final class SourceTransform
             }
             result.add(b);
         }
-        return result;
+        return splitVersions(result, page, wiki);
+    }
+
+    /**
+     * Splits a page that describes several monsters into one source per distinct version.
+     *
+     * <p>Killerwatt is Idle (470, stab) and Attacking (469, crush) sharing a drop table; merging
+     * them dropped the crush and told the player the thing fighting them stabs. Versions are
+     * grouped by what actually distinguishes them — combat level and how they fight — so the 36
+     * near-identical Barbarian versions do not each become a search result. A group is named
+     * after its first version ("Killerwatt (Attacking)"), and the shared drop table belongs to
+     * every version, since any of them drops it.
+     */
+    private static List<Bucket> splitVersions(List<Bucket> buckets, DropPageJson page,
+        Map<String, WikiCombatJson> wiki)
+    {
+        if (page.versions == null || page.versions.size() < 2)
+        {
+            return buckets;
+        }
+        WikiCombatJson combat = wiki == null ? null : wiki.get(page.pageTitle);
+
+        // group version indexes by combat level plus the attacks they parse to
+        Map<String, List<Integer>> groups = new LinkedHashMap<>();
+        for (int i = 0; i < page.versions.size(); i++)
+        {
+            VersionJson v = page.versions.get(i);
+            if (v.npcIds.isEmpty())
+            {
+                continue; // a version with no id of its own cannot be told apart in game
+            }
+            groups.computeIfAbsent(signature(v, combat, i), k -> new ArrayList<>()).add(i);
+        }
+        if (groups.size() < 2)
+        {
+            return buckets; // every version fights the same: one monster after all
+        }
+
+        List<Bucket> out = new ArrayList<>();
+        for (Bucket b : buckets)
+        {
+            if (!"KILL".equals(b.type))
+            {
+                out.add(b); // only a fought monster has versions worth telling apart
+                continue;
+            }
+            for (List<Integer> group : groups.values())
+            {
+                VersionJson first = page.versions.get(group.get(0));
+                Bucket split = new Bucket();
+                split.pageTitle = b.pageTitle;
+                split.name = b.name + " (" + first.label + ")";
+                split.type = b.type;
+                split.combatLevel = parseIntOr(first.combatLevel, b.combatLevel);
+                split.npcIds = new ArrayList<>();
+                for (int i : group)
+                {
+                    for (Integer id : parseNpcIds(page.versions.get(i).npcIds))
+                    {
+                        if (!split.npcIds.contains(id))
+                        {
+                            split.npcIds.add(id);
+                        }
+                    }
+                }
+                split.drops = b.drops;
+                split.mapX = b.mapX;
+                split.mapY = b.mapY;
+                split.mapPlane = b.mapPlane;
+                split.version = group.get(0);
+                out.add(split);
+            }
+        }
+        return out;
+    }
+
+    /** What tells two versions apart: their combat level and how they fight. */
+    private static String signature(VersionJson v, WikiCombatJson combat, int index)
+    {
+        StringBuilder sig = new StringBuilder(v.combatLevel == null ? "" : v.combatLevel.trim());
+        for (OutputAttack a : WikiCombat.toAttacks(combat, index).attacks)
+        {
+            sig.append('|').append(a.style).append(':').append(a.prayStyle)
+                .append(':').append(a.maxHit).append('-').append(a.maxHitMax)
+                .append(':').append(a.speed).append('-').append(a.speedMax);
+        }
+        return sig.toString();
     }
 
     private static String inferType(String infobox, DropTableJson table)
@@ -286,7 +374,8 @@ public final class SourceTransform
         OutputCombat combat = null;
         if ("KILL".equals(b.type))
         {
-            CombatParser.ParsedCombat pc = WikiCombat.toAttacks(wiki == null ? null : wiki.get(b.pageTitle));
+            CombatParser.ParsedCombat pc = WikiCombat.toAttacks(
+                wiki == null ? null : wiki.get(b.pageTitle), b.version);
             combat = new OutputCombat(0, 0, 0, 0, 0, 0, pc.attacks);
             if (combatOverlay != null && combatOverlay.containsKey(b.id))
             {
@@ -343,5 +432,7 @@ public final class SourceTransform
         Integer mapY;
         Integer mapPlane;
         int id;
+        // index into the page's versionN list, or -1 when the page describes one monster
+        int version = -1;
     }
 }

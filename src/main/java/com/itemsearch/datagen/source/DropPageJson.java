@@ -36,5 +36,8 @@ public class DropPageJson
     public Integer mapX;
     public Integer mapY;
     public Integer mapPlane; // null only when no map coordinates were found on the page
+    // one entry per {{Infobox Monster}} versionN, when the page describes several monsters;
+    // empty for an ordinary single-monster page
+    public List<VersionJson> versions = new ArrayList<>();
     public List<DropTableJson> tables = new ArrayList<>();
 }

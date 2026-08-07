@@ -46,6 +46,7 @@ import java.util.regex.Pattern;
 import com.itemsearch.datagen.source.DropLineJson;
 import com.itemsearch.datagen.source.DropPageJson;
 import com.itemsearch.datagen.source.DropTableJson;
+import com.itemsearch.datagen.source.VersionJson;
 
 /**
  * Fetches and parses {{DropsLine}}/{{DropsLineReward}} drop tables (and their
@@ -123,6 +124,7 @@ public final class WikiDropsFetch
                 addIdTokens(page.npcIds, v);
             }
             page.combatLevel = WikiText.field(infoboxBody, "combat");
+            addVersions(page, infoboxBody);
         }
 
         int[] coords = infoboxBody != null ? WikiText.mapCoords(infoboxBody) : null;
@@ -141,6 +143,35 @@ public final class WikiDropsFetch
         page.tables.addAll(parseTables(text));
         appendSharedTables(page, text, headings, sharedTables);
         return page.tables.isEmpty() ? null : page;
+    }
+
+    /**
+     * Records each {{Infobox Monster}} versionN with its own ids and combat level.
+     *
+     * <p>A page can describe several monsters that share one drop table — Killerwatt is Idle
+     * (470) and Attacking (469), which fight differently. The wiki's numbered combat fields line
+     * up with these by index, so the order here is the order they are declared in.
+     */
+    private static void addVersions(DropPageJson page, String infoboxBody)
+    {
+        List<String> labels = WikiText.numberedFields(infoboxBody, "version");
+        if (labels.size() < 2)
+        {
+            return; // one monster: nothing to split
+        }
+        List<String> ids = WikiText.numberedFields(infoboxBody, "id");
+        List<String> levels = WikiText.numberedFields(infoboxBody, "combat");
+        for (int i = 0; i < labels.size(); i++)
+        {
+            VersionJson v = new VersionJson();
+            v.label = labels.get(i) == null ? null : labels.get(i).trim();
+            if (i < ids.size())
+            {
+                addIdTokens(v.npcIds, ids.get(i));
+            }
+            v.combatLevel = i < levels.size() ? levels.get(i) : page.combatLevel;
+            page.versions.add(v);
+        }
     }
 
     /**

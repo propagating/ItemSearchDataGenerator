@@ -91,6 +91,28 @@ public final class WikiCombat
         return map == null ? new HashMap<>() : map;
     }
 
+    /**
+     * Attacks for one {{Infobox Monster}} version, rather than every version folded together.
+     * The numbered fields line up by index with the page's versionN list, so version i reads
+     * attack style(i), max hit(i) and attack speed(i). Falls back to the folded reading when the
+     * page has no numbered field for that index.
+     */
+    public static CombatParser.ParsedCombat toAttacks(WikiCombatJson w, int version)
+    {
+        if (w == null || w.attackStyles == null || version < 0 || version >= w.attackStyles.size())
+        {
+            return toAttacks(w);
+        }
+        String maxHit = w.maxHits != null && version < w.maxHits.size()
+            ? w.maxHits.get(version) : w.maxHit;
+        String speed = w.attackSpeeds != null && version < w.attackSpeeds.size()
+            ? w.attackSpeeds.get(version) : w.attackSpeed;
+        return CombatParser.assemble(
+            CombatParser.parseStyles(w.attackStyles.get(version)),
+            CombatParser.parseMaxHits(maxHit),
+            CombatParser.parseSpeeds(speed));
+    }
+
     public static CombatParser.ParsedCombat toAttacks(WikiCombatJson w)
     {
         if (w == null)

@@ -352,6 +352,56 @@ public class WikiDropsFetchTest
         return null;
     }
 
+    /**
+     * A monster page can describe several versions, each its own npc id with its own combat.
+     * Killerwatt is Idle (470, stab) and Attacking (469, crush); folding them together loses the
+     * crush entirely.
+     */
+    @Test
+    public void infoboxVersionsAreCaptured()
+    {
+        String page = "{{Infobox Monster\n|name = Killerwatt\n"
+            + "|version1 = Idle\n|version2 = Attacking\n"
+            + "|id1 = 470\n|id2 = 469\n"
+            + "|combat1 = 55\n|combat2 = 55\n}}\n"
+            + "==Drops==\n{{DropsTableHead}}\n"
+            + "{{DropsLine|name=Nothing interesting|quantity=1|rarity=Always}}\n"
+            + "{{DropsTableBottom}}\n";
+        DropPageJson p = WikiDropsFetch.extract("Killerwatt", page);
+
+        assertEquals(2, p.versions.size());
+        assertEquals("Idle", p.versions.get(0).label);
+        assertEquals(Collections.singletonList("470"), p.versions.get(0).npcIds);
+        assertEquals("55", p.versions.get(0).combatLevel);
+        assertEquals("Attacking", p.versions.get(1).label);
+        assertEquals(Collections.singletonList("469"), p.versions.get(1).npcIds);
+        // the flat id list still carries every id, as the rest of the pipeline expects
+        assertEquals(Arrays.asList("470", "469"), p.npcIds);
+    }
+
+    // one version can hold several ids: Dagannoth writes "id1 = 970,971,972"
+    @Test
+    public void aVersionCanHoldSeveralIds()
+    {
+        String page = "{{Infobox Monster\n|name = Dagannoth\n"
+            + "|version1 = Level 74\n|version2 = Level 92\n"
+            + "|id1 = 970,971,972\n|id2 = 973\n"
+            + "|combat1 = 74\n|combat2 = 92\n}}\n"
+            + "==Drops==\n{{DropsTableHead}}\n"
+            + "{{DropsLine|name=Bones|quantity=1|rarity=Always}}\n{{DropsTableBottom}}\n";
+        DropPageJson p = WikiDropsFetch.extract("Dagannoth", page);
+        assertEquals(Arrays.asList("970", "971", "972"), p.versions.get(0).npcIds);
+        assertEquals("74", p.versions.get(0).combatLevel);
+        assertEquals(Collections.singletonList("973"), p.versions.get(1).npcIds);
+    }
+
+    @Test
+    public void aSingleVersionPageRecordsNoVersions()
+    {
+        DropPageJson p = WikiDropsFetch.extract("Zulrah", ZULRAH_LIKE);
+        assertTrue("nothing to split when the page describes one monster", p.versions.isEmpty());
+    }
+
     @Test
     public void subsectionHeadingsBecomeCategoriesWithTopLevelSectionKept()
     {
