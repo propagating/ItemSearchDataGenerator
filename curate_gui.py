@@ -108,6 +108,18 @@ def fmt_variants(variants, column_kind):
     return "; ".join(parts)
 
 
+def canonical_ids():
+    """Npc ids the generator will actually read an overlay entry for.
+
+    The overlay is keyed by npc id, but a monster with several ids is one source keyed by its
+    canonical id, and applyCombatOverlay only ever looks that one up. An entry under any other
+    id is never applied, so curating it does nothing — Killerwatt is one source (470) with ids
+    470 and 469, and the queue used to show both identically.
+    """
+    sources = core.load_json(core.DROPS, [])
+    return {s["id"] for s in (sources or []) if s.get("id") is not None}
+
+
 def collect_attacks(rows):
     """rows: iterable of (style, max_text, speed_text[, gear_text, prayer_text,
     consumable_text, notes]) -> (attacks_list, error_or_None).
@@ -321,6 +333,7 @@ class CuratorApp:
 
         self.overlay = core.load_json(core.OVERLAY, {}) or {}
         self.meta = core.build_meta()
+        self.canonical = canonical_ids()
         self.ids = []            # ids currently shown in the listbox, in order
         self.current_id = None
         self.rows = []
@@ -575,15 +588,25 @@ class CuratorApp:
         for k in self.ids:
             name, _, level = core.describe(self.meta, k)
             mark = "•" if self.overlay[k].get("needsReview") else "✓"
-            if len(name) > 21:
-                name = name[:20] + "…"
-            self.listbox.insert("end", " {} {:<22}{:>4}".format(mark, name, level or "—"))
+            # the id is the only thing separating same-name, same-level mobs (two Killerwatts,
+            # two Skeletal Wyverns), and it is the overlay's key
+            unused = self.canonical and int(k) not in self.canonical
+            if len(name) > 17:
+                name = name[:16] + "…"
+            self.listbox.insert("end", " {} {:<18}{:>4} {:>6}{}".format(
+                mark, name, level or "—", k, "  ✗" if unused else ""))
         for i, k in enumerate(self.ids):
-            if not self.overlay[k].get("needsReview"):
+            if self.canonical and int(k) not in self.canonical:
+                self.listbox.itemconfigure(i, foreground=RED)
+            elif not self.overlay[k].get("needsReview"):
                 self.listbox.itemconfigure(i, foreground=FAINT)
         pending = sum(1 for v in self.overlay.values() if v.get("needsReview"))
         done = len(self.overlay) - pending
-        self.count_label.configure(text="{} / {} reviewed".format(done, len(self.overlay)))
+        unused = sum(1 for k in self.overlay if self.canonical and int(k) not in self.canonical)
+        text = "{} / {} reviewed".format(done, len(self.overlay))
+        if unused:
+            text += "   ·   {} unused".format(unused)
+        self.count_label.configure(text=text)
         self._draw_meter()
 
     def _on_select(self, _evt):
@@ -698,7 +721,11 @@ class CuratorApp:
         self.current_id = idstr
         name, url, level = core.describe(self.meta, idstr)
         self.name_label.configure(text=name)
-        self.sub_label.configure(text="level {}  ·  id {}".format(level or "—", idstr))
+        unused = self.canonical and int(idstr) not in self.canonical
+        self.sub_label.configure(
+            text="level {}  ·  id {}{}".format(level or "—", idstr,
+                                               "  ·  not used by the generator" if unused else ""),
+            fg=RED if unused else MUTED)
         self.link_url = "" if url.startswith("(") else url
         self.wiki_button.label.configure(
             fg=GOLD if self.link_url else FAINT,
