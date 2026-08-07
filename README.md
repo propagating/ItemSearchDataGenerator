@@ -66,13 +66,14 @@ Baseline from the 2026-08-05 sweep, for comparing future runs against:
 
 | Measure | Value |
 | --- | --- |
-| shared drop tables | 30 |
+| shared wiki table templates | 30 |
+| drop tables in sources.json | 2144 holding 28397 rows |
 | pages enumerated / parsed | 2375 / 2285 |
-| sources | 2338 |
-| drops | 39008 |
-| unresolved items | 1745 (4.5%) |
-| unknown rarity | 3836 (9.8%) |
-| combat gaps / overlay stubs | 94 / 103 |
+| sources | 2748 |
+| drops (as a player sees them) | 52442 |
+| unresolved items | 2376 (4.5%) |
+| unknown rarity | 4114 (7.8%) |
+| combat gaps / overlay stubs | 72 / 103 |
 
 An earlier draft of these gates expected ≥3000 sources. That was an estimate
 made before the sweep; the wiki only has ~2375 pages carrying drop tables, so
@@ -110,6 +111,43 @@ to trip over, and a malformed expression yields no rarity rather than throwing.
 `Rarity`, `CalculateRDTNaked`, and `DropsLineEcumenical` are excluded: they
 transclude a drop line without being shared tables, and expanding them would
 inject placeholder rows into thousands of pages.
+
+## The shape of sources.json
+
+Drop tables are stored once and referenced by the sources that have them:
+
+```json
+{
+  "tables":  [ { "name": "Herb drop table", "drops": [ ... ] }, { "drops": [ ... ] } ],
+  "sources": [ { "id": 470, "name": "Killerwatt (Idle)", "tables": [1, 0] } ]
+}
+```
+
+A source's drops are its referenced tables concatenated, in order. Most tables are shared — 47
+monsters roll the same herb table, 84 the same wilderness slayer table, and every version of a
+monster repeats its page's — so storing each once removes 46% of the rows (52442 down to 28397)
+and takes the file from 13.4 MB to 8.7 MB.
+
+Tables are matched on content, not on name: Killerwatt's herb table and Aberrant spectre's hold
+the same items at different rates, because the wiki parameterises them per monster. They are two
+tables that share a name. A table names itself once rather than every row repeating it.
+
+The client resolves the references at load time, so a `SourceData` still just has a list of
+drops and no view had to change. The resolved lists are shared rather than copied, so the
+sharing saves heap as well as file size.
+
+## Monster versions
+
+A page can describe several monsters that share a drop table. Killerwatt is Idle (470, stab) and
+Attacking (469, crush); merging them lost the crush and described the wrong attack for the one
+actually fighting you. Each version becomes its own source, named `Killerwatt (Attacking)`.
+
+Versions are grouped by what tells them apart — combat level and how they fight — so Barbarian's
+36 versions become 8 sources rather than 36. The shared drop table belongs to every version.
+
+Note this also splits bosses whose "versions" are phases of one fight rather than separately
+encounterable monsters: Zulrah becomes its three colour phases, Vorkath its two quest states.
+Nothing in the wiki data distinguishes the two cases.
 
 ## Source types
 

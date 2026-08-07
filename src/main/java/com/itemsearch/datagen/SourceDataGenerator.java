@@ -43,6 +43,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import com.itemsearch.datagen.output.OutputData;
 import com.itemsearch.datagen.output.OutputDrop;
 import com.itemsearch.datagen.output.OutputSource;
 import com.itemsearch.datagen.output.OutputSpawn;
@@ -171,7 +172,24 @@ public final class SourceDataGenerator
 
         List<OutputSource> sources =
             SourceTransform.transform(pages, itemInfo, spawns, wiki, combatOverlay, typeOverlay);
-        Files.write(output, (gson.toJson(sources) + "\n").getBytes(StandardCharsets.UTF_8));
+
+        // count the flat rows before they fold onto shared tables, so the summary keeps
+        // describing what a player sees rather than how it is stored
+        int flatDrops = 0;
+        int unresolved = 0;
+        int unknownRarity = 0;
+        for (OutputSource s : sources)
+        {
+            for (OutputDrop d : s.drops)
+            {
+                flatDrops++;
+                unresolved += d.itemId < 0 ? 1 : 0;
+                unknownRarity += d.rarityKnown ? 0 : 1;
+            }
+        }
+
+        OutputData data = DropTableIndex.build(sources);
+        Files.write(output, (gson.toJson(data) + "\n").getBytes(StandardCharsets.UTF_8));
 
         // seed stubs for every combat gap not already curated, then rewrite the overlay — this is
         // what refills the curator's queue, and it must survive the retirement of DropDataGenerator
@@ -181,7 +199,8 @@ public final class SourceDataGenerator
         writeOverlay(gson, Paths.get(DEFAULT_COMBAT_OVERLAY), seeded);
         long stubs = seeded.values().stream().filter(o -> o.needsReview).count();
 
-        report(pages, sources, output, gaps.size(), stubs);
+        report(pages, sources, data, output, gaps.size(), stubs,
+            flatDrops, unresolved, unknownRarity);
     }
 
     /**
@@ -338,33 +357,26 @@ public final class SourceDataGenerator
     }
 
     private static void report(Map<String, DropPageJson> pages, List<OutputSource> sources,
-        Path output, int gaps, long stubs)
+        OutputData data, Path output, int gaps, long stubs,
+        int drops, int unresolved, int unknownRarity)
     {
         Map<String, Integer> byType = new TreeMap<>();
-        int drops = 0;
-        int unresolved = 0;
-        int unknownRarity = 0;
         for (OutputSource s : sources)
         {
             byType.merge(s.type, 1, Integer::sum);
-            for (OutputDrop d : s.drops)
-            {
-                drops++;
-                if (d.itemId < 0)
-                {
-                    unresolved++;
-                }
-                if (!d.rarityKnown)
-                {
-                    unknownRarity++;
-                }
-            }
+        }
+        int stored = 0;
+        for (com.itemsearch.datagen.output.OutputTable t : data.tables)
+        {
+            stored += t.drops.size();
         }
         System.out.println("Wrote " + sources.size() + " sources from " + pages.size()
             + " pages to " + output);
         System.out.println("Types: " + byType);
         System.out.println(drops + " drops, " + percent(unresolved, drops) + " without item ids, "
             + percent(unknownRarity, drops) + " with unknown rarity");
+        System.out.println(data.tables.size() + " drop tables holding " + stored
+            + " rows (" + percent(drops - stored, drops) + " saved by sharing)");
         System.out.println("Combat: " + gaps + " gaps, " + stubs
             + " overlay stubs awaiting review");
     }

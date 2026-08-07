@@ -36,7 +36,10 @@ public class OutputSource
     public int combatLevel;
     public String wikiImageUrl;
     public List<OutputSpawn> spawnPoints;
+    // set while building; cleared once the rows move onto shared tables (see DropTableIndex)
     public List<OutputDrop> drops;
+    // indexes into OutputData.tables; this source's drops are those tables concatenated
+    public List<Integer> tables;
     public OutputCombat combat;
     // KILL, REWARD, PICKPOCKET, or GATHER
     public String type;
