@@ -35,6 +35,11 @@ public class OutputCombat
     public int rangedLevel;
     public int hitpoints;
     public List<OutputAttack> attacks;
+    // the attack styles this monster defends worst against; empty/null when it defends all alike
+    public List<String> weakTo;
+    // "+50% from Earth spells", stated by the wiki rather than worked out
+    public String elementalWeakness;
+    public Integer elementalWeaknessPercent;
 
     public OutputCombat(int attackLevel, int strengthLevel, int defenceLevel, int magicLevel,
         int rangedLevel, int hitpoints, List<OutputAttack> attacks)

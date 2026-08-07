@@ -449,6 +449,11 @@ public final class SourceTransform
             // the wiki records poison per monster, not per attack, so it seeds every attack and
             // the curator narrows it to the one that actually applies it
             WikiCombatJson record = wiki == null ? null : wiki.get(b.pageTitle);
+            // what to bring: the styles it defends worst against, and the spell school it burns to
+            List<String> weak = Weakness.weakestOf(record);
+            combat.weakTo = weak.isEmpty() ? null : weak;
+            combat.elementalWeakness = Weakness.elementOf(record);
+            combat.elementalWeaknessPercent = Weakness.elementPercentOf(record);
             List<String> poison = AttackEffects.fromPoisonous(record == null ? null : record.poisonous);
             if (!poison.isEmpty())
             {

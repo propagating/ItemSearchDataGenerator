@@ -70,6 +70,19 @@ public final class WikiFetch
         w.attackSpeed = WikiText.field(body, "attack speed");
         w.attackSpeeds = WikiText.numberedFields(body, "attack speed");
         w.poisonous = WikiText.field(body, "poisonous");
+        // what it defends worst against; see Weakness for why the lowest number is the answer
+        w.defStab = WikiText.field(body, "dstab");
+        w.defStabs = WikiText.numberedFields(body, "dstab");
+        w.defSlash = WikiText.field(body, "dslash");
+        w.defSlashes = WikiText.numberedFields(body, "dslash");
+        w.defCrush = WikiText.field(body, "dcrush");
+        w.defCrushes = WikiText.numberedFields(body, "dcrush");
+        w.defMagic = WikiText.field(body, "dmagic");
+        w.defMagics = WikiText.numberedFields(body, "dmagic");
+        w.defRanged = WikiText.field(body, "dstandard");
+        w.defRangeds = WikiText.numberedFields(body, "dstandard");
+        w.elementalWeaknessType = WikiText.field(body, "elementalweaknesstype");
+        w.elementalWeaknessPercent = WikiText.field(body, "elementalweaknesspercent");
         return w;
     }
 

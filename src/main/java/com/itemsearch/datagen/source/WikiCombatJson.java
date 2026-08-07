@@ -37,4 +37,20 @@ public class WikiCombatJson
     public List<String> attackSpeeds;
     // free-text "poisonous" value: "No", "Yes (6)", "Yes ([[venom]])"
     public String poisonous;    // attack speed1, attack speed2, ...
+
+    // Defence bonuses per attack style, as the wiki states them: the LOWER the number the worse
+    // this monster defends, so the lowest is its weakness. Numbered variants for versioned pages.
+    public String defStab;
+    public List<String> defStabs;
+    public String defSlash;
+    public List<String> defSlashes;
+    public String defCrush;
+    public List<String> defCrushes;
+    public String defMagic;
+    public List<String> defMagics;
+    public String defRanged;         // "dstandard": standard ranged, the usual case
+    public List<String> defRangeds;
+    // stated outright rather than derived: "+50% damage from Earth spells"
+    public String elementalWeaknessType;
+    public String elementalWeaknessPercent;
 }
