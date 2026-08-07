@@ -89,6 +89,24 @@ def save(overlay):
         f.write("\n")
 
 
+def save_entry(idstr, entry):
+    """Write one curated entry, merging it into whatever is on disk now.
+
+    The GUI holds the overlay in memory for a whole session, but the generator rewrites the same
+    file on every run — adding a stub for each combat gap it finds, and seeding effects onto
+    attacks. Writing the entire in-memory dict back therefore erases everything the generator has
+    added since the window opened. That silently cost 41 stubs and every seeded poison effect,
+    twice, because a curator left open across a regeneration looks exactly like one that isn't.
+
+    Re-reading first also picks the generator's additions up, so the session stops drifting.
+    Returns the merged overlay for the caller to adopt.
+    """
+    current = load_json(OVERLAY, {}) or {}
+    current[idstr] = entry
+    save(current)
+    return current
+
+
 def ask(prompt):
     """input() that returns None on EOF (piped input exhausted / Ctrl-D)."""
     try:

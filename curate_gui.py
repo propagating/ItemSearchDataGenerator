@@ -664,6 +664,14 @@ class CuratorApp:
         return "variant" if npc_id in self.variants else "stale"
 
     # ---------- list ----------
+    def _adopt_overlay(self):
+        """Rebuild the browsable set around the overlay just read back from disk.
+
+        Anything the generator added while this window was open appears in the queue instead of
+        being invisible until a restart; stubs the session has not saved keep their imported mark.
+        """
+        self.entries = self._merge_sources()
+
     def _merge_sources(self):
         """Every npc that has combat stats, not only the ones the generator flagged.
 
@@ -943,8 +951,10 @@ class CuratorApp:
         entry["needsReview"] = False
         # saving is what promotes a browsed-only source into the overlay the generator reads
         entry.pop("imported", None)
-        self.overlay[self.current_id] = entry
-        core.save(self.overlay)
+        # write through the file rather than over it: a generator run while this window is open
+        # adds stubs and seeds effects, and blindly dumping the in-memory dict erases them
+        self.overlay = core.save_entry(self.current_id, entry)
+        self._adopt_overlay()
         self.status.configure(text="Saved  ·  " + core.fmt_attacks(attacks), fg=GREEN)
         saved_id = self.current_id
         self._refresh_list()
