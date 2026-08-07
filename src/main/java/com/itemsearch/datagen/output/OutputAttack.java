@@ -41,6 +41,8 @@ public class OutputAttack
     public java.util.List<OutputVariant> variants;
     // curator's free text about this attack, shown on hover over its prayer icon in the client
     public String notes;
+    // what the attack does beyond damage: POISON, VENOM, DISEASE, DRAIN_PRAYER, DRAIN_STATS
+    public java.util.List<String> effects;
 
     public OutputAttack(String style, int maxHit, int speed)
     {

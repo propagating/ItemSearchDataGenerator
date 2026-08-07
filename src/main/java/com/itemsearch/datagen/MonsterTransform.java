@@ -468,6 +468,7 @@ public final class MonsterTransform
         out.prayStyle = hybrid[1];
         out.variants = a.variants;
         out.notes = a.notes;
+        out.effects = a.effects;
         return out;
     }
 

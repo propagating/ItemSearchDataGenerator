@@ -38,6 +38,31 @@ HYBRID_WORDS = {"melee", "ranged", "magic"}
 STYLE_ALIASES = {"magical": "magic", "mage": "magic", "range": "ranged",
                  "stab": "melee", "slash": "melee", "crush": "melee"}
 VARIANT_KINDS = {"gear", "prayer", "consumable", "combo"}
+# what an attack does besides damage; the wiki only records poison and venom, and only per
+# monster, so the rest is curated here per attack
+EFFECT_TOKENS = {"poison": "POISON", "venom": "VENOM", "disease": "DISEASE",
+                 "drain prayer": "DRAIN_PRAYER", "prayer drain": "DRAIN_PRAYER",
+                 "drain stats": "DRAIN_STATS", "stat drain": "DRAIN_STATS"}
+
+
+def parse_effects(text):
+    """'poison, drain prayer' -> ['POISON','DRAIN_PRAYER']; unknown words are an error so a
+    typo is caught here rather than silently shipping no warning."""
+    out = []
+    for part in (text or "").split(","):
+        part = part.strip().lower()
+        if not part:
+            continue
+        token = EFFECT_TOKENS.get(part)
+        if token is None:
+            return None, "Unknown effect '{}' (poison, venom, disease, drain prayer, drain stats)".format(part)
+        if token not in out:
+            out.append(token)
+    return out, None
+
+
+def format_effects(effects):
+    return ", ".join((e or "").lower().replace("_", " ") for e in (effects or []))
 
 # Palette: the OSRS stone-panel interface (warm, brown-shifted dark) with
 # RuneLite's own BRAND_ORANGE as the single accent — the plugin this tool feeds
@@ -174,6 +199,11 @@ def collect_attacks(rows):
         notes = (row[6] if len(row) > 6 else "") or ""
         if notes.strip():
             attack["notes"] = notes.strip()
+        effects, eerr = parse_effects(row[7] if len(row) > 7 else "")
+        if eerr:
+            return None, eerr
+        if effects:
+            attack["effects"] = effects
         attacks.append(attack)
     return attacks, None
 
@@ -201,6 +231,10 @@ def hover_line(attack):
             bits.append("{} with {}".format(
                 core.fmt_range(v.get("maxHit", 0), v.get("maxHitMax", 0)), v.get("label", "?")))
         parts.append("   ·   ".join(bits))
+    for e in attack.get("effects") or []:
+        word = (e or "").lower().replace("_", " ")
+        parts.append("May drain " + word.replace("drain ", "")
+                     if word.startswith("drain") else "May inflict " + word)
     if attack.get("notes"):
         parts.append(attack["notes"])
     return "   ·   ".join(parts)
@@ -657,7 +691,8 @@ class CuratorApp:
         self.rows = []
 
     def _add_row(self, style="", mh_text="0", sp_text="0",
-                 gear_text="", prayer_text="", consumable_text="", notes_text=""):
+                 gear_text="", prayer_text="", consumable_text="", notes_text="",
+                 effects_text=""):
         """One attack as two tiers: the base facts, then the conditionals beneath
         it — conditionals are exceptions to the max hit, not peers of it."""
         fr = tk.Frame(self.attacks_frame, bg=PANEL, padx=10, pady=8)
@@ -719,8 +754,14 @@ class CuratorApp:
         notes_wrap.pack(side="left", fill="x", expand=True)
         notes_var.trace_add("write", self._schedule_preview)
 
+        effects_var = tk.StringVar(value=effects_text)
+        effects_wrap, _, effects_get = field(notes_row, effects_var, 26, font=F_MONO_SM,
+                                             placeholder="effects — poison, drain prayer")
+        effects_wrap.pack(side="left", padx=(6, 0))
+        effects_var.trace_add("write", self._schedule_preview)
+
         row.update({"max_get": max_get, "speed_get": speed_get, "getters": getters,
-                    "notes_get": notes_get})
+                    "notes_get": notes_get, "effects_get": effects_get})
         for var in (style_var, max_var, speed_var):
             var.trace_add("write", self._schedule_preview)
         self.rows.append(row)
@@ -777,7 +818,8 @@ class CuratorApp:
                           fmt_variants(a.get("variants"), "gear"),
                           fmt_variants(a.get("variants"), "prayer"),
                           fmt_variants(a.get("variants"), "consumable"),
-                          a.get("notes") or "")
+                          a.get("notes") or "",
+                          format_effects(a.get("effects")))
         if not self.rows:
             self._add_row()
         self._render_preview()
@@ -789,7 +831,8 @@ class CuratorApp:
     def _gather(self):
         return [(r["style"].get(), r["max_get"](), r["speed_get"](),
                  r["getters"]["gear"](), r["getters"]["prayer"](),
-                 r["getters"]["consumable"](), r["notes_get"]()) for r in self.rows]
+                 r["getters"]["consumable"](), r["notes_get"](),
+                 r["effects_get"]()) for r in self.rows]
 
     def _save(self):
         if self.current_id is None:

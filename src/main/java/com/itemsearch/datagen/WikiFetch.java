@@ -69,6 +69,7 @@ public final class WikiFetch
         w.attackStyles = WikiText.numberedFields(body, "attack style");
         w.attackSpeed = WikiText.field(body, "attack speed");
         w.attackSpeeds = WikiText.numberedFields(body, "attack speed");
+        w.poisonous = WikiText.field(body, "poisonous");
         return w;
     }
 

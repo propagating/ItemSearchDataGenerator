@@ -382,6 +382,20 @@ public final class SourceTransform
                 combat = MonsterTransform.applyCombatOverlay(combat, combatOverlay.get(b.id));
             }
             combat.attacks = MonsterTransform.relabelMetallicDragonfire(b.name, combat.attacks);
+            // the wiki records poison per monster, not per attack, so it seeds every attack and
+            // the curator narrows it to the one that actually applies it
+            WikiCombatJson record = wiki == null ? null : wiki.get(b.pageTitle);
+            List<String> poison = AttackEffects.fromPoisonous(record == null ? null : record.poisonous);
+            if (!poison.isEmpty())
+            {
+                for (OutputAttack a : combat.attacks)
+                {
+                    if (a.effects == null || a.effects.isEmpty())
+                    {
+                        a.effects = new ArrayList<>(poison);
+                    }
+                }
+            }
         }
 
         return new OutputSource(b.id, b.npcIds, b.name, b.combatLevel, null, spawnPoints, b.drops, combat,
