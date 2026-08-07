@@ -110,9 +110,11 @@ def fmt_variants(variants, column_kind):
 
 def collect_attacks(rows):
     """rows: iterable of (style, max_text, speed_text[, gear_text, prayer_text,
-    consumable_text]) -> (attacks_list, error_or_None).
+    consumable_text, notes]) -> (attacks_list, error_or_None).
 
     Blank-style rows are dropped; max/speed accept 'N' or 'low-high' (bad input is an error).
+    Row order is preserved: the client sorts attacks into prayer order for display, so the
+    order here only breaks ties between attacks prayed against the same way.
     """
     attacks = []
     for row in rows:
@@ -147,6 +149,9 @@ def collect_attacks(rows):
                 variants.extend(parsed)
         if variants:
             attack["variants"] = variants
+        notes = (row[6] if len(row) > 6 else "") or ""
+        if notes.strip():
+            attack["notes"] = notes.strip()
         attacks.append(attack)
     return attacks, None
 
@@ -161,16 +166,37 @@ def headline_max_hit(attack):
     return "{} ({})".format(core.fmt_range(best.get("maxHit", 0), best.get("maxHitMax", 0)), base)
 
 
-def legend_line(attack):
-    """The combat card's legend row: base unprotected, then mitigations descending."""
+def hover_line(attack):
+    """What the client shows on hover, which is where this detail lives now: the conditional
+    max hits (over the number) and the curator's notes (over the prayer icon)."""
+    parts = []
     variants = attack.get("variants")
-    if not variants:
-        return ""
-    parts = ["{} unprotected".format(core.fmt_range(attack.get("maxHit", 0), attack.get("maxHitMax", 0)))]
-    for v in sorted(variants, key=lambda v: max(v.get("maxHit", 0), v.get("maxHitMax", 0)), reverse=True):
-        parts.append("{} with {}".format(
-            core.fmt_range(v.get("maxHit", 0), v.get("maxHitMax", 0)), v.get("label", "?")))
+    if variants:
+        bits = ["{} unprotected".format(
+            core.fmt_range(attack.get("maxHit", 0), attack.get("maxHitMax", 0)))]
+        for v in sorted(variants, key=lambda v: max(v.get("maxHit", 0), v.get("maxHitMax", 0)),
+                        reverse=True):
+            bits.append("{} with {}".format(
+                core.fmt_range(v.get("maxHit", 0), v.get("maxHitMax", 0)), v.get("label", "?")))
+        parts.append("   ·   ".join(bits))
+    if attack.get("notes"):
+        parts.append(attack["notes"])
     return "   ·   ".join(parts)
+
+
+# how the client orders the attack columns: the prayer book's order, then anything with no
+# prayer of its own. Ordering is by what the attack is prayed against, which is what its icon
+# shows, so a magic-melee hybrid sits with melee.
+PRAYER_ORDER = {"magic": 0, "ranged": 1, "melee": 2}
+
+
+def prayer_rank(attack):
+    token = attack.get("prayStyle") or attack.get("style") or ""
+    return PRAYER_ORDER.get(STYLE_ALIASES.get(token, token), 3)
+
+
+def in_prayer_order(attacks):
+    return sorted(attacks, key=prayer_rank)
 
 
 def style_line(attack):
@@ -502,7 +528,8 @@ class CuratorApp:
                      font=F_BODY, bg=PANEL, fg=FAINT, anchor="w").pack(anchor="w")
             return
 
-        for attack in attacks:
+        # the client sorts columns into prayer order regardless of the row order above
+        for attack in in_prayer_order(attacks):
             row = tk.Frame(self.preview, bg=PANEL)
             row.pack(fill="x", pady=1)
             tk.Label(row, text=style_line(attack), font=F_BODY, bg=PANEL, fg=TEXT,
@@ -513,11 +540,11 @@ class CuratorApp:
                      anchor="w").pack(side="left")
             tk.Label(row, text=headline_max_hit(attack), font=F_MONO_BIG, bg=PANEL,
                      fg=GOLD, anchor="w").pack(side="left")
-            legend = legend_line(attack)
-            if legend:
-                tk.Label(self.preview, text=legend, font=F_SMALL, bg=PANEL, fg=MUTED,
-                         anchor="w", justify="left", wraplength=680).pack(anchor="w",
-                                                                          padx=(6, 0))
+            hover = hover_line(attack)
+            if hover:
+                tk.Label(self.preview, text="on hover:  " + hover, font=F_SMALL, bg=PANEL,
+                         fg=FAINT, anchor="w", justify="left",
+                         wraplength=680).pack(anchor="w", padx=(6, 0))
 
     def _schedule_preview(self, *_):
         if self._preview_job is not None:
@@ -578,7 +605,7 @@ class CuratorApp:
         self.rows = []
 
     def _add_row(self, style="", mh_text="0", sp_text="0",
-                 gear_text="", prayer_text="", consumable_text=""):
+                 gear_text="", prayer_text="", consumable_text="", notes_text=""):
         """One attack as two tiers: the base facts, then the conditionals beneath
         it — conditionals are exceptions to the max hit, not peers of it."""
         fr = tk.Frame(self.attacks_frame, bg=PANEL, padx=10, pady=8)
@@ -606,6 +633,16 @@ class CuratorApp:
         remove.bind("<Leave>", lambda e: remove.configure(fg=FAINT))
         remove.pack(side="right")
 
+        # reordering: the client sorts into prayer order, so this decides ties between
+        # attacks prayed against the same way, and the order the overlay is written in
+        for glyph, delta in (("▼", 1), ("▲", -1)):
+            mover = tk.Label(top, text=glyph, font=F_SMALL, bg=PANEL, fg=FAINT,
+                             cursor="hand2", padx=3)
+            mover.bind("<Button-1>", lambda e, d=delta: self._move_row(row, d))
+            mover.bind("<Enter>", lambda e, m=mover: m.configure(fg=GOLD))
+            mover.bind("<Leave>", lambda e, m=mover: m.configure(fg=FAINT))
+            mover.pack(side="right")
+
         bottom = tk.Frame(fr, bg=PANEL)
         bottom.pack(fill="x", pady=(6, 0))
         tk.Label(bottom, text="↳", font=F_BODY, bg=PANEL, fg=FAINT).pack(side="left",
@@ -620,7 +657,18 @@ class CuratorApp:
             getters[key] = getter
             var.trace_add("write", self._schedule_preview)
 
-        row.update({"max_get": max_get, "speed_get": speed_get, "getters": getters})
+        notes_row = tk.Frame(fr, bg=PANEL)
+        notes_row.pack(fill="x", pady=(6, 0))
+        tk.Label(notes_row, text="✎", font=F_BODY, bg=PANEL, fg=FAINT).pack(side="left",
+                                                                            padx=(2, 8))
+        notes_var = tk.StringVar(value=notes_text)
+        notes_wrap, _, notes_get = field(notes_row, notes_var, 60, font=F_MONO_SM,
+                                         placeholder="notes — shown on hover in the plugin")
+        notes_wrap.pack(side="left", fill="x", expand=True)
+        notes_var.trace_add("write", self._schedule_preview)
+
+        row.update({"max_get": max_get, "speed_get": speed_get, "getters": getters,
+                    "notes_get": notes_get})
         for var in (style_var, max_var, speed_var):
             var.trace_add("write", self._schedule_preview)
         self.rows.append(row)
@@ -630,6 +678,20 @@ class CuratorApp:
     def _remove_row(self, row):
         row["frame"].destroy()
         self.rows.remove(row)
+        self._schedule_preview()
+
+    def _move_row(self, row, delta):
+        """Moves one attack up or down. Tkinter has no reorder, so the frames are re-packed
+        in the new order rather than rebuilt, which keeps every field's current text."""
+        i = self.rows.index(row)
+        j = i + delta
+        if j < 0 or j >= len(self.rows):
+            return
+        self.rows[i], self.rows[j] = self.rows[j], self.rows[i]
+        for r in self.rows:
+            r["frame"].pack_forget()
+        for r in self.rows:
+            r["frame"].pack(fill="x", pady=(0, 6))
         self._schedule_preview()
 
     def _load(self, idstr):
@@ -653,7 +715,8 @@ class CuratorApp:
                           core.fmt_range(a.get("speed", 0), a.get("speedMax", 0)),
                           fmt_variants(a.get("variants"), "gear"),
                           fmt_variants(a.get("variants"), "prayer"),
-                          fmt_variants(a.get("variants"), "consumable"))
+                          fmt_variants(a.get("variants"), "consumable"),
+                          a.get("notes") or "")
         if not self.rows:
             self._add_row()
         self._render_preview()
@@ -665,7 +728,7 @@ class CuratorApp:
     def _gather(self):
         return [(r["style"].get(), r["max_get"](), r["speed_get"](),
                  r["getters"]["gear"](), r["getters"]["prayer"](),
-                 r["getters"]["consumable"]()) for r in self.rows]
+                 r["getters"]["consumable"](), r["notes_get"]()) for r in self.rows]
 
     def _save(self):
         if self.current_id is None:

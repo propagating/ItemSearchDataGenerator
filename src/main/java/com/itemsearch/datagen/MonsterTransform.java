@@ -467,6 +467,7 @@ public final class MonsterTransform
         OutputAttack out = new OutputAttack(hybrid[0], a.maxHit, a.maxHitMax, a.speed, a.speedMax);
         out.prayStyle = hybrid[1];
         out.variants = a.variants;
+        out.notes = a.notes;
         return out;
     }
 

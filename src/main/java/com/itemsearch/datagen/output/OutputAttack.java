@@ -39,6 +39,8 @@ public class OutputAttack
     public int speedMax;
     // conditional max hits (gear/prayer/consumable mitigations); null/empty = unconditional
     public java.util.List<OutputVariant> variants;
+    // curator's free text about this attack, shown on hover over its prayer icon in the client
+    public String notes;
 
     public OutputAttack(String style, int maxHit, int speed)
     {
