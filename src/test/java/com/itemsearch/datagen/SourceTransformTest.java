@@ -181,6 +181,52 @@ public class SourceTransformTest
         // the shared drop table belongs to both
         assertEquals(1, attacking.drops.size());
         assertEquals(1, idle.drops.size());
+        assertEquals("the page is carried so the client can still fetch its image",
+            "Killerwatt", attacking.wikiPage);
+    }
+
+    /** A source named after its own page has nothing extra to carry. */
+    @Test
+    public void anUnsplitSourceCarriesNoSeparatePage()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        pages.put("Steel dragon", page("Steel dragon", "Monster",
+            Collections.singletonList("139"), "246",
+            table("Drops", "Drops", line(false, "Bones", "1", "Always", null))));
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap(),
+            Collections.emptyMap());
+        assertNull(out.get(0).wikiPage);
+    }
+
+    /**
+     * Splitting renames sources — "Steel dragon (Level 246)" — and the metallic-dragon check
+     * matched whole names, so every split metallic dragon fell back to plain dragonfire and the
+     * client told the player to pray Magic against a breath that ignores prayer entirely.
+     */
+    @Test
+    public void aSplitMetallicDragonStillBreathesTypelessFire()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        DropPageJson p = page("Steel dragon", "Monster", Arrays.asList("139", "8085"), "246",
+            table("Drops", "Drops", line(false, "Bones", "1", "Always", null)));
+        p.versions.add(version("Level 246", "246", "139"));
+        p.versions.add(version("Level 274", "274", "8085"));
+        pages.put("Steel dragon", p);
+
+        Map<String, WikiCombatJson> wiki = Collections.singletonMap("Steel dragon",
+            versioned(Arrays.asList("[[Dragonfire]]", "[[Dragonfire]]"),
+                Arrays.asList("50", "60"), Arrays.asList("4", "4")));
+
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), wiki, Collections.emptyMap(), Collections.emptyMap());
+
+        assertEquals(2, out.size());
+        for (OutputSource s : out)
+        {
+            assertEquals(s.name + " breathes typeless fire", "metallic dragonfire",
+                s.combat.attacks.get(0).style);
+        }
     }
 
     /**

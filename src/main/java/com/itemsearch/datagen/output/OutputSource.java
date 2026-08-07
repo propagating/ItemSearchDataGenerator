@@ -33,6 +33,10 @@ public class OutputSource
     // includes the canonical id. Kills under any of these ids count as this monster.
     public List<Integer> npcIds;
     public String name;
+    // the wiki page this source came from, when the display name is no longer that page's title —
+    // a version split names itself "Killerwatt (Attacking)", which is not a page anyone can fetch.
+    // Null when the name and the title agree, which is most of them.
+    public String wikiPage;
     public int combatLevel;
     public String wikiImageUrl;
     public List<OutputSpawn> spawnPoints;

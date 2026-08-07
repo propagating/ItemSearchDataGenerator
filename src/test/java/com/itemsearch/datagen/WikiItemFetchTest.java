@@ -24,13 +24,70 @@
  */
 package com.itemsearch.datagen;
 
+import java.util.Map;
 import com.itemsearch.datagen.source.ItemInfoJson;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 public class WikiItemFetchTest
 {
+    /**
+     * The real Bronze arrow page. Four items live on it and the wiki names each one, so which id
+     * belongs to which name is stated rather than guessed.
+     */
+    private static final String BRONZE_ARROW = "{{Infobox Item\n"
+        + "|version1 = Unpoisoned\n|version2 = Poison\n|version3 = Poison+\n|version4 = Poison++\n"
+        + "|name1 = Bronze arrow\n|name2 = Bronze arrow(p)\n"
+        + "|name3 = Bronze arrow(p+)\n|name4 = Bronze arrow(p++)\n"
+        + "|id1 = 882\n|id2 = 883\n|id3 = 5616\n|id4 = 5622\n"
+        + "|value1 = 1\n|value2 = 2\n|value3 = 3\n|value4 = 4\n}}";
+
+    @Test
+    public void everyNamedVersionKeepsItsOwnId()
+    {
+        Map<String, ItemInfoJson> versions = WikiItemFetch.extractVersions(BRONZE_ARROW);
+        assertEquals(Integer.valueOf(882), versions.get("Bronze arrow").id);
+        assertEquals(Integer.valueOf(883), versions.get("Bronze arrow(p)").id);
+        assertEquals("the poison+ arrow is not the unpoisoned one",
+            Integer.valueOf(5616), versions.get("Bronze arrow(p+)").id);
+        assertEquals(Integer.valueOf(5622), versions.get("Bronze arrow(p++)").id);
+        assertEquals(Integer.valueOf(3), versions.get("Bronze arrow(p+)").value);
+    }
+
+    /** Doses work the same way, and the page title is not one of the item names. */
+    @Test
+    public void dosesAreNamedVersionsToo()
+    {
+        Map<String, ItemInfoJson> versions = WikiItemFetch.extractVersions("{{Infobox Item\n"
+            + "|name1 = Prayer potion(1)\n|name2 = Prayer potion(2)\n"
+            + "|name3 = Prayer potion(3)\n|name4 = Prayer potion(4)\n"
+            + "|id1 = 143\n|id2 = 141\n|id3 = 139\n|id4 = 2434\n}}");
+        assertEquals(Integer.valueOf(2434), versions.get("Prayer potion(4)").id);
+        assertEquals(Integer.valueOf(143), versions.get("Prayer potion(1)").id);
+        assertNull("the page title itself is not an item here", versions.get("Prayer potion"));
+    }
+
+    @Test
+    public void aSingleVersionPageDeclaresNoVersions()
+    {
+        assertTrue(WikiItemFetch.extractVersions(
+            "{{Infobox Item\n|name = Staff of air\n|id = 1381\n}}").isEmpty());
+        assertTrue(WikiItemFetch.extractVersions("no infobox here").isEmpty());
+        assertTrue(WikiItemFetch.extractVersions(null).isEmpty());
+    }
+
+    /** A version with a name but no id of its own is not worth an entry claiming id1's. */
+    @Test
+    public void aVersionWithoutAnIdIsOmitted()
+    {
+        Map<String, ItemInfoJson> versions = WikiItemFetch.extractVersions(
+            "{{Infobox Item\n|name1 = Thing\n|name2 = Thing (broken)\n|id1 = 5\n}}");
+        assertEquals(Integer.valueOf(5), versions.get("Thing").id);
+        assertNull(versions.get("Thing (broken)"));
+    }
+
     @Test
     public void extractsIdAndValue()
     {

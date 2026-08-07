@@ -381,7 +381,10 @@ public final class SourceTransform
             {
                 combat = MonsterTransform.applyCombatOverlay(combat, combatOverlay.get(b.id));
             }
-            combat.attacks = MonsterTransform.relabelMetallicDragonfire(b.name, combat.attacks);
+            // by page, not display name: a split renames the source "Steel dragon (Level 246)",
+            // which is not a metallic dragon by any name the check knows
+            combat.attacks = MonsterTransform.relabelMetallicDragonfire(
+                b.pageTitle != null ? b.pageTitle : b.name, combat.attacks);
             // the wiki records poison per monster, not per attack, so it seeds every attack and
             // the curator narrows it to the one that actually applies it
             WikiCombatJson record = wiki == null ? null : wiki.get(b.pageTitle);
@@ -398,8 +401,15 @@ public final class SourceTransform
             }
         }
 
-        return new OutputSource(b.id, b.npcIds, b.name, b.combatLevel, null, spawnPoints, b.drops, combat,
-            b.type, x, y, plane);
+        OutputSource source = new OutputSource(b.id, b.npcIds, b.name, b.combatLevel, null,
+            spawnPoints, b.drops, combat, b.type, x, y, plane);
+        // only worth carrying when the two differ: the client fetches the image by page title, and
+        // a split or a pickpocket variant no longer answers to its own display name
+        if (b.pageTitle != null && !b.pageTitle.equals(b.name))
+        {
+            source.wikiPage = b.pageTitle;
+        }
+        return source;
     }
 
     /**

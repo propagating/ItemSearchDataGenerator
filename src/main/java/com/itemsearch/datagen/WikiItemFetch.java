@@ -32,7 +32,9 @@ import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -72,6 +74,50 @@ public final class WikiItemFetch
         info.id = firstInt(id);
         info.value = firstInt(WikiText.field(body, "value"));
         return info;
+    }
+
+    /**
+     * Every separately-named item an {{Infobox Item}} declares, by its own name.
+     *
+     * <p>One wiki page routinely holds several items: Bronze arrow carries the plain arrow and its
+     * three poisoned grades, Prayer potion carries all four doses. The page states which id belongs
+     * to which — {@code name3 = Bronze arrow(p+)} beside {@code id3 = 5616} — so nothing here has to
+     * be inferred from the shape of a name. Returns empty for an ordinary one-item page.
+     */
+    public static Map<String, ItemInfoJson> extractVersions(String wikitext)
+    {
+        Map<String, ItemInfoJson> versions = new LinkedHashMap<>();
+        if (wikitext == null)
+        {
+            return versions;
+        }
+        Matcher box = INFOBOX_ITEM.matcher(wikitext);
+        if (!box.find())
+        {
+            return versions;
+        }
+        String body = box.group(1);
+        for (int n = 1; ; n++)
+        {
+            String name = WikiText.field(body, "name" + n);
+            if (name == null)
+            {
+                break;
+            }
+            Integer id = firstInt(WikiText.field(body, "id" + n));
+            if (id == null)
+            {
+                // a named version with no id of its own would otherwise inherit id1's, which is
+                // how the poisoned arrows came to claim the unpoisoned arrow's id
+                continue;
+            }
+            ItemInfoJson info = new ItemInfoJson();
+            info.id = id;
+            Integer value = firstInt(WikiText.field(body, "value" + n));
+            info.value = value != null ? value : firstInt(WikiText.field(body, "value"));
+            versions.put(name.trim(), info);
+        }
+        return versions;
     }
 
     // first integer of a possibly comma-separated value; null on junk
@@ -114,11 +160,14 @@ public final class WikiItemFetch
             {
                 throw new IOException("Unexpected wiki API response: " + WikiHttp.snippet(response));
             }
-            // final title -> original requested name (walk normalization then redirects)
-            Map<String, String> toOriginal = new HashMap<>();
+            // final title -> every original name that asked for it (normalization, then redirects).
+            // Several requested names routinely land on one page — Bronze arrow(p+) redirects to
+            // Bronze arrow, which was also requested outright — so this cannot be one-to-one:
+            // keeping only the last requester is how plain Bronze arrow came to have no id at all.
+            Map<String, List<String>> toOriginal = new HashMap<>();
             for (String n : batch)
             {
-                toOriginal.put(n, n);
+                toOriginal.computeIfAbsent(n, k -> new ArrayList<>()).add(n);
             }
             remap(query.getAsJsonArray("normalized"), toOriginal);
             remap(query.getAsJsonArray("redirects"), toOriginal);
@@ -137,19 +186,27 @@ public final class WikiItemFetch
                 String title = page.get("title").getAsString();
                 String content = page.getAsJsonArray("revisions").get(0).getAsJsonObject()
                     .getAsJsonObject("slots").getAsJsonObject("main").get("*").getAsString();
-                ItemInfoJson info = extractInfobox(content);
-                String original = toOriginal.getOrDefault(title, title);
-                if (info != null)
+                ItemInfoJson fallback = extractInfobox(content);
+                Map<String, ItemInfoJson> versions = extractVersions(content);
+                for (String original : toOriginal.getOrDefault(title,
+                    Collections.singletonList(title)))
                 {
-                    result.put(original, info);
+                    // the page names its versions, so each requester gets its own id rather than
+                    // whichever one happened to be listed first
+                    ItemInfoJson info = versions.getOrDefault(original, fallback);
+                    if (info != null)
+                    {
+                        result.put(original, info);
+                    }
                 }
             }
         }
         return result;
     }
 
-    // applies a wiki "from"/"to" mapping array so 'to' titles resolve to the original request
-    private static void remap(JsonArray mappings, Map<String, String> toOriginal)
+    // applies a wiki "from"/"to" mapping array so 'to' titles resolve to the original requests.
+    // Merges rather than replaces: a page reached both directly and by redirect has two requesters.
+    private static void remap(JsonArray mappings, Map<String, List<String>> toOriginal)
     {
         if (mappings == null)
         {
@@ -160,10 +217,10 @@ public final class WikiItemFetch
             JsonObject m = e.getAsJsonObject();
             String from = m.get("from").getAsString();
             String to = m.get("to").getAsString();
-            String original = toOriginal.remove(from);
-            if (original != null)
+            List<String> originals = toOriginal.remove(from);
+            if (originals != null)
             {
-                toOriginal.put(to, original);
+                toOriginal.computeIfAbsent(to, k -> new ArrayList<>()).addAll(originals);
             }
         }
     }
