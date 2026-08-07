@@ -120,7 +120,7 @@ def id_roles():
       that the generator currently discards rather than pointless work.
     - a *stale* id matching no source at all, left over from the osrsbox-era overlay.
     """
-    sources = core.load_json(core.DROPS, []) or []
+    sources = core.load_sources()
     canonical = {s["id"] for s in sources if s.get("id") is not None}
     variants = {}
     for s in sources:

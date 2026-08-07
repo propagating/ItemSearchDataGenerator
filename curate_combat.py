@@ -36,6 +36,18 @@ def load_json(path, default=None):
         return json.load(f)
 
 
+def load_sources():
+    """The generated sources, whatever shape the file is in.
+
+    sources.json holds drop tables once with sources referencing them, so the top level is
+    {"tables": [...], "sources": [...]} rather than a bare list. Older files were the list.
+    """
+    data = load_json(DROPS, [])
+    if isinstance(data, dict):
+        return data.get("sources") or []
+    return data or []
+
+
 def build_meta():
     """id(str) -> (name, wiki_url, combat_level); exact from osrsbox, else drops.json."""
     meta = {}
@@ -45,7 +57,7 @@ def build_meta():
             if v and v.get("id") is not None:
                 meta[str(v["id"])] = (v.get("name"), v.get("wiki_url"), v.get("combat_level"))
         return meta
-    for n in load_json(DROPS, []) or []:
+    for n in load_sources():
         name = n.get("name", "")
         meta[str(n["id"])] = (name, WIKI + name.replace(" ", "_"), n.get("combatLevel"))
     return meta
