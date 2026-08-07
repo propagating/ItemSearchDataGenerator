@@ -52,6 +52,7 @@ import com.itemsearch.datagen.source.DropLineJson;
 import com.itemsearch.datagen.source.DropPageJson;
 import com.itemsearch.datagen.source.DropTableJson;
 import com.itemsearch.datagen.source.ItemInfoJson;
+import com.itemsearch.datagen.source.LocationJson;
 import com.itemsearch.datagen.source.ShopPageJson;
 import com.itemsearch.datagen.source.ShopTableJson;
 import com.itemsearch.datagen.source.ShopLineJson;
@@ -70,6 +71,7 @@ public final class SourceDataGenerator
     private static final String DEFAULT_SPAWNS = "npc-spawns.json";
     private static final String DEFAULT_SPAWN_OVERLAY = "spawns-overlay.json";
     private static final String DEFAULT_TRANSPORTS = "transports_osrs.json";
+    private static final String DEFAULT_LOCATIONS_SNAPSHOT = "wiki-locations.json";
     private static final String DEFAULT_WIKI = "wiki-combat.json";
     private static final String DEFAULT_COMBAT_OVERLAY = "combat-overlay.json";
     private static final String DEFAULT_TYPE_OVERLAY = "source-type-overlay.json";
@@ -86,6 +88,7 @@ public final class SourceDataGenerator
         boolean refreshDrops = false;
         boolean refreshItems = false;
         boolean refreshWiki = false;
+        boolean refreshLocations = false;
         List<String> positional = new ArrayList<>();
         for (String a : args)
         {
@@ -100,6 +103,10 @@ public final class SourceDataGenerator
             else if ("--refresh-wiki".equals(a))
             {
                 refreshWiki = true;
+            }
+            else if ("--refresh-locations".equals(a))
+            {
+                refreshLocations = true;
             }
             else
             {
@@ -133,6 +140,16 @@ public final class SourceDataGenerator
             new TypeToken<Map<String, DropPageJson>>()
             {
             }.getType());
+
+        Path locationsSnapshot = Paths.get(DEFAULT_LOCATIONS_SNAPSHOT);
+        if (refreshLocations)
+        {
+            System.out.println("Fetching locations for " + pages.size() + " pages...");
+            Map<String, List<LocationJson>> found = WikiLocationFetch.fetch(gson, pages.keySet());
+            Files.write(locationsSnapshot,
+                (gson.toJson(new TreeMap<>(found)) + "\n").getBytes(StandardCharsets.UTF_8));
+            System.out.println("Wrote locations for " + found.size() + " pages to " + locationsSnapshot);
+        }
 
         if (refreshItems)
         {
@@ -173,6 +190,51 @@ public final class SourceDataGenerator
 
         List<OutputSource> sources =
             SourceTransform.transform(pages, itemInfo, spawns, wiki, combatOverlay, typeOverlay);
+
+        // the spawn dump stops at npc id 11151, so everything added to the game since has no
+        // tiles at all. The wiki keeps its own; fill from those, and only where the dump was silent.
+        Map<String, List<LocationJson>> locations = new TreeMap<>();
+        String locationsJson = readIfPresent(locationsSnapshot);
+        if (locationsJson != null)
+        {
+            Map<String, List<LocationJson>> parsed = gson.fromJson(locationsJson,
+                new TypeToken<Map<String, List<LocationJson>>>()
+                {
+                }.getType());
+            if (parsed != null)
+            {
+                locations.putAll(parsed);
+            }
+        }
+        int fromWiki = 0;
+        int placeOnly = 0;
+        for (OutputSource s : sources)
+        {
+            if (s.spawnPoints != null && !s.spawnPoints.isEmpty())
+            {
+                continue;
+            }
+            List<LocationJson> found = locations.get(s.wikiPage != null ? s.wikiPage : s.name);
+            if (found == null)
+            {
+                continue;
+            }
+            List<OutputSpawn> tiles = SourceTransform.tilesFrom(found, s.name);
+            if (!tiles.isEmpty())
+            {
+                s.spawnPoints = tiles;
+                fromWiki++;
+            }
+            else
+            {
+                // somewhere the wiki has no map for: its numbers are not world tiles, so the name
+                // of the place is all that can honestly be offered
+                s.locationName = SourceTransform.placeFrom(found, s.name);
+                placeOnly += s.locationName != null ? 1 : 0;
+            }
+        }
+        System.out.println("Locations: " + fromWiki + " sources given tiles from the wiki, "
+            + placeOnly + " given only a place name");
 
         // where to go in, for the monsters whose tiles the world map does not draw
         DungeonEntrance entrances = DungeonEntrance.parse(gson,

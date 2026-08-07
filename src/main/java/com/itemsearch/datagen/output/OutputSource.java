@@ -43,6 +43,9 @@ public class OutputSource
     // the surface tile you enter by, for a monster whose own tiles the world map does not draw.
     // Null when it spawns above ground (its own markers suffice) or when nothing leads there.
     public OutputSpawn entrance;
+    // where this source is found, in words, for one the wiki gives no usable coordinates for —
+    // the Black Knight Catacombs have no map, so their tiles are drawing coordinates, not world ones
+    public String locationName;
     // set while building; cleared once the rows move onto shared tables (see DropTableIndex)
     public List<OutputDrop> drops;
     // indexes into OutputData.tables; this source's drops are those tables concatenated

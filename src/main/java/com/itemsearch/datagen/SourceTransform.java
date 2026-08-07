@@ -42,6 +42,7 @@ import com.itemsearch.datagen.output.OutputSpawn;
 import com.itemsearch.datagen.source.CombatOverlayJson;
 import com.itemsearch.datagen.source.DropLineJson;
 import com.itemsearch.datagen.source.DropPageJson;
+import com.itemsearch.datagen.source.LocationJson;
 import com.itemsearch.datagen.source.DropTableJson;
 import com.itemsearch.datagen.source.ItemInfoJson;
 import com.itemsearch.datagen.source.VersionJson;
@@ -60,6 +61,66 @@ public final class SourceTransform
     private static final int FIRST_SYNTHETIC_ID = -1000;
     // matches MonsterTransform.MAX_SPAWNS_PER_NPC: the client draws one map marker per spawn
     private static final int MAX_SPAWNS_PER_SOURCE = 25;
+
+    /**
+     * Spawn tiles from a page's {@code {{LocLine}}} blocks, for a source the spawn dump never had.
+     *
+     * <p>A page describes several monsters, and each block names the one it belongs to, so blocks
+     * naming this source are preferred; when none does — the usual case, since a split renames the
+     * source and the wiki does not — every block on the page is taken, which is right, because they
+     * all describe the monster the page is about.
+     */
+    public static List<OutputSpawn> tilesFrom(List<LocationJson> locations, String sourceName)
+    {
+        List<OutputSpawn> out = new ArrayList<>();
+        if (locations == null)
+        {
+            return out;
+        }
+        List<LocationJson> mine = matching(locations, sourceName);
+        Set<String> seen = new LinkedHashSet<>();
+        for (LocationJson loc : mine)
+        {
+            for (LocationJson.Point p : loc.points)
+            {
+                if (seen.add(p.x + "," + p.y + "," + loc.plane) && out.size() < MAX_SPAWNS_PER_SOURCE)
+                {
+                    out.add(new OutputSpawn(p.x, p.y, loc.plane));
+                }
+            }
+        }
+        return out;
+    }
+
+    /** The place a source is found, for one the wiki gives no usable coordinates for. */
+    public static String placeFrom(List<LocationJson> locations, String sourceName)
+    {
+        if (locations == null)
+        {
+            return null;
+        }
+        for (LocationJson loc : matching(locations, sourceName))
+        {
+            if (loc.location != null && !loc.location.isEmpty())
+            {
+                return loc.location;
+            }
+        }
+        return null;
+    }
+
+    private static List<LocationJson> matching(List<LocationJson> locations, String sourceName)
+    {
+        List<LocationJson> named = new ArrayList<>();
+        for (LocationJson loc : locations)
+        {
+            if (loc.name != null && sourceName != null && loc.name.equalsIgnoreCase(sourceName))
+            {
+                named.add(loc);
+            }
+        }
+        return named.isEmpty() ? locations : named;
+    }
 
     private SourceTransform()
     {
