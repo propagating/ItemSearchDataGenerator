@@ -209,29 +209,24 @@ def collect_attacks(rows):
     return attacks, None
 
 
-MAX_HIT_STEPS = 4  # mirrors SourceResultView.MAX_HIT_STEPS
-
-
 def headline_max_hit(attack):
-    """The combat card's max-hit headline: every conditional value, lowest to highest.
+    """The combat card's max-hit headline: the worst case, starred when gear can lower it.
 
-    "0/5/35/50", not "0 (50)" — the mitigations are a ladder, and showing only its ends reads as
-    a choice between two outcomes. Past MAX_HIT_STEPS rungs it collapses to "50*", as the client
-    does, so this preview keeps telling the truth about what the plugin will render.
+    "50*", not "0 (50)" and not "0/5/35/50" — listing every rung crowds the column as soon as
+    there are more than two. Mirrors SourceResultView.maxHitText so this preview keeps telling
+    the truth about what the plugin will render; the ladder itself is on hover.
     """
     base = core.fmt_range(attack.get("maxHit", 0), attack.get("maxHitMax", 0))
     variants = attack.get("variants")
     if not variants:
         return base
-    rungs = [(max(attack.get("maxHit", 0), attack.get("maxHitMax", 0)), base)]
+    worst, text = max(attack.get("maxHit", 0), attack.get("maxHitMax", 0)), base
     for v in variants:
-        rungs.append((max(v.get("maxHit", 0), v.get("maxHitMax", 0)),
-                      core.fmt_range(v.get("maxHit", 0), v.get("maxHitMax", 0))))
-    steps = []
-    for _, text in sorted(rungs, key=lambda r: r[0]):
-        if text not in steps:            # two mitigations on the same number are one rung
-            steps.append(text)
-    return steps[-1] + "*" if len(steps) > MAX_HIT_STEPS else "/".join(steps)
+        peak = max(v.get("maxHit", 0), v.get("maxHitMax", 0))
+        if peak > worst:                 # a combo can hit above the unprotected number
+            worst = peak
+            text = core.fmt_range(v.get("maxHit", 0), v.get("maxHitMax", 0))
+    return text + "*"
 
 
 def hover_line(attack):

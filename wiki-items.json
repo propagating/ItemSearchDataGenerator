@@ -164,7 +164,8 @@
     "value": 30
   },
   "Absorption (1)": {
-    "id": 11737
+    "id": 11737,
+    "value": 110
   },
   "Abyssal ashes": {
     "id": 25775,
@@ -175,7 +176,8 @@
     "value": 3000
   },
   "Abyssal dagger": {
-    "id": 13265
+    "id": 13265,
+    "value": 115001
   },
   "Abyssal dagger imbue scroll": {
     "id": 28080,
@@ -225,8 +227,12 @@
     "id": 2862,
     "value": 4
   },
-  "Achievement diary cape (t)": {
+  "Achievement diary cape": {
     "id": 19476,
+    "value": 99000
+  },
+  "Achievement diary cape (t)": {
+    "id": 13069,
     "value": 99000
   },
   "Acorn": {
@@ -237,8 +243,16 @@
     "id": 1317,
     "value": 6400
   },
-  "Adamant arrow(p++)": {
+  "Adamant arrow": {
     "id": 890,
+    "value": 80
+  },
+  "Adamant arrow(p+)": {
+    "id": 5620,
+    "value": 80
+  },
+  "Adamant arrow(p++)": {
+    "id": 5626,
     "value": 80
   },
   "Adamant arrowtips": {
@@ -289,16 +303,24 @@
     "id": 9463,
     "value": 1733
   },
-  "Adamant dagger(p)": {
+  "Adamant dagger": {
     "id": 1211,
     "value": 800
+  },
+  "Adamant dagger(p)": {
+    "id": 1227,
+    "value": 800
+  },
+  "Adamant dart": {
+    "id": 810,
+    "value": 65
   },
   "Adamant dart tip": {
     "id": 823,
     "value": 36
   },
   "Adamant dart(p)": {
-    "id": 810,
+    "id": 816,
     "value": 65
   },
   "Adamant defender": {
@@ -310,7 +332,8 @@
     "value": 10000
   },
   "Adamant fire arrow": {
-    "id": 2538
+    "id": 2538,
+    "value": 3
   },
   "Adamant full helm": {
     "id": 1161,
@@ -480,8 +503,16 @@
     "id": 7358,
     "value": 5440
   },
-  "Adamant spear(p)": {
+  "Adamant spear": {
     "id": 1245,
+    "value": 2080
+  },
+  "Adamant spear(kp)": {
+    "id": 3174,
+    "value": 2080
+  },
+  "Adamant spear(p)": {
+    "id": 1259,
     "value": 2080
   },
   "Adamant sq shield": {
@@ -525,7 +556,8 @@
     "value": 200
   },
   "Admiral pie": {
-    "id": 7198
+    "id": 7198,
+    "value": 310
   },
   "Aether catalyst": {
     "id": 30771,
@@ -539,15 +571,25 @@
     "id": 34042,
     "value": 1
   },
-  "Agility cape(t)": {
+  "Agility cape": {
     "id": 9771,
     "value": 99000
   },
+  "Agility cape(t)": {
+    "id": 9772,
+    "value": 99000
+  },
   "Agility potion(2)": {
-    "id": 3038
+    "id": 3036,
+    "value": 100
   },
   "Agility potion(3)": {
-    "id": 3038
+    "id": 3034,
+    "value": 150
+  },
+  "Agility potion(4)": {
+    "id": 3032,
+    "value": 200
   },
   "Agility tome": {
     "id": 7782,
@@ -678,7 +720,7 @@
     "value": 17625
   },
   "Amulet of glory (t4)": {
-    "id": 10362,
+    "id": 10354,
     "value": 17625
   },
   "Amulet of holthion": {
@@ -710,7 +752,8 @@
     "value": 2025
   },
   "Amulet of the damned (full)": {
-    "id": 12851
+    "id": 12851,
+    "value": 58001
   },
   "Amur leopard toy": {
     "id": 13218,
@@ -745,7 +788,8 @@
     "value": 15
   },
   "Anchovy pizza": {
-    "id": 2297
+    "id": 2297,
+    "value": 60
   },
   "Ancient armour (item)": {
     "id": 24688,
@@ -768,7 +812,12 @@
     "value": 4000
   },
   "Ancient brew(2)": {
-    "id": 26346
+    "id": 26344,
+    "value": 150
+  },
+  "Ancient brew(3)": {
+    "id": 26342,
+    "value": 175
   },
   "Ancient carcanet": {
     "id": 25694,
@@ -855,7 +904,8 @@
     "value": 1
   },
   "Ancient halo": {
-    "id": 24201
+    "id": 24201,
+    "value": 1000
   },
   "Ancient hilt": {
     "id": 26370,
@@ -1066,25 +1116,60 @@
     "value": 1
   },
   "Anti-poison supermix(2)": {
-    "id": 11475
+    "id": 11473,
+    "value": 216
   },
   "Anti-venom(4)": {
-    "id": 12911
+    "id": 12905,
+    "value": 440
   },
   "Anti-venom+(4)": {
-    "id": 12919
+    "id": 12913,
+    "value": 444
   },
   "Antidote++(3)": {
-    "id": 5958
+    "id": 5954,
+    "value": 288
+  },
+  "Antidote++(4)": {
+    "id": 5952,
+    "value": 360
+  },
+  "Antifire mix(1)": {
+    "id": 11507,
+    "value": 132
   },
   "Antifire mix(2)": {
-    "id": 11507
+    "id": 11505,
+    "value": 198
   },
   "Antifire potion(2)": {
-    "id": 2458
+    "id": 2456,
+    "value": 198
+  },
+  "Antifire potion(3)": {
+    "id": 2454,
+    "value": 264
+  },
+  "Antifire potion(4)": {
+    "id": 2452,
+    "value": 330
+  },
+  "Antipoison(1)": {
+    "id": 179,
+    "value": 144
   },
   "Antipoison(2)": {
-    "id": 179
+    "id": 177,
+    "value": 216
+  },
+  "Antipoison(3)": {
+    "id": 175,
+    "value": 288
+  },
+  "Antipoison(4)": {
+    "id": 2446,
+    "value": 360
   },
   "Antique lamp (Varrock Museum)": {
     "id": 11189,
@@ -1123,7 +1208,8 @@
     "value": 30
   },
   "Apple pie": {
-    "id": 2323
+    "id": 2323,
+    "value": 30
   },
   "Apple tree seed": {
     "id": 5283,
@@ -1177,8 +1263,13 @@
     "id": 20615,
     "value": 2
   },
+  "Archaic emblem (tier 1)": {
+    "id": 12746,
+    "value": 50000
+  },
   "Archaic emblem (tier 5)": {
-    "id": 12746
+    "id": 12751,
+    "value": 50004
   },
   "Archer helm": {
     "id": 3749,
@@ -1257,7 +1348,8 @@
     "value": 5000
   },
   "Armadyl halo": {
-    "id": 24192
+    "id": 24192,
+    "value": 1000
   },
   "Armadyl helmet": {
     "id": 11826,
@@ -1395,12 +1487,25 @@
     "id": 26876,
     "value": 30
   },
-  "Attack cape(t)": {
+  "Attack cape": {
     "id": 9747,
     "value": 99000
   },
+  "Attack cape(t)": {
+    "id": 9748,
+    "value": 99000
+  },
   "Attack potion(2)": {
-    "id": 125
+    "id": 123,
+    "value": 9
+  },
+  "Attack potion(3)": {
+    "id": 121,
+    "value": 12
+  },
+  "Attack potion(4)": {
+    "id": 2428,
+    "value": 15
   },
   "Attas seed": {
     "id": 22881,
@@ -1418,7 +1523,8 @@
     "value": 1000
   },
   "Ava's assembler": {
-    "id": 22109
+    "id": 22109,
+    "value": 51000
   },
   "Ava's attractor": {
     "id": 10498,
@@ -1661,7 +1767,8 @@
     "value": 5000
   },
   "Bandos halo": {
-    "id": 24195
+    "id": 24195,
+    "value": 1000
   },
   "Bandos hilt": {
     "id": 11812,
@@ -1846,6 +1953,10 @@
     "id": 1391,
     "value": 7000
   },
+  "Beach boxing gloves (pink)": {
+    "id": 11705,
+    "value": 50
+  },
   "Beach boxing gloves (yellow)": {
     "id": 11705,
     "value": 50
@@ -2014,8 +2125,20 @@
     "id": 5070,
     "value": 453
   },
+  "Bird nest (egg)": {
+    "id": 5070,
+    "value": 453
+  },
   "Bird nest (empty)": {
     "id": 5075,
+    "value": 453
+  },
+  "Bird nest (green egg)": {
+    "id": 5070,
+    "value": 453
+  },
+  "Bird nest (red egg)": {
+    "id": 5070,
     "value": 453
   },
   "Bird nest (ring)": {
@@ -2138,12 +2261,17 @@
     "id": 2491,
     "value": 4320
   },
-  "Black dagger(p)": {
+  "Black dagger": {
     "id": 1217,
     "value": 240
   },
+  "Black dagger(p)": {
+    "id": 1233,
+    "value": 240
+  },
   "Black dart": {
-    "id": 3093
+    "id": 3093,
+    "value": 1
   },
   "Black defender": {
     "id": 8847,
@@ -2258,7 +2386,8 @@
     "value": 1632
   },
   "Black knife": {
-    "id": 869
+    "id": 869,
+    "value": 19
   },
   "Black leprechaun hat": {
     "id": 20246,
@@ -2277,7 +2406,7 @@
     "value": 432
   },
   "Black mask (10)": {
-    "id": 8921,
+    "id": 8901,
     "value": 3000
   },
   "Black med helm": {
@@ -2417,7 +2546,8 @@
     "value": 2
   },
   "Black spear": {
-    "id": 4580
+    "id": 4580,
+    "value": 650
   },
   "Black sq shield": {
     "id": 1179,
@@ -2523,7 +2653,15 @@
     "id": 29381,
     "value": 18
   },
+  "Blessed bone statuette (buffalo)": {
+    "id": 29338,
+    "value": 2000
+  },
   "Blessed bone statuette (eagle)": {
+    "id": 29338,
+    "value": 2000
+  },
+  "Blessed bone statuette (fox)": {
     "id": 29338,
     "value": 2000
   },
@@ -2548,7 +2686,12 @@
     "value": 50
   },
   "Blighted super restore(3)": {
-    "id": 24605
+    "id": 24601,
+    "value": 39
+  },
+  "Blighted super restore(4)": {
+    "id": 24598,
+    "value": 40
   },
   "Blighted surge sack": {
     "id": 26705,
@@ -2583,15 +2726,15 @@
     "value": 100000
   },
   "Blood moon chestplate": {
-    "id": 29022,
+    "id": 29043,
     "value": 290010
   },
   "Blood moon helm": {
-    "id": 29028,
+    "id": 29047,
     "value": 103000
   },
   "Blood moon tassets": {
-    "id": 29025,
+    "id": 29045,
     "value": 289910
   },
   "Blood pint": {
@@ -2787,11 +2930,11 @@
     "value": 1
   },
   "Blue moon chestplate": {
-    "id": 29013,
+    "id": 29037,
     "value": 290010
   },
   "Blue moon helm": {
-    "id": 29019,
+    "id": 29041,
     "value": 103000
   },
   "Blue moon spear": {
@@ -2799,7 +2942,7 @@
     "value": 100000
   },
   "Blue moon tassets": {
-    "id": 29016,
+    "id": 29039,
     "value": 289910
   },
   "Blue naval shirt": {
@@ -3123,7 +3266,8 @@
     "value": 5
   },
   "Bracelet of ethereum (uncharged)": {
-    "id": 21817
+    "id": 21817,
+    "value": 72000
   },
   "Brain tongs": {
     "id": 10894,
@@ -3150,7 +3294,8 @@
     "value": 30
   },
   "Brassica halo": {
-    "id": 24204
+    "id": 24204,
+    "value": 1000
   },
   "Breach of the scarab": {
     "id": 27283,
@@ -3251,8 +3396,12 @@
     "id": 1307,
     "value": 80
   },
-  "Bronze arrow(p+)": {
+  "Bronze arrow": {
     "id": 882,
+    "value": 1
+  },
+  "Bronze arrow(p+)": {
+    "id": 5616,
     "value": 1
   },
   "Bronze arrowtips": {
@@ -3271,8 +3420,12 @@
     "id": 1375,
     "value": 52
   },
-  "Bronze bolts (p)": {
+  "Bronze bolts": {
     "id": 877,
+    "value": 0
+  },
+  "Bronze bolts (p)": {
+    "id": 878,
     "value": 0
   },
   "Bronze boots": {
@@ -3299,8 +3452,12 @@
     "id": 9174,
     "value": 73
   },
-  "Bronze dagger(p+)": {
+  "Bronze dagger": {
     "id": 1205,
+    "value": 10
+  },
+  "Bronze dagger(p+)": {
+    "id": 5670,
     "value": 10
   },
   "Bronze dart": {
@@ -3387,8 +3544,12 @@
     "id": 12223,
     "value": 64
   },
-  "Bronze knife(p)": {
+  "Bronze knife": {
     "id": 864,
+    "value": 1
+  },
+  "Bronze knife(p)": {
+    "id": 870,
     "value": 1
   },
   "Bronze limbs": {
@@ -3459,8 +3620,12 @@
     "id": 1321,
     "value": 32
   },
-  "Bronze spear(kp)": {
+  "Bronze spear": {
     "id": 1237,
+    "value": 26
+  },
+  "Bronze spear(kp)": {
+    "id": 3170,
     "value": 26
   },
   "Bronze sq shield": {
@@ -3495,8 +3660,21 @@
     "id": 8994,
     "value": 100
   },
+  "Brown spice (1)": {
+    "id": 7491,
+    "value": 110
+  },
+  "Brown spice (2)": {
+    "id": 7490,
+    "value": 120
+  },
   "Brown spice (3)": {
-    "id": 7491
+    "id": 7489,
+    "value": 130
+  },
+  "Brown spice (4)": {
+    "id": 7488,
+    "value": 140
   },
   "Brown toy horsey": {
     "id": 2520,
@@ -3711,7 +3889,8 @@
     "value": 30
   },
   "Cake": {
-    "id": 1891
+    "id": 1891,
+    "value": 50
   },
   "Cake hat": {
     "id": 27804,
@@ -4057,6 +4236,10 @@
     "id": 2185,
     "value": 2
   },
+  "Chocolate cake": {
+    "id": 1897,
+    "value": 70
+  },
   "Chocolate chunks": {
     "value": 0
   },
@@ -4065,7 +4248,8 @@
     "value": 2
   },
   "Chocolate slice": {
-    "id": 1897
+    "id": 1901,
+    "value": 30
   },
   "Chompy chick": {
     "id": 13071,
@@ -4096,7 +4280,8 @@
     "value": 20
   },
   "Chugging barrel (disassembled)": {
-    "id": 30002
+    "id": 30002,
+    "value": 1000
   },
   "Chunk of crystal": {
     "id": 741,
@@ -4342,6 +4527,10 @@
     "id": 1169,
     "value": 200
   },
+  "Coin pouch": {
+    "id": 22521,
+    "value": 1
+  },
   "Coin pouch (H.A.M. member)": {
     "id": 22521,
     "value": 1
@@ -4359,7 +4548,8 @@
     "value": 10
   },
   "Combat potion(3)": {
-    "id": 9745
+    "id": 9741,
+    "value": 160
   },
   "Common kebbit fur": {
     "id": 10121,
@@ -4382,7 +4572,8 @@
     "value": 2000
   },
   "Compost potion(4)": {
-    "id": 6476
+    "id": 6470,
+    "value": 120
   },
   "Condensed gold": {
     "id": 26266,
@@ -4392,8 +4583,12 @@
     "id": 4205,
     "value": 1
   },
-  "Construct. cape(t)": {
+  "Construct. cape": {
     "id": 9789,
+    "value": 99000
+  },
+  "Construct. cape(t)": {
+    "id": 9790,
     "value": 99000
   },
   "Contract of bloodied blows": {
@@ -4460,8 +4655,12 @@
     "id": 1955,
     "value": 1
   },
-  "Cooking cape(t)": {
+  "Cooking cape": {
     "id": 9801,
+    "value": 99000
+  },
+  "Cooking cape(t)": {
+    "id": 9802,
     "value": 99000
   },
   "Copper ore": {
@@ -4576,8 +4775,12 @@
     "id": 674,
     "value": 1
   },
-  "Crafting cape(t)": {
+  "Crafting cape": {
     "id": 9780,
+    "value": 99000
+  },
+  "Crafting cape(t)": {
+    "id": 9781,
     "value": 99000
   },
   "Crandor shark fin": {
@@ -4684,7 +4887,7 @@
     "value": 50000
   },
   "Crystal bow": {
-    "id": 23983,
+    "id": 24123,
     "value": 300000
   },
   "Crystal crown (Ithell)": {
@@ -4712,7 +4915,7 @@
     "value": 30000
   },
   "Crystal halberd": {
-    "id": 23987,
+    "id": 24125,
     "value": 300000
   },
   "Crystal key": {
@@ -4768,7 +4971,7 @@
     "value": 1
   },
   "Crystal shield": {
-    "id": 23991,
+    "id": 24127,
     "value": 300000
   },
   "Crystal spike": {
@@ -5060,12 +5263,29 @@
     "id": 12540,
     "value": 2300
   },
-  "Defence cape(t)": {
+  "Defence cape": {
     "id": 9753,
     "value": 99000
   },
+  "Defence cape(t)": {
+    "id": 9754,
+    "value": 99000
+  },
   "Defence potion(1)": {
-    "id": 137
+    "id": 137,
+    "value": 60
+  },
+  "Defence potion(2)": {
+    "id": 135,
+    "value": 90
+  },
+  "Defence potion(3)": {
+    "id": 133,
+    "value": 120
+  },
+  "Defence potion(4)": {
+    "id": 2432,
+    "value": 150
   },
   "Demon dung": {
     "id": 30747,
@@ -5265,7 +5485,7 @@
     "value": 1
   },
   "Dizana's quiver": {
-    "id": 28947,
+    "id": 28951,
     "value": 80000
   },
   "Dog boots": {
@@ -5376,8 +5596,17 @@
     "id": 13652,
     "value": 205000
   },
+  "Dragon dagger": {
+    "id": 1215,
+    "value": 30000
+  },
   "Dragon dagger(p+)": {
-    "id": 1215
+    "id": 5680,
+    "value": 24000
+  },
+  "Dragon dagger(p++)": {
+    "id": 5698,
+    "value": 24000
   },
   "Dragon dart": {
     "id": 11230,
@@ -5388,7 +5617,8 @@
     "value": 250
   },
   "Dragon defender": {
-    "id": 12954
+    "id": 12954,
+    "value": 68007
   },
   "Dragon defender ornament kit": {
     "id": 20143,
@@ -5435,7 +5665,8 @@
     "value": 5000
   },
   "Dragon knife": {
-    "id": 22804
+    "id": 22804,
+    "value": 167
   },
   "Dragon legs/skirt ornament kit": {
     "id": 12536,
@@ -5837,15 +6068,15 @@
     "value": 160000
   },
   "Eclipse moon chestplate": {
-    "id": 29004,
+    "id": 29031,
     "value": 290010
   },
   "Eclipse moon helm": {
-    "id": 29010,
+    "id": 29035,
     "value": 103000
   },
   "Eclipse moon tassets": {
-    "id": 29007,
+    "id": 29033,
     "value": 289910
   },
   "Eclipse red": {
@@ -5925,7 +6156,7 @@
     "value": 30
   },
   "Elder (+)(4)": {
-    "id": 20921,
+    "id": 20924,
     "value": 40
   },
   "Elder chaos hood": {
@@ -6149,7 +6380,12 @@
     "value": 2
   },
   "Energy potion(3)": {
-    "id": 3014
+    "id": 3010,
+    "value": 110
+  },
+  "Energy potion(4)": {
+    "id": 3008,
+    "value": 146
   },
   "Enhanced crystal teleport seed": {
     "id": 23959,
@@ -6279,7 +6515,8 @@
     "value": 100000
   },
   "Esoteric emblem (tier 1)": {
-    "id": 27997
+    "id": 27997,
+    "value": 500
   },
   "Eternal crystal": {
     "id": 13227,
@@ -6330,7 +6567,8 @@
     "value": 1550
   },
   "Extended antifire(4)": {
-    "id": 11957
+    "id": 11951,
+    "value": 440
   },
   "Eye of ayak (uncharged)": {
     "id": 31115,
@@ -6419,8 +6657,12 @@
     "id": 13646,
     "value": 50
   },
-  "Farming cape(t)": {
+  "Farming cape": {
     "id": 9810,
+    "value": 99000
+  },
+  "Farming cape(t)": {
+    "id": 9811,
     "value": 99000
   },
   "Farseer helm": {
@@ -6571,8 +6813,12 @@
     "id": 1442,
     "value": 4
   },
-  "Firemaking cape(t)": {
+  "Firemaking cape": {
     "id": 9804,
+    "value": 99000
+  },
+  "Firemaking cape(t)": {
+    "id": 9805,
     "value": 99000
   },
   "Firemaking tome": {
@@ -6588,21 +6834,27 @@
     "value": 1
   },
   "Fish pie": {
-    "id": 7188
+    "id": 7188,
+    "value": 100
   },
   "Fish sack": {
     "id": 22838,
     "value": 1000
   },
   "Fishbowl": {
-    "id": 6667
+    "id": 6669,
+    "value": 0
   },
   "Fishing bait": {
     "id": 313,
     "value": 3
   },
-  "Fishing cape(t)": {
+  "Fishing cape": {
     "id": 9798,
+    "value": 99000
+  },
+  "Fishing cape(t)": {
+    "id": 9799,
     "value": 99000
   },
   "Fishing explosive": {
@@ -6610,10 +6862,16 @@
     "value": 60
   },
   "Fishing mix(2)": {
-    "id": 11479
+    "id": 11477,
+    "value": 150
+  },
+  "Fishing potion(1)": {
+    "id": 155,
+    "value": 100
   },
   "Fishing potion(3)": {
-    "id": 155
+    "id": 151,
+    "value": 200
   },
   "Fishing rod": {
     "id": 307,
@@ -6659,8 +6917,12 @@
     "id": 31541,
     "value": 5
   },
-  "Fletching cape(t)": {
+  "Fletching cape": {
     "id": 9783,
+    "value": 99000
+  },
+  "Fletching cape(t)": {
+    "id": 9784,
     "value": 99000
   },
   "Fletching knife": {
@@ -6963,11 +7225,12 @@
     "value": 3000
   },
   "Games necklace(2)": {
-    "id": 3867,
+    "id": 3865,
     "value": 1050
   },
   "Garden pie": {
-    "id": 7178
+    "id": 7178,
+    "value": 24
   },
   "Gardening boots": {
     "id": 5345,
@@ -7078,7 +7341,8 @@
     "value": 1
   },
   "Giant egg sac(full)": {
-    "id": 23517
+    "id": 23517,
+    "value": 10
   },
   "Giant frog legs": {
     "id": 4517,
@@ -7109,7 +7373,7 @@
     "value": 50
   },
   "Giantsoul amulet": {
-    "id": 30637,
+    "id": 30638,
     "value": 5000
   },
   "Gielinor's flora - allotments": {
@@ -7544,8 +7808,16 @@
     "id": 9469,
     "value": 250
   },
+  "Granite (2kg)": {
+    "id": 6981,
+    "value": 1
+  },
   "Granite (500g)": {
     "id": 6979,
+    "value": 1
+  },
+  "Granite (5kg)": {
+    "id": 6983,
     "value": 1
   },
   "Granite boots": {
@@ -8137,7 +8409,7 @@
     "value": 64000
   },
   "Guthix rest(4)": {
-    "id": 4423,
+    "id": 4417,
     "value": 50
   },
   "Guthix robe legs": {
@@ -8169,13 +8441,16 @@
     "value": 2
   },
   "Half a meat pie": {
-    "id": 2327
+    "id": 2331,
+    "value": 8
   },
   "Half a redberry pie": {
-    "id": 2325
+    "id": 2333,
+    "value": 6
   },
   "Half an apple pie": {
-    "id": 2323
+    "id": 2335,
+    "value": 15
   },
   "Half full wine jug": {
     "id": 1989,
@@ -8394,7 +8669,8 @@
     "value": 5
   },
   "Herb box": {
-    "id": 11738
+    "id": 11738,
+    "value": 100
   },
   "Herb sack": {
     "id": 13226,
@@ -8404,8 +8680,12 @@
     "id": 21509,
     "value": 1
   },
-  "Herblore cape(t)": {
+  "Herblore cape": {
     "id": 9774,
+    "value": 99000
+  },
+  "Herblore cape(t)": {
+    "id": 9775,
     "value": 99000
   },
   "Herby tuft": {
@@ -8440,8 +8720,12 @@
     "id": 1494,
     "value": 1
   },
-  "Hitpoints cape(t)": {
+  "Hitpoints cape": {
     "id": 9768,
+    "value": 99000
+  },
+  "Hitpoints cape(t)": {
+    "id": 9769,
     "value": 99000
   },
   "Hobgoblin champion scroll": {
@@ -8548,12 +8832,17 @@
     "id": 742,
     "value": 1
   },
-  "Hunter cape(t)": {
+  "Hunter cape": {
     "id": 9948,
     "value": 99000
   },
+  "Hunter cape(t)": {
+    "id": 9949,
+    "value": 99000
+  },
   "Hunter potion(3)": {
-    "id": 10004
+    "id": 10000,
+    "value": 12
   },
   "Hunter spear tips": {
     "id": 29311,
@@ -8648,24 +8937,27 @@
     "value": 250
   },
   "Imbued guthix cape": {
-    "id": 21793
+    "id": 21793,
+    "value": 80000
   },
   "Imbued heart": {
     "id": 20724,
     "value": 500000
   },
   "Imbued saradomin cape": {
-    "id": 21791
+    "id": 21791,
+    "value": 80000
   },
   "Imbued tephra": {
     "id": 23907,
     "value": 100
   },
   "Imbued zamorak cape": {
-    "id": 21795
+    "id": 21795,
+    "value": 80000
   },
   "Imcando hammer (broken)": {
-    "id": 25644,
+    "id": 25633,
     "value": 1
   },
   "Immaculate mole skin": {
@@ -8844,12 +9136,20 @@
     "id": 9177,
     "value": 157
   },
-  "Iron dagger(p)": {
+  "Iron dagger": {
     "id": 1203,
     "value": 35
   },
-  "Iron dart (p)": {
+  "Iron dagger(p)": {
+    "id": 1219,
+    "value": 35
+  },
+  "Iron dart": {
     "id": 807,
+    "value": 2
+  },
+  "Iron dart (p)": {
+    "id": 813,
     "value": 2
   },
   "Iron defender": {
@@ -8984,8 +9284,12 @@
     "id": 3899,
     "value": 15
   },
-  "Iron spear(kp)": {
+  "Iron spear": {
     "id": 1239,
+    "value": 91
+  },
+  "Iron spear(kp)": {
+    "id": 3171,
     "value": 91
   },
   "Iron sq shield": {
@@ -9379,7 +9683,7 @@
     "value": 1
   },
   "Key (elite)": {
-    "id": 2832,
+    "id": 19812,
     "value": 20
   },
   "Key (green)": {
@@ -9389,6 +9693,10 @@
   "Key (magenta)": {
     "id": 1547,
     "value": 1
+  },
+  "Key (medium)": {
+    "id": 2832,
+    "value": 20
   },
   "Key (orange)": {
     "id": 1544,
@@ -9451,7 +9759,7 @@
     "value": 6
   },
   "Kodai (+)(4)": {
-    "id": 20945,
+    "id": 20948,
     "value": 40
   },
   "Kodai insignia": {
@@ -9839,11 +10147,11 @@
     "value": 100
   },
   "Lit torch": {
-    "id": 596,
+    "id": 594,
     "value": 4
   },
   "Lithic sceptre": {
-    "id": 33257,
+    "id": 33255,
     "value": 75000
   },
   "Little nightmare": {
@@ -10078,6 +10386,26 @@
     "id": 6889,
     "value": 500
   },
+  "Maggot egg (base)": {
+    "id": 33665,
+    "value": 1
+  },
+  "Maggot egg (pulsating)": {
+    "id": 33665,
+    "value": 1
+  },
+  "Maggot egg (sickly)": {
+    "id": 33665,
+    "value": 1
+  },
+  "Maggot egg (warm)": {
+    "id": 33665,
+    "value": 1
+  },
+  "Maggot egg (wriggling)": {
+    "id": 33665,
+    "value": 1
+  },
   "Maggot egg (writhing)": {
     "id": 33665,
     "value": 1
@@ -10090,8 +10418,12 @@
     "id": 10025,
     "value": 600
   },
-  "Magic cape(t)": {
+  "Magic cape": {
     "id": 9762,
+    "value": 99000
+  },
+  "Magic cape(t)": {
+    "id": 9763,
     "value": 99000
   },
   "Magic comp bow": {
@@ -10127,10 +10459,20 @@
     "value": 1280
   },
   "Magic potion(1)": {
-    "id": 3046
+    "id": 3046,
+    "value": 150
+  },
+  "Magic potion(2)": {
+    "id": 3044,
+    "value": 200
+  },
+  "Magic potion(3)": {
+    "id": 3042,
+    "value": 250
   },
   "Magic potion(4)": {
-    "id": 3046
+    "id": 3040,
+    "value": 300
   },
   "Magic roots": {
     "id": 6051,
@@ -10385,10 +10727,12 @@
     "value": 1
   },
   "Meat pie": {
-    "id": 2327
+    "id": 2327,
+    "value": 15
   },
   "Meat pizza": {
-    "id": 2293
+    "id": 2293,
+    "value": 50
   },
   "Meat tenderiser": {
     "id": 7449,
@@ -10518,12 +10862,24 @@
     "id": 5020,
     "value": 1
   },
+  "Minecart ticket (Keldagrim to Ice Mountain)": {
+    "id": 5020,
+    "value": 1
+  },
+  "Minecart ticket (Keldagrim to White Wolf Mountain)": {
+    "id": 5020,
+    "value": 1
+  },
   "Minecart ticket (White Wolf Mountain to Keldagrim)": {
     "id": 5020,
     "value": 1
   },
-  "Mining cape(t)": {
+  "Mining cape": {
     "id": 9792,
+    "value": 99000
+  },
+  "Mining cape(t)": {
+    "id": 9793,
     "value": 99000
   },
   "Mining gloves": {
@@ -10594,8 +10950,16 @@
     "id": 1315,
     "value": 2600
   },
-  "Mithril arrow(p+)": {
+  "Mithril arrow": {
     "id": 888,
+    "value": 32
+  },
+  "Mithril arrow(p+)": {
+    "id": 5619,
+    "value": 32
+  },
+  "Mithril arrow(p++)": {
+    "id": 5625,
     "value": 32
   },
   "Mithril arrowtips": {
@@ -10642,8 +11006,12 @@
     "id": 9181,
     "value": 783
   },
-  "Mithril dagger(p)": {
+  "Mithril dagger": {
     "id": 1209,
+    "value": 325
+  },
+  "Mithril dagger(p)": {
+    "id": 1225,
     "value": 325
   },
   "Mithril dart": {
@@ -10782,8 +11150,16 @@
     "id": 299,
     "value": 200
   },
-  "Mithril spear(p)": {
+  "Mithril spear": {
     "id": 1243,
+    "value": 845
+  },
+  "Mithril spear(kp)": {
+    "id": 3173,
+    "value": 845
+  },
+  "Mithril spear(p)": {
+    "id": 1257,
     "value": 845
   },
   "Mithril sq shield": {
@@ -10994,35 +11370,46 @@
     "value": 250000
   },
   "Morrigan's coif (bh)(inactive)": {
-    "id": 27836
+    "id": 27940,
+    "value": 1
+  },
+  "Morrigan's javelin": {
+    "id": 27916
   },
   "Morrigan's javelin (Deadman Mode)": {
     "id": 22636,
     "value": 4000
   },
   "Morrigan's javelin (bh)(inactive)": {
-    "id": 27916
+    "id": 27918,
+    "value": 1
   },
   "Morrigan's leather body (Deadman Mode)": {
     "id": 22641,
     "value": 500000
   },
   "Morrigan's leather body (bh)(inactive)": {
-    "id": 27837
+    "id": 27943,
+    "value": 1
   },
   "Morrigan's leather chaps (Deadman Mode)": {
     "id": 22644,
     "value": 500000
   },
   "Morrigan's leather chaps (bh)(inactive)": {
-    "id": 27838
+    "id": 27946,
+    "value": 1
+  },
+  "Morrigan's throwing axe": {
+    "id": 27912
   },
   "Morrigan's throwing axe (Deadman Mode)": {
     "id": 22634,
     "value": 4000
   },
   "Morrigan's throwing axe (bh)(inactive)": {
-    "id": 27912
+    "id": 27914,
+    "value": 1
   },
   "Mort myre fungus": {
     "id": 2970,
@@ -11168,8 +11555,12 @@
     "id": 10968,
     "value": 50
   },
-  "Music cape(t)": {
+  "Music cape": {
     "id": 13221,
+    "value": 99000
+  },
+  "Music cape(t)": {
+    "id": 13222,
     "value": 99000
   },
   "Musketeer hat": {
@@ -11189,7 +11580,24 @@
     "value": 2
   },
   "Mysterious emblem (tier 1)": {
-    "id": 24277
+    "id": 24277,
+    "value": 4500
+  },
+  "Mysterious emblem (tier 2)": {
+    "id": 24279,
+    "value": 9000
+  },
+  "Mysterious emblem (tier 3)": {
+    "id": 24281,
+    "value": 18000
+  },
+  "Mysterious emblem (tier 4)": {
+    "id": 24283,
+    "value": 36000
+  },
+  "Mysterious emblem (tier 5)": {
+    "id": 24285,
+    "value": 72000
   },
   "Mysterious page": {
     "id": 24763,
@@ -11379,8 +11787,16 @@
     "id": 1733,
     "value": 1
   },
-  "Nest box (ring)": {
+  "Nest box (empty)": {
     "id": 12792,
+    "value": 10
+  },
+  "Nest box (ring)": {
+    "id": 12794,
+    "value": 10
+  },
+  "Nest box (seeds)": {
+    "id": 23062,
     "value": 10
   },
   "Nest hat": {
@@ -11439,7 +11855,31 @@
     "id": 20888,
     "value": 1
   },
+  "Noble robe top (black)": {
+    "id": 33836,
+    "value": 50000
+  },
+  "Noble robe top (blue)": {
+    "id": 33836,
+    "value": 50000
+  },
+  "Noble robe top (green)": {
+    "id": 33836,
+    "value": 50000
+  },
   "Noble robe top (pink)": {
+    "id": 33836,
+    "value": 50000
+  },
+  "Noble robe top (red)": {
+    "id": 33836,
+    "value": 50000
+  },
+  "Noble robe top (white)": {
+    "id": 33836,
+    "value": 50000
+  },
+  "Noble robe top (yellow)": {
     "id": 33836,
     "value": 50000
   },
@@ -11675,7 +12115,20 @@
     "value": 2670
   },
   "Olive oil(1)": {
-    "id": 3428
+    "id": 3428,
+    "value": 14
+  },
+  "Olive oil(2)": {
+    "id": 3426,
+    "value": 17
+  },
+  "Olive oil(3)": {
+    "id": 3424,
+    "value": 20
+  },
+  "Olive oil(4)": {
+    "id": 3422,
+    "value": 22
   },
   "Olmlet": {
     "id": 20851,
@@ -11758,7 +12211,20 @@
     "value": 10
   },
   "Orange spice (1)": {
-    "id": 7487
+    "id": 7487,
+    "value": 110
+  },
+  "Orange spice (2)": {
+    "id": 7486,
+    "value": 120
+  },
+  "Orange spice (3)": {
+    "id": 7485,
+    "value": 130
+  },
+  "Orange spice (4)": {
+    "id": 7484,
+    "value": 140
   },
   "Orange tree seed": {
     "id": 5285,
@@ -11828,7 +12294,7 @@
     "value": 1
   },
   "Overload (+)(4)": {
-    "id": 20993,
+    "id": 20996,
     "value": 50
   },
   "Overload (1) (Nightmare Zone)": {
@@ -11951,7 +12417,8 @@
     "value": 45000
   },
   "Pendant of ates (inert)": {
-    "id": 29892
+    "id": 29892,
+    "value": 350
   },
   "Pendant of lucien": {
     "id": 86,
@@ -12046,7 +12513,7 @@
     "value": 5
   },
   "Pharaoh's sceptre": {
-    "id": 26945,
+    "id": 26948,
     "value": 83334
   },
   "Pharmakos berries": {
@@ -12106,7 +12573,8 @@
     "value": 2
   },
   "Pineapple pizza": {
-    "id": 2301
+    "id": 2301,
+    "value": 100
   },
   "Pineapple punch": {
     "id": 2048,
@@ -12241,7 +12709,8 @@
     "value": 4
   },
   "Plain pizza": {
-    "id": 2289
+    "id": 2289,
+    "value": 40
   },
   "Plain satchel": {
     "id": 10877,
@@ -12359,25 +12828,49 @@
     "id": 9036,
     "value": 10
   },
-  "Prayer cape(t)": {
+  "Prayer cape": {
     "id": 9759,
     "value": 99000
   },
+  "Prayer cape(t)": {
+    "id": 9760,
+    "value": 99000
+  },
   "Prayer enhance (+)(4)": {
-    "id": 20969,
+    "id": 20972,
     "value": 40
   },
   "Prayer mix(1)": {
-    "id": 11467
+    "id": 11467,
+    "value": 76
   },
   "Prayer mix(2)": {
-    "id": 11467
+    "id": 11465,
+    "value": 114
+  },
+  "Prayer potion(1)": {
+    "id": 143,
+    "value": 76
+  },
+  "Prayer potion(2)": {
+    "id": 141,
+    "value": 114
   },
   "Prayer potion(3)": {
-    "id": 143
+    "id": 139,
+    "value": 152
+  },
+  "Prayer potion(4)": {
+    "id": 2434,
+    "value": 190
+  },
+  "Prayer regeneration potion(1)": {
+    "id": 30134,
+    "value": 150
   },
   "Prayer regeneration potion(3)": {
-    "id": 30134
+    "id": 30128,
+    "value": 250
   },
   "Premade blurb' sp.": {
     "id": 2028,
@@ -12534,17 +13027,33 @@
     "id": 9678,
     "value": 10000
   },
+  "Prospector boots#Motherlode Mine": {
+    "id": 12016,
+    "value": 30
+  },
   "Prospector boots#Volcanic Mine": {
     "id": 12016,
     "value": 30
+  },
+  "Prospector helmet#Motherlode Mine": {
+    "id": 12013,
+    "value": 40
   },
   "Prospector helmet#Volcanic Mine": {
     "id": 12013,
     "value": 40
   },
+  "Prospector jacket#Motherlode Mine": {
+    "id": 12014,
+    "value": 60
+  },
   "Prospector jacket#Volcanic Mine": {
     "id": 12014,
     "value": 60
+  },
+  "Prospector legs#Motherlode Mine": {
+    "id": 12015,
+    "value": 50
   },
   "Prospector legs#Volcanic Mine": {
     "id": 12015,
@@ -12694,8 +13203,12 @@
     "id": 7410,
     "value": 1
   },
-  "Quest point cape (t)": {
+  "Quest point cape": {
     "id": 9813,
+    "value": 99000
+  },
+  "Quest point cape (t)": {
+    "id": 13068,
     "value": 99000
   },
   "Quetzal feed": {
@@ -12826,12 +13339,29 @@
     "id": 12596,
     "value": 12000
   },
-  "Ranging cape(t)": {
+  "Ranging cape": {
     "id": 9756,
     "value": 99000
   },
+  "Ranging cape(t)": {
+    "id": 9757,
+    "value": 99000
+  },
   "Ranging potion(1)": {
-    "id": 173
+    "id": 173,
+    "value": 144
+  },
+  "Ranging potion(2)": {
+    "id": 171,
+    "value": 216
+  },
+  "Ranging potion(3)": {
+    "id": 169,
+    "value": 288
+  },
+  "Ranging potion(4)": {
+    "id": 2444,
+    "value": 360
   },
   "Rapier": {
     "id": 7142,
@@ -13397,7 +13927,20 @@
     "value": 100
   },
   "Red spice (1)": {
-    "id": 7483
+    "id": 7483,
+    "value": 110
+  },
+  "Red spice (2)": {
+    "id": 7482,
+    "value": 120
+  },
+  "Red spice (3)": {
+    "id": 7481,
+    "value": 130
+  },
+  "Red spice (4)": {
+    "id": 7480,
+    "value": 140
   },
   "Red spiders' eggs": {
     "id": 223,
@@ -13424,7 +13967,8 @@
     "value": 3
   },
   "Redberry pie": {
-    "id": 2325
+    "id": 2325,
+    "value": 12
   },
   "Redberry seed": {
     "id": 5101,
@@ -13451,7 +13995,8 @@
     "value": 100
   },
   "Relicym's balm(3)": {
-    "id": 4848
+    "id": 4844,
+    "value": 200
   },
   "Remnant of akkha": {
     "id": 27377,
@@ -13474,10 +14019,16 @@
     "value": 150
   },
   "Restore potion(2)": {
-    "id": 131
+    "id": 129,
+    "value": 66
   },
   "Restore potion(3)": {
-    "id": 131
+    "id": 127,
+    "value": 88
+  },
+  "Restore potion(4)": {
+    "id": 2430,
+    "value": 110
   },
   "Revenant cave teleport": {
     "id": 21802,
@@ -13488,7 +14039,7 @@
     "value": 250
   },
   "Revitalisation (+)(4)": {
-    "id": 20957,
+    "id": 20960,
     "value": 40
   },
   "Reward casket (elite)": {
@@ -13519,16 +14070,28 @@
     "id": 23185,
     "value": 12000
   },
-  "Ring of charos(a)": {
+  "Ring of charos": {
     "id": 4202,
+    "value": 1
+  },
+  "Ring of charos(a)": {
+    "id": 6465,
     "value": 1
   },
   "Ring of coins": {
     "id": 20017,
     "value": 8000
   },
-  "Ring of dueling(4)": {
+  "Ring of dueling(1)": {
     "id": 2566,
+    "value": 1275
+  },
+  "Ring of dueling(3)": {
+    "id": 2562,
+    "value": 1275
+  },
+  "Ring of dueling(4)": {
+    "id": 2560,
     "value": 1275
   },
   "Ring of endurance (uncharged)": {
@@ -13668,7 +14231,7 @@
     "value": 60
   },
   "Rod of ivandis (10)": {
-    "id": 7648,
+    "id": 7639,
     "value": 1000
   },
   "Rogue boots": {
@@ -13899,20 +14462,33 @@
     "id": 9185,
     "value": 16200
   },
-  "Rune dagger(p+)": {
+  "Rune dagger": {
     "id": 1213,
     "value": 8000
+  },
+  "Rune dagger(p+)": {
+    "id": 5678,
+    "value": 8000
+  },
+  "Rune dagger(p++)": {
+    "id": 5696,
+    "value": 8000
+  },
+  "Rune dart": {
+    "id": 811,
+    "value": 350
   },
   "Rune dart tip": {
     "id": 824,
     "value": 175
   },
   "Rune dart(p)": {
-    "id": 811,
+    "id": 817,
     "value": 350
   },
   "Rune defender": {
-    "id": 8850
+    "id": 8850,
+    "value": 65004
   },
   "Rune defender ornament kit": {
     "id": 23227,
@@ -13990,8 +14566,13 @@
     "id": 2629,
     "value": 54400
   },
+  "Rune knife": {
+    "id": 868,
+    "value": 167
+  },
   "Rune knife(p++)": {
-    "id": 868
+    "id": 5667,
+    "value": 166
   },
   "Rune longsword": {
     "id": 1303,
@@ -14117,8 +14698,12 @@
     "id": 7360,
     "value": 54400
   },
-  "Rune spear(kp)": {
+  "Rune spear": {
     "id": 1247,
+    "value": 20800
+  },
+  "Rune spear(kp)": {
+    "id": 3175,
     "value": 20800
   },
   "Rune sq shield": {
@@ -14137,8 +14722,12 @@
     "id": 1347,
     "value": 41500
   },
-  "Runecraft cape(t)": {
+  "Runecraft cape": {
     "id": 9765,
+    "value": 99000
+  },
+  "Runecraft cape(t)": {
+    "id": 9766,
     "value": 99000
   },
   "Runefest shield": {
@@ -14230,7 +14819,8 @@
     "value": 20
   },
   "Sailors' amulet (inert)": {
-    "id": 32398
+    "id": 32398,
+    "value": 350
   },
   "Salamander claw": {
     "id": 29238,
@@ -14281,7 +14871,19 @@
     "value": 1
   },
   "Sandstone (10kg)": {
+    "id": 6977,
+    "value": 1
+  },
+  "Sandstone (1kg)": {
     "id": 6971,
+    "value": 1
+  },
+  "Sandstone (2kg)": {
+    "id": 6973,
+    "value": 1
+  },
+  "Sandstone (5kg)": {
+    "id": 6975,
     "value": 1
   },
   "Sandwich lady bottom": {
@@ -14309,7 +14911,12 @@
     "value": 1
   },
   "Sanfew serum(3)": {
-    "id": 10931
+    "id": 10927,
+    "value": 240
+  },
+  "Sanfew serum(4)": {
+    "id": 10925,
+    "value": 300
   },
   "Sanguine dust": {
     "id": 25746,
@@ -14396,7 +15003,16 @@
     "value": 4000
   },
   "Saradomin brew(2)": {
-    "id": 6691
+    "id": 6689,
+    "value": 150
+  },
+  "Saradomin brew(3)": {
+    "id": 6687,
+    "value": 175
+  },
+  "Saradomin brew(4)": {
+    "id": 6685,
+    "value": 200
   },
   "Saradomin cape": {
     "id": 2412,
@@ -14669,7 +15285,8 @@
     "value": 50
   },
   "Seren halo": {
-    "id": 24198
+    "id": 24198,
+    "value": 1000
   },
   "Serpentine visage": {
     "id": 12927,
@@ -15342,8 +15959,12 @@
     "id": 10952,
     "value": 150
   },
-  "Slayer cape(t)": {
+  "Slayer cape": {
     "id": 9786,
+    "value": 99000
+  },
+  "Slayer cape(t)": {
+    "id": 9787,
     "value": 99000
   },
   "Slayer gloves": {
@@ -15351,7 +15972,8 @@
     "value": 200
   },
   "Slayer ring (8)": {
-    "id": 11873
+    "id": 11866,
+    "value": 1000
   },
   "Slayer tome": {
     "id": 7788,
@@ -15385,7 +16007,8 @@
     "value": 30
   },
   "Slice of cake": {
-    "id": 1891
+    "id": 1895,
+    "value": 10
   },
   "Sluglings": {
     "id": 6715,
@@ -15427,8 +16050,12 @@
     "id": 27488,
     "value": 0
   },
-  "Smithing cape(t)": {
+  "Smithing cape": {
     "id": 9795,
+    "value": 99000
+  },
+  "Smithing cape(t)": {
+    "id": 9796,
     "value": 99000
   },
   "Smithing catalyst": {
@@ -15875,7 +16502,12 @@
     "value": 225
   },
   "Stamina potion(2)": {
-    "id": 12631
+    "id": 12629,
+    "value": 200
+  },
+  "Stamina potion(4)": {
+    "id": 12625,
+    "value": 400
   },
   "Star fragment": {
     "id": 25547,
@@ -15894,28 +16526,35 @@
     "value": 250000
   },
   "Statius's full helm (bh)(inactive)": {
-    "id": 27833
+    "id": 27931,
+    "value": 1
   },
   "Statius's platebody (Deadman Mode)": {
     "id": 22628,
     "value": 500000
   },
   "Statius's platebody (bh)(inactive)": {
-    "id": 27834
+    "id": 27934,
+    "value": 1
   },
   "Statius's platelegs (Deadman Mode)": {
     "id": 22631,
     "value": 500000
   },
   "Statius's platelegs (bh)(inactive)": {
-    "id": 27835
+    "id": 27937,
+    "value": 1
+  },
+  "Statius's warhammer": {
+    "id": 27908
   },
   "Statius's warhammer (Deadman Mode)": {
     "id": 22622,
     "value": 300000
   },
   "Statius's warhammer (bh)(inactive)": {
-    "id": 27908
+    "id": 27910,
+    "value": 1
   },
   "Steam battlestaff": {
     "id": 11787,
@@ -15937,8 +16576,12 @@
     "id": 1311,
     "value": 1000
   },
-  "Steel arrow(p)": {
+  "Steel arrow": {
     "id": 886,
+    "value": 12
+  },
+  "Steel arrow(p)": {
+    "id": 887,
     "value": 12
   },
   "Steel arrowtips": {
@@ -15957,8 +16600,12 @@
     "id": 1365,
     "value": 650
   },
-  "Steel bolts (p+)": {
+  "Steel bolts": {
     "id": 9141,
+    "value": 8
+  },
+  "Steel bolts (p+)": {
+    "id": 9295,
     "value": 8
   },
   "Steel boots": {
@@ -16025,8 +16672,12 @@
     "id": 11371,
     "value": 325
   },
-  "Steel javelin(p+)": {
+  "Steel javelin": {
     "id": 827,
+    "value": 24
+  },
+  "Steel javelin(p+)": {
+    "id": 5644,
     "value": 24
   },
   "Steel key (H.A.M.)": {
@@ -16070,7 +16721,8 @@
     "value": 850
   },
   "Steel knife": {
-    "id": 865
+    "id": 865,
+    "value": 11
   },
   "Steel limbs": {
     "id": 9425,
@@ -16144,8 +16796,20 @@
     "id": 1325,
     "value": 400
   },
-  "Steel spear(p)": {
+  "Steel spear": {
     "id": 1241,
+    "value": 325
+  },
+  "Steel spear(kp)": {
+    "id": 3172,
+    "value": 325
+  },
+  "Steel spear(p)": {
+    "id": 1255,
+    "value": 325
+  },
+  "Steel spear(p++)": {
+    "id": 5722,
     "value": 325
   },
   "Steel sq shield": {
@@ -16276,7 +16940,7 @@
     "value": 75000
   },
   "Strawberries(5)": {
-    "id": 5398,
+    "id": 5406,
     "value": 1
   },
   "Strawberry": {
@@ -16291,15 +16955,33 @@
     "id": 10364,
     "value": 2025
   },
-  "Strength cape(t)": {
+  "Strength cape": {
     "id": 9750,
     "value": 99000
   },
+  "Strength cape(t)": {
+    "id": 9751,
+    "value": 99000
+  },
   "Strength mix(2)": {
-    "id": 11441
+    "id": 11443,
+    "value": 13
   },
   "Strength potion(1)": {
-    "id": 119
+    "id": 119,
+    "value": 11
+  },
+  "Strength potion(2)": {
+    "id": 117,
+    "value": 13
+  },
+  "Strength potion(3)": {
+    "id": 115,
+    "value": 13
+  },
+  "Strength potion(4)": {
+    "id": 113,
+    "value": 14
   },
   "Stretched hide": {
     "id": 6173,
@@ -16390,7 +17072,8 @@
     "value": 10
   },
   "Summer pie": {
-    "id": 7218
+    "id": 7218,
+    "value": 140
   },
   "Summer sq'irk": {
     "id": 10845,
@@ -16460,51 +17143,148 @@
     "id": 34032,
     "value": 750
   },
+  "Super attack(1)": {
+    "id": 149,
+    "value": 90
+  },
   "Super attack(2)": {
-    "id": 149
+    "id": 147,
+    "value": 135
+  },
+  "Super attack(3)": {
+    "id": 145,
+    "value": 180
+  },
+  "Super attack(4)": {
+    "id": 2436,
+    "value": 225
   },
   "Super combat potion(1)": {
-    "id": 12701
+    "id": 12701,
+    "value": 40
+  },
+  "Super combat potion(2)": {
+    "id": 12699,
+    "value": 90
+  },
+  "Super combat potion(3)": {
+    "id": 12697,
+    "value": 170
+  },
+  "Super combat potion(4)": {
+    "id": 12695,
+    "value": 250
   },
   "Super def. mix(1)": {
-    "id": 11499
+    "id": 11499,
+    "value": 132
+  },
+  "Super def. mix(2)": {
+    "id": 11497,
+    "value": 198
   },
   "Super defence(1)": {
-    "id": 167
+    "id": 167,
+    "value": 132
+  },
+  "Super defence(2)": {
+    "id": 165,
+    "value": 198
+  },
+  "Super defence(3)": {
+    "id": 163,
+    "value": 264
+  },
+  "Super defence(4)": {
+    "id": 2442,
+    "value": 330
   },
   "Super energy (Last Man Standing)": {
     "id": 20551
   },
   "Super energy(3)": {
-    "id": 3022
+    "id": 3018,
+    "value": 230
+  },
+  "Super energy(4)": {
+    "id": 3016,
+    "value": 300
   },
   "Super kebab": {
     "id": 4608,
     "value": 3
   },
   "Super magic potion (1)": {
-    "id": 11729
+    "id": 11729,
+    "value": 150
   },
   "Super ranging (1)": {
-    "id": 11725
+    "id": 11725,
+    "value": 144
   },
   "Super restore mix(2)": {
-    "id": 11495
+    "id": 11493,
+    "value": 180
   },
   "Super restore(1)": {
-    "id": 3030
+    "id": 3030,
+    "value": 120
+  },
+  "Super restore(2)": {
+    "id": 3028,
+    "value": 180
+  },
+  "Super restore(3)": {
+    "id": 3026,
+    "value": 240
+  },
+  "Super restore(4)": {
+    "id": 3024,
+    "value": 300
   },
   "Super str. mix(1)": {
-    "id": 11487
+    "id": 11487,
+    "value": 110
+  },
+  "Super str. mix(2)": {
+    "id": 11485,
+    "value": 165
+  },
+  "Super strength(1)": {
+    "id": 161,
+    "value": 110
   },
   "Super strength(2)": {
-    "id": 161
+    "id": 159,
+    "value": 165
+  },
+  "Super strength(3)": {
+    "id": 157,
+    "value": 220
+  },
+  "Super strength(4)": {
+    "id": 2440,
+    "value": 275
+  },
+  "Superantipoison(2)": {
+    "id": 183,
+    "value": 216
   },
   "Superantipoison(3)": {
-    "id": 185
+    "id": 181,
+    "value": 288
+  },
+  "Superantipoison(4)": {
+    "id": 2448,
+    "value": 360
   },
   "Superattack mix(1)": {
-    "id": 11471
+    "id": 11471,
+    "value": 90
+  },
+  "Superattack mix(2)": {
+    "id": 11469,
+    "value": 135
   },
   "Supercompost": {
     "id": 6034,
@@ -17018,7 +17798,15 @@
     "id": 4331,
     "value": 50
   },
+  "Teapot (clay)": {
+    "id": 7702,
+    "value": 1
+  },
   "Teapot (porcelain)": {
+    "id": 7702,
+    "value": 1
+  },
+  "Teapot (trimmed)": {
     "id": 7702,
     "value": 1
   },
@@ -17051,7 +17839,8 @@
     "value": 100
   },
   "Teleport crystal (1)": {
-    "id": 6102
+    "id": 6102,
+    "value": 15
   },
   "Teleport crystal (The Gauntlet)": {
     "id": 23904,
@@ -17145,8 +17934,12 @@
     "id": 23224,
     "value": 1000
   },
-  "Thieving cape(t)": {
+  "Thieving cape": {
     "id": 9777,
+    "value": 99000
+  },
+  "Thieving cape(t)": {
+    "id": 9778,
     "value": 99000
   },
   "Thieving tome": {
@@ -17554,7 +18347,8 @@
     "value": 300
   },
   "Trident of the seas (full)": {
-    "id": 11908
+    "id": 11905,
+    "value": 69000
   },
   "Trinket of advanced weaponry": {
     "id": 28567,
@@ -17637,7 +18431,7 @@
     "value": 180
   },
   "Twisted (+)(4)": {
-    "id": 20933,
+    "id": 20936,
     "value": 40
   },
   "Twisted ancestral colour kit": {
@@ -17721,7 +18515,8 @@
     "value": 200
   },
   "Uncharged trident": {
-    "id": 11908
+    "id": 11908,
+    "value": 68000
   },
   "Uncleaned find": {
     "id": 11175,
@@ -17956,17 +18751,22 @@
     "value": 500000
   },
   "Vesta's chainbody (bh)(inactive)": {
-    "id": 27831
+    "id": 27925,
+    "value": 1
+  },
+  "Vesta's longsword": {
+    "id": 27904
   },
   "Vesta's longsword (Deadman Mode)": {
     "id": 22613,
     "value": 300000
   },
   "Vesta's longsword (bh)(inactive)": {
-    "id": 27904
+    "id": 27906,
+    "value": 1
   },
   "Vesta's longsword (inactive)": {
-    "id": 24617,
+    "id": 24619,
     "value": 800000
   },
   "Vesta's plateskirt (Deadman Mode)": {
@@ -17974,14 +18774,19 @@
     "value": 500000
   },
   "Vesta's plateskirt (bh)(inactive)": {
-    "id": 27832
+    "id": 27928,
+    "value": 1
+  },
+  "Vesta's spear": {
+    "id": 27900
   },
   "Vesta's spear (Deadman Mode)": {
     "id": 22610,
     "value": 300000
   },
   "Vesta's spear (bh)(inactive)": {
-    "id": 27900
+    "id": 27902,
+    "value": 1
   },
   "Vet'ion jr.": {
     "id": 13179,
@@ -18116,25 +18921,32 @@
     "value": 5
   },
   "Void knight gloves": {
-    "id": 8842
+    "id": 8842,
+    "value": 6052
   },
   "Void knight mace": {
-    "id": 8841
+    "id": 8841,
+    "value": 12000
   },
   "Void knight robe": {
-    "id": 8840
+    "id": 8840,
+    "value": 45000
   },
   "Void knight top": {
-    "id": 8839
+    "id": 8839,
+    "value": 48000
   },
   "Void mage helm": {
-    "id": 11663
+    "id": 11663,
+    "value": 9851
   },
   "Void melee helm": {
-    "id": 11665
+    "id": 11665,
+    "value": 9851
   },
   "Void ranger helm": {
-    "id": 11664
+    "id": 11664,
+    "value": 9851
   },
   "Void seal": {
     "id": 11673,
@@ -18368,8 +19180,17 @@
     "id": 11879,
     "value": 201
   },
+  "Watering can": {
+    "id": 5331,
+    "value": 8
+  },
+  "Watering can(4)": {
+    "id": 5336,
+    "value": 1
+  },
   "Watering can(8)": {
-    "id": 5331
+    "id": 5340,
+    "value": 1
   },
   "Watermelon": {
     "id": 5982,
@@ -18380,7 +19201,16 @@
     "value": 56
   },
   "Waterskin(0)": {
-    "id": 1831
+    "id": 1831,
+    "value": 15
+  },
+  "Waterskin(3)": {
+    "id": 1825,
+    "value": 27
+  },
+  "Waterskin(4)": {
+    "id": 1823,
+    "value": 30
   },
   "Weapon frame": {
     "id": 23871,
@@ -18583,7 +19413,8 @@
     "value": 133
   },
   "Wild pie": {
-    "id": 7208
+    "id": 7208,
+    "value": 182
   },
   "Wildblood hops": {
     "id": 6002,
@@ -18742,6 +19573,10 @@
     "value": 2400
   },
   "Woodcut. cape(t)": {
+    "id": 9808,
+    "value": 99000
+  },
+  "Woodcutting cape": {
     "id": 9807,
     "value": 99000
   },
@@ -18821,7 +19656,31 @@
     "id": 33835,
     "value": 10
   },
+  "Wyrmscraig noble skirt (black)": {
+    "id": 33857,
+    "value": 40000
+  },
+  "Wyrmscraig noble skirt (blue)": {
+    "id": 33857,
+    "value": 40000
+  },
+  "Wyrmscraig noble skirt (green)": {
+    "id": 33857,
+    "value": 40000
+  },
   "Wyrmscraig noble skirt (pink)": {
+    "id": 33857,
+    "value": 40000
+  },
+  "Wyrmscraig noble skirt (red)": {
+    "id": 33857,
+    "value": 40000
+  },
+  "Wyrmscraig noble skirt (white)": {
+    "id": 33857,
+    "value": 40000
+  },
+  "Wyrmscraig noble skirt (yellow)": {
     "id": 33857,
     "value": 40000
   },
@@ -18829,7 +19688,27 @@
     "id": 33878,
     "value": 10000
   },
+  "Wyrmscraig villager robe bottom (A, black)": {
+    "id": 33908,
+    "value": 400
+  },
+  "Wyrmscraig villager robe bottom (A, blue)": {
+    "id": 33908,
+    "value": 400
+  },
+  "Wyrmscraig villager robe bottom (A, green)": {
+    "id": 33908,
+    "value": 400
+  },
   "Wyrmscraig villager robe bottom (A, pink)": {
+    "id": 33908,
+    "value": 400
+  },
+  "Wyrmscraig villager robe bottom (A, red)": {
+    "id": 33908,
+    "value": 400
+  },
+  "Wyrmscraig villager robe bottom (A, white)": {
     "id": 33908,
     "value": 400
   },
@@ -18837,7 +19716,31 @@
     "id": 33908,
     "value": 400
   },
+  "Wyrmscraig villager robe bottom (B, black)": {
+    "id": 33929,
+    "value": 400
+  },
+  "Wyrmscraig villager robe bottom (B, blue)": {
+    "id": 33929,
+    "value": 400
+  },
+  "Wyrmscraig villager robe bottom (B, green)": {
+    "id": 33929,
+    "value": 400
+  },
   "Wyrmscraig villager robe bottom (B, pink)": {
+    "id": 33929,
+    "value": 400
+  },
+  "Wyrmscraig villager robe bottom (B, red)": {
+    "id": 33929,
+    "value": 400
+  },
+  "Wyrmscraig villager robe bottom (B, white)": {
+    "id": 33929,
+    "value": 400
+  },
+  "Wyrmscraig villager robe bottom (B, yellow)": {
     "id": 33929,
     "value": 400
   },
@@ -18845,15 +19748,119 @@
     "id": 33884,
     "value": 500
   },
+  "Wyrmscraig villager robe top (A, black)": {
+    "id": 33884,
+    "value": 500
+  },
+  "Wyrmscraig villager robe top (A, blue)": {
+    "id": 33884,
+    "value": 500
+  },
+  "Wyrmscraig villager robe top (A, green)": {
+    "id": 33884,
+    "value": 500
+  },
+  "Wyrmscraig villager robe top (A, pink)": {
+    "id": 33884,
+    "value": 500
+  },
+  "Wyrmscraig villager robe top (A, red)": {
+    "id": 33884,
+    "value": 500
+  },
+  "Wyrmscraig villager robe top (A, white)": {
+    "id": 33884,
+    "value": 500
+  },
+  "Wyrmscraig villager robe top (A, yellow)": {
+    "id": 33884,
+    "value": 500
+  },
+  "Wyrmscraig villager robe top (B, black)": {
+    "id": 33950,
+    "value": 500
+  },
+  "Wyrmscraig villager robe top (B, blue)": {
+    "id": 33950,
+    "value": 500
+  },
+  "Wyrmscraig villager robe top (B, green)": {
+    "id": 33950,
+    "value": 500
+  },
   "Wyrmscraig villager robe top (B, pink)": {
     "id": 33950,
     "value": 500
+  },
+  "Wyrmscraig villager robe top (B, red)": {
+    "id": 33950,
+    "value": 500
+  },
+  "Wyrmscraig villager robe top (B, white)": {
+    "id": 33950,
+    "value": 500
+  },
+  "Wyrmscraig villager robe top (B, yellow)": {
+    "id": 33950,
+    "value": 500
+  },
+  "Wyrmscraig villager skirt (black)": {
+    "id": 33971,
+    "value": 400
+  },
+  "Wyrmscraig villager skirt (blue)": {
+    "id": 33971,
+    "value": 400
+  },
+  "Wyrmscraig villager skirt (green)": {
+    "id": 33971,
+    "value": 400
   },
   "Wyrmscraig villager skirt (pink)": {
     "id": 33971,
     "value": 400
   },
+  "Wyrmscraig villager skirt (red)": {
+    "id": 33971,
+    "value": 400
+  },
+  "Wyrmscraig villager skirt (white)": {
+    "id": 33971,
+    "value": 400
+  },
+  "Wyrmscraig villager skirt (yellow)": {
+    "id": 33971,
+    "value": 400
+  },
   "Wyrmscraig villager work skirt (beige)": {
+    "id": 33992,
+    "value": 400
+  },
+  "Wyrmscraig villager work skirt (black)": {
+    "id": 33992,
+    "value": 400
+  },
+  "Wyrmscraig villager work skirt (blue)": {
+    "id": 33992,
+    "value": 400
+  },
+  "Wyrmscraig villager work skirt (green)": {
+    "id": 33992,
+    "value": 400
+  },
+  "Wyrmscraig villager work skirt (pink)": {
+    "id": 33992,
+    "value": 400
+  },
+  "Wyrmscraig villager work skirt (red)": {
+    "id": 33992,
+    "value": 400
+  },
+  "Wyrmscraig villager work skirt (white)": {
+    "id": 33992,
+    "value": 400
+  },
+  "Wyrmscraig villager work skirt (yellow)": {
     "id": 33992,
     "value": 400
   },
@@ -18866,11 +19873,12 @@
     "value": 750000
   },
   "Xeric's aid (+)(4)": {
-    "id": 20981,
+    "id": 20984,
     "value": 40
   },
   "Xeric's talisman (inert)": {
-    "id": 13392
+    "id": 13392,
+    "value": 350
   },
   "Xerician fabric": {
     "id": 13383,
@@ -18941,7 +19949,20 @@
     "value": 500
   },
   "Yellow spice (1)": {
-    "id": 7495
+    "id": 7495,
+    "value": 110
+  },
+  "Yellow spice (2)": {
+    "id": 7494,
+    "value": 120
+  },
+  "Yellow spice (3)": {
+    "id": 7493,
+    "value": 130
+  },
+  "Yellow spice (4)": {
+    "id": 7492,
+    "value": 140
   },
   "Yellowfin": {
     "id": 32328,
@@ -19008,7 +20029,12 @@
     "value": 4000
   },
   "Zamorak brew(2)": {
-    "id": 193
+    "id": 191,
+    "value": 150
+  },
+  "Zamorak brew(3)": {
+    "id": 189,
+    "value": 175
   },
   "Zamorak cape": {
     "id": 2414,
@@ -19063,7 +20089,8 @@
     "value": 5000
   },
   "Zamorak mix(2)": {
-    "id": 11523
+    "id": 11521,
+    "value": 150
   },
   "Zamorak monk bottom": {
     "id": 1033,
@@ -19214,27 +20241,34 @@
     "value": 250000
   },
   "Zuriel's hood (bh)(inactive)": {
-    "id": 27839
+    "id": 27949,
+    "value": 1
   },
   "Zuriel's robe bottom (Deadman Mode)": {
     "id": 22656,
     "value": 500000
   },
   "Zuriel's robe bottom (bh)(inactive)": {
-    "id": 27841
+    "id": 27955,
+    "value": 1
   },
   "Zuriel's robe top (Deadman Mode)": {
     "id": 22653,
     "value": 500000
   },
   "Zuriel's robe top (bh)(inactive)": {
-    "id": 27840
+    "id": 27952,
+    "value": 1
+  },
+  "Zuriel's staff": {
+    "id": 27920
   },
   "Zuriel's staff (Deadman Mode)": {
     "id": 22647,
     "value": 300000
   },
   "Zuriel's staff (bh)(inactive)": {
-    "id": 27920
+    "id": 27922,
+    "value": 1
   }
 }
