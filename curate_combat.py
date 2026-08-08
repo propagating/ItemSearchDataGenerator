@@ -27,6 +27,9 @@ OVERLAY = os.path.join(BASE, "combat-overlay.json")
 # where they stand, and the surface tile you go in by
 SPAWNS_OVERLAY = os.path.join(BASE, "spawns-overlay.json")
 ENTRANCE_OVERLAY = os.path.join(BASE, "entrance-overlay.json")
+# underground areas sit above this y in the same coordinate space as the surface, which the world
+# map does not draw. Mirrors DungeonEntrance.UNDERGROUND_Y.
+UNDERGROUND_Y = 6400
 MONSTERS = os.path.join(BASE, "monsters-complete.json")
 DROPS = os.path.abspath(os.path.join(BASE, "..", "..", "JAVA", "ItemSearch",
                         "src", "main", "resources", "com", "itemsearch", "sources.json"))

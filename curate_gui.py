@@ -1081,6 +1081,11 @@ class CuratorApp:
             if len(parsed) != 1:
                 return "entrance: one tile, as 'x, y, plane'"
             entrance = parsed[0]
+        # an entrance is by definition somewhere you can walk to above ground; underground it
+        # marks a spot the surface map never draws, which is the very problem it exists to solve
+        if entrance is not None and entrance["y"] >= core.UNDERGROUND_Y:
+            return ("entrance: ({}, {}) is below ground — the entrance wants the surface tile "
+                    "you go in by".format(entrance["x"], entrance["y"]))
         core.save_overlay_entry(core.SPAWNS_OVERLAY, idstr, tiles or None)
         core.save_overlay_entry(core.ENTRANCE_OVERLAY, idstr, entrance)
         return None
