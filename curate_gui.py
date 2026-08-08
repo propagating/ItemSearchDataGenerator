@@ -341,7 +341,14 @@ def field(parent, textvar, width, font=F_MONO, placeholder=None):
         entry.bind("<FocusIn>", paint_focus)
         entry.bind("<FocusOut>", paint_blur)
 
-    return wrap, entry, lambda: "" if showing["placeholder"] else textvar.get()
+    # judged by what the box says, not by the flag: the flag only follows focus, and a value put
+    # into the field in code never touches focus. Trusting it read a curated entrance back as
+    # blank, which on save would have quietly erased it.
+    def value():
+        text = textvar.get()
+        return "" if placeholder is not None and text == placeholder else text
+
+    return wrap, entry, value
 
 
 class ScrollArea(tk.Frame):
@@ -390,6 +397,8 @@ class CuratorApp:
         self.overlay = core.load_json(core.OVERLAY, {}) or {}
         self.meta = core.build_meta()
         self.canonical, self.variants = id_roles()
+        self.sources_by_id = {str(s.get("id")): s for s in core.load_sources()
+                              if s.get("id") is not None}
         self.entries = self._merge_sources()
         self.ids = []            # ids currently shown in the list, in order
         # which column the queue is ordered by, and whether reversed. Pending-first is the
@@ -499,6 +508,10 @@ class CuratorApp:
         ttk.Checkbutton(left, text="Show cleanly imported too", variable=self.show_imported,
                         style="Curator.TCheckbutton",
                         command=self._refresh_list).pack(anchor="w")
+        self.only_placeless = tk.BooleanVar(value=False)
+        ttk.Checkbutton(left, text="Only ones with nowhere on the map",
+                        variable=self.only_placeless, style="Curator.TCheckbutton",
+                        command=self._refresh_list).pack(anchor="w")
 
         lf = tk.Frame(left, bg=INK)
         lf.pack(fill="both", expand=True, pady=(10, 0))
@@ -589,6 +602,8 @@ class CuratorApp:
         add.pack(anchor="w")
 
         self._rule(right).pack(fill="x", pady=(6, 0))
+        self._build_location(right)
+        self._rule(right).pack(fill="x", pady=(6, 0))
         self._build_preview(right)
         self._rule(right).pack(fill="x", pady=(0, 12))
 
@@ -599,6 +614,44 @@ class CuratorApp:
         flat_button(bar, "Save & next", self._save_next, kind="primary",
                     font=F_HEAD).pack(side="right")
         flat_button(bar, "Save", self._save).pack(side="right", padx=(0, 8))
+
+    def _build_location(self, parent):
+        """Where this monster stands, and where you go in.
+
+        The spawn dump stops at npc id 11151 and the wiki has no map of a good many places, so a
+        few hundred monsters can be placed by no automatic means at all. These two fields are the
+        way in for those: tiles the map should mark, and the surface tile that leads to them.
+        """
+        wrap = tk.Frame(parent, bg=INK, pady=12)
+        wrap.pack(fill="x")
+        self._eyebrow(wrap, "Location").pack(anchor="w")
+
+        self.location_known = tk.Label(wrap, text="", font=F_SMALL, bg=INK, fg=FAINT,
+                                       anchor="w", justify="left", wraplength=680)
+        self.location_known.pack(anchor="w", pady=(4, 6))
+
+        row = tk.Frame(wrap, bg=INK)
+        row.pack(fill="x")
+        tk.Label(row, text="Entrance", font=F_BODY, bg=INK, fg=MUTED,
+                 width=10, anchor="w").pack(side="left")
+        self.entrance_var = tk.StringVar()
+        ent_wrap, _, self.entrance_get = field(row, self.entrance_var, 26, font=F_MONO,
+                                               placeholder="x, y, plane — the tile you go in by")
+        ent_wrap.pack(side="left")
+
+        tiles_row = tk.Frame(wrap, bg=INK)
+        tiles_row.pack(fill="x", pady=(8, 0))
+        tk.Label(tiles_row, text="Stands at", font=F_BODY, bg=INK, fg=MUTED,
+                 width=10, anchor="nw").pack(side="left", anchor="n")
+        box = tk.Frame(tiles_row, bg=RULE, padx=1, pady=1)
+        box.pack(side="left", fill="x", expand=True)
+        self.tiles_text = tk.Text(box, height=4, font=F_MONO_SM, bg=FIELD, fg=TEXT,
+                                  insertbackground=GOLD, relief="flat", highlightthickness=0,
+                                  bd=0, wrap="none")
+        self.tiles_text.pack(fill="both", expand=True, padx=4, pady=3)
+        tk.Label(wrap, text="one tile per line: x, y, plane   (plane defaults to 0)",
+                 font=F_SMALL, bg=INK, fg=FAINT, anchor="w").pack(anchor="w", padx=(84, 0),
+                                                                  pady=(3, 0))
 
     def _build_preview(self, parent):
         """The signature panel: your input rendered the way the combat card renders it."""
@@ -686,12 +739,21 @@ class CuratorApp:
         entries = dict(self.overlay)
         for s in core.load_sources():
             key = str(s.get("id"))
-            attacks = (s.get("combat") or {}).get("attacks") or []
-            if s.get("id") is None or key in entries or not attacks:
+            if s.get("id") is None or key in entries:
                 continue
+            attacks = (s.get("combat") or {}).get("attacks") or []
+            # sources with no attacks are here for their location: a chest or a newly added
+            # monster still needs somewhere to be, even with nothing to curate about its combat
             entries[key] = {"attacks": copy.deepcopy(attacks),
                             "needsReview": False, "imported": True}
         return entries
+
+    def _placeless(self, idstr):
+        """True when nothing can put this source on the map: no tiles from any source."""
+        source = self.sources_by_id.get(idstr)
+        if source is None:
+            return False
+        return not (source.get("spawnPoints") or [])
 
     def _visible_ids(self):
         needle = self.filter_var.get().strip().lower()
@@ -699,6 +761,8 @@ class CuratorApp:
             needle = ""
         ids = []
         for k, v in self.entries.items():
+            if self.only_placeless.get() and not self._placeless(k):
+                continue
             if v.get("imported"):
                 # cleanly parsed and never touched: browsable, but not part of the queue
                 if not self.show_imported.get():
@@ -925,7 +989,36 @@ class CuratorApp:
                           format_effects(a.get("effects")))
         if not self.rows:
             self._add_row()
+        self._load_location(idstr)
         self._render_preview()
+
+    def _load_location(self, idstr):
+        """Show what is already known about where this monster is, and any hand-entered override."""
+        source = self.sources_by_id.get(idstr) or {}
+        spawns = source.get("spawnPoints") or []
+        entrance = source.get("entrance")
+        place = source.get("locationName")
+        known = []
+        if spawns:
+            known.append("{} tile{} known".format(len(spawns), "" if len(spawns) == 1 else "s"))
+        else:
+            known.append("no tiles — nothing to mark on the map")
+        if entrance:
+            known.append("entrance ({}, {}, plane {})".format(
+                entrance.get("x"), entrance.get("y"), entrance.get("plane", 0)))
+        if place:
+            known.append("found in " + place)
+        self.location_known.configure(
+            text="   ·   ".join(known),
+            fg=RED if not spawns else FAINT)
+
+        curated_tiles = core.load_json(core.SPAWNS_OVERLAY, {}) or {}
+        curated_entrance = core.load_json(core.ENTRANCE_OVERLAY, {}) or {}
+        self.tiles_text.delete("1.0", "end")
+        self.tiles_text.insert("1.0", core.fmt_tiles(curated_tiles.get(idstr)))
+        own = curated_entrance.get(idstr)
+        self.entrance_var.set("{}, {}, {}".format(own.get("x", 0), own.get("y", 0),
+                                                  own.get("plane", 0)) if own else "")
 
     def _open_link(self):
         if self.link_url:
@@ -953,13 +1046,44 @@ class CuratorApp:
         entry.pop("imported", None)
         # write through the file rather than over it: a generator run while this window is open
         # adds stubs and seeds effects, and blindly dumping the in-memory dict erases them
-        self.overlay = core.save_entry(self.current_id, entry)
+        location_error = self._save_location(self.current_id)
+        if location_error:
+            self.status.configure(text=location_error, fg=RED)
+            return False
+        if attacks or self.current_id in self.overlay:
+            self.overlay = core.save_entry(self.current_id, entry)
+        else:
+            # nothing to say about its combat: writing an empty attack list here would override
+            # the sweep with silence. The location overlays above have already been written.
+            self.entries[self.current_id] = entry
         self._adopt_overlay()
         self.status.configure(text="Saved  ·  " + core.fmt_attacks(attacks), fg=GREEN)
         saved_id = self.current_id
         self._refresh_list()
         self._select_in_list(saved_id)
         return True
+
+    def _save_location(self, idstr):
+        """Writes the two map overlays. Returns an error message, or None when all is well.
+
+        An emptied field removes the entry rather than storing a blank one, so clearing a mistake
+        hands the monster back to the automatic placement instead of pinning it nowhere.
+        """
+        tiles, error = core.parse_tiles(self.tiles_text.get("1.0", "end"))
+        if error:
+            return "tiles: " + error
+        raw = self.entrance_get().strip()
+        entrance = None
+        if raw:
+            parsed, error = core.parse_tiles(raw)
+            if error:
+                return "entrance: " + error
+            if len(parsed) != 1:
+                return "entrance: one tile, as 'x, y, plane'"
+            entrance = parsed[0]
+        core.save_overlay_entry(core.SPAWNS_OVERLAY, idstr, tiles or None)
+        core.save_overlay_entry(core.ENTRANCE_OVERLAY, idstr, entrance)
+        return None
 
     def _save_next(self):
         if not self._save():

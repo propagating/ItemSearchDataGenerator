@@ -23,6 +23,10 @@ import sys
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 OVERLAY = os.path.join(BASE, "combat-overlay.json")
+# hand-entered map data, for the monsters no dump and no wiki map can place:
+# where they stand, and the surface tile you go in by
+SPAWNS_OVERLAY = os.path.join(BASE, "spawns-overlay.json")
+ENTRANCE_OVERLAY = os.path.join(BASE, "entrance-overlay.json")
 MONSTERS = os.path.join(BASE, "monsters-complete.json")
 DROPS = os.path.abspath(os.path.join(BASE, "..", "..", "JAVA", "ItemSearch",
                         "src", "main", "resources", "com", "itemsearch", "sources.json"))
@@ -105,6 +109,52 @@ def save_entry(idstr, entry):
     current[idstr] = entry
     save(current)
     return current
+
+
+def save_overlay_entry(path, idstr, value):
+    """Merge one entry into a json map keyed by npc id, or drop it when value is None.
+
+    Same write-through rule as :func:`save_entry`, and for the same reason: the generator rewrites
+    these files too, and a whole-dict write from a stale window erases what it added.
+    """
+    current = load_json(path, {}) or {}
+    if value is None:
+        current.pop(idstr, None)
+    else:
+        current[idstr] = value
+    ordered = {k: current[k] for k in sorted(current, key=lambda x: int(x))}
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(ordered, f, indent=2)
+        f.write("\n")
+    return current
+
+
+def parse_tiles(text):
+    """'x, y[, plane]' per line -> ([{x,y,plane}, ...], None), or (None, 'message').
+
+    Blank lines are ignored and plane defaults to 0, since most things stand on it.
+    """
+    tiles = []
+    for number, line in enumerate(( text or "").splitlines(), 1):
+        line = line.strip()
+        if not line:
+            continue
+        parts = [p.strip() for p in line.replace("\t", " ").replace(" ", ",").split(",") if p.strip()]
+        if len(parts) not in (2, 3):
+            return None, "line {}: expected 'x, y' or 'x, y, plane'".format(number)
+        try:
+            numbers = [int(p) for p in parts]
+        except ValueError:
+            return None, "line {}: '{}' is not a tile".format(number, line)
+        tiles.append({"x": numbers[0], "y": numbers[1],
+                      "plane": numbers[2] if len(numbers) == 3 else 0})
+    return tiles, None
+
+
+def fmt_tiles(tiles):
+    """The inverse of :func:`parse_tiles`, for loading saved tiles back into the editor."""
+    return "\n".join("{}, {}, {}".format(t.get("x", 0), t.get("y", 0), t.get("plane", 0))
+                     for t in tiles or [])
 
 
 def ask(prompt):

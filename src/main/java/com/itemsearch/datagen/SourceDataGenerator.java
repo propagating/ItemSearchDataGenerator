@@ -72,6 +72,7 @@ public final class SourceDataGenerator
     private static final String DEFAULT_SPAWN_OVERLAY = "spawns-overlay.json";
     private static final String DEFAULT_TRANSPORTS = "transports_osrs.json";
     private static final String DEFAULT_LOCATIONS_SNAPSHOT = "wiki-locations.json";
+    private static final String DEFAULT_ENTRANCE_OVERLAY = "entrance-overlay.json";
     private static final String DEFAULT_WIKI = "wiki-combat.json";
     private static final String DEFAULT_COMBAT_OVERLAY = "combat-overlay.json";
     private static final String DEFAULT_TYPE_OVERLAY = "source-type-overlay.json";
@@ -260,8 +261,31 @@ public final class SourceDataGenerator
             s.entrance = entrances.forSpawns(s.spawnPoints);
             withEntrance += s.entrance != null ? 1 : 0;
         }
+
+        // hand-entered entrances win: the transport walk cannot reach instanced content, and some
+        // ways in are not transports at all
+        Map<Integer, OutputSpawn> curatedEntrances = MonsterTransform.parseEntranceOverlay(gson,
+            readIfPresent(Paths.get(DEFAULT_ENTRANCE_OVERLAY)));
+        int curated = 0;
+        for (OutputSource s : sources)
+        {
+            OutputSpawn manual = null;
+            for (Integer id : s.npcIds == null ? Collections.<Integer>emptyList() : s.npcIds)
+            {
+                manual = curatedEntrances.get(id);
+                if (manual != null)
+                {
+                    break;
+                }
+            }
+            if (manual != null)
+            {
+                s.entrance = manual;
+                curated++;
+            }
+        }
         System.out.println("Entrances: " + withEntrance + " of " + undergroundOnly
-            + " underground-only sources resolved to a surface way in");
+            + " underground-only sources resolved to a surface way in, " + curated + " curated");
 
         // count the flat rows before they fold onto shared tables, so the summary keeps
         // describing what a player sees rather than how it is stored

@@ -383,6 +383,54 @@ public final class MonsterTransform
         return out;
     }
 
+    /**
+     * Hand-entered dungeon entrances, npc id -> the surface tile you go in by.
+     *
+     * <p>{@link DungeonEntrance} works most of them out of the game's transport list, but it cannot
+     * reach instanced content, and some ways in are not transports at all. This is where those are
+     * written down.
+     */
+    public static Map<Integer, OutputSpawn> parseEntranceOverlay(Gson gson, String json)
+    {
+        Map<Integer, OutputSpawn> result = new HashMap<>();
+        if (json == null || json.trim().isEmpty())
+        {
+            return result;
+        }
+        Map<String, OutputSpawn> raw;
+        try
+        {
+            Type type = new TypeToken<Map<String, OutputSpawn>>()
+            {
+            }.getType();
+            raw = gson.fromJson(json, type);
+        }
+        catch (Exception e)
+        {
+            return result; // an unreadable overlay costs curated entrances, not the whole sweep
+        }
+        if (raw == null)
+        {
+            return result;
+        }
+        for (Map.Entry<String, OutputSpawn> e : raw.entrySet())
+        {
+            if (e.getValue() == null)
+            {
+                continue;
+            }
+            try
+            {
+                result.put(Integer.parseInt(e.getKey().trim()), e.getValue());
+            }
+            catch (NumberFormatException ex)
+            {
+                // a key that is not an npc id is a typo, not a monster
+            }
+        }
+        return result;
+    }
+
     public static Map<Integer, List<OutputSpawn>> parseOverlay(Gson gson, String json)
     {
         Map<Integer, List<OutputSpawn>> result = new HashMap<>();

@@ -315,6 +315,27 @@ public class MonsterTransformTest
         assertEquals("magic", out.prayStyle);
     }
 
+    /** Hand-entered entrances, for the ways in the transport list cannot describe. */
+    @Test
+    public void curatedEntrancesAreReadByNpcId()
+    {
+        Map<Integer, OutputSpawn> found = MonsterTransform.parseEntranceOverlay(new Gson(),
+            "{\"13463\": {\"x\": 3016, \"y\": 3514, \"plane\": 0}}");
+        assertEquals(1, found.size());
+        assertEquals(3016, found.get(13463).x);
+        assertEquals(3514, found.get(13463).y);
+        assertEquals(0, found.get(13463).plane);
+    }
+
+    @Test
+    public void anUnreadableEntranceOverlayIsEmptyRatherThanFatal()
+    {
+        assertTrue(MonsterTransform.parseEntranceOverlay(new Gson(), "{garbage").isEmpty());
+        assertTrue(MonsterTransform.parseEntranceOverlay(new Gson(), null).isEmpty());
+        assertTrue(MonsterTransform.parseEntranceOverlay(new Gson(),
+            "{\"not-an-id\": {\"x\": 1, \"y\": 2, \"plane\": 0}}").isEmpty());
+    }
+
     @Test
     public void duplicateItemRowsMergeKeepingRarityAndMaxQuantity()
     {
