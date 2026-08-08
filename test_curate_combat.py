@@ -4,6 +4,7 @@
 """
 import json
 import os
+import shutil
 import tempfile
 import unittest
 
@@ -161,6 +162,68 @@ class OverlayEntryTest(unittest.TestCase):
             text = f.read()
         self.assertLess(text.index('"-5"'), text.index('"3"'))
         self.assertLess(text.index('"3"'), text.index('"20"'))
+
+
+
+
+class ImportExportTest(unittest.TestCase):
+    """The other half of recording spawns in game: getting them back here."""
+
+    def setUp(self):
+        self.dir = tempfile.mkdtemp()
+        self.real = (core.SPAWNS_OVERLAY, core.ENTRANCE_OVERLAY)
+        core.SPAWNS_OVERLAY = os.path.join(self.dir, "spawns-overlay.json")
+        core.ENTRANCE_OVERLAY = os.path.join(self.dir, "entrance-overlay.json")
+        self.export = os.path.join(self.dir, "spawn-export.json")
+
+    def tearDown(self):
+        core.SPAWNS_OVERLAY, core.ENTRANCE_OVERLAY = self.real
+        shutil.rmtree(self.dir, ignore_errors=True)
+
+    def write_export(self, data):
+        with open(self.export, "w", encoding="utf-8") as f:
+            json.dump(data, f)
+
+    def test_folds_both_maps_into_the_overlays(self):
+        self.write_export({
+            "spawns": {"13463": [{"x": 3016, "y": 3514, "plane": 1}]},
+            "entrances": {"13463": {"x": 2760, "y": 3061, "plane": 0}},
+        })
+        spawns, entrances, err = core.import_spawn_export(self.export)
+        self.assertIsNone(err)
+        self.assertEqual((1, 1), (spawns, entrances))
+
+        with open(core.SPAWNS_OVERLAY, encoding="utf-8") as f:
+            self.assertEqual([{"x": 3016, "y": 3514, "plane": 1}], json.load(f)["13463"])
+        with open(core.ENTRANCE_OVERLAY, encoding="utf-8") as f:
+            self.assertEqual({"x": 2760, "y": 3061, "plane": 0}, json.load(f)["13463"])
+
+    def test_leaves_other_monsters_alone(self):
+        with open(core.SPAWNS_OVERLAY, "w", encoding="utf-8") as f:
+            json.dump({"999": [{"x": 1, "y": 2, "plane": 0}]}, f)
+        self.write_export({"spawns": {"13463": [{"x": 3, "y": 4, "plane": 0}]}, "entrances": {}})
+        core.import_spawn_export(self.export)
+
+        with open(core.SPAWNS_OVERLAY, encoding="utf-8") as f:
+            saved = json.load(f)
+        self.assertEqual(["13463", "999"], sorted(saved))
+
+    def test_a_missing_export_is_said_plainly(self):
+        spawns, entrances, err = core.import_spawn_export(
+            os.path.join(self.dir, "nothing-here.json"))
+        self.assertEqual((0, 0), (spawns, entrances))
+        self.assertIn("No export found", err)
+
+    def test_something_that_is_not_an_export_is_refused(self):
+        self.write_export({"totally": "different"})
+        spawns, entrances, err = core.import_spawn_export(self.export)
+        self.assertEqual((0, 0), (spawns, entrances))
+        self.assertIsNone(err, "an export with neither map is empty, not malformed")
+
+        with open(self.export, "w", encoding="utf-8") as f:
+            f.write("{not json")
+        spawns, entrances, err = core.import_spawn_export(self.export)
+        self.assertIsNotNone(err)
 
 
 if __name__ == "__main__":

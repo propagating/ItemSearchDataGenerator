@@ -30,6 +30,9 @@ ENTRANCE_OVERLAY = os.path.join(BASE, "entrance-overlay.json")
 # underground areas sit above this y in the same coordinate space as the surface, which the world
 # map does not draw. Mirrors DungeonEntrance.UNDERGROUND_Y.
 UNDERGROUND_Y = 6400
+# where the plugin drops what a player recorded in game, for importing back here
+SPAWN_EXPORT = os.path.join(os.path.expanduser("~"), ".runelite", "itemsearch",
+                            "spawn-export.json")
 MONSTERS = os.path.join(BASE, "monsters-complete.json")
 DROPS = os.path.abspath(os.path.join(BASE, "..", "..", "JAVA", "ItemSearch",
                         "src", "main", "resources", "com", "itemsearch", "sources.json"))
@@ -130,6 +133,38 @@ def save_overlay_entry(path, idstr, value):
         json.dump(ordered, f, indent=2)
         f.write("\n")
     return current
+
+
+def import_spawn_export(path=None):
+    """Folds a player's in-game recordings into the two map overlays.
+
+    The plugin writes what was recorded while standing in front of the monsters; this is the
+    other half of that trip. Its two maps are already in overlay shape, so the merge is a merge
+    and nothing is reshaped on the way. Recorded tiles replace an existing hand-entered list for
+    the same monster rather than appending, since the export is the newer statement of both.
+
+    -> (spawns_imported, entrances_imported, error_or_None)
+    """
+    path = path or SPAWN_EXPORT
+    if not os.path.exists(path):
+        return 0, 0, "No export found at " + path
+    try:
+        data = load_json(path, {}) or {}
+    except ValueError as exc:
+        return 0, 0, "Could not read the export: {}".format(exc)
+
+    spawns = data.get("spawns") or {}
+    entrances = data.get("entrances") or {}
+    if not isinstance(spawns, dict) or not isinstance(entrances, dict):
+        return 0, 0, "That file is not a spawn export"
+
+    for idstr, tiles in spawns.items():
+        if tiles:
+            save_overlay_entry(SPAWNS_OVERLAY, str(idstr), tiles)
+    for idstr, tile in entrances.items():
+        if tile:
+            save_overlay_entry(ENTRANCE_OVERLAY, str(idstr), tile)
+    return len(spawns), len(entrances), None
 
 
 def parse_tiles(text):

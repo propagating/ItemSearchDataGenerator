@@ -653,6 +653,14 @@ class CuratorApp:
                  font=F_SMALL, bg=INK, fg=FAINT, anchor="w").pack(anchor="w", padx=(84, 0),
                                                                   pady=(3, 0))
 
+        actions = tk.Frame(wrap, bg=INK)
+        actions.pack(fill="x", pady=(8, 0), padx=(84, 0))
+        flat_button(actions, "Import what I recorded in game",
+                    self._import_recorded).pack(side="left")
+        self.import_status = tk.Label(actions, text="", font=F_SMALL, bg=INK, fg=FAINT,
+                                      anchor="w")
+        self.import_status.pack(side="left", padx=(10, 0))
+
     def _build_preview(self, parent):
         """The signature panel: your input rendered the way the combat card renders it."""
         wrap = tk.Frame(parent, bg=INK, pady=12)
@@ -1062,6 +1070,29 @@ class CuratorApp:
         self._refresh_list()
         self._select_in_list(saved_id)
         return True
+
+    def _import_recorded(self):
+        """Folds in whatever the plugin exported from a play session.
+
+        Recording a monster's tiles in front of it is the easy half; this is the half that gets
+        them into the shipped data. Reloads the fields afterwards so the monster on screen shows
+        what was just imported rather than what it said a moment ago.
+        """
+        spawns, entrances, error = core.import_spawn_export()
+        if error:
+            self.import_status.configure(text=error, fg=RED)
+            return
+        if not spawns and not entrances:
+            self.import_status.configure(text="Nothing recorded to import", fg=FAINT)
+            return
+        self.import_status.configure(
+            text="Imported {} monster{} and {} entrance{}".format(
+                spawns, "" if spawns == 1 else "s",
+                entrances, "" if entrances == 1 else "s"),
+            fg=GREEN)
+        if self.current_id is not None:
+            self._load_location(self.current_id)
+        self._refresh_list()
 
     def _save_location(self, idstr):
         """Writes the two map overlays. Returns an error message, or None when all is well.
