@@ -217,6 +217,31 @@ usually another part of the same dungeon.
 224 of 241 underground-only sources resolve. Without the file the sweep still
 runs; sources simply get no `entrance`.
 
+### Crowd-sourced spawns
+
+Around 1457 sources can be placed by nothing automatic: the spawn dump stops at
+npc id 11151, and the wiki has no map of a good many places. Players can record
+them from inside the game instead.
+
+1. In the plugin: enable **Record spawn locations yourself**, open a monster, and
+   use **+ Spawn here** / **+ Entrance** while standing there.
+2. Enable **Export recorded spawns**. It writes
+   `.runelite/itemsearch/spawn-export.json` and switches itself back off.
+3. Send that file in.
+4. In `curate_gui.py`, the Location card has **Import mine** (your own export) and
+   **Import contributed files…** (any number of files other people sent).
+5. Re-run `runSources` to bake them in.
+
+Contributions **merge**. Two players standing in different corners of the same
+dungeon are both right, so a later file never erases an earlier one; identical
+tiles collapse, so the same spot from ten people stays one tile. An entrance is a
+single place and a file that states one replaces it, but a file that does not
+mention an entrance leaves whatever someone else supplied alone.
+
+Imports are filtered on the way in: coordinates outside the playable map, planes
+outside 0–3 and non-numeric junk are dropped, and no monster may exceed
+`MAX_IMPORTED_TILES` (60) however many files arrive.
+
 ## Combat data (OSRS Wiki)
 
 Per-attack-style combat data (max hit, attack style, attack speed) comes from

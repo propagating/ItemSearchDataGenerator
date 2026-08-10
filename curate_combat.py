@@ -135,15 +135,41 @@ def save_overlay_entry(path, idstr, value):
     return current
 
 
+# a monster with more tiles than this is a mistake or a joke, not a contribution
+MAX_IMPORTED_TILES = 60
+# the playable map; anything outside it cannot be a real tile someone stood on
+MIN_COORD, MAX_COORD = 1000, 16000
+
+
+def valid_tile(tile):
+    """A tile has to be three plausible numbers before it is worth trusting."""
+    if not isinstance(tile, dict):
+        return False
+    try:
+        x, y = int(tile["x"]), int(tile["y"])
+        plane = int(tile.get("plane", 0))
+    except (KeyError, TypeError, ValueError):
+        return False
+    return MIN_COORD <= x <= MAX_COORD and MIN_COORD <= y <= MAX_COORD and 0 <= plane <= 3
+
+
+def _clean(tile):
+    return {"x": int(tile["x"]), "y": int(tile["y"]), "plane": int(tile.get("plane", 0))}
+
+
 def import_spawn_export(path=None):
-    """Folds a player's in-game recordings into the two map overlays.
+    """Folds one player's in-game recordings into the two map overlays.
 
-    The plugin writes what was recorded while standing in front of the monsters; this is the
-    other half of that trip. Its two maps are already in overlay shape, so the merge is a merge
-    and nothing is reshaped on the way. Recorded tiles replace an existing hand-entered list for
-    the same monster rather than appending, since the export is the newer statement of both.
+    Tiles are MERGED with whatever is already recorded for that monster, not swapped for it.
+    That is the whole point once more than one person is contributing: two players standing in
+    different corners of the same dungeon are both right, and the second file to arrive must not
+    erase the first. Duplicates collapse, so the same tile from ten people is still one tile.
 
-    -> (spawns_imported, entrances_imported, error_or_None)
+    An entrance is a single place, so a later one does replace an earlier one — but only when the
+    file actually states one, so importing a file without an entrance never clears the entrance
+    somebody else supplied.
+
+    -> (monsters_touched, entrances_touched, error_or_None)
     """
     path = path or SPAWN_EXPORT
     if not os.path.exists(path):
@@ -152,19 +178,56 @@ def import_spawn_export(path=None):
         data = load_json(path, {}) or {}
     except ValueError as exc:
         return 0, 0, "Could not read the export: {}".format(exc)
+    if not isinstance(data, dict):
+        return 0, 0, "That file is not a spawn export"
 
     spawns = data.get("spawns") or {}
     entrances = data.get("entrances") or {}
     if not isinstance(spawns, dict) or not isinstance(entrances, dict):
         return 0, 0, "That file is not a spawn export"
 
+    existing = load_json(SPAWNS_OVERLAY, {}) or {}
+    touched = 0
     for idstr, tiles in spawns.items():
-        if tiles:
-            save_overlay_entry(SPAWNS_OVERLAY, str(idstr), tiles)
+        if not isinstance(tiles, list):
+            continue
+        merged = [_clean(x) for x in (existing.get(str(idstr)) or []) if valid_tile(x)]
+        seen = {(x["x"], x["y"], x["plane"]) for x in merged}
+        added = False
+        for tile in tiles:
+            if not valid_tile(tile):
+                continue
+            clean = _clean(tile)
+            key = (clean["x"], clean["y"], clean["plane"])
+            if key in seen or len(merged) >= MAX_IMPORTED_TILES:
+                continue
+            seen.add(key)
+            merged.append(clean)
+            added = True
+        if added:
+            save_overlay_entry(SPAWNS_OVERLAY, str(idstr), merged)
+            touched += 1
+
+    entrances_set = 0
     for idstr, tile in entrances.items():
-        if tile:
-            save_overlay_entry(ENTRANCE_OVERLAY, str(idstr), tile)
-    return len(spawns), len(entrances), None
+        if valid_tile(tile):
+            save_overlay_entry(ENTRANCE_OVERLAY, str(idstr), _clean(tile))
+            entrances_set += 1
+    return touched, entrances_set, None
+
+
+def import_spawn_exports(paths):
+    """Folds in several contributed files at once. -> (monsters, entrances, [errors])."""
+    monsters = entrances = 0
+    errors = []
+    for path in paths:
+        got_monsters, got_entrances, error = import_spawn_export(path)
+        if error:
+            errors.append("{}: {}".format(os.path.basename(path), error))
+            continue
+        monsters += got_monsters
+        entrances += got_entrances
+    return monsters, entrances, errors
 
 
 def parse_tiles(text):

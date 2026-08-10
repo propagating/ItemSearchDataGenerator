@@ -22,7 +22,7 @@ import sys
 import webbrowser
 
 import tkinter as tk
-from tkinter import ttk
+from tkinter import filedialog, ttk
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import curate_combat as core
@@ -655,8 +655,9 @@ class CuratorApp:
 
         actions = tk.Frame(wrap, bg=INK)
         actions.pack(fill="x", pady=(8, 0), padx=(84, 0))
-        flat_button(actions, "Import what I recorded in game",
-                    self._import_recorded).pack(side="left")
+        flat_button(actions, "Import mine", self._import_recorded).pack(side="left")
+        flat_button(actions, "Import contributed files…",
+                    self._import_contributed).pack(side="left", padx=(6, 0))
         self.import_status = tk.Label(actions, text="", font=F_SMALL, bg=INK, fg=FAINT,
                                       anchor="w")
         self.import_status.pack(side="left", padx=(10, 0))
@@ -1070,6 +1071,29 @@ class CuratorApp:
         self._refresh_list()
         self._select_in_list(saved_id)
         return True
+
+    def _import_contributed(self):
+        """Folds in export files other people sent.
+
+        Several at once, because contributions arrive in batches, and merged rather than swapped
+        in: two players standing in different corners of the same dungeon are both right.
+        """
+        paths = filedialog.askopenfilenames(
+            title="Spawn exports to import",
+            filetypes=[("Spawn exports", "*.json"), ("All files", "*.*")])
+        if not paths:
+            return
+        monsters, entrances, errors = core.import_spawn_exports(paths)
+        summary = "Imported {} monster{} and {} entrance{} from {} file{}".format(
+            monsters, "" if monsters == 1 else "s",
+            entrances, "" if entrances == 1 else "s",
+            len(paths), "" if len(paths) == 1 else "s")
+        if errors:
+            summary += "   ·   " + "; ".join(errors[:2])
+        self.import_status.configure(text=summary, fg=RED if errors else GREEN)
+        if self.current_id is not None:
+            self._load_location(self.current_id)
+        self._refresh_list()
 
     def _import_recorded(self):
         """Folds in whatever the plugin exported from a play session.

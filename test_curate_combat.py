@@ -167,62 +167,112 @@ class OverlayEntryTest(unittest.TestCase):
 
 
 class ImportExportTest(unittest.TestCase):
-    """The other half of recording spawns in game: getting them back here."""
+    """The other half of recording spawns in game: getting them back here, from many people."""
 
     def setUp(self):
         self.dir = tempfile.mkdtemp()
         self.real = (core.SPAWNS_OVERLAY, core.ENTRANCE_OVERLAY)
         core.SPAWNS_OVERLAY = os.path.join(self.dir, "spawns-overlay.json")
         core.ENTRANCE_OVERLAY = os.path.join(self.dir, "entrance-overlay.json")
-        self.export = os.path.join(self.dir, "spawn-export.json")
 
     def tearDown(self):
         core.SPAWNS_OVERLAY, core.ENTRANCE_OVERLAY = self.real
         shutil.rmtree(self.dir, ignore_errors=True)
 
-    def write_export(self, data):
-        with open(self.export, "w", encoding="utf-8") as f:
-            json.dump(data, f)
+    def export(self, name, spawns=None, entrances=None):
+        path = os.path.join(self.dir, name)
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump({"format": "itemsearch-spawn-export", "version": 1,
+                       "spawns": spawns or {}, "entrances": entrances or {}}, f)
+        return path
+
+    def overlay(self, path):
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
 
     def test_folds_both_maps_into_the_overlays(self):
-        self.write_export({
-            "spawns": {"13463": [{"x": 3016, "y": 3514, "plane": 1}]},
-            "entrances": {"13463": {"x": 2760, "y": 3061, "plane": 0}},
-        })
-        spawns, entrances, err = core.import_spawn_export(self.export)
+        path = self.export("a.json",
+                           spawns={"13463": [{"x": 3016, "y": 3514, "plane": 1}]},
+                           entrances={"13463": {"x": 2760, "y": 3061, "plane": 0}})
+        monsters, entrances, err = core.import_spawn_export(path)
         self.assertIsNone(err)
-        self.assertEqual((1, 1), (spawns, entrances))
+        self.assertEqual((1, 1), (monsters, entrances))
+        self.assertEqual([{"x": 3016, "y": 3514, "plane": 1}],
+                         self.overlay(core.SPAWNS_OVERLAY)["13463"])
+        self.assertEqual({"x": 2760, "y": 3061, "plane": 0},
+                         self.overlay(core.ENTRANCE_OVERLAY)["13463"])
 
-        with open(core.SPAWNS_OVERLAY, encoding="utf-8") as f:
-            self.assertEqual([{"x": 3016, "y": 3514, "plane": 1}], json.load(f)["13463"])
-        with open(core.ENTRANCE_OVERLAY, encoding="utf-8") as f:
-            self.assertEqual({"x": 2760, "y": 3061, "plane": 0}, json.load(f)["13463"])
+    def test_two_contributors_both_keep_their_tiles(self):
+        """The point of the whole exercise: the second file must not erase the first."""
+        core.import_spawn_export(self.export("alice.json",
+                                             spawns={"13463": [{"x": 3016, "y": 3514, "plane": 1}]}))
+        core.import_spawn_export(self.export("bob.json",
+                                             spawns={"13463": [{"x": 3020, "y": 3520, "plane": 1}]}))
+        tiles = self.overlay(core.SPAWNS_OVERLAY)["13463"]
+        self.assertEqual(2, len(tiles), "both players stood somewhere real")
+        self.assertEqual([3016, 3020], sorted(t["x"] for t in tiles))
+
+    def test_the_same_tile_from_many_people_is_one_tile(self):
+        tile = {"x": 3016, "y": 3514, "plane": 1}
+        for who in ("a", "b", "c"):
+            core.import_spawn_export(self.export(who + ".json", spawns={"13463": [tile]}))
+        self.assertEqual(1, len(self.overlay(core.SPAWNS_OVERLAY)["13463"]))
+
+    def test_a_file_without_an_entrance_leaves_someone_elses_alone(self):
+        core.import_spawn_export(self.export("alice.json",
+                                             entrances={"13463": {"x": 2760, "y": 3061, "plane": 0}}))
+        core.import_spawn_export(self.export("bob.json",
+                                             spawns={"13463": [{"x": 3016, "y": 3514, "plane": 1}]}))
+        self.assertEqual({"x": 2760, "y": 3061, "plane": 0},
+                         self.overlay(core.ENTRANCE_OVERLAY)["13463"])
+
+    def test_nonsense_coordinates_are_refused(self):
+        path = self.export("junk.json", spawns={"13463": [
+            {"x": 0, "y": 0, "plane": 0},
+            {"x": 99999, "y": 3514, "plane": 0},
+            {"x": 3016, "y": 3514, "plane": 9},
+            {"x": "over there", "y": 3514, "plane": 0},
+            {"x": 3016, "y": 3514, "plane": 1},
+        ]})
+        core.import_spawn_export(path)
+        self.assertEqual([{"x": 3016, "y": 3514, "plane": 1}],
+                         self.overlay(core.SPAWNS_OVERLAY)["13463"],
+                         "only the one plausible tile survives")
+
+    def test_a_monster_cannot_be_flooded_with_tiles(self):
+        many = [{"x": 3000 + i, "y": 3500, "plane": 0} for i in range(200)]
+        core.import_spawn_export(self.export("flood.json", spawns={"13463": many}))
+        self.assertEqual(core.MAX_IMPORTED_TILES,
+                         len(self.overlay(core.SPAWNS_OVERLAY)["13463"]))
 
     def test_leaves_other_monsters_alone(self):
         with open(core.SPAWNS_OVERLAY, "w", encoding="utf-8") as f:
-            json.dump({"999": [{"x": 1, "y": 2, "plane": 0}]}, f)
-        self.write_export({"spawns": {"13463": [{"x": 3, "y": 4, "plane": 0}]}, "entrances": {}})
-        core.import_spawn_export(self.export)
+            json.dump({"999": [{"x": 3001, "y": 3002, "plane": 0}]}, f)
+        core.import_spawn_export(self.export("a.json",
+                                             spawns={"13463": [{"x": 3003, "y": 3004, "plane": 0}]}))
+        self.assertEqual(["13463", "999"], sorted(self.overlay(core.SPAWNS_OVERLAY)))
 
-        with open(core.SPAWNS_OVERLAY, encoding="utf-8") as f:
-            saved = json.load(f)
-        self.assertEqual(["13463", "999"], sorted(saved))
+    def test_a_whole_folder_of_contributions_at_once(self):
+        paths = [self.export("alice.json", spawns={"13463": [{"x": 3016, "y": 3514, "plane": 1}]}),
+                 self.export("bob.json", spawns={"13463": [{"x": 3020, "y": 3520, "plane": 1}]}),
+                 os.path.join(self.dir, "missing.json")]
+        monsters, entrances, errors = core.import_spawn_exports(paths)
+        self.assertEqual(2, monsters)
+        self.assertEqual(1, len(errors), "the missing file is reported, not fatal")
+        self.assertEqual(2, len(self.overlay(core.SPAWNS_OVERLAY)["13463"]))
 
     def test_a_missing_export_is_said_plainly(self):
-        spawns, entrances, err = core.import_spawn_export(
+        monsters, entrances, err = core.import_spawn_export(
             os.path.join(self.dir, "nothing-here.json"))
-        self.assertEqual((0, 0), (spawns, entrances))
+        self.assertEqual((0, 0), (monsters, entrances))
         self.assertIn("No export found", err)
 
     def test_something_that_is_not_an_export_is_refused(self):
-        self.write_export({"totally": "different"})
-        spawns, entrances, err = core.import_spawn_export(self.export)
-        self.assertEqual((0, 0), (spawns, entrances))
-        self.assertIsNone(err, "an export with neither map is empty, not malformed")
-
-        with open(self.export, "w", encoding="utf-8") as f:
+        path = os.path.join(self.dir, "junk.json")
+        with open(path, "w", encoding="utf-8") as f:
             f.write("{not json")
-        spawns, entrances, err = core.import_spawn_export(self.export)
+        monsters, entrances, err = core.import_spawn_export(path)
+        self.assertEqual((0, 0), (monsters, entrances))
         self.assertIsNotNone(err)
 
 
