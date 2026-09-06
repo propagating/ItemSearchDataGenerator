@@ -37,6 +37,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,6 +54,7 @@ import com.itemsearch.datagen.source.DropPageJson;
 import com.itemsearch.datagen.source.DropTableJson;
 import com.itemsearch.datagen.source.ItemInfoJson;
 import com.itemsearch.datagen.source.LocationJson;
+import com.itemsearch.datagen.source.MonsterJson;
 import com.itemsearch.datagen.source.ShopPageJson;
 import com.itemsearch.datagen.source.ShopTableJson;
 import com.itemsearch.datagen.source.ShopLineJson;
@@ -68,6 +70,7 @@ public final class SourceDataGenerator
     private static final String DEFAULT_TABLES_SNAPSHOT = "wiki-drop-tables.json";
     private static final String DEFAULT_ITEMS_SNAPSHOT = "wiki-items.json";
     private static final String DEFAULT_SHOPS_SNAPSHOT = "wiki-shops.json";
+    private static final String DEFAULT_MONSTERS = "monsters-complete.json";
     private static final String DEFAULT_SPAWNS = "npc-spawns.json";
     private static final String DEFAULT_SPAWN_OVERLAY = "spawns-overlay.json";
     private static final String DEFAULT_TRANSPORTS = "transports_osrs.json";
@@ -189,8 +192,11 @@ public final class SourceDataGenerator
             MonsterTransform.parseSpawns(gson, readIfPresent(Paths.get(DEFAULT_SPAWNS))),
             MonsterTransform.parseOverlay(gson, readIfPresent(Paths.get(DEFAULT_SPAWN_OVERLAY))));
 
-        List<OutputSource> sources =
-            SourceTransform.transform(pages, itemInfo, spawns, wiki, combatOverlay, typeOverlay);
+        Map<Integer, MonsterJson> monsters = readMonstersById(gson,
+            readIfPresent(Paths.get(DEFAULT_MONSTERS)));
+
+        List<OutputSource> sources = SourceTransform.transform(pages, itemInfo, spawns, wiki,
+            combatOverlay, typeOverlay, monsters);
 
         // the spawn dump stops at npc id 11151, so everything added to the game since has no
         // tiles at all. The wiki keeps its own; fill from those, and only where the dump was silent.
@@ -511,6 +517,38 @@ public final class SourceDataGenerator
         {
             return gson.fromJson(reader, type);
         }
+    }
+
+    /**
+     * The monster dump keyed by npc id, for joining combat levels onto page-driven sources.
+     *
+     * <p>The file keys entries by id as a string; rekeying on the record's own id keeps the two in
+     * step and drops any entry whose key and body disagree. A missing dump costs levels, nothing
+     * else, so it is read as optional rather than demanded like the wiki snapshots.
+     */
+    static Map<Integer, MonsterJson> readMonstersById(Gson gson, String json)
+    {
+        if (json == null || json.trim().isEmpty())
+        {
+            return Collections.emptyMap();
+        }
+        Type type = new TypeToken<Map<String, MonsterJson>>()
+        {
+        }.getType();
+        Map<String, MonsterJson> raw = gson.fromJson(json, type);
+        if (raw == null)
+        {
+            return Collections.emptyMap();
+        }
+        Map<Integer, MonsterJson> byId = new HashMap<>();
+        for (MonsterJson m : raw.values())
+        {
+            if (m != null)
+            {
+                byId.put(m.id, m);
+            }
+        }
+        return byId;
     }
 
     private static String readIfPresent(Path path) throws IOException

@@ -27,6 +27,7 @@ package com.itemsearch.datagen;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -45,6 +46,7 @@ import com.itemsearch.datagen.source.DropPageJson;
 import com.itemsearch.datagen.source.LocationJson;
 import com.itemsearch.datagen.source.DropTableJson;
 import com.itemsearch.datagen.source.ItemInfoJson;
+import com.itemsearch.datagen.source.MonsterJson;
 import com.itemsearch.datagen.source.VersionJson;
 import com.itemsearch.datagen.source.WikiCombatJson;
 
@@ -126,10 +128,20 @@ public final class SourceTransform
     {
     }
 
+    /** Backward-compatible 6-arg form (no monster dump, so combat levels stay zero). */
     public static List<OutputSource> transform(Map<String, DropPageJson> pages,
         Map<String, ItemInfoJson> itemInfo, Map<Integer, List<OutputSpawn>> spawns,
         Map<String, WikiCombatJson> wiki, Map<Integer, CombatOverlayJson> combatOverlay,
         Map<String, String> typeOverlay)
+    {
+        return transform(pages, itemInfo, spawns, wiki, combatOverlay, typeOverlay,
+            Collections.emptyMap());
+    }
+
+    public static List<OutputSource> transform(Map<String, DropPageJson> pages,
+        Map<String, ItemInfoJson> itemInfo, Map<Integer, List<OutputSpawn>> spawns,
+        Map<String, WikiCombatJson> wiki, Map<Integer, CombatOverlayJson> combatOverlay,
+        Map<String, String> typeOverlay, Map<Integer, MonsterJson> monsters)
     {
         List<Bucket> buckets = new ArrayList<>();
         if (pages != null)
@@ -145,7 +157,7 @@ public final class SourceTransform
         List<OutputSource> out = new ArrayList<>();
         for (Bucket b : buckets)
         {
-            out.add(finish(b, spawns, wiki, combatOverlay));
+            out.add(finish(b, spawns, wiki, combatOverlay, monsters));
         }
         out.sort(Comparator
             .comparing((OutputSource s) -> s.name, String.CASE_INSENSITIVE_ORDER)
@@ -341,7 +353,43 @@ public final class SourceTransform
         OutputDrop drop = new OutputDrop(itemId, line.name, rarity, quantity, noted, rarityKnown);
         drop.category = category;
         drop.dropTable = dropTable;
+        drop.condition = conditionOf(line.name, line.rarity);
         return drop;
+    }
+
+    /** Items that exist only under a condition, wherever on the wiki they are listed. */
+    private static final Map<String, String> CONDITIONAL_ITEMS = new HashMap<>();
+
+    static
+    {
+        // brimstone keys are handed out by Konar's tasks and by nothing else in the game
+        CONDITIONAL_ITEMS.put("brimstone key", "KONAR_TASK");
+    }
+
+    /**
+     * What has to hold before a drop is on the table at all, or null when it always is.
+     *
+     * <p>Nothing states conditions outright. A drop that only exists under one is usually priced
+     * with a template of its own — a brimstone key's chance is meaningless off a Konar task, so the
+     * wiki gives it {@code Brimstone rarity} instead of a number — and that template is the
+     * statement. Superior slayer monsters break the pattern by listing the same key as "Always",
+     * because within the task it is guaranteed, so the item's own name has the final say.
+     */
+    static String conditionOf(String itemName, String rarity)
+    {
+        if (itemName != null)
+        {
+            String byItem = CONDITIONAL_ITEMS.get(itemName.trim().toLowerCase(Locale.ROOT));
+            if (byItem != null)
+            {
+                return byItem;
+            }
+        }
+        if (rarity == null)
+        {
+            return null;
+        }
+        return rarity.toLowerCase(Locale.ROOT).contains("{{brimstone rarity") ? "KONAR_TASK" : null;
     }
 
     private static List<Integer> parseNpcIds(List<String> raw)
@@ -409,8 +457,32 @@ public final class SourceTransform
         }
     }
 
+    /**
+     * The monster the dump holds for this source, or null when it holds none.
+     *
+     * <p>Matched on the bucket's own npc ids rather than the page's, so a page split into versions
+     * ("Hellhound (Level 122)") picks up the levels of the version it describes.
+     */
+    private static MonsterJson monsterFor(Bucket b, Map<Integer, MonsterJson> monsters)
+    {
+        if (monsters == null || monsters.isEmpty() || b.npcIds == null)
+        {
+            return null;
+        }
+        for (Integer id : b.npcIds)
+        {
+            MonsterJson m = monsters.get(id);
+            if (m != null)
+            {
+                return m;
+            }
+        }
+        return null;
+    }
+
     private static OutputSource finish(Bucket b, Map<Integer, List<OutputSpawn>> spawns,
-        Map<String, WikiCombatJson> wiki, Map<Integer, CombatOverlayJson> combatOverlay)
+        Map<String, WikiCombatJson> wiki, Map<Integer, CombatOverlayJson> combatOverlay,
+        Map<Integer, MonsterJson> monsters)
     {
         List<OutputSpawn> spawnPoints;
         Integer x = null;
@@ -437,7 +509,13 @@ public final class SourceTransform
         {
             CombatParser.ParsedCombat pc = WikiCombat.toAttacks(
                 wiki == null ? null : wiki.get(b.pageTitle), b.version);
-            combat = new OutputCombat(0, 0, 0, 0, 0, 0, pc.attacks);
+            // the wiki infobox publishes defence bonuses and max hits but not levels, so the
+            // levels come from the monster dump, joined on npc id
+            MonsterJson m = monsterFor(b, monsters);
+            combat = m == null
+                ? new OutputCombat(0, 0, 0, 0, 0, 0, pc.attacks)
+                : new OutputCombat(m.attackLevel, m.strengthLevel, m.defenceLevel, m.magicLevel,
+                    m.rangedLevel, m.hitpoints, pc.attacks);
             if (combatOverlay != null && combatOverlay.containsKey(b.id))
             {
                 combat = MonsterTransform.applyCombatOverlay(combat, combatOverlay.get(b.id));

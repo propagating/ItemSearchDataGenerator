@@ -38,6 +38,10 @@ public class OutputDrop
     // the wiki's shared drop table these lines came from ("Herb drop table"); null when the drop
     // is part of the source's own table rather than a shared one
     public String dropTable;
+    // what has to be true before this drop is on the table at all ("KONAR_TASK"); null when the
+    // drop is always live. A conditional drop is not dry-counted on a kill that could never have
+    // produced it — an off-task kill would otherwise drive its counter up forever.
+    public String condition;
 
     public OutputDrop(int itemId, String itemName, double rarity, int quantity, boolean noted, boolean rarityKnown)
     {

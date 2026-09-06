@@ -40,6 +40,7 @@ import com.itemsearch.datagen.source.DropLineJson;
 import com.itemsearch.datagen.source.DropPageJson;
 import com.itemsearch.datagen.source.DropTableJson;
 import com.itemsearch.datagen.source.ItemInfoJson;
+import com.itemsearch.datagen.source.MonsterJson;
 import com.itemsearch.datagen.source.VersionJson;
 import com.itemsearch.datagen.source.WikiCombatJson;
 import org.junit.Test;
@@ -494,5 +495,143 @@ public class SourceTransformTest
             Collections.emptyMap(), Collections.emptyMap(), combatOverlay, Collections.emptyMap());
 
         assertEquals(99, out.get(0).combat.attacks.get(0).maxHit); // overlay wins
+    }
+
+    private static MonsterJson monster(int id, String name, int attack, int strength, int defence,
+        int magic, int ranged, int hitpoints)
+    {
+        MonsterJson m = new MonsterJson();
+        m.id = id;
+        m.name = name;
+        m.attackLevel = attack;
+        m.strengthLevel = strength;
+        m.defenceLevel = defence;
+        m.magicLevel = magic;
+        m.rangedLevel = ranged;
+        m.hitpoints = hitpoints;
+        return m;
+    }
+
+    /**
+     * The stats panel is read to decide what to bring, which is answered by the levels rather than
+     * by the attacks alone. The page-driven transform has no levels of its own — the wiki infobox
+     * does not carry them — so they are joined in from the monster dump by npc id.
+     */
+    @Test
+    public void combatLevelsComeFromTheMonsterDump()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        pages.put("Blue dragon", page("Blue dragon", "Monster", Collections.singletonList("265"), "111",
+            table("Drops", "Drops", line(false, "Bones", "1", "Always", null))));
+
+        Map<Integer, MonsterJson> monsters = Collections.singletonMap(
+            265, monster(265, "Blue dragon", 95, 95, 95, 1, 1, 105));
+
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap(),
+            Collections.emptyMap(), monsters);
+
+        assertEquals(95, out.get(0).combat.attackLevel);
+        assertEquals(95, out.get(0).combat.strengthLevel);
+        assertEquals(95, out.get(0).combat.defenceLevel);
+        assertEquals(1, out.get(0).combat.magicLevel);
+        assertEquals(1, out.get(0).combat.rangedLevel);
+        assertEquals(105, out.get(0).combat.hitpoints);
+    }
+
+    /**
+     * A page split into versions names its own npc ids per version, so each split source must find
+     * the monster its own ids point at rather than the first one on the page.
+     */
+    @Test
+    public void combatLevelsFollowTheVersionsOwnNpcIds()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        DropPageJson p = page("Hellhound", "Monster", null, null,
+            table("Drops", "Drops", line(false, "Bones", "1", "Always", null)));
+        p.versions.add(version("Level 122", "122", "104"));
+        p.versions.add(version("Level 127", "127", "105"));
+        pages.put("Hellhound", p);
+
+        Map<Integer, MonsterJson> monsters = new HashMap<>();
+        monsters.put(104, monster(104, "Hellhound", 60, 60, 20, 1, 1, 116));
+        monsters.put(105, monster(105, "Hellhound", 70, 70, 30, 1, 1, 124));
+
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap(),
+            Collections.emptyMap(), monsters);
+
+        assertEquals(2, out.size());
+        OutputSource first = out.get(0).npcIds.contains(104) ? out.get(0) : out.get(1);
+        OutputSource second = first == out.get(0) ? out.get(1) : out.get(0);
+        assertEquals(116, first.combat.hitpoints);
+        assertEquals(124, second.combat.hitpoints);
+    }
+
+    /** A source with no matching monster keeps zeros rather than failing the whole generation. */
+    @Test
+    public void combatLevelsAreZeroWhenTheMonsterDumpHasNoMatch()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        pages.put("Goblin", page("Goblin", "Monster", Collections.singletonList("100"), "2",
+            table("Drops", "Drops", line(false, "Bones", "1", "Always", null))));
+
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap());
+
+        assertEquals(0, out.get(0).combat.attackLevel);
+        assertEquals(0, out.get(0).combat.hitpoints);
+    }
+
+    /**
+     * A brimstone key is only on the table while Konar assigned the task, so an off-task kill was
+     * never a chance at one. The wiki says so in the rarity itself — the drop is priced with a
+     * template no other kind of drop uses — which is the only machine-readable statement of it.
+     */
+    @Test
+    public void aKonarOnlyDropIsMarkedConditional()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        pages.put("Aberrant spectre", page("Aberrant spectre", "Monster",
+            Collections.singletonList("2"), "96",
+            table("Tertiary", "Drops",
+                line(false, "Brimstone key", "1", "{{Brimstone rarity|96|bonus=yes}}", null),
+                line(false, "Bones", "1", "Always", null))));
+
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap());
+
+        OutputDrop key = out.get(0).drops.stream()
+            .filter(d -> "Brimstone key".equals(d.itemName)).findFirst().orElse(null);
+        OutputDrop bones = out.get(0).drops.stream()
+            .filter(d -> "Bones".equals(d.itemName)).findFirst().orElse(null);
+
+        assertNotNull(key);
+        assertEquals("KONAR_TASK", key.condition);
+        // an ordinary drop stays unconditional, or every counter would stop moving
+        assertNotNull(bones);
+        assertNull(bones.condition);
+    }
+
+    /**
+     * A superior slayer monster lists the same key as a guaranteed drop, because within the task it
+     * is. Off task it is not on the table at all, so the "Always" must not be taken at face value —
+     * the item decides, not the rarity it happens to be written with.
+     */
+    @Test
+    public void aGuaranteedKonarOnlyDropIsStillConditional()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        pages.put("Choke devil", page("Choke devil", "Monster",
+            Collections.singletonList("7404"), "290",
+            table("100%", "Drops", line(false, "Brimstone key", "1", "Always", null))));
+
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap());
+
+        assertEquals("KONAR_TASK", out.get(0).drops.get(0).condition);
     }
 }

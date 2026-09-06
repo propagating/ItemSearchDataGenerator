@@ -145,13 +145,33 @@ public final class DungeonEntrance
                 return null; // already findable; the spawn markers are the answer
             }
         }
-        OutputSpawn from = spawns.get(0);
+        // Every spawn gets a try, not just the first. A blue dragon lives in five dungeons, and the
+        // tile the dump lists first is in one nothing connects to — walking only from that one left
+        // Taverley, where most people actually go, with no way in marked.
+        for (OutputSpawn from : spawns)
+        {
+            OutputSpawn found = walkFrom(from);
+            if (found != null)
+            {
+                return found;
+            }
+        }
+        return null;
+    }
+
+    /** The nearest surface exit reachable from one spawn tile, or null when none is. */
+    private OutputSpawn walkFrom(OutputSpawn from)
+    {
         Set<Long> seen = new HashSet<>();
         List<int[]> frontier = new ArrayList<>();
         frontier.add(new int[]{from.x, from.y, from.plane});
         for (int hop = 0; hop < MAX_HOPS && !frontier.isEmpty(); hop++)
         {
             List<int[]> next = new ArrayList<>();
+            // exits found at this depth, judged together: iteration order decided it before, and a
+            // cave mouth on the far side of the map beat the ladder directly overhead
+            OutputSpawn best = null;
+            long bestDistance = Long.MAX_VALUE;
             for (int[] point : frontier)
             {
                 for (int[] link : near(point[2], point[0], point[1]))
@@ -165,7 +185,13 @@ public final class DungeonEntrance
                     }
                     if (isSurface(sy))
                     {
-                        return new OutputSpawn(sx, sy, sp);
+                        long distance = distanceToProjection(from, sx, sy);
+                        if (distance < bestDistance)
+                        {
+                            bestDistance = distance;
+                            best = new OutputSpawn(sx, sy, sp);
+                        }
+                        continue;
                     }
                     if (next.size() < MAX_FRONTIER)
                     {
@@ -173,14 +199,41 @@ public final class DungeonEntrance
                     }
                 }
             }
+            if (best != null)
+            {
+                return best;
+            }
             frontier = next;
         }
         return null;
     }
 
+    /**
+     * How far a surface tile is from the ground directly above a spawn.
+     *
+     * <p>An underground region is laid out exactly {@link #UNDERGROUND_Y} north of the surface it
+     * sits beneath, so subtracting that offset projects a spawn onto the tile it lives under. The
+     * way in is the exit nearest that projection; anything much further is a different route into
+     * the same cave system.
+     */
+    private static long distanceToProjection(OutputSpawn from, int x, int y)
+    {
+        long dx = (long) x - from.x;
+        long dy = (long) y - (from.y - UNDERGROUND_Y);
+        return dx * dx + dy * dy;
+    }
+
+    /**
+     * The surface is a band of the coordinate space rather than everything above the underground
+     * line. Transports also start in places that are neither — instance templates and cave
+     * interiors sit at coordinates far below the overworld — and pointing the player at one of
+     * those is worse than admitting there is no way in.
+     */
+    private static final int SURFACE_MIN_Y = 2400;
+
     private static boolean isSurface(int y)
     {
-        return y < UNDERGROUND_Y;
+        return y >= SURFACE_MIN_Y && y < UNDERGROUND_Y;
     }
 
     // every transport landing within SEARCH_RADIUS of the given tile, on the same plane
