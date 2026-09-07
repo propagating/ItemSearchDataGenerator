@@ -186,6 +186,54 @@ public class SourceTransformTest
             "Killerwatt", attacking.wikiPage);
     }
 
+    /**
+     * Guard (Hosidius): Bow is ranged, Staff is crush, one max hit and one speed for both. Read
+     * as a whole the page is ambiguous (two styles, one unattributed hit); read per version each
+     * source is complete. The gap must be judged the way the source was built, or a monster the
+     * generator got right sits in the curator queue forever.
+     */
+    @Test
+    public void aVersionSplitSourceRecordsTheGapOfItsOwnVersionNotThePage()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        DropPageJson p = page("Guard (Hosidius)", "Monster", Arrays.asList("397", "399"), "22",
+            table("Drops", "Drops", line(false, "Bones", "1", "Always", null)));
+        p.versions.add(version("Bow", "22", "397"));
+        p.versions.add(version("Staff", "19", "399"));
+        pages.put("Guard (Hosidius)", p);
+        WikiCombatJson w = versioned(Arrays.asList("[[Ranged]]", "[[Crush]]"), new ArrayList<>(),
+            new ArrayList<>());
+        w.maxHit = "4";
+        w.attackSpeed = "6";
+
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.singletonMap("Guard (Hosidius)", w),
+            Collections.emptyMap(), Collections.emptyMap());
+
+        OutputSource bow = byName(out, "Guard (Hosidius) (Bow)");
+        assertEquals(4, bow.combat.attacks.get(0).maxHit);
+        assertFalse("each version parsed cleanly, so neither is a gap", bow.combatGap);
+        assertFalse(byName(out, "Guard (Hosidius) (Staff)").combatGap);
+    }
+
+    @Test
+    public void anUnsplitAmbiguousPageIsRecordedAsAGap()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        pages.put("Muddler", page("Muddler", "Monster", Collections.singletonList("7"), "30",
+            table("Drops", "Drops", line(false, "Bones", "1", "Always", null))));
+        WikiCombatJson w = new WikiCombatJson();
+        w.attackStyle = "[[Melee]], [[Magic]]";
+        w.maxHit = "20";
+        w.attackSpeed = "4";
+
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.singletonMap("Muddler", w),
+            Collections.emptyMap(), Collections.emptyMap());
+
+        assertTrue(byName(out, "Muddler").combatGap);
+    }
+
     /** A source named after its own page has nothing extra to carry. */
     @Test
     public void anUnsplitSourceCarriesNoSeparatePage()

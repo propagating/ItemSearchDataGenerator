@@ -51,6 +51,9 @@ public class OutputSource
     // indexes into OutputData.tables; this source's drops are those tables concatenated
     public List<Integer> tables;
     public OutputCombat combat;
+    // whether the wiki version this source was built from parsed ambiguously — what puts it in
+    // the curator's queue. Generator-side only: transient keeps it out of sources.json.
+    public transient boolean combatGap;
     // KILL, REWARD, PICKPOCKET, or GATHER
     public String type;
     // wiki {{Map}} location for chest/node sources; null for NPC-backed sources

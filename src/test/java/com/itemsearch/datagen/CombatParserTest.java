@@ -254,4 +254,107 @@ public class CombatParserTest
         assertEquals(4, pc.attacks.get(0).speed);
         assertEquals(6, pc.attacks.get(0).speedMax);
     }
+
+    // ---- what a page says beside its style ----
+
+    @Test
+    public void aParentheticalOnTheStyleBecomesTheAttacksNote()
+    {
+        // Thermonuclear smoke devil: the note is not part of the style, and it must not stop the
+        // hybrid split — left in, the whole phrase shipped as an unknown style with no note
+        String field = "[[Magical ranged]] (100% [[prayer penetration]])";
+        assertEquals(Arrays.asList("magical ranged"), CombatParser.parseStyles(field));
+        assertEquals(Arrays.asList("100% prayer penetration"), CombatParser.parseStyleNotes(field));
+
+        CombatParser.ParsedCombat pc = CombatParser.assemble(
+            CombatParser.parseStyles(field), CombatParser.parseStyleNotes(field),
+            CombatParser.parseMaxHits("8"), Arrays.asList(2));
+        OutputAttack a = pc.attacks.get(0);
+        assertEquals("magic", a.style);
+        assertEquals("ranged", a.prayStyle);
+        assertEquals("100% prayer penetration", a.notes);
+        assertEquals(8, a.maxHit);
+        assertFalse(pc.gap);
+    }
+
+    @Test
+    public void styleNotesLineUpWithStylesAndAreNullWhereAbsent()
+    {
+        String field = "[[Crush]], [[Magic]] (bleed)";
+        assertEquals(Arrays.asList("crush", "magic"), CombatParser.parseStyles(field));
+        assertEquals(Arrays.asList(null, "bleed"), CombatParser.parseStyleNotes(field));
+        OutputAttack plain = CombatParser.assemble(
+            CombatParser.parseStyles("[[Stab]]"), CombatParser.parseMaxHits("3"), Arrays.asList(4))
+            .attacks.get(0);
+        assertNull(plain.notes);
+    }
+
+    // ---- what a page says beside its max hit ----
+
+    @Test
+    public void aSlashJoinedAnnotationFeedsEveryStyleItNames()
+    {
+        CombatParser.ParsedCombat pc = CombatParser.assemble(
+            Arrays.asList("magic", "ranged"),
+            CombatParser.parseMaxHits("51 (Magic/Ranged)"), Arrays.asList(2));
+        assertFalse(pc.gap);
+        assertEquals(51, pc.attacks.get(0).maxHit);
+        assertEquals(51, pc.attacks.get(1).maxHit);
+    }
+
+    @Test
+    public void anAnnotationNamingNoStyleBecomesItsOwnRowAndStillAsksForReview()
+    {
+        // Thermonuclear smoke devil (Echo): the charge attack is a fourth thing, not a max hit
+        // for magic or ranged; it is pre-filled under its own name so the curator confirms
+        // rather than retypes, and flagged because the client does not know that style
+        CombatParser.ParsedCombat pc = CombatParser.assemble(
+            Arrays.asList("magic", "ranged"),
+            CombatParser.parseMaxHits("51 (Magic/Ranged), 99+ (Charge attack)"), Arrays.asList(2));
+        assertEquals(3, pc.attacks.size());
+        assertEquals(51, pc.attacks.get(0).maxHit);
+        assertEquals(51, pc.attacks.get(1).maxHit);
+        assertEquals("charge attack", pc.attacks.get(2).style);
+        assertEquals(99, pc.attacks.get(2).maxHit);
+        assertEquals(2, pc.attacks.get(2).speed);
+        assertTrue(pc.gap);
+    }
+
+    @Test
+    public void aNoteThatMeansTheOrdinaryAttackAttributesNothing()
+    {
+        // "(normal)" and "(standard)" are how the wiki says "not the special": the number is the
+        // plain max hit, so it must fall back onto every style like an unannotated one, not
+        // become a row called "normal"
+        CombatParser.ParsedCombat pc = CombatParser.assemble(
+            Arrays.asList("crush"), CombatParser.parseMaxHits("12 (normal)"), Arrays.asList(4));
+        assertEquals(1, pc.attacks.size());
+        assertEquals(12, pc.attacks.get(0).maxHit);
+        assertFalse(pc.gap);
+    }
+
+    @Test
+    public void aNoteNamingAStyleThePageHasIsThatStyleNotASpecial()
+    {
+        // a dragon: "(dragonfire)" is one of its styles, so the 50 belongs to it
+        CombatParser.ParsedCombat pc = CombatParser.assemble(
+            Arrays.asList("dragonfire", "slash"),
+            CombatParser.parseMaxHits("50 (dragonfire), 10 (melee)"), Arrays.asList(4));
+        assertEquals(2, pc.attacks.size());
+        assertEquals(50, pc.attacks.get(0).maxHit);
+        assertEquals(10, pc.attacks.get(1).maxHit);
+        assertFalse(pc.gap);
+    }
+
+    @Test
+    public void aStyleClassAnnotationThatMatchesNothingStaysAsBefore()
+    {
+        // Zuk's "(projectile attack)" is ranged-class: it belongs to no typeless style, and it is
+        // not a special attack either, so no row is invented for it
+        CombatParser.ParsedCombat pc = CombatParser.assemble(
+            Arrays.asList("typeless", "typeless"),
+            CombatParser.parseMaxHits("148 (projectile attack)"), Arrays.asList(10, 7));
+        assertEquals(2, pc.attacks.size());
+        assertTrue(pc.gap);
+    }
 }

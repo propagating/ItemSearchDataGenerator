@@ -42,9 +42,15 @@ import com.itemsearch.datagen.output.OutputAttack;
  */
 public final class CombatParser
 {
-    // a run of digits, optionally followed by a "(annotation)"
-    private static final Pattern MAX_HIT = Pattern.compile("(\\d+)\\s*(?:\\(([^)]*)\\))?");
+    // a run of digits, optionally followed by a "(annotation)"; "99+" means at least 99, and the
+    // plus must not come between the number and its note
+    private static final Pattern MAX_HIT = Pattern.compile("(\\d+)\\+?\\s*(?:\\(([^)]*)\\))?");
     private static final Pattern INT = Pattern.compile("\\d+");
+    // a "(...)" beside a style: a note about it, never part of its name
+    private static final Pattern STYLE_NOTE = Pattern.compile("\\s*\\(([^)]*)\\)");
+    // max-hit annotations that mean "the ordinary attack", so they attribute nothing
+    private static final Set<String> BASE_NOTES =
+        new HashSet<>(Arrays.asList("normal", "standard", "default", "base", "regular"));
     // the three styles a hybrid can be built from; anything else is not a hybrid pair
     private static final Set<String> COMBAT_CLASSES =
         new HashSet<>(Arrays.asList("melee", "ranged", "magic"));
@@ -89,7 +95,7 @@ public final class CombatParser
             }
             for (String raw : field.split(","))
             {
-                String s = normaliseStyle(raw);
+                String s = normaliseStyle(STYLE_NOTE.matcher(raw).replaceAll(""));
                 if (!s.isEmpty())
                 {
                     out.add(s);
@@ -99,11 +105,37 @@ public final class CombatParser
         return out;
     }
 
+    /**
+     * What the page says in brackets beside each style, lined up with {@link #parseStyles}: null
+     * where a style has none. "Magical ranged (100% prayer penetration)" is a hybrid style with a
+     * note, not a five-word style, and the note is worth showing.
+     */
+    public static List<String> parseStyleNotes(String... fields)
+    {
+        List<String> out = new ArrayList<>();
+        for (String field : fields)
+        {
+            if (field == null)
+            {
+                continue;
+            }
+            for (String raw : field.split(","))
+            {
+                if (normaliseStyle(STYLE_NOTE.matcher(raw).replaceAll("")).isEmpty())
+                {
+                    continue; // no style, so no slot to line up with
+                }
+                Matcher note = STYLE_NOTE.matcher(raw);
+                String text = note.find() ? stripMarkup(note.group(1)) : "";
+                out.add(text.isEmpty() ? null : text);
+            }
+        }
+        return out;
+    }
+
     private static String normaliseStyle(String raw)
     {
-        // strip [[Link|Text]] / [[Link]] markup and anchors, lowercase, collapse whitespace
-        String s = raw.replaceAll("\\[\\[([^\\]|]*\\|)?", "").replace("]]", "")
-            .toLowerCase(Locale.ROOT).trim();
+        String s = stripMarkup(raw);
         if (s.isEmpty())
         {
             return "";
@@ -113,6 +145,13 @@ public final class CombatParser
             return "typeless";
         }
         return s;
+    }
+
+    // strip [[Link|Text]] / [[Link]] markup and anchors, lowercase, trim
+    private static String stripMarkup(String raw)
+    {
+        return raw.replaceAll("\\[\\[([^\\]|]*\\|)?", "").replace("]]", "")
+            .toLowerCase(Locale.ROOT).trim();
     }
 
     /** (value, annotation) per numeric token in the max-hit free text. */
@@ -137,7 +176,8 @@ public final class CombatParser
                 continue;
             }
             String note = m.group(2) == null ? null : normaliseStyle(m.group(2));
-            out.add(new MaxHit(value, note == null || note.isEmpty() ? null : note));
+            boolean unannotated = note == null || note.isEmpty() || BASE_NOTES.contains(note);
+            out.add(new MaxHit(value, unannotated ? null : note));
         }
         return out;
     }
@@ -222,6 +262,13 @@ public final class CombatParser
      */
     public static ParsedCombat assemble(List<String> styles, List<MaxHit> maxHits, List<Integer> speeds)
     {
+        return assemble(styles, null, maxHits, speeds);
+    }
+
+    /** As above, with {@link #parseStyleNotes} carried onto each attack as its note. */
+    public static ParsedCombat assemble(List<String> styles, List<String> notes, List<MaxHit> maxHits,
+        List<Integer> speeds)
+    {
         List<OutputAttack> attacks = new ArrayList<>();
         boolean[] used = new boolean[maxHits.size()];
         int annotatedMatches = 0;
@@ -236,6 +283,13 @@ public final class CombatParser
                 soleUnannotated = h;
             }
         }
+        // what a note can name: the three combat classes, plus whatever styles this page has
+        // ("dragonfire", "typeless") — a note is a style reference, not a special, when it says one
+        Set<String> known = new HashSet<>(COMBAT_CLASSES);
+        for (String style : styles)
+        {
+            known.add(styleClass(style));
+        }
 
         for (int i = 0; i < styles.size(); i++)
         {
@@ -243,14 +297,16 @@ public final class CombatParser
             String cls = styleClass(style);
             int maxHit = 0;
 
-            // 1) prefer a not-yet-used max hit whose annotation matches this style's class
+            // 1) prefer a not-yet-used max hit whose annotation names this style's class. A note
+            //    naming several ("Magic/Ranged") is one value for all of them, so it stays usable.
             for (int j = 0; j < maxHits.size(); j++)
             {
                 MaxHit h = maxHits.get(j);
-                if (!used[j] && h.annotation != null && styleClass(h.annotation).equals(cls))
+                Set<String> classes = h.annotation == null ? null : classesOf(h.annotation, known);
+                if (!used[j] && classes != null && classes.contains(cls))
                 {
                     maxHit = h.value;
-                    used[j] = true;
+                    used[j] = classes.size() == 1;
                     annotatedMatches++;
                     break;
                 }
@@ -269,11 +325,50 @@ public final class CombatParser
             {
                 attack.prayStyle = hybrid[1];
             }
+            if (notes != null && i < notes.size() && notes.get(i) != null)
+            {
+                attack.notes = notes.get(i);
+            }
             attacks.add(attack);
         }
 
         boolean gap = styles.size() > 1 && annotatedMatches < styles.size();
+
+        // a max hit whose note names no style at all ("Charge attack", "Stomp") is a further attack
+        // the infobox knows about, not a figure for one of the styles: pre-fill it under the note's
+        // name so the curator confirms it rather than retypes it, and ask, since the client does
+        // not know that style
+        for (int j = 0; j < maxHits.size(); j++)
+        {
+            MaxHit h = maxHits.get(j);
+            if (!used[j] && h.annotation != null && classesOf(h.annotation, known).isEmpty())
+            {
+                attacks.add(new OutputAttack(h.annotation, h.value, speedFor(speeds, styles.size())));
+                gap = true;
+            }
+        }
         return new ParsedCombat(attacks, gap);
+    }
+
+    // the styles a max-hit note names, out of the ones it could: "magic/ranged" both, "melee;
+    // without insulated boots" melee, "projectile attack" ranged, "charge attack" none
+    private static Set<String> classesOf(String annotation, Set<String> known)
+    {
+        Set<String> out = new HashSet<>();
+        for (String part : annotation.split("[/;]"))
+        {
+            String[] words = part.trim().split("\\s+");
+            if (words.length == 0 || words[0].isEmpty())
+            {
+                continue;
+            }
+            String cls = styleClass(words[0]);
+            if (known.contains(cls))
+            {
+                out.add(cls);
+            }
+        }
+        return out;
     }
 
     private static int speedFor(List<Integer> speeds, int index)

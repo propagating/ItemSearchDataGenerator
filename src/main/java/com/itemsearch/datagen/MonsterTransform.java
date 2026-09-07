@@ -530,10 +530,23 @@ public final class MonsterTransform
         return out;
     }
 
+    /**
+     * The overlay for the next curator session: a stub for every gap not already there, and no
+     * stub for a gap that has closed. A stub is only ever the generator's own question, so once
+     * the parser can read the page, or the source is gone, the question is withdrawn. Entries a
+     * curator saved are theirs and stay regardless.
+     */
     public static Map<Integer, CombatOverlayJson> seedStubs(List<OutputSource> npcs,
         Map<Integer, CombatOverlayJson> existing, Set<Integer> gapIds)
     {
-        Map<Integer, CombatOverlayJson> out = new LinkedHashMap<>(existing);
+        Map<Integer, CombatOverlayJson> out = new LinkedHashMap<>();
+        for (Map.Entry<Integer, CombatOverlayJson> e : existing.entrySet())
+        {
+            if (!e.getValue().needsReview || gapIds.contains(e.getKey()))
+            {
+                out.put(e.getKey(), e.getValue());
+            }
+        }
         for (OutputSource npc : npcs)
         {
             if (!gapIds.contains(npc.id) || out.containsKey(npc.id) || npc.combat == null)

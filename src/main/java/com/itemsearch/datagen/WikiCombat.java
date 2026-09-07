@@ -109,6 +109,7 @@ public final class WikiCombat
             ? w.attackSpeeds.get(version) : w.attackSpeed;
         return CombatParser.assemble(
             CombatParser.parseStyles(w.attackStyles.get(version)),
+            CombatParser.parseStyleNotes(w.attackStyles.get(version)),
             CombatParser.parseMaxHits(maxHit),
             CombatParser.parseSpeeds(speed));
     }
@@ -135,8 +136,9 @@ public final class WikiCombat
             speedFields.addAll(w.attackSpeeds);
         }
         List<String> styles = CombatParser.parseStyles(w.attackStyle);
+        List<String> notes = CombatParser.parseStyleNotes(w.attackStyle);
         List<CombatParser.MaxHit> maxHits = CombatParser.parseMaxHits(w.maxHit);
         List<Integer> speeds = CombatParser.parseSpeeds(speedFields.toArray(new String[0]));
-        return CombatParser.assemble(styles, maxHits, speeds);
+        return CombatParser.assemble(styles, notes, maxHits, speeds);
     }
 }

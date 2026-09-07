@@ -371,7 +371,7 @@ public final class SourceDataGenerator
 
         // seed stubs for every combat gap not already curated, then rewrite the overlay — this is
         // what refills the curator's queue, and it must survive the retirement of DropDataGenerator
-        Set<Integer> gaps = combatGapIds(sources, wiki);
+        Set<Integer> gaps = combatGapIds(sources);
         Map<Integer, CombatOverlayJson> seeded = WikiRetired.pruneStubs(
             MonsterTransform.seedStubs(sources, combatOverlay, gaps), retiredIds);
         writeOverlay(gson, Paths.get(DEFAULT_COMBAT_OVERLAY), seeded);
@@ -382,20 +382,17 @@ public final class SourceDataGenerator
     }
 
     /**
-     * KILL sources whose wiki record exists but will not parse into attacks. Only kills qualify:
-     * nothing else has combat data, so nothing else belongs in the curator's review queue.
+     * KILL sources whose own wiki version parsed ambiguously. Only kills qualify: nothing else has
+     * combat data, so nothing else belongs in the curator's review queue. The verdict is the one
+     * the transform recorded when it built the source, so a version split is judged by its own
+     * version rather than looked up by a display name that is not a page.
      */
-    static Set<Integer> combatGapIds(List<OutputSource> sources, Map<String, WikiCombatJson> wiki)
+    static Set<Integer> combatGapIds(List<OutputSource> sources)
     {
         Set<Integer> gaps = new HashSet<>();
         for (OutputSource s : sources)
         {
-            if (!"KILL".equals(s.type))
-            {
-                continue;
-            }
-            WikiCombatJson w = wiki.get(s.name);
-            if (w != null && WikiCombat.toAttacks(w).gap)
+            if ("KILL".equals(s.type) && s.combatGap)
             {
                 gaps.add(s.id);
             }

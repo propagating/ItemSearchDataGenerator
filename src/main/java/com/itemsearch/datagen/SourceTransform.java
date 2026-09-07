@@ -505,10 +505,14 @@ public final class SourceTransform
         }
 
         OutputCombat combat = null;
+        boolean combatGap = false;
         if ("KILL".equals(b.type))
         {
             CombatParser.ParsedCombat pc = WikiCombat.toAttacks(
                 wiki == null ? null : wiki.get(b.pageTitle), b.version);
+            // judged here, on the version this source is built from: a page read whole can be
+            // ambiguous (two styles, one max hit) while each of its versions is perfectly clear
+            combatGap = pc.gap;
             // the wiki infobox publishes defence bonuses and max hits but not levels, so the
             // levels come from the monster dump, joined on npc id
             MonsterJson m = monsterFor(b, monsters);
@@ -547,6 +551,7 @@ public final class SourceTransform
 
         OutputSource source = new OutputSource(b.id, b.npcIds, b.name, b.combatLevel, null,
             spawnPoints, b.drops, combat, b.type, x, y, plane);
+        source.combatGap = combatGap;
         // only worth carrying when the two differ: the client fetches the image by page title, and
         // a split or a pickpocket variant no longer answers to its own display name
         if (b.pageTitle != null && !b.pageTitle.equals(b.name))

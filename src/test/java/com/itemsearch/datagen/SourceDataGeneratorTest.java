@@ -42,65 +42,68 @@ import static org.junit.Assert.assertTrue;
 
 public class SourceDataGeneratorTest
 {
-    private static OutputSource source(int id, String name, String type)
+    /** {@code gap} is what the transform recorded when it parsed this source's own wiki version. */
+    private static OutputSource source(int id, String name, String type, boolean gap)
     {
         OutputCombat combat = new OutputCombat(1, 1, 1, 1, 1, 5, new ArrayList<>());
-        return new OutputSource(id, Collections.singletonList(id), name, 10, null,
+        OutputSource s = new OutputSource(id, Collections.singletonList(id), name, 10, null,
             new ArrayList<>(), new ArrayList<>(), combat, type, null, null, null);
-    }
-
-    /**
-     * A gap: several attack styles, but a single unattributed max hit, so the parser cannot say
-     * which style hits how hard. Resolving that is exactly what the curator is for.
-     */
-    private static WikiCombatJson ambiguous()
-    {
-        WikiCombatJson w = new WikiCombatJson();
-        w.attackStyle = "Melee, Magic";
-        w.maxHit = "20";
-        w.attackSpeed = "4";
-        return w;
-    }
-
-    /** One style with its own max hit — nothing to disambiguate. */
-    private static WikiCombatJson unambiguous()
-    {
-        WikiCombatJson w = new WikiCombatJson();
-        w.attackStyle = "Melee";
-        w.maxHit = "12";
-        w.attackSpeed = "4";
-        return w;
+        s.combatGap = gap;
+        return s;
     }
 
     @Test
-    public void onlyKillSourcesWithUnparseableCombatCountAsGaps()
+    public void onlyKillSourcesWhoseOwnParseWasAmbiguousCountAsGaps()
     {
-        Map<String, WikiCombatJson> wiki = new HashMap<>();
-        wiki.put("Gap Monster", ambiguous());
-        wiki.put("Fine Monster", unambiguous());
-        // a chest can share a page name with wiki combat data; it still has nothing to fight
-        wiki.put("Loot Chest", ambiguous());
-
         Set<Integer> gaps = SourceDataGenerator.combatGapIds(Arrays.asList(
-            source(1, "Gap Monster", "KILL"),
-            source(2, "Fine Monster", "KILL"),
-            source(3, "Loot Chest", "REWARD"),
-            source(4, "Unlisted Monster", "KILL")), wiki);
+            source(1, "Gap Monster", "KILL", true),
+            source(2, "Fine Monster", "KILL", false),
+            // a chest can carry a gap flag from a shared page; it still has nothing to fight
+            source(3, "Loot Chest", "REWARD", true),
+            source(4, "Guard (Hosidius) (Bow)", "KILL", false)));
 
         assertTrue("an ambiguous KILL record is a gap", gaps.contains(1));
         assertFalse("an unambiguous record is not a gap", gaps.contains(2));
         assertFalse("non-KILL sources never enter the curator queue", gaps.contains(3));
-        assertFalse("a source with no wiki record at all is not a gap", gaps.contains(4));
+        assertFalse("a version split judged by its own version is not a gap", gaps.contains(4));
         assertEquals(1, gaps.size());
+    }
+
+    /**
+     * A stub seeded by an older, weaker parse must go once the parser can read the page: the
+     * curator was asking for numbers the generator already had, and half its queue was that.
+     */
+    @Test
+    public void aPendingStubWhoseGapHasClosedIsDropped()
+    {
+        CombatOverlayJson stale = new CombatOverlayJson();
+        stale.attacks = new ArrayList<>();
+        stale.needsReview = true;
+        CombatOverlayJson curated = new CombatOverlayJson();
+        curated.attacks = new ArrayList<>();
+        curated.needsReview = false;
+        CombatOverlayJson orphan = new CombatOverlayJson();
+        orphan.attacks = new ArrayList<>();
+        orphan.needsReview = true;
+        Map<Integer, CombatOverlayJson> existing = new HashMap<>();
+        existing.put(397, stale);   // Guard (Hosidius): parses cleanly now
+        existing.put(2, curated);   // someone's work, gap or not
+        existing.put(999, orphan);  // matches no source at all any more
+
+        List<OutputSource> sources = Arrays.asList(
+            source(397, "Guard (Hosidius) (Bow)", "KILL", false),
+            source(2, "Curated Monster", "KILL", false));
+        Map<Integer, CombatOverlayJson> seeded = MonsterTransform.seedStubs(
+            sources, existing, SourceDataGenerator.combatGapIds(sources));
+
+        assertFalse("closed gap, stub gone", seeded.containsKey(397));
+        assertFalse("no source, stub gone", seeded.containsKey(999));
+        assertTrue("curated entries are never pruned", seeded.containsKey(2));
     }
 
     @Test
     public void gapsSeedReviewStubsWithoutDisturbingCuratedEntries()
     {
-        Map<String, WikiCombatJson> wiki = new HashMap<>();
-        wiki.put("Gap Monster", ambiguous());
-        wiki.put("Curated Monster", ambiguous());
-
         CombatOverlayJson curated = new CombatOverlayJson();
         curated.attacks = new ArrayList<>();
         curated.needsReview = false;
@@ -108,9 +111,9 @@ public class SourceDataGeneratorTest
         existing.put(2, curated);
 
         List<OutputSource> sources = Arrays.asList(
-            source(1, "Gap Monster", "KILL"), source(2, "Curated Monster", "KILL"));
+            source(1, "Gap Monster", "KILL", true), source(2, "Curated Monster", "KILL", true));
         Map<Integer, CombatOverlayJson> seeded = MonsterTransform.seedStubs(
-            sources, existing, SourceDataGenerator.combatGapIds(sources, wiki));
+            sources, existing, SourceDataGenerator.combatGapIds(sources));
 
         assertTrue("a new gap becomes a review stub", seeded.get(1).needsReview);
         assertFalse("an already-curated entry is never re-flagged", seeded.get(2).needsReview);
