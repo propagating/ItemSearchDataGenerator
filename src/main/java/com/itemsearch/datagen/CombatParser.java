@@ -35,6 +35,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import com.itemsearch.datagen.output.OutputAttack;
+import com.itemsearch.datagen.output.OutputVariant;
 
 /**
  * Pure parsers for OSRS Wiki {{Infobox Monster}} combat fields. Turns the wiki's free-text
@@ -44,7 +45,12 @@ public final class CombatParser
 {
     // a run of digits, optionally followed by a "(annotation)"; "99+" means at least 99, and the
     // plus must not come between the number and its note
-    private static final Pattern MAX_HIT = Pattern.compile("(\\d+)\\+?\\s*(?:\\(([^)]*)\\))?");
+    private static final Pattern MAX_HIT =
+        Pattern.compile("(\\d+)(?:\\s*[–-]\\s*(\\d+))?\\+?\\s*(?:\\(([^)]*)\\))?");
+    // a max-hit note that describes the player rather than the monster: what they are wearing,
+    // or what they are praying. Such a figure is a variant of the attack, not a further attack.
+    private static final Pattern GEAR_NOTE = Pattern.compile("^(without|with|no|not wearing|wearing)\\b");
+    private static final Pattern PRAYER_NOTE = Pattern.compile("protect from|\\bpray");
     private static final Pattern INT = Pattern.compile("\\d+");
     // a "(...)" beside a style: a note about it, never part of its name
     private static final Pattern STYLE_NOTE = Pattern.compile("\\s*\\(([^)]*)\\)");
@@ -62,11 +68,18 @@ public final class CombatParser
     public static final class MaxHit
     {
         public final int value;
+        public final int valueMax;      // the top of a "1–12"; equal to value for a plain number
         public final String annotation; // null when the number had no "(...)" note
 
         public MaxHit(int value, String annotation)
         {
+            this(value, value, annotation);
+        }
+
+        public MaxHit(int value, int valueMax, String annotation)
+        {
             this.value = value;
+            this.valueMax = valueMax;
             this.annotation = annotation;
         }
     }
@@ -175,9 +188,21 @@ public final class CombatParser
                 // digit-run too large for an int (e.g. malformed wiki data); skip it
                 continue;
             }
-            String note = m.group(2) == null ? null : normaliseStyle(m.group(2));
+            int valueMax = value;
+            if (m.group(2) != null)
+            {
+                try
+                {
+                    valueMax = Math.max(value, Integer.parseInt(m.group(2)));
+                }
+                catch (NumberFormatException e)
+                {
+                    // the top of the range is unreadable; the bottom still is
+                }
+            }
+            String note = m.group(3) == null ? null : normaliseStyle(m.group(3));
             boolean unannotated = note == null || note.isEmpty() || BASE_NOTES.contains(note);
-            out.add(new MaxHit(value, unannotated ? null : note));
+            out.add(new MaxHit(value, valueMax, unannotated ? null : note));
         }
         return out;
     }
@@ -344,20 +369,55 @@ public final class CombatParser
         // even a missing max hit is just the page's silence, with several it is an ambiguity
         boolean gap = styles.size() > 1 && unresolved > 0;
 
-        // a max hit whose note names no style at all ("Charge attack", "Stomp") is a further attack
-        // the infobox knows about, not a figure for one of the styles: pre-fill it under the note's
-        // name so the curator confirms it rather than retypes it, and ask, since the client does
-        // not know that style
+        // a max hit whose note names no style at all is one of two things. A condition on the
+        // player ("without nose peg", "Protect from Melee") is the same attack hitting differently:
+        // a variant of it, filed as such when there is one attack for it to belong to. Anything else
+        // ("Charge attack", "Stomp", "at 1 hitpoints") is a further attack the infobox knows about:
+        // pre-filled under the note's name so the curator confirms rather than retypes, and asked
+        // about, since the client does not know that style. A condition on a monster with several
+        // attacks is asked about too, since the page does not say which one it modifies.
         for (int j = 0; j < maxHits.size(); j++)
         {
             MaxHit h = maxHits.get(j);
-            if (!used[j] && h.annotation != null && classesOf(h.annotation, known).isEmpty())
+            if (used[j] || h.annotation == null || !classesOf(h.annotation, known).isEmpty())
             {
-                attacks.add(new OutputAttack(h.annotation, h.value, speedFor(speeds, styles.size())));
-                gap = true;
+                continue;
             }
+            String kind = variantKind(h.annotation);
+            if (kind != null && attacks.size() == 1)
+            {
+                OutputAttack only = attacks.get(0);
+                if (only.variants == null)
+                {
+                    only.variants = new ArrayList<>();
+                }
+                only.variants.add(new OutputVariant(capitalise(h.annotation), kind, h.value, h.valueMax));
+                continue;
+            }
+            attacks.add(new OutputAttack(h.annotation, h.value, h.valueMax,
+                speedFor(speeds, styles.size()), speedFor(speeds, styles.size())));
+            gap = true;
         }
         return new ParsedCombat(attacks, gap);
+    }
+
+    // GEAR for what the player wears, PRAYER for what they pray, null for a note about the monster
+    private static String variantKind(String annotation)
+    {
+        if (PRAYER_NOTE.matcher(annotation).find())
+        {
+            return "PRAYER";
+        }
+        if (GEAR_NOTE.matcher(annotation).find())
+        {
+            return "GEAR";
+        }
+        return null;
+    }
+
+    private static String capitalise(String s)
+    {
+        return s.isEmpty() ? s : Character.toUpperCase(s.charAt(0)) + s.substring(1);
     }
 
     // the styles a max-hit note names, out of the ones it could: "magic/ranged" both, "melee;

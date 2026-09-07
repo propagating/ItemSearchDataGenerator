@@ -37,20 +37,31 @@
     "attacks": [
       {
         "style": "magic",
-        "maxHit": 8,
-        "maxHitMax": 8,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "without nose peg",
         "maxHit": 14,
         "maxHitMax": 14,
         "speed": 4,
-        "speedMax": 4
+        "speedMax": 4,
+        "variants": [
+          {
+            "label": "Nose Peg",
+            "kind": "GEAR",
+            "maxHit": 8,
+            "maxHitMax": 8
+          },
+          {
+            "label": "Slayer Helmet",
+            "kind": "GEAR",
+            "maxHit": 8,
+            "maxHitMax": 8
+          }
+        ],
+        "notes": "Damages through prayer and drains stats if not using a Nose Peg/Slayer Helmet",
+        "effects": [
+          "DRAIN_STATS"
+        ]
       }
     ],
-    "needsReview": true
+    "needsReview": false
   },
   "84": {
     "attacks": [
@@ -270,26 +281,6 @@
     ],
     "needsReview": true
   },
-  "414": {
-    "attacks": [
-      {
-        "style": "magic",
-        "prayStyle": "melee",
-        "maxHit": 2,
-        "maxHitMax": 2,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "without earmuffs",
-        "maxHit": 6,
-        "maxHitMax": 6,
-        "speed": 4,
-        "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
   "465": {
     "attacks": [
       {
@@ -371,25 +362,6 @@
       }
     ],
     "needsReview": false
-  },
-  "476": {
-    "attacks": [
-      {
-        "style": "crush",
-        "maxHit": 4,
-        "maxHitMax": 4,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "without spiny helmet",
-        "maxHit": 18,
-        "maxHitMax": 18,
-        "speed": 4,
-        "speedMax": 4
-      }
-    ],
-    "needsReview": true
   },
   "511": {
     "attacks": [
@@ -504,25 +476,6 @@
       }
     ],
     "needsReview": false
-  },
-  "626": {
-    "attacks": [
-      {
-        "style": "stab",
-        "maxHit": 0,
-        "maxHitMax": 0,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "without slayer gloves",
-        "maxHit": 12,
-        "maxHitMax": 12,
-        "speed": 4,
-        "speedMax": 4
-      }
-    ],
-    "needsReview": true
   },
   "787": {
     "attacks": [
@@ -803,25 +756,6 @@
         "maxHitMax": 57,
         "speed": 7,
         "speedMax": 7
-      }
-    ],
-    "needsReview": true
-  },
-  "1677": {
-    "attacks": [
-      {
-        "style": "stab",
-        "maxHit": 23,
-        "maxHitMax": 23,
-        "speed": 5,
-        "speedMax": 5
-      },
-      {
-        "style": "protect from melee",
-        "maxHit": 15,
-        "maxHitMax": 15,
-        "speed": 5,
-        "speedMax": 5
       }
     ],
     "needsReview": true
@@ -1115,31 +1049,6 @@
         "maxHitMax": 11,
         "speed": 4,
         "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
-  "5886": {
-    "attacks": [
-      {
-        "style": "melee",
-        "maxHit": 66,
-        "maxHitMax": 66,
-        "speed": 7,
-        "speedMax": 7,
-        "effects": [
-          "POISON"
-        ]
-      },
-      {
-        "style": "with explosion",
-        "maxHit": 96,
-        "maxHitMax": 96,
-        "speed": 7,
-        "speedMax": 7,
-        "effects": [
-          "POISON"
-        ]
       }
     ],
     "needsReview": true
@@ -1891,25 +1800,6 @@
     ],
     "needsReview": false
   },
-  "7279": {
-    "attacks": [
-      {
-        "style": "magic",
-        "maxHit": 8,
-        "maxHitMax": 8,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "without nose peg",
-        "maxHit": 14,
-        "maxHitMax": 14,
-        "speed": 4,
-        "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
   "7407": {
     "attacks": [
       {
@@ -2649,21 +2539,21 @@
     "attacks": [
       {
         "style": "crush",
-        "maxHit": 0,
-        "maxHitMax": 0,
+        "maxHit": 6,
+        "maxHitMax": 6,
         "speed": 5,
         "speedMax": 5
       },
       {
         "style": "ranged",
-        "maxHit": 0,
-        "maxHitMax": 0,
+        "maxHit": 6,
+        "maxHitMax": 6,
         "speed": 5,
         "speedMax": 5
       },
       {
         "style": "without reinforced goggles",
-        "maxHit": 30,
+        "maxHit": 20,
         "maxHitMax": 30,
         "speed": 5,
         "speedMax": 5

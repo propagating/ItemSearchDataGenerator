@@ -385,6 +385,85 @@ public class CombatParserTest
         assertFalse(pc.gap);
     }
 
+    // ---- notes that are conditions on the player, not attacks of the monster ----
+
+    @Test
+    public void aWithoutGearNoteIsAGearVariantOfTheOneAttack()
+    {
+        // Aberrant spectre: one magic attack that hits 8, or 14 on a player without a nose peg.
+        // Two rows said it had two attacks; it has one, with a modifier.
+        CombatParser.ParsedCombat pc = CombatParser.assemble(
+            Arrays.asList("magic"),
+            CombatParser.parseMaxHits("8, 14 (without [[Nose peg]])"), Arrays.asList(4));
+        assertEquals(1, pc.attacks.size());
+        OutputAttack a = pc.attacks.get(0);
+        assertEquals(8, a.maxHit);
+        assertEquals(1, a.variants.size());
+        assertEquals("Without nose peg", a.variants.get(0).label);
+        assertEquals("GEAR", a.variants.get(0).kind);
+        assertEquals(14, a.variants.get(0).maxHit);
+        assertEquals(14, a.variants.get(0).maxHitMax);
+        assertFalse(pc.gap);
+    }
+
+    @Test
+    public void aProtectionPrayerNoteIsAPrayerVariant()
+    {
+        // Verac: 23 stabbing, 15 through Protect from Melee
+        CombatParser.ParsedCombat pc = CombatParser.assemble(
+            Arrays.asList("stab"),
+            CombatParser.parseMaxHits("23 ([[Stab]]), 15 ([[Protect from Melee]])"), Arrays.asList(4));
+        assertEquals(1, pc.attacks.size());
+        OutputAttack a = pc.attacks.get(0);
+        assertEquals(23, a.maxHit);
+        assertEquals("Protect from melee", a.variants.get(0).label);
+        assertEquals("PRAYER", a.variants.get(0).kind);
+        assertEquals(15, a.variants.get(0).maxHit);
+        assertFalse(pc.gap);
+    }
+
+    @Test
+    public void aRangedFigureKeepsItsRangeInTheVariant()
+    {
+        // Fever spider: 4, or 1 to 12 without slayer gloves
+        List<CombatParser.MaxHit> hits = CombatParser.parseMaxHits("4, 1–12 (without [[Slayer gloves]])");
+        assertEquals(2, hits.size());
+        assertEquals(1, hits.get(1).value);
+        assertEquals(12, hits.get(1).valueMax);
+
+        CombatParser.ParsedCombat pc = CombatParser.assemble(Arrays.asList("stab"), hits, Arrays.asList(5));
+        OutputAttack a = pc.attacks.get(0);
+        assertEquals(4, a.maxHit);
+        assertEquals(1, a.variants.get(0).maxHit);
+        assertEquals(12, a.variants.get(0).maxHitMax);
+        assertFalse(pc.gap);
+    }
+
+    @Test
+    public void aConditionNoteOnAMultiStyleMonsterIsLeftForTheCurator()
+    {
+        // which of the two attacks does the nose peg modify? The page does not say.
+        CombatParser.ParsedCombat pc = CombatParser.assemble(
+            Arrays.asList("crush", "magic"),
+            CombatParser.parseMaxHits("10 (melee), 20 (magic), 30 (without nose peg)"), Arrays.asList(4));
+        assertEquals(3, pc.attacks.size());
+        assertEquals("without nose peg", pc.attacks.get(2).style);
+        assertTrue(pc.gap);
+    }
+
+    @Test
+    public void aConditionThatIsNeitherGearNorPrayerStaysASpecialRow()
+    {
+        // Dharok at 1 hitpoint: a condition on the monster, which no variant kind describes
+        CombatParser.ParsedCombat pc = CombatParser.assemble(
+            Arrays.asList("slash"),
+            CombatParser.parseMaxHits("29 (normal), 57 (at 1 [[Hitpoint]]s)"), Arrays.asList(6));
+        assertEquals(2, pc.attacks.size());
+        assertEquals(29, pc.attacks.get(0).maxHit);
+        assertEquals("at 1 hitpoints", pc.attacks.get(1).style);
+        assertTrue(pc.gap);
+    }
+
     @Test
     public void aStyleClassAnnotationThatMatchesNothingStaysAsBefore()
     {
