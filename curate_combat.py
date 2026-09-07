@@ -19,7 +19,9 @@ Usage:
 """
 import json
 import os
+import re
 import sys
+import urllib.parse
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 OVERLAY = os.path.join(BASE, "combat-overlay.json")
@@ -37,6 +39,9 @@ MONSTERS = os.path.join(BASE, "monsters-complete.json")
 DROPS = os.path.abspath(os.path.join(BASE, "..", "..", "JAVA", "ItemSearch",
                         "src", "main", "resources", "com", "itemsearch", "sources.json"))
 WIKI = "https://oldschool.runescape.wiki/w/"
+# the wiki prose a curator reads before deciding an entry, kept by the generator's
+# --refresh-wiki so it can be shown here instead of in a browser tab
+WIKI_TEXT = os.path.join(BASE, "wiki-monster-text.json")
 
 
 def load_json(path, default=None):
@@ -56,6 +61,84 @@ def load_sources():
     if isinstance(data, dict):
         return data.get("sources") or []
     return data or []
+
+
+def load_wiki_text():
+    """page title -> {infobox, mechanics, strategy} wikitext; empty until --refresh-wiki has run."""
+    return load_json(WIKI_TEXT, {}) or {}
+
+
+def page_title(url):
+    """The wiki page a meta url points at, in the form the snapshot is keyed by."""
+    if not url or not url.startswith(WIKI):
+        return None
+    return urllib.parse.unquote(url[len(WIKI):]).replace("_", " ")
+
+
+def wiki_text_for(texts, url):
+    title = page_title(url)
+    return texts.get(title) if title else None
+
+
+_COMMENT = re.compile(r"<!--.*?-->", re.DOTALL)
+_REF = re.compile(r"<ref[^>/]*/>|<ref[^>]*>.*?</ref>", re.DOTALL | re.IGNORECASE)
+_TEMPLATE = re.compile(r"\{\{([^{}]*)\}\}", re.DOTALL)
+_FILE_LINK = re.compile(r"\[\[(?:File|Image):[^\]]*\]\]", re.IGNORECASE)
+_LINK = re.compile(r"\[\[([^\]|]*)(?:\|([^\]]*))?\]\]")
+_HEADING = re.compile(r"^=+\s*(.+?)\s*=+\s*$", re.MULTILINE)
+_BREAK = re.compile(r"<br\s*/?>", re.IGNORECASE)
+_TAG = re.compile(r"<[^>]+>")
+
+
+def _template_words(match):
+    """What a template would have shown, near enough: its last positional argument.
+
+    Most inline templates wrap one value in an icon or a link -- {{SCP|Ranged|30}} is a skill icon
+    beside 30 -- so the value is what a reader takes away. Coins keeps its unit because a bare
+    number next to "costs" says nothing.
+    """
+    parts = [p.strip() for p in match.group(1).split("|")]
+    name, args = parts[0], [a for a in parts[1:] if "=" not in a and a]
+    if not args:
+        return name
+    if name.lower() == "coins":
+        return args[-1] + " coins"
+    return args[-1]
+
+
+def flatten_markup(text):
+    """Wikitext down to words: links to their labels, templates to their values, markup gone."""
+    text = _COMMENT.sub("", text or "")
+    text = _REF.sub("", text)
+    while True:
+        flattened = _TEMPLATE.sub(_template_words, text)
+        if flattened == text:
+            break
+        text = flattened
+    text = _FILE_LINK.sub("", text)
+    text = _LINK.sub(lambda m: m.group(2) if m.group(2) is not None else m.group(1), text)
+    text = text.replace("'" * 3, "").replace("'" * 2, "")
+    text = _HEADING.sub(r"\1", text)
+    text = _BREAK.sub("\n", text)
+    text = _TAG.sub("", text)
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text.strip()
+
+
+def flatten_infobox(box):
+    """An {{Infobox Monster}} block as "field: value" lines, empty fields left out."""
+    body = (box or "").strip()
+    if body.startswith("{{"):
+        body = body[2:]
+    if body.endswith("}}"):
+        body = body[:-2]
+    lines = []
+    for raw in body.split("\n|")[1:]:
+        name, _, value = raw.partition("=")
+        value = flatten_markup(value)
+        if value:
+            lines.append("{}: {}".format(name.strip(), value))
+    return "\n".join(lines)
 
 
 def build_meta():

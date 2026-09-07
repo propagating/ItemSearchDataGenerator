@@ -278,3 +278,59 @@ class ImportExportTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class WikiTextTest(unittest.TestCase):
+    """The snapshot of wiki prose the curator shows beside the editor."""
+
+    def test_page_title_comes_from_the_wiki_url(self):
+        self.assertEqual("Abyssal demon", core.page_title(core.WIKI + "Abyssal_demon"))
+
+    def test_page_title_decodes_percent_escapes(self):
+        self.assertEqual("Kree'arra", core.page_title(core.WIKI + "Kree%27arra"))
+
+    def test_page_title_is_none_without_a_wiki_url(self):
+        self.assertIsNone(core.page_title("(no wiki link found)"))
+        self.assertIsNone(core.page_title(None))
+
+    def test_wiki_text_for_looks_the_page_up_by_its_url(self):
+        texts = {"Zulrah": {"mechanics": "rotates"}}
+        self.assertEqual({"mechanics": "rotates"},
+                         core.wiki_text_for(texts, core.WIKI + "Zulrah"))
+        self.assertIsNone(core.wiki_text_for(texts, core.WIKI + "Chicken"))
+
+    def test_links_flatten_to_their_shown_text(self):
+        self.assertEqual("uses Protect from Melee and a crossbow",
+                         core.flatten_markup("uses [[Protect from Melee|Protect from Melee]] "
+                                             "and a [[crossbow]]"))
+
+    def test_bold_and_italic_quotes_are_dropped(self):
+        self.assertEqual("Zulrah is a boss", core.flatten_markup("'''Zulrah''' is a ''boss''"))
+
+    def test_templates_keep_their_arguments_as_words(self):
+        self.assertEqual("costs 100 coins to enter",
+                         core.flatten_markup("costs {{Coins|100}} to enter"))
+        self.assertEqual("hits up to 30 with Ranged",
+                         core.flatten_markup("hits up to {{SCP|Ranged|30|link=yes}} with Ranged"))
+
+    def test_nested_templates_flatten_from_the_inside_out(self):
+        self.assertEqual("10 coins", core.flatten_markup("{{Nowrap|{{Coins|10}}}}"))
+
+    def test_references_and_comments_disappear(self):
+        self.assertEqual("bites hard.",
+                         core.flatten_markup("bites<ref>Mod Ash tweet</ref> hard.<!-- verify -->"))
+
+    def test_headings_become_their_own_lines(self):
+        self.assertEqual("Melee\nA crush attack.\nRanged\nA ranged attack.",
+                         core.flatten_markup("===Melee===\nA crush attack.\n=== Ranged ===\nA ranged attack."))
+
+    def test_html_breaks_become_newlines_and_tags_go(self):
+        self.assertEqual("one\ntwo",
+                         core.flatten_markup("one<br>two"))
+        self.assertEqual("one two",
+                         core.flatten_markup("<span class=x>one</span> two"))
+
+    def test_infobox_fields_read_as_name_colon_value_lines(self):
+        box = "{{Infobox Monster\n|name = Zulrah\n|max hit = 41 (magic)\n|attack style = [[Magic]], [[Ranged]]\n}}"
+        self.assertEqual("name: Zulrah\nmax hit: 41 (magic)\nattack style: Magic, Ranged",
+                         core.flatten_infobox(box))

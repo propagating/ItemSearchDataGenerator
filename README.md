@@ -25,6 +25,7 @@ reproducible.
 | `wiki-drops.json` | `--refresh-drops` | every page embedding `{{DropsLine}}`/`{{DropsLineReward}}`: infobox kind, npc ids, combat level, map coords, drop tables with their section headings |
 | `wiki-items.json` | `--refresh-items` | item id + shop value per item name (shared with the shop generator) |
 | `wiki-combat.json` | `--refresh-wiki` | `{{Infobox Monster}}` combat wikitext, keyed by page title |
+| `wiki-monster-text.json` | `--refresh-wiki` | per monster page: the raw infobox, the Mechanics section, and the Strategy section (or `Name/Strategies` subpage) — read by the curator, not the generator |
 | `wiki-shops.json` | `--refresh-shops` (`runShops`) | shop store tables |
 
 `wiki-items.json` is **shared**. `runSources --refresh-items` fetches the union
@@ -44,7 +45,9 @@ From the repository root:
 ```
 
 Flags may be combined; `--refresh-wiki` additionally re-fetches combat wikitext
-for every Monster-infobox page in the drop snapshot. A positional argument
+for every Monster-infobox page in the drop snapshot, and keeps the parts a
+curator reads (infobox, Mechanics, Strategy) in `wiki-monster-text.json` so
+the curator can show them beside the editor instead of opening a browser tab. A positional argument
 overrides the output path. A missing snapshot raises an `IOException` naming
 the flag that produces it.
 
@@ -267,6 +270,11 @@ dropdown plus max hit, attack speed, and the three conditional-damage columns.
 An "In the plugin" panel renders your input the way the combat card will, so
 you can see the result before saving.
 
+A "From the wiki" column beside the editor shows the monster's page as four
+blocks (infobox, overview, mechanics, strategy) from `wiki-monster-text.json`,
+with a find box that highlights every hit and steps through them on Enter.
+It stays empty until a `--refresh-wiki` run has produced that snapshot.
+
 ```bash
 python curate_gui.py
 ```
@@ -279,7 +287,8 @@ allowed and a `(combo)` suffix for combined mitigations:
 ```
 
 The column you type in sets the kind. Shortcuts: `Ctrl+S` save, `Ctrl+Enter`
-save & next, `Ctrl+N` add attack, `Ctrl+F` search.
+save & next, `Ctrl+N` add attack, `Ctrl+F` search the queue, `Ctrl+Shift+F`
+find in the wiki text.
 
 `curate_combat.py` is the terminal equivalent (and the shared data layer):
 

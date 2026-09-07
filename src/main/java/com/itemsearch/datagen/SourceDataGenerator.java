@@ -59,6 +59,7 @@ import com.itemsearch.datagen.source.ShopPageJson;
 import com.itemsearch.datagen.source.ShopTableJson;
 import com.itemsearch.datagen.source.ShopLineJson;
 import com.itemsearch.datagen.source.WikiCombatJson;
+import com.itemsearch.datagen.source.WikiPageTextJson;
 
 /**
  * Entry point for the wiki drop sweep: refreshes the snapshots on request, then joins them into the
@@ -77,6 +78,8 @@ public final class SourceDataGenerator
     private static final String DEFAULT_LOCATIONS_SNAPSHOT = "wiki-locations.json";
     private static final String DEFAULT_ENTRANCE_OVERLAY = "entrance-overlay.json";
     private static final String DEFAULT_WIKI = "wiki-combat.json";
+    // what the curator shows instead of a browser tab: infobox, mechanics, strategy per monster page
+    private static final String DEFAULT_WIKI_TEXT = "wiki-monster-text.json";
     private static final String DEFAULT_COMBAT_OVERLAY = "combat-overlay.json";
     private static final String DEFAULT_TYPE_OVERLAY = "source-type-overlay.json";
     // same sibling-repo layout as DropDataGenerator.DEFAULT_OUTPUT
@@ -173,10 +176,17 @@ public final class SourceDataGenerator
         {
             Set<String> titles = monsterPageTitles(pages);
             System.out.println("Fetching wiki combat for " + titles.size() + " monster pages...");
-            Map<String, WikiCombatJson> fetched = WikiFetch.fetch(titles);
+            Map<String, String> raw = WikiFetch.fetchRaw(titles);
+            Map<String, WikiCombatJson> fetched = WikiFetch.infoboxes(raw);
             Files.write(wikiPath,
                 (gson.toJson(new TreeMap<>(fetched)) + "\n").getBytes(StandardCharsets.UTF_8));
             System.out.println("Wrote " + fetched.size() + " wiki combat records to " + wikiPath);
+            // same download, kept for the curator's eyes rather than the parser's
+            Map<String, WikiPageTextJson> texts = WikiFetch.fetchPageTexts(raw);
+            Path textPath = Paths.get(DEFAULT_WIKI_TEXT);
+            Files.write(textPath,
+                (gson.toJson(new TreeMap<>(texts)) + "\n").getBytes(StandardCharsets.UTF_8));
+            System.out.println("Wrote " + texts.size() + " wiki page texts to " + textPath);
         }
 
         Map<String, ItemInfoJson> itemInfo = readSnapshot(gson, itemsSnapshot, "--refresh-items",

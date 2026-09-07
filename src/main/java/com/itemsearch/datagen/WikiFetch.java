@@ -32,13 +32,15 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import com.itemsearch.datagen.source.WikiCombatJson;
+import com.itemsearch.datagen.source.WikiPageTextJson;
 
-/** Fetches raw {{Infobox Monster}} combat fields from the live OSRS Wiki. */
+/** Fetches monster pages from the live OSRS Wiki: the {{Infobox Monster}} combat fields, and the text a curator reads. */
 public final class WikiFetch
 {
     private static final int BATCH = 50;
@@ -86,10 +88,80 @@ public final class WikiFetch
         return w;
     }
 
+    /** Infobox combat fields for every title that has an {{Infobox Monster}}. */
     public static Map<String, WikiCombatJson> fetch(Collection<String> pageTitles) throws IOException
     {
-        Gson gson = new Gson();
+        return infoboxes(fetchRaw(pageTitles));
+    }
+
+    public static Map<String, WikiCombatJson> infoboxes(Map<String, String> raw)
+    {
         Map<String, WikiCombatJson> result = new HashMap<>();
+        for (Map.Entry<String, String> e : raw.entrySet())
+        {
+            WikiCombatJson w = extractInfobox(e.getValue());
+            if (w != null)
+            {
+                result.put(e.getKey(), w);
+            }
+        }
+        return result;
+    }
+
+    /** What a curator reads, for every title that has any of it. */
+    public static Map<String, WikiPageTextJson> pageTexts(Map<String, String> raw)
+    {
+        Map<String, WikiPageTextJson> result = new LinkedHashMap<>();
+        for (Map.Entry<String, String> e : raw.entrySet())
+        {
+            WikiPageTextJson t = WikiPageText.extract(e.getValue());
+            if (t != null)
+            {
+                result.put(e.getKey(), t);
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Bosses keep their strategy on a subpage. Only pages that said nothing themselves are worth
+     * a second request; the wiki simply reports the subpage missing for the rest.
+     */
+    public static List<String> strategySubpagesFor(Map<String, WikiPageTextJson> texts)
+    {
+        List<String> titles = new ArrayList<>();
+        for (Map.Entry<String, WikiPageTextJson> e : texts.entrySet())
+        {
+            if (e.getValue().strategy == null)
+            {
+                titles.add(e.getKey() + "/Strategies");
+            }
+        }
+        return titles;
+    }
+
+    /** {@link #pageTexts} with the strategy subpages fetched and folded in. */
+    public static Map<String, WikiPageTextJson> fetchPageTexts(Map<String, String> raw) throws IOException
+    {
+        Map<String, WikiPageTextJson> texts = pageTexts(raw);
+        Map<String, String> subpages = fetchRaw(strategySubpagesFor(texts));
+        for (Map.Entry<String, String> e : subpages.entrySet())
+        {
+            String title = e.getKey().substring(0, e.getKey().length() - "/Strategies".length());
+            WikiPageTextJson t = texts.get(title);
+            if (t != null)
+            {
+                WikiPageText.addStrategySubpage(t, e.getValue());
+            }
+        }
+        return texts;
+    }
+
+    /** Current wikitext by title, for the titles that exist. */
+    public static Map<String, String> fetchRaw(Collection<String> pageTitles) throws IOException
+    {
+        Gson gson = new Gson();
+        Map<String, String> result = new HashMap<>();
         List<String> titles = new ArrayList<>(pageTitles);
         for (int i = 0; i < titles.size(); i += BATCH)
         {
@@ -117,11 +189,7 @@ public final class WikiFetch
                     }
                     String content = page.getAsJsonArray("revisions").get(0).getAsJsonObject()
                         .getAsJsonObject("slots").getAsJsonObject("main").get("*").getAsString();
-                    WikiCombatJson w = extractInfobox(content);
-                    if (w != null)
-                    {
-                        result.put(page.get("title").getAsString(), w);
-                    }
+                    result.put(page.get("title").getAsString(), content);
                 }
                 JsonObject cont = response.getAsJsonObject("continue");
                 if (cont == null)
@@ -139,5 +207,4 @@ public final class WikiFetch
         }
         return result;
     }
-
 }

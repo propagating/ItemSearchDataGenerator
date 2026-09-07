@@ -29,6 +29,10 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 import com.itemsearch.datagen.source.WikiCombatJson;
+import com.itemsearch.datagen.source.WikiPageTextJson;
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -68,5 +72,26 @@ public class WikiFetchTest
         assertEquals(java.util.Arrays.asList("[[Stab]]", "[[Crush]]"), w.attackStyles);
         assertEquals(java.util.Arrays.asList("1", "5"), w.maxHits);
         assertEquals(java.util.Arrays.asList("4", "6"), w.attackSpeeds);
+    }
+
+    @Test
+    public void pageTextsAreExtractedPerTitle()
+    {
+        Map<String, String> raw = new LinkedHashMap<>();
+        raw.put("Zulrah", "{{Infobox Monster\n|max hit = 41\n}}\n==Mechanics==\nrotates\n");
+        raw.put("Chicken", "");
+        Map<String, WikiPageTextJson> texts = WikiFetch.pageTexts(raw);
+        assertEquals("==Mechanics==\nrotates", texts.get("Zulrah").mechanics);
+        assertEquals(1, texts.size());
+    }
+
+    @Test
+    public void strategySubpagesAreAskedForOnlyWhenThePageSaidNothing()
+    {
+        Map<String, String> raw = new LinkedHashMap<>();
+        raw.put("Zulrah", "{{Infobox Monster\n|max hit = 41\n}}\n");
+        raw.put("Chicken", "{{Infobox Monster\n|max hit = 1\n}}\n==Strategy==\nhit it\n");
+        Map<String, WikiPageTextJson> texts = WikiFetch.pageTexts(raw);
+        assertEquals(Arrays.asList("Zulrah/Strategies"), WikiFetch.strategySubpagesFor(texts));
     }
 }

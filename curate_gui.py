@@ -13,6 +13,7 @@ to bake the values into drops.json:
 Run:  python curate_gui.py
 
 Shortcuts: Ctrl+S save · Ctrl+Enter save & next · Ctrl+N add attack · Ctrl+F search
+           Ctrl+Shift+F find in the wiki text
 
 Reuses the data helpers from curate_combat.py (same folder).
 """
@@ -388,8 +389,8 @@ class CuratorApp:
     def __init__(self, root):
         self.root = root
         root.title("Item Search — Combat Curator")
-        root.geometry("1080x700")
-        root.minsize(960, 620)
+        root.geometry("1480x760")
+        root.minsize(1240, 620)
         root.configure(bg=INK)
 
         self._init_styles()
@@ -400,6 +401,10 @@ class CuratorApp:
         self.sources_by_id = {str(s.get("id")): s for s in core.load_sources()
                               if s.get("id") is not None}
         self.entries = self._merge_sources()
+        self.wiki_texts = core.load_wiki_text()
+        self.wiki_blocks = {}     # block key -> text index where it starts
+        self.wiki_matches = []    # (start, end) of every search hit, in page order
+        self.wiki_pos = -1
         self.ids = []            # ids currently shown in the list, in order
         # which column the queue is ordered by, and whether reversed. Pending-first is the
         # default because that is the work; clicking a heading overrides it.
@@ -462,6 +467,7 @@ class CuratorApp:
         self.root.bind("<Control-Return>", lambda e: self._save_next())
         self.root.bind("<Control-n>", lambda e: self._add_row())
         self.root.bind("<Control-f>", lambda e: self.search_entry.focus_set())
+        self.root.bind("<Control-F>", lambda e: self.wiki_search_entry.focus_set())
 
     # ---------- chrome ----------
     @staticmethod
@@ -476,7 +482,17 @@ class CuratorApp:
     def _build(self):
         self._build_queue()
         tk.Frame(self.root, bg=RULE, width=1).pack(side="left", fill="y")
-        self._build_editor()
+        # editor and wiki text share the rest, with a sash between them: how much page a
+        # curator wants beside the fields depends on the monster
+        split = tk.PanedWindow(self.root, orient="horizontal", bg=RULE, sashwidth=3,
+                               sashrelief="flat", bd=0, opaqueresize=True)
+        split.pack(side="left", fill="both", expand=True)
+        editor = tk.Frame(split, bg=INK)
+        split.add(editor, minsize=620, stretch="always")
+        self._build_editor(editor)
+        wiki = tk.Frame(split, bg=INK)
+        split.add(wiki, minsize=280, width=400, stretch="never")
+        self._build_wiki(wiki)
 
     # ---------- left: the review queue ----------
     def _build_queue(self):
@@ -559,8 +575,8 @@ class CuratorApp:
                                fill=GOLD if i < filled else "#332C22")
 
     # ---------- right: the record under review ----------
-    def _build_editor(self):
-        right = tk.Frame(self.root, bg=INK, padx=20, pady=14)
+    def _build_editor(self, parent):
+        right = tk.Frame(parent, bg=INK, padx=20, pady=14)
         right.pack(side="left", fill="both", expand=True)
 
         head = tk.Frame(right, bg=INK)
@@ -661,6 +677,152 @@ class CuratorApp:
         self.import_status = tk.Label(actions, text="", font=F_SMALL, bg=INK, fg=FAINT,
                                       anchor="w")
         self.import_status.pack(side="left", padx=(10, 0))
+
+    # ---------- far right: what the wiki says ----------
+    # the lead paragraph is a block of its own: for most monsters it is the only prose that says
+    # how they fight, since only bosses and slayer monsters get a section for it
+    WIKI_BLOCKS = (("infobox", "Infobox", core.flatten_infobox),
+                   ("lead", "Overview", core.flatten_markup),
+                   ("mechanics", "Mechanics", core.flatten_markup),
+                   ("strategy", "Strategy", core.flatten_markup))
+
+    def _build_wiki(self, parent):
+        """What a curator used to open a browser tab to read, in one searchable column.
+
+        One Text widget holds all three blocks rather than one per block: a single scroll, a
+        single search, and the block labels at the top jump rather than reveal.
+        """
+        wrap = tk.Frame(parent, bg=INK, padx=16, pady=14)
+        wrap.pack(fill="both", expand=True)
+
+        head = tk.Frame(wrap, bg=INK)
+        head.pack(fill="x")
+        self._eyebrow(head, "From the wiki").pack(side="left")
+        self.wiki_hint = tk.Label(head, text="", font=F_SMALL, bg=INK, fg=FAINT, anchor="e")
+        self.wiki_hint.pack(side="right")
+
+        srow = tk.Frame(wrap, bg=INK)
+        srow.pack(fill="x", pady=(8, 6))
+        self.wiki_query = tk.StringVar()
+        swrap, self.wiki_search_entry, self.wiki_query_get = field(
+            srow, self.wiki_query, 1, font=F_BODY,
+            placeholder="Find in wiki text   (Ctrl+Shift+F · Enter for next)")
+        swrap.pack(side="left", fill="x", expand=True)
+        self.wiki_hits = tk.Label(srow, text="", font=F_MONO_SM, bg=INK, fg=MUTED,
+                                  width=9, anchor="e")
+        self.wiki_hits.pack(side="left", padx=(8, 0))
+        self.wiki_search_entry.bind("<Return>", lambda e: self._wiki_next(1))
+        self.wiki_search_entry.bind("<Shift-Return>", lambda e: self._wiki_next(-1))
+
+        jumps = tk.Frame(wrap, bg=INK)
+        jumps.pack(fill="x", pady=(0, 6))
+        self.wiki_jumps = {}
+        for key, label, _ in self.WIKI_BLOCKS:
+            jump = tk.Label(jumps, text=label, font=F_SMALL, bg=INK, fg=FAINT,
+                            cursor="hand2", padx=6)
+            jump.bind("<Button-1>", lambda e, k=key: self._wiki_jump(k))
+            jump.pack(side="left")
+            self.wiki_jumps[key] = jump
+
+        box = tk.Frame(wrap, bg=RULE, padx=1, pady=1)
+        box.pack(fill="both", expand=True)
+        inner = tk.Frame(box, bg=PANEL)
+        inner.pack(fill="both", expand=True)
+        self.wiki_text = tk.Text(inner, font=F_BODY, bg=PANEL, fg=TEXT, wrap="word",
+                                 relief="flat", highlightthickness=0, bd=0, padx=10, pady=8,
+                                 cursor="arrow", state="disabled",
+                                 selectbackground=GOLD_DEEP, selectforeground=GOLD)
+        sb = ttk.Scrollbar(inner, orient="vertical", command=self.wiki_text.yview,
+                           style="Curator.Vertical.TScrollbar")
+        self.wiki_text.configure(yscrollcommand=sb.set)
+        self.wiki_text.pack(side="left", fill="both", expand=True)
+        sb.pack(side="right", fill="y")
+        self.wiki_text.tag_configure("block", font=F_HEAD, foreground=GOLD,
+                                     spacing1=12, spacing3=4)
+        self.wiki_text.tag_configure("field", foreground=MUTED)
+        self.wiki_text.tag_configure("empty", foreground=FAINT)
+        self.wiki_text.tag_configure("hit", background=GOLD_DEEP, foreground=GOLD)
+        self.wiki_text.tag_configure("current", background=GOLD, foreground=INK)
+        # the search must follow every keystroke, but only once the field exists to read from
+        self.wiki_query.trace_add("write", lambda *_: self._wiki_search())
+
+    def _load_wiki(self, idstr):
+        _, url, _ = core.describe(self.meta, idstr)
+        entry = core.wiki_text_for(self.wiki_texts, url)
+        text = self.wiki_text
+        text.configure(state="normal")
+        text.delete("1.0", "end")
+        self.wiki_blocks = {}
+        for jump in self.wiki_jumps.values():
+            jump.configure(fg=FAINT)
+        if not self.wiki_texts:
+            self.wiki_hint.configure(text="run the generator with --refresh-wiki to fill this")
+            text.insert("end", "No wiki text snapshot yet.\n\nRun\n\n"
+                        "    ./gradlew runSources --args=\"--refresh-wiki\"\n\n"
+                        "and reopen the curator; the infobox, mechanics, and strategy of every "
+                        "monster page will show here.", "empty")
+        elif entry is None:
+            self.wiki_hint.configure(text="")
+            text.insert("end", "The wiki has no monster page for this source, or the snapshot "
+                        "predates it.", "empty")
+        else:
+            self.wiki_hint.configure(text=core.page_title(url) or "")
+            for key, label, render in self.WIKI_BLOCKS:
+                self.wiki_blocks[key] = text.index("end-1c")
+                text.insert("end", label.upper() + "\n", "block")
+                body = render(entry.get(key)) if entry.get(key) else ""
+                if not body:
+                    text.insert("end", "nothing on the page\n", "empty")
+                    continue
+                self.wiki_jumps[key].configure(fg=GOLD)
+                if key == "infobox":
+                    for line in body.split("\n"):
+                        name, sep, value = line.partition(":")
+                        text.insert("end", name + sep, "field")
+                        text.insert("end", value + "\n")
+                else:
+                    text.insert("end", body + "\n")
+        text.configure(state="disabled")
+        self._wiki_search()
+
+    def _wiki_jump(self, key):
+        if key in self.wiki_blocks:
+            self.wiki_text.yview(self.wiki_blocks[key])
+
+    def _wiki_search(self):
+        text = self.wiki_text
+        text.tag_remove("hit", "1.0", "end")
+        self.wiki_matches = []
+        query = self.wiki_query_get()
+        if query:
+            idx = "1.0"
+            while True:
+                idx = text.search(query, idx, stopindex="end", nocase=True)
+                if not idx:
+                    break
+                end = "{}+{}c".format(idx, len(query))
+                text.tag_add("hit", idx, end)
+                self.wiki_matches.append((idx, end))
+                idx = end
+        self._wiki_show_hit(0 if self.wiki_matches else -1, query)
+
+    def _wiki_next(self, step):
+        if self.wiki_matches:
+            self._wiki_show_hit((self.wiki_pos + step) % len(self.wiki_matches),
+                                self.wiki_query_get())
+        return "break"
+
+    def _wiki_show_hit(self, pos, query):
+        text = self.wiki_text
+        text.tag_remove("current", "1.0", "end")
+        self.wiki_pos = pos
+        if pos < 0:
+            self.wiki_hits.configure(text="no hits" if query else "")
+            return
+        start, end = self.wiki_matches[pos]
+        text.tag_add("current", start, end)
+        text.see(start)
+        self.wiki_hits.configure(text="{} of {}".format(pos + 1, len(self.wiki_matches)))
 
     def _build_preview(self, parent):
         """The signature panel: your input rendered the way the combat card renders it."""
@@ -999,6 +1161,7 @@ class CuratorApp:
         if not self.rows:
             self._add_row()
         self._load_location(idstr)
+        self._load_wiki(idstr)
         self._render_preview()
 
     def _load_location(self, idstr):

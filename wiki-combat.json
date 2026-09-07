@@ -142,7 +142,7 @@
   "Abyssal guardian": {
     "maxHit": "11",
     "maxHits": [],
-    "attackStyle": "[[Stab]], [[Magic]]",
+    "attackStyle": "[[Stab]], [[Ranged]]",
     "attackStyles": [],
     "attackSpeed": "4",
     "attackSpeeds": [],
@@ -151,7 +151,7 @@
     "defStabs": [],
     "defSlash": "70",
     "defSlashes": [],
-    "defCrush": "70",
+    "defCrush": "0",
     "defCrushes": [],
     "defMagic": "150",
     "defMagics": [],
@@ -170,7 +170,7 @@
     "defStabs": [],
     "defSlash": "50",
     "defSlashes": [],
-    "defCrush": "100",
+    "defCrush": "0",
     "defCrushes": [],
     "defMagic": "50",
     "defMagics": [],
@@ -189,7 +189,7 @@
     "defStabs": [],
     "defSlash": "75",
     "defSlashes": [],
-    "defCrush": "10",
+    "defCrush": "0",
     "defCrushes": [],
     "defMagic": "75",
     "defMagics": [],
@@ -3956,7 +3956,7 @@
   },
   "Catablepon": {
     "maxHits": [
-      "6",
+      "5",
       "6",
       "7"
     ],
@@ -5825,46 +5825,6 @@
     "elementalWeaknessType": "Earth",
     "elementalWeaknessPercent": "35"
   },
-  "Dagannoth Kings (Echo)": {
-    "maxHits": [
-      "49+",
-      "48+",
-      "26"
-    ],
-    "attackStyles": [
-      "[[Magic]]",
-      "[[Slash]]",
-      "[[Ranged]]"
-    ],
-    "attackSpeed": "5",
-    "attackSpeeds": [],
-    "poisonous": "No",
-    "defStabs": [
-      "100",
-      "100",
-      "10"
-    ],
-    "defSlashes": [
-      "100",
-      "100",
-      "10"
-    ],
-    "defCrushes": [
-      "100",
-      "100",
-      "10"
-    ],
-    "defMagics": [
-      "100",
-      "10",
-      "100"
-    ],
-    "defRangeds": [
-      "10",
-      "100",
-      "150"
-    ]
-  },
   "Dagannoth Prime": {
     "maxHit": "50",
     "maxHits": [],
@@ -7216,7 +7176,9 @@
     "defMagic": "0",
     "defMagics": [],
     "defRanged": "0",
-    "defRangeds": []
+    "defRangeds": [],
+    "elementalWeaknessType": "Earth",
+    "elementalWeaknessPercent": "40"
   },
   "Dust devil": {
     "maxHits": [
@@ -7619,7 +7581,7 @@
   "Elder custodian stalker": {
     "maxHit": "10 (melee), 5 (special attack)",
     "maxHits": [],
-    "attackStyle": "Crush, Magic, Bleed",
+    "attackStyle": "[[Crush]], [[Magic]] ([[Bleed]])",
     "attackStyles": [],
     "attackSpeed": "4",
     "attackSpeeds": [],
@@ -7737,7 +7699,7 @@
     "defRangeds": []
   },
   "Elite Dark Mage": {
-    "maxHit": "16",
+    "maxHit": "16 (Fire Blast)<br>20 (Fire Wave)<br>2 (Wind Strike)",
     "maxHits": [],
     "attackStyle": "[[Magic]]",
     "attackStyles": [],
@@ -8194,6 +8156,7 @@
     "maxHits": [
       "7",
       "7",
+      "7",
       "6",
       "8",
       "8",
@@ -8202,6 +8165,7 @@
     ],
     "attackStyles": [
       "[[Stab]]",
+      "[[Slash]]",
       "[[Slash]]",
       "[[Slash]]",
       "[[Stab]]",
@@ -9575,7 +9539,7 @@
     "defRangeds": []
   },
   "Giant rat (Tutorial Island)": {
-    "maxHit": "2",
+    "maxHit": "1",
     "maxHits": [],
     "attackStyle": "[[Stab]]",
     "attackStyles": [],
@@ -10511,32 +10475,6 @@
     "defRangeds": [],
     "elementalWeaknessType": "Fire",
     "elementalWeaknessPercent": "20"
-  },
-  "Grotesque Guardians (Echo)": {
-    "maxHits": [
-      "32 (flame cone), 21 x 2 (ranged orbs), 20 x 4 (flame wall), 32 (trample)",
-      "12",
-      "17"
-    ],
-    "attackStyle": "[[Slash]]",
-    "attackStyles": [],
-    "attackSpeed": "6",
-    "attackSpeeds": [],
-    "poisonous": "No",
-    "defStab": "0",
-    "defStabs": [],
-    "defSlash": "0",
-    "defSlashes": [],
-    "defCrush": "0",
-    "defCrushes": [],
-    "defMagics": [
-      "0",
-      "80",
-      "0"
-    ],
-    "defRanged": "0",
-    "defRangeds": [],
-    "elementalWeaknessType": "Earth"
   },
   "Growler": {
     "maxHit": "16",
@@ -13036,7 +12974,7 @@
     "defRangeds": []
   },
   "Killerwatt": {
-    "maxHit": "8 ([[Ranged]]), 6 ([[Melee]]), 15 ([[Ranged]]; without [[Insulated boots]])",
+    "maxHit": "8 ([[Ranged]]), 6 ([[Melee]]), 15 ([[Ranged]]/[[Melee]]; without [[insulated boots]])",
     "maxHits": [],
     "attackStyles": [
       "[[Stab]], [[Magical ranged]]",
@@ -14673,7 +14611,6 @@
       "5",
       "3 ([[Melee]]), 10 ([[Magic]])",
       "2 ([[Melee]]), 10 ([[Magic]])",
-      "3 ([[Melee]]), 8 ([[Magic]])",
       "5 ([[Melee]]), 13 ([[Magic]])"
     ],
     "attackStyle": "[[Crush]], [[Magic]]",
@@ -18053,7 +17990,9 @@
     "defMagic": "-40",
     "defMagics": [],
     "defRanged": "0",
-    "defRangeds": []
+    "defRangeds": [],
+    "elementalWeaknessType": "Fire",
+    "elementalWeaknessPercent": "35"
   },
   "Scorpion": {
     "maxHits": [
@@ -20672,7 +20611,7 @@
   },
   "Tanglefoot (Nightmare Zone)": {
     "maxHits": [
-      "10",
+      "11",
       "20"
     ],
     "attackStyle": "[[Slash]]",
