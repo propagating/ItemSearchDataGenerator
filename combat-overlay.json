@@ -316,39 +316,6 @@
     ],
     "needsReview": false
   },
-  "468": {
-    "attacks": [
-      {
-        "style": "ranged",
-        "maxHit": 13,
-        "maxHitMax": 13,
-        "speed": 6,
-        "speedMax": 6
-      },
-      {
-        "style": "slash",
-        "maxHit": 13,
-        "maxHitMax": 13,
-        "speed": 6,
-        "speedMax": 6
-      },
-      {
-        "style": "icy breath",
-        "maxHit": 0,
-        "maxHitMax": 0,
-        "speed": 6,
-        "speedMax": 6
-      },
-      {
-        "style": "icy breath",
-        "maxHit": 50,
-        "maxHitMax": 50,
-        "speed": 6,
-        "speedMax": 6
-      }
-    ],
-    "needsReview": true
-  },
   "469": {
     "attacks": [
       {
@@ -576,50 +543,6 @@
     ],
     "needsReview": false
   },
-  "797": {
-    "attacks": [
-      {
-        "style": "stab",
-        "maxHit": 20,
-        "maxHitMax": 20,
-        "speed": 4,
-        "speedMax": 4,
-        "effects": [
-          "POISON"
-        ]
-      },
-      {
-        "style": "ranged",
-        "maxHit": 20,
-        "maxHitMax": 20,
-        "speed": 4,
-        "speedMax": 4,
-        "effects": [
-          "POISON"
-        ]
-      }
-    ],
-    "needsReview": true
-  },
-  "823": {
-    "attacks": [
-      {
-        "style": "magic",
-        "maxHit": 5,
-        "maxHitMax": 5,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "crush",
-        "maxHit": 5,
-        "maxHitMax": 5,
-        "speed": 4,
-        "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
   "882": {
     "attacks": [
       {
@@ -840,25 +763,6 @@
     ],
     "needsReview": true
   },
-  "1443": {
-    "attacks": [
-      {
-        "style": "slash",
-        "maxHit": 32,
-        "maxHitMax": 32,
-        "speed": 6,
-        "speedMax": 6
-      },
-      {
-        "style": "magic",
-        "maxHit": 32,
-        "maxHitMax": 32,
-        "speed": 6,
-        "speedMax": 6
-      }
-    ],
-    "needsReview": true
-  },
   "1670": {
     "attacks": [
       {
@@ -922,58 +826,6 @@
     ],
     "needsReview": true
   },
-  "2044": {
-    "attacks": [
-      {
-        "style": "magic",
-        "maxHit": 41,
-        "maxHitMax": 41,
-        "speed": 3,
-        "speedMax": 3,
-        "effects": [
-          "VENOM"
-        ]
-      },
-      {
-        "style": "ranged",
-        "maxHit": 41,
-        "maxHitMax": 41,
-        "speed": 3,
-        "speedMax": 3,
-        "effects": [
-          "VENOM"
-        ]
-      }
-    ],
-    "needsReview": true
-  },
-  "2054": {
-    "attacks": [
-      {
-        "style": "magic",
-        "maxHit": 28,
-        "maxHitMax": 28,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "ranged",
-        "maxHit": 28,
-        "maxHitMax": 28,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "melee",
-        "maxHit": 28,
-        "maxHitMax": 28,
-        "speed": 4,
-        "speedMax": 4,
-        "notes": "crush?"
-      }
-    ],
-    "needsReview": true
-  },
   "2154": {
     "attacks": [
       {
@@ -989,25 +841,6 @@
         "maxHitMax": 0,
         "speed": 5,
         "speedMax": 5
-      }
-    ],
-    "needsReview": true
-  },
-  "2169": {
-    "attacks": [
-      {
-        "style": "crush",
-        "maxHit": 11,
-        "maxHitMax": 11,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "ranged",
-        "maxHit": 16,
-        "maxHitMax": 16,
-        "speed": 4,
-        "speedMax": 4
       }
     ],
     "needsReview": true
@@ -1063,79 +896,6 @@
         "style": "magic",
         "maxHit": 0,
         "maxHitMax": 0,
-        "speed": 4,
-        "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
-  "2585": {
-    "attacks": [
-      {
-        "style": "stab",
-        "maxHit": 11,
-        "maxHitMax": 11,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "ranged",
-        "maxHit": 11,
-        "maxHitMax": 11,
-        "speed": 4,
-        "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
-  "2916": {
-    "attacks": [
-      {
-        "style": "magic",
-        "maxHit": 11,
-        "maxHitMax": 11,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "magic",
-        "prayStyle": "ranged",
-        "maxHit": 11,
-        "maxHitMax": 11,
-        "speed": 4,
-        "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
-  "2919": {
-    "attacks": [
-      {
-        "style": "stab",
-        "maxHit": 28,
-        "maxHitMax": 28,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "magic",
-        "maxHit": 18,
-        "maxHitMax": 18,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "magic",
-        "prayStyle": "ranged",
-        "maxHit": 0,
-        "maxHitMax": 0,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "metallic dragonfire",
-        "maxHit": 50,
-        "maxHitMax": 50,
         "speed": 4,
         "speedMax": 4
       }
@@ -1314,25 +1074,6 @@
     ],
     "needsReview": true
   },
-  "4210": {
-    "attacks": [
-      {
-        "style": "magic",
-        "maxHit": 6,
-        "maxHitMax": 6,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "crush",
-        "maxHit": 6,
-        "maxHitMax": 6,
-        "speed": 4,
-        "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
   "4863": {
     "attacks": [
       {
@@ -1348,63 +1089,6 @@
         "maxHitMax": 0,
         "speed": 0,
         "speedMax": 0
-      }
-    ],
-    "needsReview": true
-  },
-  "4880": {
-    "attacks": [
-      {
-        "style": "crush",
-        "maxHit": 16,
-        "maxHitMax": 16,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "magic",
-        "maxHit": 16,
-        "maxHitMax": 16,
-        "speed": 4,
-        "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
-  "4881": {
-    "attacks": [
-      {
-        "style": "crush",
-        "maxHit": 25,
-        "maxHitMax": 25,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "magic",
-        "maxHit": 25,
-        "maxHitMax": 25,
-        "speed": 4,
-        "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
-  "4883": {
-    "attacks": [
-      {
-        "style": "crush",
-        "maxHit": 19,
-        "maxHitMax": 19,
-        "speed": 3,
-        "speedMax": 3
-      },
-      {
-        "style": "magic",
-        "maxHit": 19,
-        "maxHitMax": 19,
-        "speed": 3,
-        "speedMax": 3
       }
     ],
     "needsReview": true
@@ -1431,32 +1115,6 @@
         "maxHitMax": 11,
         "speed": 4,
         "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
-  "5862": {
-    "attacks": [
-      {
-        "style": "stab",
-        "maxHit": 23,
-        "maxHitMax": 23,
-        "speed": 6,
-        "speedMax": 6
-      },
-      {
-        "style": "ranged",
-        "maxHit": 23,
-        "maxHitMax": 23,
-        "speed": 6,
-        "speedMax": 6
-      },
-      {
-        "style": "magic",
-        "maxHit": 23,
-        "maxHitMax": 23,
-        "speed": 6,
-        "speedMax": 6
       }
     ],
     "needsReview": true
@@ -1499,77 +1157,6 @@
         "style": "crush",
         "maxHit": 0,
         "maxHitMax": 0,
-        "speed": 4,
-        "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
-  "5947": {
-    "attacks": [
-      {
-        "style": "ranged",
-        "prayStyle": "magic",
-        "maxHit": 10,
-        "maxHitMax": 10,
-        "speed": 4,
-        "speedMax": 4,
-        "effects": [
-          "POISON"
-        ]
-      },
-      {
-        "style": "ranged",
-        "maxHit": 10,
-        "maxHitMax": 10,
-        "speed": 4,
-        "speedMax": 4,
-        "effects": [
-          "POISON"
-        ]
-      }
-    ],
-    "needsReview": true
-  },
-  "5969": {
-    "attacks": [
-      {
-        "style": "crush",
-        "maxHit": 1,
-        "maxHitMax": 1,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "ranged",
-        "maxHit": 1,
-        "maxHitMax": 1,
-        "speed": 4,
-        "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
-  "6076": {
-    "attacks": [
-      {
-        "style": "crush",
-        "maxHit": 11,
-        "maxHitMax": 11,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "magic",
-        "maxHit": 11,
-        "maxHitMax": 11,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "ranged",
-        "maxHit": 11,
-        "maxHitMax": 11,
         "speed": 4,
         "speedMax": 4
       }
@@ -1968,25 +1555,6 @@
     ],
     "needsReview": true
   },
-  "6382": {
-    "attacks": [
-      {
-        "style": "slash",
-        "maxHit": 32,
-        "maxHitMax": 32,
-        "speed": 6,
-        "speedMax": 6
-      },
-      {
-        "style": "magic",
-        "maxHit": 32,
-        "maxHitMax": 32,
-        "speed": 6,
-        "speedMax": 6
-      }
-    ],
-    "needsReview": true
-  },
   "6384": {
     "attacks": [
       {
@@ -2078,25 +1646,6 @@
     ],
     "needsReview": true
   },
-  "6611": {
-    "attacks": [
-      {
-        "style": "slash",
-        "maxHit": 44,
-        "maxHitMax": 44,
-        "speed": 6,
-        "speedMax": 6
-      },
-      {
-        "style": "magic",
-        "maxHit": 44,
-        "maxHitMax": 44,
-        "speed": 5,
-        "speedMax": 5
-      }
-    ],
-    "needsReview": true
-  },
   "6618": {
     "attacks": [
       {
@@ -2173,31 +1722,6 @@
     ],
     "needsReview": true
   },
-  "6918": {
-    "attacks": [
-      {
-        "style": "crush",
-        "maxHit": 11,
-        "maxHitMax": 11,
-        "speed": 4,
-        "speedMax": 4,
-        "effects": [
-          "POISON"
-        ]
-      },
-      {
-        "style": "ranged",
-        "maxHit": 11,
-        "maxHitMax": 11,
-        "speed": 4,
-        "speedMax": 4,
-        "effects": [
-          "POISON"
-        ]
-      }
-    ],
-    "needsReview": true
-  },
   "7144": {
     "attacks": [
       {
@@ -2230,32 +1754,6 @@
       }
     ],
     "needsReview": false
-  },
-  "7150": {
-    "attacks": [
-      {
-        "style": "magic",
-        "maxHit": 13,
-        "maxHitMax": 13,
-        "speed": 5,
-        "speedMax": 5
-      },
-      {
-        "style": "ranged",
-        "maxHit": 13,
-        "maxHitMax": 13,
-        "speed": 5,
-        "speedMax": 5
-      },
-      {
-        "style": "crush",
-        "maxHit": 13,
-        "maxHitMax": 13,
-        "speed": 5,
-        "speedMax": 5
-      }
-    ],
-    "needsReview": true
   },
   "7221": {
     "attacks": [
@@ -2412,25 +1910,6 @@
     ],
     "needsReview": true
   },
-  "7286": {
-    "attacks": [
-      {
-        "style": "stab",
-        "maxHit": 38,
-        "maxHitMax": 38,
-        "speed": 0,
-        "speedMax": 0
-      },
-      {
-        "style": "magic",
-        "maxHit": 38,
-        "maxHitMax": 38,
-        "speed": 0,
-        "speedMax": 0
-      }
-    ],
-    "needsReview": true
-  },
   "7407": {
     "attacks": [
       {
@@ -2454,25 +1933,6 @@
         "speed": 4,
         "speedMax": 4,
         "notes": "special"
-      }
-    ],
-    "needsReview": true
-  },
-  "7409": {
-    "attacks": [
-      {
-        "style": "crush",
-        "maxHit": 31,
-        "maxHitMax": 31,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "magic",
-        "maxHit": 31,
-        "maxHitMax": 31,
-        "speed": 4,
-        "speedMax": 4
       }
     ],
     "needsReview": true
@@ -2705,48 +2165,8 @@
       },
       {
         "style": "icy breath",
-        "maxHit": 0,
-        "maxHitMax": 0,
-        "speed": 6,
-        "speedMax": 6
-      },
-      {
-        "style": "icy breath",
         "maxHit": 55,
         "maxHitMax": 55,
-        "speed": 6,
-        "speedMax": 6
-      }
-    ],
-    "needsReview": true
-  },
-  "7794": {
-    "attacks": [
-      {
-        "style": "slash",
-        "maxHit": 9,
-        "maxHitMax": 9,
-        "speed": 6,
-        "speedMax": 6
-      },
-      {
-        "style": "ranged",
-        "maxHit": 8,
-        "maxHitMax": 8,
-        "speed": 6,
-        "speedMax": 6
-      },
-      {
-        "style": "icy breath",
-        "maxHit": 0,
-        "maxHitMax": 0,
-        "speed": 6,
-        "speedMax": 6
-      },
-      {
-        "style": "icy breath",
-        "maxHit": 50,
-        "maxHitMax": 50,
         "speed": 6,
         "speedMax": 6
       }
@@ -2764,13 +2184,6 @@
       },
       {
         "style": "typeless",
-        "maxHit": 0,
-        "maxHitMax": 0,
-        "speed": 5,
-        "speedMax": 5
-      },
-      {
-        "style": "icy breath",
         "maxHit": 0,
         "maxHitMax": 0,
         "speed": 5,
@@ -2862,317 +2275,6 @@
         "maxHitMax": 0,
         "speed": 4,
         "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
-  "7881": {
-    "attacks": [
-      {
-        "style": "stab",
-        "maxHit": 2,
-        "maxHitMax": 2,
-        "speed": 5,
-        "speedMax": 5
-      },
-      {
-        "style": "ranged",
-        "maxHit": 2,
-        "maxHitMax": 2,
-        "speed": 5,
-        "speedMax": 5
-      },
-      {
-        "style": "magic",
-        "maxHit": 2,
-        "maxHitMax": 2,
-        "speed": 5,
-        "speedMax": 5
-      }
-    ],
-    "needsReview": true
-  },
-  "7931": {
-    "attacks": [
-      {
-        "style": "crush",
-        "maxHit": 3,
-        "maxHitMax": 3,
-        "speed": 5,
-        "speedMax": 5
-      },
-      {
-        "style": "ranged",
-        "maxHit": 3,
-        "maxHitMax": 3,
-        "speed": 5,
-        "speedMax": 5
-      },
-      {
-        "style": "magic",
-        "maxHit": 3,
-        "maxHitMax": 3,
-        "speed": 5,
-        "speedMax": 5
-      }
-    ],
-    "needsReview": true
-  },
-  "7932": {
-    "attacks": [
-      {
-        "style": "crush",
-        "maxHit": 5,
-        "maxHitMax": 5,
-        "speed": 5,
-        "speedMax": 5
-      },
-      {
-        "style": "ranged",
-        "maxHit": 5,
-        "maxHitMax": 5,
-        "speed": 5,
-        "speedMax": 5
-      },
-      {
-        "style": "magic",
-        "maxHit": 5,
-        "maxHitMax": 5,
-        "speed": 5,
-        "speedMax": 5
-      }
-    ],
-    "needsReview": true
-  },
-  "7933": {
-    "attacks": [
-      {
-        "style": "slash",
-        "maxHit": 8,
-        "maxHitMax": 8,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "ranged",
-        "maxHit": 8,
-        "maxHitMax": 8,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "magic",
-        "maxHit": 8,
-        "maxHitMax": 8,
-        "speed": 4,
-        "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
-  "7934": {
-    "attacks": [
-      {
-        "style": "crush",
-        "maxHit": 16,
-        "maxHitMax": 16,
-        "speed": 6,
-        "speedMax": 6
-      },
-      {
-        "style": "ranged",
-        "maxHit": 16,
-        "maxHitMax": 16,
-        "speed": 6,
-        "speedMax": 6
-      },
-      {
-        "style": "magic",
-        "maxHit": 16,
-        "maxHitMax": 16,
-        "speed": 6,
-        "speedMax": 6
-      }
-    ],
-    "needsReview": true
-  },
-  "7935": {
-    "attacks": [
-      {
-        "style": "stab",
-        "maxHit": 14,
-        "maxHitMax": 14,
-        "speed": 5,
-        "speedMax": 5
-      },
-      {
-        "style": "ranged",
-        "maxHit": 14,
-        "maxHitMax": 14,
-        "speed": 5,
-        "speedMax": 5
-      },
-      {
-        "style": "magic",
-        "maxHit": 14,
-        "maxHitMax": 14,
-        "speed": 5,
-        "speedMax": 5
-      }
-    ],
-    "needsReview": true
-  },
-  "7936": {
-    "attacks": [
-      {
-        "style": "crush",
-        "maxHit": 15,
-        "maxHitMax": 15,
-        "speed": 5,
-        "speedMax": 5
-      },
-      {
-        "style": "ranged",
-        "maxHit": 15,
-        "maxHitMax": 15,
-        "speed": 5,
-        "speedMax": 5
-      },
-      {
-        "style": "magic",
-        "maxHit": 15,
-        "maxHitMax": 15,
-        "speed": 5,
-        "speedMax": 5
-      }
-    ],
-    "needsReview": true
-  },
-  "7937": {
-    "attacks": [
-      {
-        "style": "slash",
-        "maxHit": 20,
-        "maxHitMax": 20,
-        "speed": 5,
-        "speedMax": 5
-      },
-      {
-        "style": "ranged",
-        "maxHit": 20,
-        "maxHitMax": 20,
-        "speed": 5,
-        "speedMax": 5
-      },
-      {
-        "style": "magic",
-        "maxHit": 20,
-        "maxHitMax": 20,
-        "speed": 5,
-        "speedMax": 5
-      }
-    ],
-    "needsReview": true
-  },
-  "7938": {
-    "attacks": [
-      {
-        "style": "crush",
-        "maxHit": 23,
-        "maxHitMax": 23,
-        "speed": 5,
-        "speedMax": 5
-      },
-      {
-        "style": "ranged",
-        "maxHit": 23,
-        "maxHitMax": 23,
-        "speed": 5,
-        "speedMax": 5
-      },
-      {
-        "style": "magic",
-        "maxHit": 23,
-        "maxHitMax": 23,
-        "speed": 5,
-        "speedMax": 5
-      }
-    ],
-    "needsReview": true
-  },
-  "7939": {
-    "attacks": [
-      {
-        "style": "slash",
-        "maxHit": 27,
-        "maxHitMax": 27,
-        "speed": 5,
-        "speedMax": 5
-      },
-      {
-        "style": "ranged",
-        "maxHit": 27,
-        "maxHitMax": 27,
-        "speed": 5,
-        "speedMax": 5
-      },
-      {
-        "style": "magic",
-        "maxHit": 27,
-        "maxHitMax": 27,
-        "speed": 5,
-        "speedMax": 5
-      }
-    ],
-    "needsReview": true
-  },
-  "7940": {
-    "attacks": [
-      {
-        "style": "slash",
-        "maxHit": 30,
-        "maxHitMax": 30,
-        "speed": 5,
-        "speedMax": 5
-      },
-      {
-        "style": "ranged",
-        "maxHit": 30,
-        "maxHitMax": 30,
-        "speed": 5,
-        "speedMax": 5
-      },
-      {
-        "style": "magic",
-        "maxHit": 30,
-        "maxHitMax": 30,
-        "speed": 5,
-        "speedMax": 5
-      }
-    ],
-    "needsReview": true
-  },
-  "8000": {
-    "attacks": [
-      {
-        "style": "crush",
-        "maxHit": 6,
-        "maxHitMax": 6,
-        "speed": 4,
-        "speedMax": 4,
-        "effects": [
-          "POISON"
-        ]
-      },
-      {
-        "style": "ranged",
-        "maxHit": 6,
-        "maxHitMax": 6,
-        "speed": 4,
-        "speedMax": 4,
-        "effects": [
-          "POISON"
-        ]
       }
     ],
     "needsReview": true
@@ -3387,58 +2489,6 @@
     ],
     "needsReview": true
   },
-  "8609": {
-    "attacks": [
-      {
-        "style": "magic",
-        "maxHit": 22,
-        "maxHitMax": 22,
-        "speed": 6,
-        "speedMax": 6,
-        "effects": [
-          "POISON"
-        ]
-      },
-      {
-        "style": "ranged",
-        "maxHit": 22,
-        "maxHitMax": 22,
-        "speed": 6,
-        "speedMax": 6,
-        "effects": [
-          "POISON"
-        ]
-      }
-    ],
-    "needsReview": true
-  },
-  "8612": {
-    "attacks": [
-      {
-        "style": "ranged",
-        "maxHit": 15,
-        "maxHitMax": 15,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "ranged",
-        "prayStyle": "melee",
-        "maxHit": 0,
-        "maxHitMax": 0,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "dragonfire",
-        "maxHit": 32,
-        "maxHitMax": 32,
-        "speed": 4,
-        "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
   "8615": {
     "attacks": [
       {
@@ -3464,25 +2514,6 @@
     ],
     "needsReview": true
   },
-  "8633": {
-    "attacks": [
-      {
-        "style": "crush",
-        "maxHit": 23,
-        "maxHitMax": 23,
-        "speed": 3,
-        "speedMax": 3
-      },
-      {
-        "style": "magic",
-        "maxHit": 23,
-        "maxHitMax": 23,
-        "speed": 3,
-        "speedMax": 3
-      }
-    ],
-    "needsReview": true
-  },
   "8698": {
     "attacks": [
       {
@@ -3498,44 +2529,6 @@
         "maxHitMax": 0,
         "speed": 4,
         "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
-  "8713": {
-    "attacks": [
-      {
-        "style": "melee",
-        "maxHit": 31,
-        "maxHitMax": 31,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "ranged",
-        "maxHit": 31,
-        "maxHitMax": 31,
-        "speed": 4,
-        "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
-  "8736": {
-    "attacks": [
-      {
-        "style": "melee",
-        "maxHit": 14,
-        "maxHitMax": 14,
-        "speed": 6,
-        "speedMax": 6
-      },
-      {
-        "style": "magic",
-        "maxHit": 14,
-        "maxHitMax": 14,
-        "speed": 6,
-        "speedMax": 6
       }
     ],
     "needsReview": true
@@ -3562,25 +2555,6 @@
         "maxHitMax": 74,
         "speed": 4,
         "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
-  "9293": {
-    "attacks": [
-      {
-        "style": "slash",
-        "maxHit": 20,
-        "maxHitMax": 20,
-        "speed": 0,
-        "speedMax": 0
-      },
-      {
-        "style": "magic",
-        "maxHit": 20,
-        "maxHitMax": 20,
-        "speed": 0,
-        "speedMax": 0
       }
     ],
     "needsReview": true
@@ -3644,25 +2618,6 @@
     ],
     "needsReview": true
   },
-  "10398": {
-    "attacks": [
-      {
-        "style": "magic",
-        "maxHit": 28,
-        "maxHitMax": 28,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "slash",
-        "maxHit": 28,
-        "maxHitMax": 28,
-        "speed": 4,
-        "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
   "10400": {
     "attacks": [
       {
@@ -3686,25 +2641,6 @@
         "maxHitMax": 39,
         "speed": 4,
         "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
-  "10402": {
-    "attacks": [
-      {
-        "style": "magic",
-        "maxHit": 34,
-        "maxHitMax": 34,
-        "speed": 6,
-        "speedMax": 6
-      },
-      {
-        "style": "ranged",
-        "maxHit": 34,
-        "maxHitMax": 34,
-        "speed": 6,
-        "speedMax": 6
       }
     ],
     "needsReview": true
@@ -3818,108 +2754,6 @@
     ],
     "needsReview": true
   },
-  "11246": {
-    "attacks": [
-      {
-        "style": "ranged",
-        "maxHit": 30,
-        "maxHitMax": 30,
-        "speed": 5,
-        "speedMax": 5
-      },
-      {
-        "style": "magic",
-        "maxHit": 30,
-        "maxHitMax": 30,
-        "speed": 5,
-        "speedMax": 5
-      }
-    ],
-    "needsReview": true
-  },
-  "11270": {
-    "attacks": [
-      {
-        "style": "melee",
-        "maxHit": 6,
-        "maxHitMax": 6,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "ranged",
-        "maxHit": 6,
-        "maxHitMax": 6,
-        "speed": 4,
-        "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
-  "11271": {
-    "attacks": [
-      {
-        "style": "melee",
-        "maxHit": 10,
-        "maxHitMax": 10,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "magic",
-        "maxHit": 10,
-        "maxHitMax": 10,
-        "speed": 4,
-        "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
-  "11272": {
-    "attacks": [
-      {
-        "style": "melee",
-        "maxHit": 14,
-        "maxHitMax": 14,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "magic",
-        "maxHit": 14,
-        "maxHitMax": 14,
-        "speed": 4,
-        "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
-  "11273": {
-    "attacks": [
-      {
-        "style": "magic",
-        "maxHit": 18,
-        "maxHitMax": 18,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "melee",
-        "maxHit": 18,
-        "maxHitMax": 18,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "ranged",
-        "maxHit": 18,
-        "maxHitMax": 18,
-        "speed": 4,
-        "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
   "11278": {
     "attacks": [
       {
@@ -4018,70 +2852,6 @@
         "style": "special",
         "maxHit": 40,
         "maxHitMax": 40,
-        "speed": 5,
-        "speedMax": 5
-      }
-    ],
-    "needsReview": true
-  },
-  "11778": {
-    "attacks": [
-      {
-        "style": "crush",
-        "maxHit": 24,
-        "maxHitMax": 24,
-        "speed": 6,
-        "speedMax": 6
-      },
-      {
-        "style": "ranged",
-        "maxHit": 24,
-        "maxHitMax": 24,
-        "speed": 6,
-        "speedMax": 6
-      }
-    ],
-    "needsReview": true
-  },
-  "11789": {
-    "attacks": [
-      {
-        "style": "slash",
-        "maxHit": 55,
-        "maxHitMax": 55,
-        "speed": 6,
-        "speedMax": 6
-      },
-      {
-        "style": "magic",
-        "maxHit": 55,
-        "maxHitMax": 55,
-        "speed": 6,
-        "speedMax": 6
-      },
-      {
-        "style": "ranged",
-        "maxHit": 55,
-        "maxHitMax": 55,
-        "speed": 6,
-        "speedMax": 6
-      }
-    ],
-    "needsReview": true
-  },
-  "11993": {
-    "attacks": [
-      {
-        "style": "slash",
-        "maxHit": 26,
-        "maxHitMax": 26,
-        "speed": 6,
-        "speedMax": 6
-      },
-      {
-        "style": "magic",
-        "maxHit": 26,
-        "maxHitMax": 26,
         "speed": 5,
         "speedMax": 5
       }
@@ -4207,25 +2977,6 @@
         "maxHitMax": 0,
         "speed": 0,
         "speedMax": 0
-      }
-    ],
-    "needsReview": true
-  },
-  "12464": {
-    "attacks": [
-      {
-        "style": "ranged",
-        "maxHit": 16,
-        "maxHitMax": 16,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "crush",
-        "maxHit": 16,
-        "maxHitMax": 16,
-        "speed": 4,
-        "speedMax": 4
       }
     ],
     "needsReview": true
@@ -4370,32 +3121,6 @@
     ],
     "needsReview": true
   },
-  "14009": {
-    "attacks": [
-      {
-        "style": "melee",
-        "maxHit": 14,
-        "maxHitMax": 14,
-        "speed": 0,
-        "speedMax": 0
-      },
-      {
-        "style": "magic",
-        "maxHit": 14,
-        "maxHitMax": 14,
-        "speed": 0,
-        "speedMax": 0
-      },
-      {
-        "style": "ranged",
-        "maxHit": 14,
-        "maxHitMax": 14,
-        "speed": 0,
-        "speedMax": 0
-      }
-    ],
-    "needsReview": true
-  },
   "14147": {
     "attacks": [
       {
@@ -4500,45 +3225,6 @@
     ],
     "needsReview": true
   },
-  "14702": {
-    "attacks": [
-      {
-        "style": "crush",
-        "maxHit": 6,
-        "maxHitMax": 6,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "bleed",
-        "maxHit": 6,
-        "maxHitMax": 6,
-        "speed": 4,
-        "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
-  "14703": {
-    "attacks": [
-      {
-        "style": "crush",
-        "maxHit": 8,
-        "maxHitMax": 8,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "magic",
-        "maxHit": 8,
-        "maxHitMax": 8,
-        "speed": 4,
-        "speedMax": 4,
-        "notes": "bleed"
-      }
-    ],
-    "needsReview": true
-  },
   "14704": {
     "attacks": [
       {
@@ -4560,25 +3246,6 @@
         "style": "special attack",
         "maxHit": 5,
         "maxHitMax": 5,
-        "speed": 4,
-        "speedMax": 4
-      }
-    ],
-    "needsReview": true
-  },
-  "14706": {
-    "attacks": [
-      {
-        "style": "crush",
-        "maxHit": 6,
-        "maxHitMax": 6,
-        "speed": 4,
-        "speedMax": 4
-      },
-      {
-        "style": "bleed",
-        "maxHit": 6,
-        "maxHitMax": 6,
         "speed": 4,
         "speedMax": 4
       }
@@ -4710,25 +3377,6 @@
     ],
     "needsReview": true
   },
-  "15504": {
-    "attacks": [
-      {
-        "style": "melee",
-        "maxHit": 26,
-        "maxHitMax": 26,
-        "speed": 5,
-        "speedMax": 5
-      },
-      {
-        "style": "ranged",
-        "maxHit": 26,
-        "maxHitMax": 26,
-        "speed": 5,
-        "speedMax": 5
-      }
-    ],
-    "needsReview": true
-  },
   "15626": {
     "attacks": [
       {
@@ -4767,25 +3415,6 @@
     ],
     "needsReview": true
   },
-  "15765": {
-    "attacks": [
-      {
-        "style": "stab",
-        "maxHit": 21,
-        "maxHitMax": 21,
-        "speed": 5,
-        "speedMax": 5
-      },
-      {
-        "style": "ranged",
-        "maxHit": 21,
-        "maxHitMax": 21,
-        "speed": 5,
-        "speedMax": 5
-      }
-    ],
-    "needsReview": true
-  },
   "15770": {
     "attacks": [
       {
@@ -4801,44 +3430,6 @@
         "maxHitMax": 40,
         "speed": 5,
         "speedMax": 5
-      }
-    ],
-    "needsReview": true
-  },
-  "16305": {
-    "attacks": [
-      {
-        "style": "melee",
-        "maxHit": 31,
-        "maxHitMax": 31,
-        "speed": 6,
-        "speedMax": 6
-      },
-      {
-        "style": "magic",
-        "maxHit": 31,
-        "maxHitMax": 31,
-        "speed": 6,
-        "speedMax": 6
-      }
-    ],
-    "needsReview": true
-  },
-  "16309": {
-    "attacks": [
-      {
-        "style": "melee",
-        "maxHit": 31,
-        "maxHitMax": 31,
-        "speed": 6,
-        "speedMax": 6
-      },
-      {
-        "style": "magic",
-        "maxHit": 31,
-        "maxHitMax": 31,
-        "speed": 6,
-        "speedMax": 6
       }
     ],
     "needsReview": true

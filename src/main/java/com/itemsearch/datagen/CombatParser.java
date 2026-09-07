@@ -271,7 +271,7 @@ public final class CombatParser
     {
         List<OutputAttack> attacks = new ArrayList<>();
         boolean[] used = new boolean[maxHits.size()];
-        int annotatedMatches = 0;
+        int unresolved = 0;
 
         MaxHit soleUnannotated = null;
         int unannotatedCount = 0;
@@ -307,14 +307,22 @@ public final class CombatParser
                 {
                     maxHit = h.value;
                     used[j] = classes.size() == 1;
-                    annotatedMatches++;
                     break;
                 }
             }
-            // 2) else fall back to the single unannotated value (best guess)
-            if (maxHit == 0 && unannotatedCount == 1)
+            // 2) else the single plain value is the page saying every style hits that hard:
+            //    "Magic, Ranged" over a bare 41 is both at 41, since the wiki annotates when
+            //    they differ. Several plain values, or none, leave this style unresolved.
+            if (maxHit == 0)
             {
-                maxHit = soleUnannotated.value;
+                if (unannotatedCount == 1)
+                {
+                    maxHit = soleUnannotated.value;
+                }
+                else
+                {
+                    unresolved++;
+                }
             }
 
             int speed = speedFor(speeds, i);
@@ -332,7 +340,9 @@ public final class CombatParser
             attacks.add(attack);
         }
 
-        boolean gap = styles.size() > 1 && annotatedMatches < styles.size();
+        // a gap is a style the page left without a figure it could be given: with one style
+        // even a missing max hit is just the page's silence, with several it is an ambiguity
+        boolean gap = styles.size() > 1 && unresolved > 0;
 
         // a max hit whose note names no style at all ("Charge attack", "Stomp") is a further attack
         // the infobox knows about, not a figure for one of the styles: pre-fill it under the note's
@@ -357,12 +367,17 @@ public final class CombatParser
         Set<String> out = new HashSet<>();
         for (String part : annotation.split("[/;]"))
         {
-            String[] words = part.trim().split("\\s+");
-            if (words.length == 0 || words[0].isEmpty())
+            String whole = part.trim();
+            if (whole.isEmpty())
             {
                 continue;
             }
-            String cls = styleClass(words[0]);
+            // the whole phrase first, so "icy breath" is the style and not a special called "icy"
+            String cls = styleClass(whole);
+            if (!known.contains(cls))
+            {
+                cls = styleClass(whole.split("\\s+")[0]);
+            }
             if (known.contains(cls))
             {
                 out.add(cls);

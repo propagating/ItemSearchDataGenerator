@@ -184,14 +184,39 @@ public class CombatParserTest
         assertEquals(9, pc.attacks.get(0).maxHit);
     }
 
+    /**
+     * "Magic, Ranged" with a single "41" is how the wiki says both hit up to 41; when they differ
+     * it annotates. Asking a curator to confirm every such page filled the queue with numbers the
+     * generator already had, so the shared value is taken as read.
+     */
     @Test
-    public void multiStyleSingleUnannotatedHitIsAGapButStillAssigns()
+    public void multiStyleSingleUnannotatedHitIsSharedAndNotAGap()
     {
         CombatParser.ParsedCombat pc = CombatParser.assemble(
             Arrays.asList("crush", "magic"), CombatParser.parseMaxHits("30"), Arrays.asList(4));
-        assertTrue(pc.gap);
-        assertEquals(30, pc.attacks.get(0).maxHit); // best-guess: single value under both
+        assertFalse(pc.gap);
+        assertEquals(30, pc.attacks.get(0).maxHit);
         assertEquals(30, pc.attacks.get(1).maxHit);
+    }
+
+    @Test
+    public void severalUnannotatedHitsForSeveralStylesIsStillAGap()
+    {
+        // two styles, two bare numbers: nothing says which is which
+        CombatParser.ParsedCombat pc = CombatParser.assemble(
+            Arrays.asList("crush", "magic"), CombatParser.parseMaxHits("30, 12"), Arrays.asList(4));
+        assertTrue(pc.gap);
+    }
+
+    @Test
+    public void aStyleLeftWithoutAnyHitIsAGap()
+    {
+        // one annotated hit for two styles: the other style got nothing
+        CombatParser.ParsedCombat pc = CombatParser.assemble(
+            Arrays.asList("crush", "magic"), CombatParser.parseMaxHits("30 (melee)"), Arrays.asList(4));
+        assertTrue(pc.gap);
+        assertEquals(30, pc.attacks.get(0).maxHit);
+        assertEquals(0, pc.attacks.get(1).maxHit);
     }
 
     @Test
@@ -343,6 +368,20 @@ public class CombatParserTest
         assertEquals(2, pc.attacks.size());
         assertEquals(50, pc.attacks.get(0).maxHit);
         assertEquals(10, pc.attacks.get(1).maxHit);
+        assertFalse(pc.gap);
+    }
+
+    @Test
+    public void aNoteNamingATwoWordStyleIsThatStyle()
+    {
+        // Skeletal Wyvern: "(icy breath)" is its third style, not a special called "icy"
+        CombatParser.ParsedCombat pc = CombatParser.assemble(
+            Arrays.asList("ranged", "slash", "icy breath"),
+            CombatParser.parseMaxHits("13 (melee/ranged), 50 (icy breath)"), Arrays.asList(4));
+        assertEquals(3, pc.attacks.size());
+        assertEquals(13, pc.attacks.get(0).maxHit);
+        assertEquals(13, pc.attacks.get(1).maxHit);
+        assertEquals(50, pc.attacks.get(2).maxHit);
         assertFalse(pc.gap);
     }
 

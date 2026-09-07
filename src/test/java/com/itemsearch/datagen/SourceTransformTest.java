@@ -224,7 +224,7 @@ public class SourceTransformTest
             table("Drops", "Drops", line(false, "Bones", "1", "Always", null))));
         WikiCombatJson w = new WikiCombatJson();
         w.attackStyle = "[[Melee]], [[Magic]]";
-        w.maxHit = "20";
+        w.maxHit = "20, 12"; // two styles, two bare numbers: nothing says which is which
         w.attackSpeed = "4";
 
         List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
