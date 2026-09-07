@@ -388,9 +388,12 @@ class ScrollArea(tk.Frame):
 class CuratorApp:
     def __init__(self, root):
         self.root = root
-        root.title("Item Search — Combat Curator")
-        root.geometry("1480x760")
-        root.minsize(1240, 620)
+        root.title("Item Search — Source Curator")
+        # as tall as the screen allows: the editor stacks attacks, location, and preview above
+        # the save bar, and at 760 the bar was the part that fell off the bottom
+        height = min(980, root.winfo_screenheight() - 90)
+        root.geometry("1480x{}".format(height))
+        root.minsize(1240, 720)
         root.configure(bg=INK)
 
         self._init_styles()
@@ -579,6 +582,18 @@ class CuratorApp:
         right = tk.Frame(parent, bg=INK, padx=20, pady=14)
         right.pack(side="left", fill="both", expand=True)
 
+        # the save bar claims the bottom edge before anything else is laid out, so however
+        # tall the attack list and the cards above it grow, the buttons are never what gets
+        # pushed out of the window
+        bar = tk.Frame(right, bg=INK)
+        bar.pack(side="bottom", fill="x")
+        self.status = tk.Label(bar, text="", font=F_BODY, bg=INK, fg=GREEN, anchor="w")
+        self.status.pack(side="left", fill="x", expand=True)
+        flat_button(bar, "Save & next", self._save_next, kind="primary",
+                    font=F_HEAD).pack(side="right")
+        flat_button(bar, "Save", self._save).pack(side="right", padx=(0, 8))
+        self._rule(right).pack(side="bottom", fill="x", pady=(0, 12))
+
         head = tk.Frame(right, bg=INK)
         head.pack(fill="x")
         titles = tk.Frame(head, bg=INK)
@@ -621,15 +636,6 @@ class CuratorApp:
         self._build_location(right)
         self._rule(right).pack(fill="x", pady=(6, 0))
         self._build_preview(right)
-        self._rule(right).pack(fill="x", pady=(0, 12))
-
-        bar = tk.Frame(right, bg=INK)
-        bar.pack(fill="x")
-        self.status = tk.Label(bar, text="", font=F_BODY, bg=INK, fg=GREEN, anchor="w")
-        self.status.pack(side="left", fill="x", expand=True)
-        flat_button(bar, "Save & next", self._save_next, kind="primary",
-                    font=F_HEAD).pack(side="right")
-        flat_button(bar, "Save", self._save).pack(side="right", padx=(0, 8))
 
     def _build_location(self, parent):
         """Where this monster stands, and where you go in.
