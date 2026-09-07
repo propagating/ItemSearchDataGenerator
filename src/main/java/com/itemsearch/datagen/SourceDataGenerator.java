@@ -80,6 +80,10 @@ public final class SourceDataGenerator
     private static final String DEFAULT_WIKI = "wiki-combat.json";
     // what the curator shows instead of a browser tab: infobox, mechanics, strategy per monster page
     private static final String DEFAULT_WIKI_TEXT = "wiki-monster-text.json";
+    // pages the wiki files under discontinued content, Deadman, or a League: nothing a player of
+    // the main game can fight, so their sources are dropped unless --keep-retired says otherwise
+    private static final String DEFAULT_RETIRED = "wiki-retired.json";
+    private static final String DEFAULT_RETIRED_OVERLAY = "retired-overlay.json";
     private static final String DEFAULT_COMBAT_OVERLAY = "combat-overlay.json";
     private static final String DEFAULT_TYPE_OVERLAY = "source-type-overlay.json";
     // same sibling-repo layout as DropDataGenerator.DEFAULT_OUTPUT
@@ -96,12 +100,22 @@ public final class SourceDataGenerator
         boolean refreshItems = false;
         boolean refreshWiki = false;
         boolean refreshLocations = false;
+        boolean refreshRetired = false;
+        boolean keepRetired = false;
         List<String> positional = new ArrayList<>();
         for (String a : args)
         {
             if ("--refresh-drops".equals(a))
             {
                 refreshDrops = true;
+            }
+            else if ("--refresh-retired".equals(a))
+            {
+                refreshRetired = true;
+            }
+            else if ("--keep-retired".equals(a))
+            {
+                keepRetired = true;
             }
             else if ("--refresh-items".equals(a))
             {
@@ -207,6 +221,40 @@ public final class SourceDataGenerator
 
         List<OutputSource> sources = SourceTransform.transform(pages, itemInfo, spawns, wiki,
             combatOverlay, typeOverlay, monsters);
+
+        Path retiredSnapshot = Paths.get(DEFAULT_RETIRED);
+        if (refreshRetired)
+        {
+            System.out.println("Fetching categories for " + pages.size() + " pages...");
+            Map<String, String> found = WikiRetiredFetch.fetch(pages.keySet());
+            Files.write(retiredSnapshot,
+                (gson.toJson(new TreeMap<>(found)) + "\n").getBytes(StandardCharsets.UTF_8));
+            System.out.println("Wrote " + found.size() + " retired pages to " + retiredSnapshot);
+        }
+        Set<Integer> retiredIds = new HashSet<>();
+        String retiredJson = readIfPresent(retiredSnapshot);
+        if (retiredJson == null)
+        {
+            System.out.println("Retired: no " + retiredSnapshot + " yet, keeping every source"
+                + " (run with --refresh-retired to drop discontinued, Deadman, and Leagues content)");
+        }
+        else if (keepRetired)
+        {
+            System.out.println("Retired: kept on request (--keep-retired)");
+        }
+        else
+        {
+            Map<String, String> retired = WikiRetired.applyOverlay(
+                gson.fromJson(retiredJson, new TypeToken<Map<String, String>>()
+                {
+                }.getType()),
+                gson, readIfPresent(Paths.get(DEFAULT_RETIRED_OVERLAY)));
+            WikiRetired.Filtered filtered = WikiRetired.filter(sources, retired);
+            sources = filtered.kept;
+            retiredIds = filtered.droppedIds;
+            System.out.println("Retired: dropped " + filtered.droppedIds.size() + " sources "
+                + filtered.droppedByReason);
+        }
 
         // the spawn dump stops at npc id 11151, so everything added to the game since has no
         // tiles at all. The wiki keeps its own; fill from those, and only where the dump was silent.
@@ -324,8 +372,8 @@ public final class SourceDataGenerator
         // seed stubs for every combat gap not already curated, then rewrite the overlay — this is
         // what refills the curator's queue, and it must survive the retirement of DropDataGenerator
         Set<Integer> gaps = combatGapIds(sources, wiki);
-        Map<Integer, CombatOverlayJson> seeded =
-            MonsterTransform.seedStubs(sources, combatOverlay, gaps);
+        Map<Integer, CombatOverlayJson> seeded = WikiRetired.pruneStubs(
+            MonsterTransform.seedStubs(sources, combatOverlay, gaps), retiredIds);
         writeOverlay(gson, Paths.get(DEFAULT_COMBAT_OVERLAY), seeded);
         long stubs = seeded.values().stream().filter(o -> o.needsReview).count();
 

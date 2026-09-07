@@ -27,6 +27,7 @@ reproducible.
 | `wiki-combat.json` | `--refresh-wiki` | `{{Infobox Monster}}` combat wikitext, keyed by page title |
 | `wiki-monster-text.json` | `--refresh-wiki` | per monster page: the raw infobox, the Mechanics section, and the Strategy section (or `Name/Strategies` subpage) — read by the curator, not the generator |
 | `wiki-shops.json` | `--refresh-shops` (`runShops`) | shop store tables |
+| `wiki-retired.json` | `--refresh-retired` | page title -> reason (`discontinued`, `deadman`, `leagues`) for every drop page the wiki files under discontinued content, a Deadman season, or a League |
 
 `wiki-items.json` is **shared**. `runSources --refresh-items` fetches the union
 of drop-line names and shop-line names, so refreshing from either generator
@@ -47,7 +48,9 @@ From the repository root:
 Flags may be combined; `--refresh-wiki` additionally re-fetches combat wikitext
 for every Monster-infobox page in the drop snapshot, and keeps the parts a
 curator reads (infobox, Mechanics, Strategy) in `wiki-monster-text.json` so
-the curator can show them beside the editor instead of opening a browser tab. A positional argument
+the curator can show them beside the editor instead of opening a browser tab.
+`--refresh-retired` asks the wiki which categories each drop page sits in and
+records the ones nobody in the main game can fight (see "Retired content"). A positional argument
 overrides the output path. A missing snapshot raises an `IOException` naming
 the flag that produces it.
 
@@ -86,6 +89,32 @@ future runs against the table above, not the old estimate.
 A systematic parsing gap (a whole template variant missed, a heading shape
 mishandled) should be fixed in the parser with a regression test **before**
 committing regenerated data — not papered over with an overlay entry.
+
+### Retired content
+
+The wiki keeps drop tables for things that are gone (the 2013 Goblin Invasion,
+past holiday events, the Bloodthirsty slayer monsters) and for other game modes
+(every `(Deadman)` boss, the Leagues `(Echo)` bosses). None of it belongs in a
+search result for the main game, so the generator drops every source whose page
+is in `wiki-retired.json`, prints the count per reason, and prunes the untouched
+curator stubs for them. Pass `--keep-retired` to ship them anyway.
+
+The verdict comes from the wiki's categories rather than titles or templates:
+"Discontinued content", any category starting with "Deadman" (the seasons are
+named: Apocalypse, Armageddon, Annihilation), or any ending in " League". The
+`(Deadman)` and `(Echo)` title suffixes stand in when a page has no categories.
+Live seasonal content — Forestry events, random events, Hard Mode raids — is in
+none of those and stays.
+
+`retired-overlay.json` overrides the wiki per page title: a reason string forces
+a page out, `false` keeps one the wiki mislabels.
+
+```json
+{ "Some seasonal boss": "discontinued", "Christmas cracker": false }
+```
+
+Without the snapshot the generator keeps everything and says so; it does not
+fail, because retirement is a refinement rather than an input.
 
 ### Shared drop tables
 
