@@ -34,6 +34,8 @@ public class OutputData
 {
     public List<OutputTable> tables;
     public List<OutputSource> sources;
+    // item id -> the wiki's examine text, for every item the snapshot describes
+    public java.util.Map<Integer, String> examines;
 
     public OutputData(List<OutputTable> tables, List<OutputSource> sources)
     {

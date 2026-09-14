@@ -46,6 +46,26 @@ public class WeaknessTest
     }
 
     /**
+     * A versioned page numbers its defence bonuses per version. Zulrah's serpentine form is weak
+     * to magic and its magma form to melee, and a phase must read its own row rather than the
+     * first one's.
+     */
+    @Test
+    public void aVersionReadsItsOwnNumberedDefenceBonuses()
+    {
+        WikiCombatJson w = new WikiCombatJson();
+        w.defStabs = Arrays.asList("10", "0");
+        w.defSlashes = Arrays.asList("10", "70");
+        w.defCrushes = Arrays.asList("10", "70");
+        w.defMagics = Arrays.asList("0", "70");
+        w.defRangeds = Arrays.asList("10", "70");
+        assertEquals(java.util.Collections.singletonList("MAGIC"), Weakness.weakestOf(w, 0));
+        assertEquals(java.util.Collections.singletonList("STAB"), Weakness.weakestOf(w, 1));
+        assertEquals("out of range falls back to the plain reading",
+            Weakness.weakestOf(w), Weakness.weakestOf(w, 5));
+    }
+
+    /**
      * The wiki records defence bonuses, not weaknesses: the lower the number, the less it defends.
      * A steel dragon's 0 against stab is the reason everyone brings a stab weapon.
      */

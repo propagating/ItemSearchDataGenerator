@@ -76,6 +76,29 @@ public class WikiCombatTest
         assertEquals(7, pc.attacks.get(1).speed);
     }
 
+    /**
+     * Dessous (Nightmare Zone): the max hits are numbered per mode, the attack style and speed
+     * are not. Reading a version must take each field from its numbered form where the page has
+     * one and from the plain form where it does not, rather than give up on the whole page when
+     * the style is not numbered — which left both modes at zero.
+     */
+    @Test
+    public void aVersionReadsEachFieldFromWhereverThePageNumbersIt()
+    {
+        WikiCombatJson w = new WikiCombatJson();
+        w.attackStyle = "[[Crush]], [[Magic]], [[Ranged]]";
+        w.attackSpeed = "3";
+        w.maxHits = java.util.Arrays.asList("19 (Melee), 5 (Magic), 5 (Ranged)",
+            "37 (Melee), 5 (Magic), 5 (Ranged)");
+        CombatParser.ParsedCombat hard = WikiCombat.toAttacks(w, 1);
+        assertFalse(hard.gap);
+        assertEquals(3, hard.attacks.size());
+        assertEquals(37, hard.attacks.get(0).maxHit);
+        assertEquals(5, hard.attacks.get(1).maxHit);
+        assertEquals(3, hard.attacks.get(0).speed);
+        assertEquals(19, WikiCombat.toAttacks(w, 0).attacks.get(0).maxHit);
+    }
+
     @Test
     public void pageTitleStripsAnchorAndDecodesPath()
     {

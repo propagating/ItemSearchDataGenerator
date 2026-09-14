@@ -114,6 +114,27 @@ public class WikiItemFetchTest
         assertNull(info.value);
     }
 
+    /** The examine line is the one wiki fact the item page shows that the client cannot supply. */
+    @Test
+    public void examineTextIsReadPerVersionAndForThePage()
+    {
+        String text = "{{Infobox Item\n|name = Bronze arrow\n|id = 882\n|value = 1\n"
+            + "|examine = Arrows with [[bronze]] heads.\n}}";
+        assertEquals("Arrows with bronze heads.", WikiItemFetch.extractInfobox(text).examine);
+
+        String versioned = "{{Infobox Item\n|name1 = Prayer potion(4)\n|id1 = 2434\n"
+            + "|examine1 = 4 doses of prayer restore potion.\n|name2 = Prayer potion(3)\n|id2 = 139\n"
+            + "|name3 = Prayer potion(2)\n|id3 = 141\n|examine3 = \n"
+            + "|examine = Prayer restore potion.\n}}";
+        Map<String, ItemInfoJson> v = WikiItemFetch.extractVersions(versioned);
+        assertEquals("4 doses of prayer restore potion.", v.get("Prayer potion(4)").examine);
+        assertEquals("a version without its own line takes the page's",
+            "Prayer restore potion.", v.get("Prayer potion(3)").examine);
+        assertEquals("a blank numbered line falls back too",
+            "Prayer restore potion.", v.get("Prayer potion(2)").examine);
+        assertNull(WikiItemFetch.extractInfobox("{{Infobox Item\n|id = 1\n}}").examine);
+    }
+
     @Test
     public void returnsNullWithoutInfobox()
     {

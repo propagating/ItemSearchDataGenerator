@@ -60,6 +60,7 @@ public final class ShopTransform
                 String baseName = page.pageTitle.replaceAll("\\.+$", "").trim();
                 shop.name = t == 0 ? baseName : baseName + " (" + (t + 1) + ")";
                 shop.location = page.location;
+                shop.owner = page.owner;
                 shop.currency = table.currency == null || table.currency.isEmpty()
                     ? "Coins" : table.currency;
                 Integer mapX = parseInt(page.mapX);

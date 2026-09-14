@@ -28,4 +28,5 @@ public class ItemInfoJson
 {
     public Integer id;    // in-game item id; null when the page doesn't state one
     public Integer value; // shop value in coins; null when unknown/non-numeric
+    public String examine; // the item's examine text, link markup stripped; null when the page has none
 }

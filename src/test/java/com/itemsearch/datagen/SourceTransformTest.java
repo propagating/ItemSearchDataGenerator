@@ -32,7 +32,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import com.itemsearch.datagen.output.OutputAttack;
 import com.itemsearch.datagen.output.OutputDrop;
+import com.itemsearch.datagen.output.OutputPhase;
 import com.itemsearch.datagen.output.OutputSource;
 import com.itemsearch.datagen.output.OutputSpawn;
 import com.itemsearch.datagen.source.CombatOverlayJson;
@@ -149,12 +151,13 @@ public class SourceTransformTest
     }
 
     /**
-     * Killerwatt is Idle (470, stab) and Attacking (469, crush) sharing one drop table. Folding
-     * them into one source lost the crush outright, and told the player the thing fighting them
-     * stabs.
+     * Killerwatt's Idle (470) and Attacking (469) versions are the same level 55 monster in two
+     * poses: one id becomes the other when it turns to fight. Splitting on their attack styles
+     * gave the player two search results for one monster, and neither was a page on the wiki.
+     * Both ids belong to one source, whose attack table folds what each pose does.
      */
     @Test
-    public void versionsWithDifferentCombatBecomeSeparateSources()
+    public void versionsAtOneLevelAreOneMonsterHoweverTheyFight()
     {
         Map<String, DropPageJson> pages = new TreeMap<>();
         DropPageJson p = page("Killerwatt", "Monster", Arrays.asList("470", "469"), "55",
@@ -164,26 +167,288 @@ public class SourceTransformTest
         pages.put("Killerwatt", p);
 
         Map<String, WikiCombatJson> wiki = Collections.singletonMap("Killerwatt",
-            versioned(Arrays.asList("[[Stab]]", "[[Crush]]"), Arrays.asList("6", "6"),
-                Arrays.asList("2", "2")));
+            versioned(Arrays.asList("[[Stab]], [[Magical ranged]]", "[[Crush]], [[Magical ranged]]"),
+                Arrays.asList("6", "6"), Arrays.asList("2", "2")));
+
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), wiki, Collections.emptyMap(), Collections.emptyMap());
+
+        assertEquals(1, out.size());
+        OutputSource killerwatt = byName(out, "Killerwatt");
+        assertNotNull("one monster, under the page's own name", killerwatt);
+        assertEquals(Arrays.asList(470, 469), killerwatt.npcIds);
+        assertNull("named after its page, so there is no separate page to carry", killerwatt.wikiPage);
+        assertEquals("a stab pose and a crush pose fold to one melee column, not two",
+            2, killerwatt.combat.attacks.size());
+        assertEquals("melee", killerwatt.combat.attacks.get(0).style);
+        assertEquals(6, killerwatt.combat.attacks.get(0).maxHit);
+        assertEquals("magic", killerwatt.combat.attacks.get(1).style);
+        assertEquals("ranged", killerwatt.combat.attacks.get(1).prayStyle);
+    }
+
+    /**
+     * Killerwatt was curated twice while it was two sources, once under each id. The merged
+     * source answers to both ids, so both write-ups count, folded the way the versions' own wiki
+     * fields are: one melee column across the stab and the crush, one magic column.
+     */
+    @Test
+    public void aMergedSourceFoldsTheCuratedAttacksOfEveryIdItCovers()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        DropPageJson p = page("Killerwatt", "Monster", Arrays.asList("470", "469"), "55",
+            table("Drops", "Drops", line(false, "Bones", "1", "Always", null)));
+        p.versions.add(version("Idle", "55", "470"));
+        p.versions.add(version("Attacking", "55", "469"));
+        pages.put("Killerwatt", p);
+
+        Map<Integer, CombatOverlayJson> overlay = new HashMap<>();
+        overlay.put(470, curated(hybrid("magic", "ranged", 15, 2), new OutputAttack("stab", 6, 2)));
+        overlay.put(469, curated(new OutputAttack("crush", 6, 2), hybrid("magic", "ranged", 15, 2)));
+
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), overlay, Collections.emptyMap());
+
+        List<OutputAttack> attacks = byName(out, "Killerwatt").combat.attacks;
+        assertEquals(2, attacks.size());
+        assertEquals("magic", attacks.get(0).style);
+        assertEquals("ranged", attacks.get(0).prayStyle);
+        assertEquals(15, attacks.get(0).maxHit);
+        assertEquals("melee", attacks.get(1).style);
+        assertEquals(6, attacks.get(1).maxHit);
+    }
+
+    /**
+     * Zulrah is one source with three forms. Each form keeps its own picture and its own way of
+     * fighting, so the player can see what the magma form does rather than a table that folds
+     * all of them together.
+     */
+    @Test
+    public void aMergedSourceCarriesOnePhasePerVersion()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        DropPageJson p = page("Zulrah", "Monster", Arrays.asList("2042", "2043"), "725",
+            table("Drops", "Drops", line(false, "Bones", "1", "Always", null)));
+        p.versions.add(version("Serpentine", "725", "2042"));
+        p.versions.add(version("Magma", "725", "2043"));
+        pages.put("Zulrah", p);
+        WikiCombatJson w = versioned(Arrays.asList("[[Ranged]]", "[[Melee]]"),
+            Arrays.asList("41", "30"), Arrays.asList("4", "4"));
+        w.defStabs = Arrays.asList("0", "50");
+        w.defMagics = Arrays.asList("50", "0");
+        Map<Integer, MonsterJson> monsters = new HashMap<>();
+        monsters.put(2042, monster(2042, 300, 1, 300));
+        monsters.put(2043, monster(2043, 300, 2, 300));
+        Map<String, List<String>> images = Collections.singletonMap("Zulrah",
+            Arrays.asList("https://x/serpentine.png", "https://x/magma.png"));
+
+        OutputSource zulrah = byName(SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.singletonMap("Zulrah", w), Collections.emptyMap(),
+            Collections.emptyMap(), monsters, images), "Zulrah");
+
+        assertEquals(2, zulrah.phases.size());
+        OutputPhase magma = zulrah.phases.get(1);
+        assertEquals("Magma", magma.label);
+        assertEquals("https://x/magma.png", magma.image);
+        assertEquals("melee", magma.combat.attacks.get(0).style);
+        assertEquals(30, magma.combat.attacks.get(0).maxHit);
+        assertEquals(2, magma.combat.strengthLevel);
+        assertEquals(Collections.singletonList("MAGIC"), magma.combat.weakTo);
+        assertEquals(Collections.singletonList("STAB"), zulrah.phases.get(0).combat.weakTo);
+        assertEquals("the source's own table still folds every form",
+            2, zulrah.combat.attacks.size());
+    }
+
+    /** Twenty werewolves that look and fight alike are one phase, which is to say none. */
+    @Test
+    public void identicalVersionsCollapseToNoPhases()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        DropPageJson p = page("Werewolf", "Monster", Arrays.asList("1", "2"), "88",
+            table("Drops", "Drops", line(false, "Bones", "1", "Always", null)));
+        p.versions.add(version("Boris", "88", "1"));
+        p.versions.add(version("Imre", "88", "2"));
+        pages.put("Werewolf", p);
+        Map<String, List<String>> images = Collections.singletonMap("Werewolf",
+            Arrays.asList("https://x/w.png", "https://x/w.png"));
+
+        OutputSource werewolf = byName(SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), images), "Werewolf");
+
+        assertNull(werewolf.phases);
+    }
+
+    /** A curated write-up under a version's id is that phase's table. */
+    @Test
+    public void aPhaseTakesTheCuratedAttacksOfItsOwnId()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        DropPageJson p = page("Killerwatt", "Monster", Arrays.asList("470", "469"), "55",
+            table("Drops", "Drops", line(false, "Bones", "1", "Always", null)));
+        p.versions.add(version("Idle", "55", "470"));
+        p.versions.add(version("Attacking", "55", "469"));
+        pages.put("Killerwatt", p);
+        Map<Integer, CombatOverlayJson> overlay = new HashMap<>();
+        overlay.put(469, curated(new OutputAttack("crush", 6, 2)));
+        Map<String, List<String>> images = Collections.singletonMap("Killerwatt",
+            Arrays.asList("https://x/idle.png", "https://x/attacking.png"));
+
+        OutputSource k = byName(SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), overlay, Collections.emptyMap(),
+            Collections.emptyMap(), images), "Killerwatt");
+
+        assertEquals(2, k.phases.size());
+        assertEquals("crush", k.phases.get(1).combat.attacks.get(0).style);
+        assertTrue(k.phases.get(0).combat.attacks.isEmpty());
+    }
+
+    private static MonsterJson monster(int id, int attack, int strength, int hitpoints)
+    {
+        MonsterJson m = new MonsterJson();
+        m.id = id;
+        m.attackLevel = attack;
+        m.strengthLevel = strength;
+        m.hitpoints = hitpoints;
+        return m;
+    }
+
+    /**
+     * A pickpocket source says what it takes: the Thieving level and the xp from the wiki's own
+     * table, matched by page name. An NPC the table does not list carries neither.
+     */
+    @Test
+    public void aPickpocketSourceCarriesItsThievingLevelAndXp()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        pages.put("Master Farmer", page("Master Farmer", "NPC", Collections.singletonList("5730"), null,
+            table("Allotments", "Pickpocketing", line(false, "Potato seed", "1-4", "1/5.65", null))));
+        pages.put("Nobody", page("Nobody", "NPC", Collections.singletonList("5731"), null,
+            table("Loot", "Pickpocketing", line(false, "Coins", "3", "Always", null))));
+        pages.put("Farmer (Kastori)", page("Farmer (Kastori)", "NPC", Collections.singletonList("5732"), null,
+            table("Loot", "Pickpocketing", line(false, "Coins", "9", "Always", null))));
+        Map<String, com.itemsearch.datagen.source.ThievingJson> thieving = new HashMap<>();
+        thieving.put("master farmer", new com.itemsearch.datagen.source.ThievingJson(38, 43.0));
+        thieving.put("farmer", new com.itemsearch.datagen.source.ThievingJson(10, 14.5));
+
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap(), thieving);
+
+        OutputSource farmer = byName(out, "Master Farmer (pickpocket)");
+        assertEquals("PICKPOCKET", farmer.type);
+        assertEquals(Integer.valueOf(38), farmer.thievingLevel);
+        assertEquals(Double.valueOf(43.0), farmer.thievingXp);
+        OutputSource nobody = byName(out, "Nobody (pickpocket)");
+        assertNull(nobody.thievingLevel);
+        assertNull(nobody.thievingXp);
+        assertEquals("a place in brackets does not make a different farmer",
+            Integer.valueOf(10), byName(out, "Farmer (Kastori) (pickpocket)").thievingLevel);
+    }
+
+    /**
+     * A sacred eel is not killed, opened, or gathered: it is cut, and Zulrah's scales come out.
+     * The eel is a source of its own kind, listing what it breaks into, with the yield the wiki
+     * states as the row's count and a yield it can only explain as an unknown rate.
+     */
+    @Test
+    public void anItemBrokenDownIsAProcessSourceOfWhatItYields()
+    {
+        Map<String, List<com.itemsearch.datagen.source.RecipeJson>> recipes = new HashMap<>();
+        recipes.put("Zulrah's scales", WikiRecipes.extract("{{Recipe\n|skill1 = Cooking\n|skill1lvl = 72\n"
+            + "|tools = Knife\n|mat1 = Sacred eel\n|output1 = Zulrah's scales\n|output1quantity = 7\n"
+            + "|output1quantitynote = Depends on cooking level.\n}}\n{{Recipe\n|mat1 = Tanzanite fang\n"
+            + "|output1 = Zulrah's scales\n|output1quantity = 20000\n}}\n{{Recipe\n|skill1 = Smithing\n"
+            + "|mat1 = Bronze bar\n|output1 = Bronze dagger\n|output1quantity = 1\n}}"));
+        recipes.put("Caviar", WikiRecipes.extract("{{Recipe\n|skill1 = Cooking\n|tools = Knife\n"
+            + "|mat1 = Leaping sturgeon\n|output1 = Caviar\n|output1quantitynote = Expected quantity scales.\n"
+            + "|output2 = Fish offcuts\n|output2quantity = {{#expr:5/6 round 2}}\n}}"));
+        Map<String, ItemInfoJson> items = new HashMap<>();
+        items.put("Zulrah's scales", item(12934));
+        items.put("Caviar", item(11326));
+
+        List<OutputSource> out = SourceTransform.transform(new TreeMap<>(), items, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), recipes);
+
+        OutputSource eel = byName(out, "Sacred eel");
+        assertEquals("PROCESS", eel.type);
+        assertTrue("nothing is killed", eel.npcIds.isEmpty());
+        assertEquals(1, eel.drops.size());
+        assertEquals(12934, eel.drops.get(0).itemId);
+        assertEquals(7, eel.drops.get(0).quantity);
+        assertFalse("a yield that depends on level has no rate to state", eel.drops.get(0).rarityKnown);
+        OutputSource fang = byName(out, "Tanzanite fang");
+        assertEquals(20000, fang.drops.get(0).quantity);
+        assertTrue(fang.drops.get(0).rarityKnown);
+        OutputSource sturgeon = byName(out, "Leaping sturgeon");
+        assertEquals(2, sturgeon.drops.size());
+        assertEquals("Fish offcuts", sturgeon.drops.get(1).itemName);
+        assertNull("smithing a dagger is making, not breaking down", byName(out, "Bronze bar"));
+    }
+
+    /** Golem crafting is something you do, not something you kill or open: its own kind. */
+    @Test
+    public void anActivityPageIsAnActivitySource()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        pages.put("Golem crafting", page("Golem crafting", "Activity", Collections.emptyList(), null,
+            table("Rewards", "Rewards", line(true, "Golem parts", "1", "Always", null))));
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap(),
+            Collections.emptyMap());
+        assertEquals("ACTIVITY", byName(out, "Golem crafting").type);
+    }
+
+    private static CombatOverlayJson curated(OutputAttack... attacks)
+    {
+        CombatOverlayJson ov = new CombatOverlayJson();
+        ov.attacks = new ArrayList<>(Arrays.asList(attacks));
+        ov.needsReview = false;
+        return ov;
+    }
+
+    private static OutputAttack hybrid(String style, String prayStyle, int maxHit, int speed)
+    {
+        OutputAttack a = new OutputAttack(style, maxHit, speed);
+        a.prayStyle = prayStyle;
+        return a;
+    }
+
+    /**
+     * Ancient Wizard: Mage and Ranger are both level 98, Melee is 112. The two 98s are one
+     * source that fights both ways, and its name says the level they share rather than
+     * borrowing the first one's label and calling a monster that also shoots "(Mage)".
+     */
+    @Test
+    public void versionsSharingALevelMergeUnderThatLevel()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        DropPageJson p = page("Ancient Wizard", "Monster", Arrays.asList("1", "2", "3"), "98",
+            table("Drops", "Drops", line(false, "Bones", "1", "Always", null)));
+        p.versions.add(version("Mage", "98", "1"));
+        p.versions.add(version("Melee", "112", "2"));
+        p.versions.add(version("Ranger", "98", "3"));
+        pages.put("Ancient Wizard", p);
+
+        Map<String, WikiCombatJson> wiki = Collections.singletonMap("Ancient Wizard",
+            versioned(Arrays.asList("[[Magic]]", "[[Slash]]", "[[Ranged]]"),
+                Arrays.asList("11", "13", "11"), Arrays.asList("4", "4", "4")));
 
         List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
             Collections.emptyMap(), wiki, Collections.emptyMap(), Collections.emptyMap());
 
         assertEquals(2, out.size());
-        OutputSource attacking = byName(out, "Killerwatt (Attacking)");
-        OutputSource idle = byName(out, "Killerwatt (Idle)");
-        assertNotNull("each version is its own source", attacking);
-        assertNotNull(idle);
-        assertEquals(Collections.singletonList(469), attacking.npcIds);
-        assertEquals("crush", attacking.combat.attacks.get(0).style);
-        assertEquals(Collections.singletonList(470), idle.npcIds);
-        assertEquals("stab", idle.combat.attacks.get(0).style);
-        // the shared drop table belongs to both
-        assertEquals(1, attacking.drops.size());
-        assertEquals(1, idle.drops.size());
-        assertEquals("the page is carried so the client can still fetch its image",
-            "Killerwatt", attacking.wikiPage);
+        OutputSource lvl98 = byName(out, "Ancient Wizard (Level 98)");
+        assertNotNull(lvl98);
+        assertEquals(Arrays.asList(1, 3), lvl98.npcIds);
+        assertEquals(98, lvl98.combatLevel);
+        assertEquals(2, lvl98.combat.attacks.size());
+        assertEquals("magic", lvl98.combat.attacks.get(0).style);
+        assertEquals("ranged", lvl98.combat.attacks.get(1).style);
+        OutputSource melee = byName(out, "Ancient Wizard (Melee)");
+        assertNotNull("a level of its own keeps the wiki's label for it", melee);
+        assertEquals(Collections.singletonList(2), melee.npcIds);
+        assertEquals("slash", melee.combat.attacks.get(0).style);
     }
 
     /**
@@ -300,11 +565,38 @@ public class SourceTransformTest
         List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
             Collections.emptyMap(), wiki, Collections.emptyMap(), Collections.emptyMap());
 
-        assertEquals("the two identical level 10 barbarians merge", 2, out.size());
-        OutputSource lvl10 = byName(out, "Barbarian (Level 10 (Fafner))");
-        assertNotNull(lvl10);
+        assertEquals("the two level 10 barbarians merge", 2, out.size());
+        OutputSource lvl10 = byName(out, "Barbarian (Level 10)");
+        assertNotNull("a merged group is named for the level its members share", lvl10);
         assertEquals(Arrays.asList(1, 2), lvl10.npcIds);
+        assertEquals(3, lvl10.combat.attacks.get(0).maxHit);
         assertNotNull(byName(out, "Barbarian (Level 9 (Sieglinde))"));
+    }
+
+    /**
+     * Werewolf: twenty named level 88s in Canifis and two "God Wars Dungeon (1)" and "(2)" at
+     * 93. The Canifis group has nothing in common but its level; the God Wars pair share a label
+     * once the wiki's counter comes off, and that reads better than a number.
+     */
+    @Test
+    public void aMergedGroupKeepsALabelItsMembersShare()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        DropPageJson p = page("Werewolf", "Monster", Arrays.asList("1", "2", "3", "4"), "88",
+            table("Drops", "Drops", line(false, "Bones", "1", "Always", null)));
+        p.versions.add(version("Boris", "88", "1"));
+        p.versions.add(version("Imre", "88", "2"));
+        p.versions.add(version("God Wars Dungeon (1)", "93", "3"));
+        p.versions.add(version("God Wars Dungeon (2)", "93", "4"));
+        pages.put("Werewolf", p);
+
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap(),
+            Collections.emptyMap());
+
+        assertEquals(2, out.size());
+        assertNotNull(byName(out, "Werewolf (Level 88)"));
+        assertNotNull(byName(out, "Werewolf (God Wars Dungeon)"));
     }
 
     @Test

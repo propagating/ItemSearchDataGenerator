@@ -94,39 +94,87 @@ public final class WikiCombat
     /**
      * Attacks for one {{Infobox Monster}} version, rather than every version folded together.
      * The numbered fields line up by index with the page's versionN list, so version i reads
-     * attack style(i), max hit(i) and attack speed(i). Falls back to the folded reading when the
-     * page has no numbered field for that index.
+     * attack style(i), max hit(i) and attack speed(i). A page numbers only the fields that
+     * differ between its versions — Dessous in the Nightmare Zone numbers its max hits and not
+     * its style — so each field is read from its numbered form where the page has one and from
+     * the plain form where it does not. Falls back to the folded reading when no field is
+     * numbered for that index.
      */
     public static CombatParser.ParsedCombat toAttacks(WikiCombatJson w, int version)
     {
-        if (w == null || w.attackStyles == null || version < 0 || version >= w.attackStyles.size())
+        if (w == null || version < 0 || version >= versionCount(w))
         {
             return toAttacks(w);
         }
-        String maxHit = w.maxHits != null && version < w.maxHits.size()
-            ? w.maxHits.get(version) : w.maxHit;
-        String speed = w.attackSpeeds != null && version < w.attackSpeeds.size()
-            ? w.attackSpeeds.get(version) : w.attackSpeed;
+        String style = numbered(w.attackStyles, w.attackStyle, version);
         return CombatParser.assemble(
-            CombatParser.parseStyles(w.attackStyles.get(version)),
-            CombatParser.parseStyleNotes(w.attackStyles.get(version)),
-            CombatParser.parseMaxHits(maxHit),
-            CombatParser.parseSpeeds(speed));
+            CombatParser.parseStyles(style),
+            CombatParser.parseStyleNotes(style),
+            CombatParser.parseMaxHits(numbered(w.maxHits, w.maxHit, version)),
+            CombatParser.parseSpeeds(numbered(w.attackSpeeds, w.attackSpeed, version)));
     }
 
+    // how many versions the page numbers any field for
+    private static int versionCount(WikiCombatJson w)
+    {
+        return Math.max(size(w.attackStyles), Math.max(size(w.maxHits), size(w.attackSpeeds)));
+    }
+
+    private static int size(List<String> fields)
+    {
+        return fields == null ? 0 : fields.size();
+    }
+
+    private static String numbered(List<String> fields, String plain, int version)
+    {
+        return fields != null && version < fields.size() ? fields.get(version) : plain;
+    }
+
+    /** Every version of the page folded into one attack table. */
     public static CombatParser.ParsedCombat toAttacks(WikiCombatJson w)
+    {
+        return toAttacks(w, (List<Integer>) null);
+    }
+
+    /**
+     * The given versions of the page, by index into its numbered fields, folded into one attack
+     * table; null for all of them. Versions at one combat level are one monster to the player, so
+     * the source built from them fights every way any of them does.
+     */
+    public static CombatParser.ParsedCombat toAttacks(WikiCombatJson w, List<Integer> versions)
     {
         if (w == null)
         {
             return new CombatParser.ParsedCombat(new ArrayList<>(), false);
         }
+        // particular versions, each read on its own and then folded together
+        if (versions != null)
+        {
+            List<CombatParser.ParsedCombat> read = new ArrayList<>();
+            for (int i : versions)
+            {
+                if (i >= 0 && i < versionCount(w))
+                {
+                    read.add(toAttacks(w, i));
+                }
+            }
+            if (!read.isEmpty())
+            {
+                return CombatParser.fold(read);
+            }
+            // asked for nothing the page numbers, so the whole page is the honest answer
+        }
         // numbered attack-style fields mean the page has multiple monster VERSIONS (not multiple
-        // attacks of one monster): collapse them into one attack per distinct style, with ranges.
+        // attacks of one monster): read each on its own, then fold them together. Numbered
+        // speeds alone are one monster's attacks in turn (TzKal-Zuk), read below.
         if (w.attackStyles != null && !w.attackStyles.isEmpty())
         {
-            return CombatParser.collapseVersions(w.attackStyles,
-                w.maxHits == null ? new ArrayList<>() : w.maxHits,
-                w.attackSpeeds == null ? new ArrayList<>() : w.attackSpeeds);
+            List<CombatParser.ParsedCombat> read = new ArrayList<>();
+            for (int i = 0; i < w.attackStyles.size(); i++)
+            {
+                read.add(toAttacks(w, i));
+            }
+            return CombatParser.fold(read);
         }
         // single-version monster: the unnumbered, comma-separated fields describe its own attacks
         List<String> speedFields = new ArrayList<>();

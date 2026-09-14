@@ -41,6 +41,7 @@ import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import com.itemsearch.datagen.source.ItemInfoJson;
+import com.itemsearch.datagen.source.RecipeJson;
 
 /** Fetches {{Infobox Item}} id + shop value from the live OSRS Wiki, for shop stock lines. */
 public final class WikiItemFetch
@@ -73,7 +74,20 @@ public final class WikiItemFetch
         }
         info.id = firstInt(id);
         info.value = firstInt(WikiText.field(body, "value"));
+        info.examine = clean(WikiText.field(body, "examine"));
         return info;
+    }
+
+    // examine text as the game shows it: "[[Link|word]]" markup to its word, trimmed; null when blank
+    private static String clean(String raw)
+    {
+        if (raw == null)
+        {
+            return null;
+        }
+        String text = raw.replaceAll("\\[\\[[^\\]|]*\\|", "").replace("[[", "").replace("]]", "")
+            .replace("''", "").trim();
+        return text.isEmpty() ? null : text;
     }
 
     /**
@@ -115,6 +129,9 @@ public final class WikiItemFetch
             info.id = id;
             Integer value = firstInt(WikiText.field(body, "value" + n));
             info.value = value != null ? value : firstInt(WikiText.field(body, "value"));
+            // its own line when the page gives it one and it says something; else the page's
+            String own = clean(WikiText.field(body, "examine" + n));
+            info.examine = own != null ? own : clean(WikiText.field(body, "examine"));
             versions.put(name.trim(), info);
         }
         return versions;
@@ -145,6 +162,16 @@ public final class WikiItemFetch
      */
     public static Map<String, ItemInfoJson> fetch(Gson gson, Collection<String> itemNames)
         throws IOException
+    {
+        return fetch(gson, itemNames, null);
+    }
+
+    /**
+     * As above, also collecting each fetched page's {{Recipe}} templates into {@code recipesOut}
+     * by page title, when it is given. The same download serves both, so recipes cost nothing.
+     */
+    public static Map<String, ItemInfoJson> fetch(Gson gson, Collection<String> itemNames,
+        Map<String, List<RecipeJson>> recipesOut) throws IOException
     {
         Map<String, ItemInfoJson> result = new TreeMap<>();
         List<String> names = new ArrayList<>(itemNames);
@@ -188,6 +215,14 @@ public final class WikiItemFetch
                     .getAsJsonObject("slots").getAsJsonObject("main").get("*").getAsString();
                 ItemInfoJson fallback = extractInfobox(content);
                 Map<String, ItemInfoJson> versions = extractVersions(content);
+                if (recipesOut != null)
+                {
+                    List<RecipeJson> recipes = WikiRecipes.extract(content);
+                    if (!recipes.isEmpty())
+                    {
+                        recipesOut.put(title, recipes);
+                    }
+                }
                 for (String original : toOriginal.getOrDefault(title,
                     Collections.singletonList(title)))
                 {

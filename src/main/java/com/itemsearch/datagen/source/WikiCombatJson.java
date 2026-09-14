@@ -53,4 +53,19 @@ public class WikiCombatJson
     // stated outright rather than derived: "+50% damage from Earth spells"
     public String elementalWeaknessType;
     public String elementalWeaknessPercent;
+
+    // What the monster shrugs off. Resistances are percentages ("0", "100"); the immune fields
+    // are yes/no words, burn a phrase ("Immune to weak burns"). Numbered variants per version.
+    public String poisonResistance;
+    public List<String> poisonResistances;
+    public String venomResistance;
+    public List<String> venomResistances;
+    public String freezeResistance;
+    public List<String> freezeResistances;
+    public String immuneCannon;
+    public List<String> immuneCannons;
+    public String immuneThrall;
+    public List<String> immuneThralls;
+    public String immuneBurn;
+    public List<String> immuneBurns;
 }

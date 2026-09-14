@@ -24,6 +24,7 @@
  */
 package com.itemsearch.datagen;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import com.itemsearch.datagen.output.OutputAttack;
@@ -245,39 +246,65 @@ public class CombatParserTest
         assertEquals(97, pc.attacks.get(2).maxHit);
     }
 
-    @Test
-    public void collapseVersionsFoldsEachStyleIntoAMinMaxRange()
+    private static CombatParser.ParsedCombat parsed(boolean gap, OutputAttack... attacks)
     {
-        // three versions: stab(mh 1, spd 4), crush(mh 5, spd 6), stab(mh 3, spd 5)
-        CombatParser.ParsedCombat pc = CombatParser.collapseVersions(
-            Arrays.asList("[[Stab]]", "[[Crush]]", "[[Stab]]"),
-            Arrays.asList("1", "5", "3"),
-            Arrays.asList("4", "6", "5"));
-        assertFalse(pc.gap);
-        assertEquals(2, pc.attacks.size()); // the two stab versions collapse to one style
-        OutputAttack stab = pc.attacks.get(0);
-        assertEquals("stab", stab.style);
-        assertEquals(1, stab.maxHit);
-        assertEquals(3, stab.maxHitMax);
-        assertEquals(4, stab.speed);
-        assertEquals(5, stab.speedMax);
-        OutputAttack crush = pc.attacks.get(1);
-        assertEquals(5, crush.maxHit);
-        assertEquals(5, crush.maxHitMax); // single version -> low == high
+        return new CombatParser.ParsedCombat(new ArrayList<>(Arrays.asList(attacks)), gap);
     }
 
+    /**
+     * Versions of one monster fold to one column per way of fighting it: a stab pose and a crush
+     * pose are both answered with Protect from Melee, so they are one melee attack spanning both
+     * their numbers. A style every version agrees on keeps its name.
+     */
     @Test
-    public void collapseVersionsWithoutMaxHitsIsAGap()
+    public void foldJoinsVersionsByWhatProtectsAgainstThem()
     {
-        CombatParser.ParsedCombat pc = CombatParser.collapseVersions(
-            Arrays.asList("[[Stab]]", "[[Stab]]"),
-            Arrays.asList(),
-            Arrays.asList("4", "6"));
-        assertTrue(pc.gap);
+        CombatParser.ParsedCombat pc = CombatParser.fold(Arrays.asList(
+            parsed(false, new OutputAttack("stab", 1, 4)),
+            parsed(false, new OutputAttack("crush", 5, 6)),
+            parsed(false, new OutputAttack("stab", 3, 5))));
+        assertFalse(pc.gap);
         assertEquals(1, pc.attacks.size());
-        assertEquals(0, pc.attacks.get(0).maxHit);
+        OutputAttack melee = pc.attacks.get(0);
+        assertEquals("melee", melee.style);
+        assertEquals(1, melee.maxHit);
+        assertEquals(5, melee.maxHitMax);
+        assertEquals(4, melee.speed);
+        assertEquals(6, melee.speedMax);
+
+        CombatParser.ParsedCombat agreed = CombatParser.fold(Arrays.asList(
+            parsed(false, new OutputAttack("stab", 1, 4)),
+            parsed(false, new OutputAttack("stab", 3, 4))));
+        assertEquals("stab", agreed.attacks.get(0).style);
+        assertEquals(3, agreed.attacks.get(0).maxHitMax);
+    }
+
+    /** A hybrid is prayed against differently from the plain style it rolls with, so it stays apart. */
+    @Test
+    public void foldKeepsAHybridApartFromItsPlainStyle()
+    {
+        OutputAttack hybrid = new OutputAttack("magic", 15, 2);
+        hybrid.prayStyle = "ranged";
+        CombatParser.ParsedCombat pc = CombatParser.fold(Arrays.asList(
+            parsed(false, new OutputAttack("magic", 10, 4)),
+            parsed(false, hybrid)));
+        assertEquals(2, pc.attacks.size());
+        assertNull(pc.attacks.get(0).prayStyle);
+        assertEquals("ranged", pc.attacks.get(1).prayStyle);
+    }
+
+    /** An unknown number in one version does not drag the range down to zero. */
+    @Test
+    public void foldIgnoresWhatAVersionDidNotSayAndIsAGapWhenAnyVersionWas()
+    {
+        CombatParser.ParsedCombat pc = CombatParser.fold(Arrays.asList(
+            parsed(false, new OutputAttack("stab", 0, 4)),
+            parsed(true, new OutputAttack("stab", 6, 0))));
+        assertTrue(pc.gap);
+        assertEquals(6, pc.attacks.get(0).maxHit);
+        assertEquals(6, pc.attacks.get(0).maxHitMax);
         assertEquals(4, pc.attacks.get(0).speed);
-        assertEquals(6, pc.attacks.get(0).speedMax);
+        assertEquals(4, pc.attacks.get(0).speedMax);
     }
 
     // ---- what a page says beside its style ----
@@ -390,20 +417,36 @@ public class CombatParserTest
     @Test
     public void aWithoutGearNoteIsAGearVariantOfTheOneAttack()
     {
-        // Aberrant spectre: one magic attack that hits 8, or 14 on a player without a nose peg.
-        // Two rows said it had two attacks; it has one, with a modifier.
+        // Aberrant spectre: one magic attack that hits 14, or 8 on a player wearing a nose peg.
+        // The wiki states it the other way round ("8, 14 (without nose peg)"), but the client
+        // shows variants as protections — "8 with Nose peg", "14 unprotected" — so the bare figure
+        // is the protected one and the "without" figure is the true max hit.
         CombatParser.ParsedCombat pc = CombatParser.assemble(
             Arrays.asList("magic"),
             CombatParser.parseMaxHits("8, 14 (without [[Nose peg]])"), Arrays.asList(4));
         assertEquals(1, pc.attacks.size());
         OutputAttack a = pc.attacks.get(0);
-        assertEquals(8, a.maxHit);
+        assertEquals(14, a.maxHit);
+        assertEquals(14, a.maxHitMax);
         assertEquals(1, a.variants.size());
-        assertEquals("Without nose peg", a.variants.get(0).label);
+        assertEquals("Nose peg", a.variants.get(0).label);
         assertEquals("GEAR", a.variants.get(0).kind);
-        assertEquals(14, a.variants.get(0).maxHit);
-        assertEquals(14, a.variants.get(0).maxHitMax);
+        assertEquals(8, a.variants.get(0).maxHit);
+        assertEquals(8, a.variants.get(0).maxHitMax);
         assertFalse(pc.gap);
+    }
+
+    @Test
+    public void aWithGearNoteIsTheProtectedFigureAsWritten()
+    {
+        // stated the client's way round already: the note is the protection
+        CombatParser.ParsedCombat pc = CombatParser.assemble(
+            Arrays.asList("magic"),
+            CombatParser.parseMaxHits("14, 8 (with [[Nose peg]])"), Arrays.asList(4));
+        OutputAttack a = pc.attacks.get(0);
+        assertEquals(14, a.maxHit);
+        assertEquals("Nose peg", a.variants.get(0).label);
+        assertEquals(8, a.variants.get(0).maxHit);
     }
 
     @Test
@@ -431,11 +474,14 @@ public class CombatParserTest
         assertEquals(1, hits.get(1).value);
         assertEquals(12, hits.get(1).valueMax);
 
+        // "without slayer gloves" is the unprotected figure, so the range is the attack's own
         CombatParser.ParsedCombat pc = CombatParser.assemble(Arrays.asList("stab"), hits, Arrays.asList(5));
         OutputAttack a = pc.attacks.get(0);
-        assertEquals(4, a.maxHit);
-        assertEquals(1, a.variants.get(0).maxHit);
-        assertEquals(12, a.variants.get(0).maxHitMax);
+        assertEquals(1, a.maxHit);
+        assertEquals(12, a.maxHitMax);
+        assertEquals("Slayer gloves", a.variants.get(0).label);
+        assertEquals(4, a.variants.get(0).maxHit);
+        assertEquals(4, a.variants.get(0).maxHitMax);
         assertFalse(pc.gap);
     }
 

@@ -43,6 +43,24 @@ public class WikiShopFetchTest
         + "{{StoreLine|stock=9}}\n"
         + "{{StoreTableBottom}}\n";
 
+    /** The shopkeeper is an NPC in their own right, and may be someone the player can rob. */
+    @Test
+    public void theOwnerIsReadFromTheInfobox()
+    {
+        String owned = ZAFF.replace("|members = No\n", "|members = No\n|owner = [[Zaff]]\n");
+        assertEquals("Zaff", WikiShopFetch.extract("Zaff's Superior Staffs", owned).owner);
+        assertNull("no owner named", WikiShopFetch.extract("Zaff's Superior Staffs", ZAFF).owner);
+        String blank = ZAFF.replace("|members = No\n", "|members = No\n|owner = \n");
+        assertNull("a blank owner is no owner", WikiShopFetch.extract("Zaff's Superior Staffs", blank).owner);
+
+        // Martin the Master Gardener's stall is a table on his own page, with no shop infobox
+        String npcPage = "{{Infobox NPC\n|name = Martin the Master Gardener\n}}\nHe sells seeds.\n"
+            + "{{StoreTableHead|sellmultiplier=1000}}\n{{StoreLine|name=Potato seed|stock=10}}\n"
+            + "{{StoreTableBottom}}\n";
+        assertEquals("Martin the Master Gardener",
+            WikiShopFetch.extract("Martin the Master Gardener", npcPage).owner);
+    }
+
     @Test
     public void parsesInfoboxLocationAndStoreLines()
     {

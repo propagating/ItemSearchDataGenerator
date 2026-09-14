@@ -51,6 +51,9 @@ public final class CombatParser
     // or what they are praying. Such a figure is a variant of the attack, not a further attack.
     private static final Pattern GEAR_NOTE = Pattern.compile("^(without|with|no|not wearing|wearing)\\b");
     private static final Pattern PRAYER_NOTE = Pattern.compile("protect from|\\bpray");
+    // the two ways a gear note states which side of the protection its figure is on
+    private static final Pattern WITHOUT_NOTE = Pattern.compile("^(?:without|no|not wearing)\\s+(.+)$");
+    private static final Pattern WITH_NOTE = Pattern.compile("^(?:with|wearing)\\s+(.+)$");
     private static final Pattern INT = Pattern.compile("\\d+");
     // a "(...)" beside a style: a note about it, never part of its name
     private static final Pattern STYLE_NOTE = Pattern.compile("\\s*\\(([^)]*)\\)");
@@ -391,7 +394,21 @@ public final class CombatParser
                 {
                     only.variants = new ArrayList<>();
                 }
-                only.variants.add(new OutputVariant(capitalise(h.annotation), kind, h.value, h.valueMax));
+                // the client shows a variant as a protection: "8 with Nose peg", "14 unprotected".
+                // The wiki states a "without" figure the other way round, the bare number being
+                // the protected one, so the two swap and the note loses its "without"
+                Matcher without = WITHOUT_NOTE.matcher(h.annotation);
+                if (without.find())
+                {
+                    only.variants.add(new OutputVariant(capitalise(without.group(1).trim()), kind,
+                        only.maxHit, only.maxHitMax));
+                    only.maxHit = h.value;
+                    only.maxHitMax = h.valueMax;
+                    continue;
+                }
+                Matcher with = WITH_NOTE.matcher(h.annotation);
+                String label = with.find() ? with.group(1).trim() : h.annotation;
+                only.variants.add(new OutputVariant(capitalise(label), kind, h.value, h.valueMax));
                 continue;
             }
             attacks.add(new OutputAttack(h.annotation, h.value, h.valueMax,
@@ -460,58 +477,69 @@ public final class CombatParser
     }
 
     /**
-     * Collapse a multi-version monster into one attack per DISTINCT style. Numbered infobox fields
-     * (attack style1/2/…, max hit1/2/…, attack speed1/2/…) each describe a different NPC version, not
-     * another attack of one monster, so this pairs them by index and folds the max hit and speed of
-     * every version that uses a style into a min..max range for that style. {@code gap} is true when no
-     * version supplied a max hit.
+     * Several versions of one monster read as one attack table.
+     *
+     * <p>Numbered infobox fields (attack style1/2/…, max hit1/2/…) each describe a version of the
+     * monster, not another attack of it, and versions that share a combat level are one monster
+     * to the player: Killerwatt stabs while idle and crushes once it turns to fight, and both are
+     * met with Protect from Melee. So attacks join on what protects against them, and the joined
+     * attack spans every version's numbers. A style every version agrees on keeps its name; ones
+     * that differ within a class take the class's. A number no version gave (0) is left out of
+     * the range rather than pulling it down to nothing. The result is a gap if any version was.
      */
-    public static ParsedCombat collapseVersions(List<String> styleFields, List<String> maxHitFields,
-        List<String> speedFields)
+    public static ParsedCombat fold(List<ParsedCombat> versions)
     {
-        Map<String, int[]> byStyle = new LinkedHashMap<>(); // style -> [mhLow, mhHigh, spLow, spHigh]
-        boolean anyMaxHit = false;
-        for (int i = 0; i < styleFields.size(); i++)
+        Map<String, OutputAttack> joined = new LinkedHashMap<>();
+        boolean gap = false;
+        for (ParsedCombat version : versions)
         {
-            String style = normaliseStyle(styleFields.get(i));
-            if (style.isEmpty())
+            gap |= version.gap;
+            for (OutputAttack a : version.attacks)
             {
-                continue;
+                String key = styleClass(a.style) + "|" + (a.prayStyle == null ? "" : a.prayStyle);
+                OutputAttack into = joined.get(key);
+                if (into == null)
+                {
+                    into = new OutputAttack(a.style, a.maxHit, a.maxHitMax, a.speed, a.speedMax);
+                    into.prayStyle = a.prayStyle;
+                    into.notes = a.notes;
+                    into.variants = a.variants;
+                    into.effects = a.effects;
+                    joined.put(key, into);
+                    continue;
+                }
+                if (!into.style.equals(a.style))
+                {
+                    into.style = styleClass(a.style);
+                }
+                into.maxHit = lowOf(into.maxHit, a.maxHit);
+                into.maxHitMax = Math.max(into.maxHitMax, a.maxHitMax);
+                into.speed = lowOf(into.speed, a.speed);
+                into.speedMax = Math.max(into.speedMax, a.speedMax);
+                if (into.notes == null)
+                {
+                    into.notes = a.notes;
+                }
+                if (into.variants == null || into.variants.isEmpty())
+                {
+                    into.variants = a.variants;
+                }
+                if (into.effects == null || into.effects.isEmpty())
+                {
+                    into.effects = a.effects;
+                }
             }
-            int mh = i < maxHitFields.size() ? firstInt(maxHitFields.get(i)) : 0;
-            int sp = i < speedFields.size() ? firstInt(speedFields.get(i)) : 0;
-            anyMaxHit |= mh > 0;
-            int[] agg = byStyle.computeIfAbsent(style, k -> new int[]{0, 0, 0, 0});
-            accumulate(agg, 0, 1, mh);
-            accumulate(agg, 2, 3, sp);
         }
-        List<OutputAttack> attacks = new ArrayList<>();
-        for (Map.Entry<String, int[]> e : byStyle.entrySet())
-        {
-            int[] a = e.getValue();
-            attacks.add(new OutputAttack(e.getKey(), a[0], a[1], a[2], a[3]));
-        }
-        return new ParsedCombat(attacks, !attacks.isEmpty() && !anyMaxHit);
+        return new ParsedCombat(new ArrayList<>(joined.values()), gap);
     }
 
-    // fold a value into the [low,high] slots at (lowIdx, highIdx); 0 means "unknown" and is ignored
-    private static void accumulate(int[] agg, int lowIdx, int highIdx, int value)
+    // the lower of two range bottoms, where 0 means the version did not say
+    private static int lowOf(int a, int b)
     {
-        if (value <= 0)
+        if (a <= 0)
         {
-            return;
+            return b;
         }
-        agg[lowIdx] = agg[lowIdx] == 0 ? value : Math.min(agg[lowIdx], value);
-        agg[highIdx] = Math.max(agg[highIdx], value);
-    }
-
-    private static int firstInt(String s)
-    {
-        if (s == null)
-        {
-            return 0;
-        }
-        Matcher m = INT.matcher(s);
-        return m.find() ? Integer.parseInt(m.group()) : 0;
+        return b <= 0 ? a : Math.min(a, b);
     }
 }

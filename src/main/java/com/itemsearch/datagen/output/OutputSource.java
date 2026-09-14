@@ -51,6 +51,13 @@ public class OutputSource
     // indexes into OutputData.tables; this source's drops are those tables concatenated
     public List<Integer> tables;
     public OutputCombat combat;
+    // for a pickpocket source: the Thieving level it takes and the experience a success gives,
+    // from the wiki's Thieving table; null when the table has no row for the NPC
+    public Integer thievingLevel;
+    public Double thievingXp;
+    // the wiki versions this source stands for, when it stands for several that look or fight
+    // differently; null otherwise. The client switches between them on the monster page.
+    public List<OutputPhase> phases;
     // whether the wiki version this source was built from parsed ambiguously — what puts it in
     // the curator's queue. Generator-side only: transient keeps it out of sources.json.
     public transient boolean combatGap;

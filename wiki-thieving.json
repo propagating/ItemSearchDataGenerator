@@ -1,0 +1,122 @@
+{
+  "al kharid warrior": {
+    "level": 25,
+    "xp": 26.0
+  },
+  "bandit (bandit camp)": {
+    "level": 53,
+    "xp": 79.4
+  },
+  "bandit (pollnivneach)": {
+    "level": 55,
+    "xp": 84.3
+  },
+  "bearded pollnivnian bandit": {
+    "level": 45,
+    "xp": 65.0
+  },
+  "cave goblin (dorgesh-kaan)": {
+    "level": 36,
+    "xp": 40.0
+  },
+  "citizen": {
+    "level": 1,
+    "xp": 8.0
+  },
+  "citizen (civitas illa fortis)": {
+    "level": 1,
+    "xp": 8.0
+  },
+  "digsite workman": {
+    "level": 25,
+    "xp": 10.4
+  },
+  "elf (thieving)": {
+    "level": 85,
+    "xp": 353.3
+  },
+  "farmer": {
+    "level": 10,
+    "xp": 14.5
+  },
+  "fremennik citizen": {
+    "level": 45,
+    "xp": 65.0
+  },
+  "gnome": {
+    "level": 75,
+    "xp": 133.3
+  },
+  "guard": {
+    "level": 40,
+    "xp": 46.8
+  },
+  "h.a.m. member": {
+    "level": 15,
+    "xp": 22.2
+  },
+  "hero": {
+    "level": 80,
+    "xp": 163.3
+  },
+  "knight of ardougne": {
+    "level": 55,
+    "xp": 84.3
+  },
+  "knight of varlamore": {
+    "level": 55,
+    "xp": 84.3
+  },
+  "man": {
+    "level": 1,
+    "xp": 8.0
+  },
+  "master farmer": {
+    "level": 38,
+    "xp": 43.0
+  },
+  "menaphite thug": {
+    "level": 65,
+    "xp": 137.5
+  },
+  "paladin": {
+    "level": 70,
+    "xp": 131.8
+  },
+  "pirate (thieving)": {
+    "level": 60,
+    "xp": 72.0
+  },
+  "rogue": {
+    "level": 32,
+    "xp": 36.5
+  },
+  "tzhaar-hur": {
+    "level": 90,
+    "xp": 103.4
+  },
+  "villager": {
+    "level": 30,
+    "xp": 8.0
+  },
+  "vyre (thieving)": {
+    "level": 82,
+    "xp": 306.9
+  },
+  "warrior (thieving)": {
+    "level": 25,
+    "xp": 26.0
+  },
+  "watchman (yanille)": {
+    "level": 65,
+    "xp": 137.5
+  },
+  "wealthy citizen": {
+    "level": 50,
+    "xp": 96.0
+  },
+  "woman": {
+    "level": 1,
+    "xp": 8.0
+  }
+}

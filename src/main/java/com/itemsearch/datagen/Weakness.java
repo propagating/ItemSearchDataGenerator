@@ -52,18 +52,56 @@ public final class Weakness
     /** The attack styles this monster defends worst against; empty when it makes no difference. */
     public static List<String> weakestOf(WikiCombatJson w)
     {
-        List<String> out = new ArrayList<>();
         if (w == null)
         {
-            return out;
+            return new ArrayList<>();
         }
-        Integer[] values = {
+        return weakest(new Integer[]{
             firstOf(w.defStab, w.defStabs),
             firstOf(w.defSlash, w.defSlashes),
             firstOf(w.defCrush, w.defCrushes),
             firstOf(w.defMagic, w.defMagics),
             firstOf(w.defRanged, w.defRangeds),
-        };
+        });
+    }
+
+    /**
+     * As {@link #weakestOf(WikiCombatJson)}, read from one version's own numbered fields. A
+     * version the page does not number falls back to the plain reading.
+     */
+    public static List<String> weakestOf(WikiCombatJson w, int version)
+    {
+        if (w == null)
+        {
+            return new ArrayList<>();
+        }
+        return weakest(new Integer[]{
+            at(w.defStabs, version, w.defStab),
+            at(w.defSlashes, version, w.defSlash),
+            at(w.defCrushes, version, w.defCrush),
+            at(w.defMagics, version, w.defMagic),
+            at(w.defRangeds, version, w.defRanged),
+        });
+    }
+
+    // the numbered field for this version when the page has one, else the plain reading
+    private static Integer at(List<String> numbered, int version, String plain)
+    {
+        if (numbered != null && version >= 0 && version < numbered.size())
+        {
+            Integer value = parse(numbered.get(version));
+            if (value != null)
+            {
+                return value;
+            }
+        }
+        return firstOf(plain, numbered);
+    }
+
+    // the styles whose bonus is the lowest, in STYLES order
+    private static List<String> weakest(Integer[] values)
+    {
+        List<String> out = new ArrayList<>();
         Integer lowest = null;
         Integer highest = null;
         for (Integer v : values)

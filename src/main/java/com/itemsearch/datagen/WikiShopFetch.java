@@ -77,10 +77,18 @@ public final class WikiShopFetch
         if (infobox.find())
         {
             String body = infobox.group(1);
-            page.location = stripLinks(WikiText.params(body).get("location"));
+            Map<String, String> params = WikiText.params(body);
+            page.location = stripLinks(params.get("location"));
+            // the NPC behind the counter, who may also be someone the player can rob
+            page.owner = blankToNull(stripLinks(params.get("owner")));
             // the |map= value nests a {{Map|x,y|...}} template whose pipes defeat params();
             // pull the first coordinate pair (and optional plane) straight from the body
             applyMap(page, body);
+        }
+        else
+        {
+            // a shop on an NPC's own page is that NPC's shop: the page is the shopkeeper
+            page.owner = pageTitle;
         }
         if (page.mapX == null)
         {
@@ -135,6 +143,11 @@ public final class WikiShopFetch
     static String stripLinks(String s)
     {
         return WikiText.stripLinks(s);
+    }
+
+    private static String blankToNull(String s)
+    {
+        return s == null || s.trim().isEmpty() ? null : s.trim();
     }
 
     // locates the first {{Map|...}} template in `text` and, if it contains a coordinate pair,

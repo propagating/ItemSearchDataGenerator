@@ -492,15 +492,38 @@ public final class MonsterTransform
 
     public static OutputCombat applyCombatOverlay(OutputCombat base, CombatOverlayJson ov)
     {
-        if (ov == null || ov.needsReview || ov.attacks == null)
+        return applyCombatOverlays(base, Collections.singletonList(ov));
+    }
+
+    /**
+     * The curated attacks in place of the parsed ones. A source built from several versions of
+     * a page has an id per version, and the curator may have written up any of them — Killerwatt
+     * was curated as Idle and as Attacking while it was two sources — so every entry it reaches
+     * counts, folded together the way the versions' own wiki fields are. Stubs are the
+     * generator's questions, not answers, and change nothing.
+     */
+    public static OutputCombat applyCombatOverlays(OutputCombat base, List<CombatOverlayJson> ovs)
+    {
+        List<CombatParser.ParsedCombat> curated = new ArrayList<>();
+        for (CombatOverlayJson ov : ovs)
+        {
+            if (ov == null || ov.needsReview || ov.attacks == null)
+            {
+                continue;
+            }
+            List<OutputAttack> attacks = new ArrayList<>();
+            for (OutputAttack a : ov.attacks)
+            {
+                attacks.add(resolveHybrid(a));
+            }
+            curated.add(new CombatParser.ParsedCombat(attacks, false));
+        }
+        if (curated.isEmpty())
         {
             return base;
         }
-        List<OutputAttack> attacks = new ArrayList<>();
-        for (OutputAttack a : ov.attacks)
-        {
-            attacks.add(resolveHybrid(a));
-        }
+        List<OutputAttack> attacks = curated.size() == 1
+            ? curated.get(0).attacks : CombatParser.fold(curated).attacks;
         return new OutputCombat(base.attackLevel, base.strengthLevel, base.defenceLevel,
             base.magicLevel, base.rangedLevel, base.hitpoints, attacks);
     }

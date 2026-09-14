@@ -31,6 +31,7 @@ public class ShopPageJson
 {
     public String pageTitle;
     public String location; // from {{Infobox Shop}} |location=, wiki links stripped; may be null
+    public String owner;    // from {{Infobox Shop}} |owner=, the NPC who runs it; may be null
     // first {{Map|x,y|...}} coordinate pair in the infobox's |map= value; null when absent
     public String mapX;
     public String mapY;

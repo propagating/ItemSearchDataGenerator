@@ -227,8 +227,10 @@ public final class WikiText
     // "|field = value" up to end of line, e.g. within an infobox body
     public static String field(String body, String name)
     {
+        // spaces and tabs only around the value: a blank "|field = " must read as blank rather
+        // than swallow the newline and hand back the next line
         Matcher m = Pattern.compile("(?m)^\\s*\\|\\s*" + Pattern.quote(name)
-            + "\\s*=\\s*(.*?)\\s*$").matcher(body);
+            + "[ \\t]*=[ \\t]*(.*?)[ \\t]*$").matcher(body);
         return m.find() ? m.group(1).trim() : null;
     }
 

@@ -31,6 +31,9 @@ public class OutputShop
 {
     public String name;
     public String location;
+    // the NPC who runs the shop, when the wiki names one; the client joins this to a pickpocket
+    // source of the same name so both sides of the NPC share a page
+    public String owner;
     public String currency;
     // world-map coordinates from the shop infobox's {{Map}} template; all null when the
     // page has none. plane is 0 (ground) whenever coordinates are present but unstated.

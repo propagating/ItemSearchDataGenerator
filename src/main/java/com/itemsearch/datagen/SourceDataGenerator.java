@@ -59,6 +59,8 @@ import com.itemsearch.datagen.source.ShopPageJson;
 import com.itemsearch.datagen.source.ShopTableJson;
 import com.itemsearch.datagen.source.ShopLineJson;
 import com.itemsearch.datagen.source.WikiCombatJson;
+import com.itemsearch.datagen.source.RecipeJson;
+import com.itemsearch.datagen.source.ThievingJson;
 import com.itemsearch.datagen.source.WikiPageTextJson;
 
 /**
@@ -80,6 +82,10 @@ public final class SourceDataGenerator
     private static final String DEFAULT_WIKI = "wiki-combat.json";
     // what the curator shows instead of a browser tab: infobox, mechanics, strategy per monster page
     private static final String DEFAULT_WIKI_TEXT = "wiki-monster-text.json";
+    // the wiki's Pickpocketing table: what it takes to rob each NPC and what it pays
+    private static final String DEFAULT_THIEVING = "wiki-thieving.json";
+    // every {{Recipe}} on the item pages, by page: what breaks down into what
+    private static final String DEFAULT_RECIPES = "wiki-recipes.json";
     // pages the wiki files under discontinued content, Deadman, or a League: nothing a player of
     // the main game can fight, so their sources are dropped unless --keep-retired says otherwise
     private static final String DEFAULT_RETIRED = "wiki-retired.json";
@@ -100,6 +106,7 @@ public final class SourceDataGenerator
         boolean refreshItems = false;
         boolean refreshWiki = false;
         boolean refreshLocations = false;
+        boolean refreshThieving = false;
         boolean refreshRetired = false;
         boolean keepRetired = false;
         List<String> positional = new ArrayList<>();
@@ -128,6 +135,10 @@ public final class SourceDataGenerator
             else if ("--refresh-locations".equals(a))
             {
                 refreshLocations = true;
+            }
+            else if ("--refresh-thieving".equals(a))
+            {
+                refreshThieving = true;
             }
             else
             {
@@ -179,10 +190,38 @@ public final class SourceDataGenerator
             Set<String> names = dropItemNames(pages);
             names.addAll(shopItemNames(gson, Paths.get(DEFAULT_SHOPS_SNAPSHOT)));
             System.out.println("Fetching item info for " + names.size() + " item names...");
-            Map<String, ItemInfoJson> items = WikiItemFetch.fetch(gson, names);
+            Map<String, List<RecipeJson>> recipes = new TreeMap<>();
+            Map<String, ItemInfoJson> items = WikiItemFetch.fetch(gson, names, recipes);
+            // what is broken down, and what it breaks into, needs an id for its icon too; those
+            // names are only known once the pages are read, so they take a second, smaller pass
+            Set<String> extra = new TreeSet<>();
+            for (List<RecipeJson> pageRecipes : recipes.values())
+            {
+                for (RecipeJson r : pageRecipes)
+                {
+                    if (!WikiRecipes.isBreakdown(r))
+                    {
+                        continue;
+                    }
+                    extra.addAll(r.materials);
+                    for (RecipeJson.Output o : r.outputs)
+                    {
+                        extra.add(o.name);
+                    }
+                }
+            }
+            extra.removeAll(items.keySet());
+            if (!extra.isEmpty())
+            {
+                System.out.println("Fetching item info for " + extra.size() + " recipe names...");
+                items.putAll(WikiItemFetch.fetch(gson, extra));
+            }
             Files.write(itemsSnapshot,
                 (gson.toJson(new TreeMap<>(items)) + "\n").getBytes(StandardCharsets.UTF_8));
             System.out.println("Wrote " + items.size() + " item records to " + itemsSnapshot);
+            Files.write(Paths.get(DEFAULT_RECIPES),
+                (gson.toJson(recipes) + "\n").getBytes(StandardCharsets.UTF_8));
+            System.out.println("Wrote recipes from " + recipes.size() + " pages to " + DEFAULT_RECIPES);
         }
 
         Path wikiPath = Paths.get(DEFAULT_WIKI);
@@ -219,8 +258,44 @@ public final class SourceDataGenerator
         Map<Integer, MonsterJson> monsters = readMonstersById(gson,
             readIfPresent(Paths.get(DEFAULT_MONSTERS)));
 
+        // the curator's page texts double as the source of each version's picture
+        Map<String, WikiPageTextJson> texts = gson.fromJson(
+            readIfPresent(Paths.get(DEFAULT_WIKI_TEXT)),
+            new TypeToken<Map<String, WikiPageTextJson>>()
+            {
+            }.getType());
+        Map<String, List<String>> versionImages = VersionImages.fromTexts(texts);
+
+        Path thievingPath = Paths.get(DEFAULT_THIEVING);
+        if (refreshThieving)
+        {
+            Map<String, ThievingJson> rows = WikiThievingFetch.fetch(gson);
+            Files.write(thievingPath,
+                (gson.toJson(new TreeMap<>(rows)) + "\n").getBytes(StandardCharsets.UTF_8));
+            System.out.println("Wrote " + rows.size() + " pickpocket rows to " + thievingPath);
+        }
+        Map<String, ThievingJson> thieving = gson.fromJson(readIfPresent(thievingPath),
+            new TypeToken<Map<String, ThievingJson>>()
+            {
+            }.getType());
+        if (thieving == null)
+        {
+            thieving = Collections.emptyMap();
+            System.out.println("No pickpocket table in " + thievingPath + "; run with --refresh-thieving to fetch it");
+        }
+
+        Map<String, List<RecipeJson>> recipes = gson.fromJson(readIfPresent(Paths.get(DEFAULT_RECIPES)),
+            new TypeToken<Map<String, List<RecipeJson>>>()
+            {
+            }.getType());
+        if (recipes == null)
+        {
+            recipes = Collections.emptyMap();
+            System.out.println("No recipes in " + DEFAULT_RECIPES + "; run with --refresh-items to fetch them");
+        }
+
         List<OutputSource> sources = SourceTransform.transform(pages, itemInfo, spawns, wiki,
-            combatOverlay, typeOverlay, monsters);
+            combatOverlay, typeOverlay, monsters, versionImages, thieving, recipes);
 
         Path retiredSnapshot = Paths.get(DEFAULT_RETIRED);
         if (refreshRetired)
@@ -367,6 +442,19 @@ public final class SourceDataGenerator
         }
 
         OutputData data = DropTableIndex.build(sources);
+        // the one wiki fact an item page shows that the client cannot supply itself
+        data.examines = new TreeMap<>();
+        for (ItemInfoJson info : itemInfo.values())
+        {
+            if (info != null && info.id != null && info.examine != null)
+            {
+                data.examines.putIfAbsent(info.id, info.examine);
+            }
+        }
+        if (data.examines.isEmpty())
+        {
+            System.out.println("No examine text in " + itemsSnapshot + "; run with --refresh-items to fetch it");
+        }
         Files.write(output, (gson.toJson(data) + "\n").getBytes(StandardCharsets.UTF_8));
 
         // seed stubs for every combat gap not already curated, then rewrite the overlay — this is

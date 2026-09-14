@@ -85,6 +85,19 @@ public final class WikiFetch
         w.defRangeds = WikiText.numberedFields(body, "dstandard");
         w.elementalWeaknessType = WikiText.field(body, "elementalweaknesstype");
         w.elementalWeaknessPercent = WikiText.field(body, "elementalweaknesspercent");
+        // what it shrugs off; see Statuses for how these read
+        w.poisonResistance = WikiText.field(body, "poisonresistance");
+        w.poisonResistances = WikiText.numberedFields(body, "poisonresistance");
+        w.venomResistance = WikiText.field(body, "venomresistance");
+        w.venomResistances = WikiText.numberedFields(body, "venomresistance");
+        w.freezeResistance = WikiText.field(body, "freezeresistance");
+        w.freezeResistances = WikiText.numberedFields(body, "freezeresistance");
+        w.immuneCannon = WikiText.field(body, "immunecannon");
+        w.immuneCannons = WikiText.numberedFields(body, "immunecannon");
+        w.immuneThrall = WikiText.field(body, "immunethrall");
+        w.immuneThralls = WikiText.numberedFields(body, "immunethrall");
+        w.immuneBurn = WikiText.field(body, "immuneburn");
+        w.immuneBurns = WikiText.numberedFields(body, "immuneburn");
         return w;
     }
 

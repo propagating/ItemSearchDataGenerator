@@ -40,6 +40,9 @@ public class OutputCombat
     // "+50% from Earth spells", stated by the wiki rather than worked out
     public String elementalWeakness;
     public Integer elementalWeaknessPercent;
+    // what it shrugs off, status -> "Immune" / "Susceptible" / a degree, in display order;
+    // null when the wiki says nothing
+    public java.util.Map<String, String> statuses;
 
     public OutputCombat(int attackLevel, int strengthLevel, int defenceLevel, int magicLevel,
         int rangedLevel, int hitpoints, List<OutputAttack> attacks)

@@ -34,12 +34,15 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.regex.Pattern;
 import java.util.Set;
 import com.itemsearch.datagen.output.OutputAttack;
 import com.itemsearch.datagen.output.OutputCombat;
 import com.itemsearch.datagen.output.OutputDrop;
+import com.itemsearch.datagen.output.OutputPhase;
 import com.itemsearch.datagen.output.OutputSource;
 import com.itemsearch.datagen.output.OutputSpawn;
+import com.itemsearch.datagen.output.OutputVariant;
 import com.itemsearch.datagen.source.CombatOverlayJson;
 import com.itemsearch.datagen.source.DropLineJson;
 import com.itemsearch.datagen.source.DropPageJson;
@@ -47,6 +50,8 @@ import com.itemsearch.datagen.source.LocationJson;
 import com.itemsearch.datagen.source.DropTableJson;
 import com.itemsearch.datagen.source.ItemInfoJson;
 import com.itemsearch.datagen.source.MonsterJson;
+import com.itemsearch.datagen.source.RecipeJson;
+import com.itemsearch.datagen.source.ThievingJson;
 import com.itemsearch.datagen.source.VersionJson;
 import com.itemsearch.datagen.source.WikiCombatJson;
 
@@ -143,6 +148,49 @@ public final class SourceTransform
         Map<String, WikiCombatJson> wiki, Map<Integer, CombatOverlayJson> combatOverlay,
         Map<String, String> typeOverlay, Map<Integer, MonsterJson> monsters)
     {
+        return transform(pages, itemInfo, spawns, wiki, combatOverlay, typeOverlay, monsters,
+            Collections.emptyMap());
+    }
+
+    /**
+     * @param versionImages page title to one image url per wiki version, as
+     *                      {@link VersionImages#fromTexts} reads them; a phase's picture
+     */
+    public static List<OutputSource> transform(Map<String, DropPageJson> pages,
+        Map<String, ItemInfoJson> itemInfo, Map<Integer, List<OutputSpawn>> spawns,
+        Map<String, WikiCombatJson> wiki, Map<Integer, CombatOverlayJson> combatOverlay,
+        Map<String, String> typeOverlay, Map<Integer, MonsterJson> monsters,
+        Map<String, List<String>> versionImages)
+    {
+        return transform(pages, itemInfo, spawns, wiki, combatOverlay, typeOverlay, monsters,
+            versionImages, Collections.emptyMap());
+    }
+
+    /**
+     * @param thieving lower-cased NPC name to its row of the wiki's Pickpocketing table, as
+     *                 {@link WikiThievingFetch#parse} reads it; what a pickpocket source costs
+     */
+    public static List<OutputSource> transform(Map<String, DropPageJson> pages,
+        Map<String, ItemInfoJson> itemInfo, Map<Integer, List<OutputSpawn>> spawns,
+        Map<String, WikiCombatJson> wiki, Map<Integer, CombatOverlayJson> combatOverlay,
+        Map<String, String> typeOverlay, Map<Integer, MonsterJson> monsters,
+        Map<String, List<String>> versionImages, Map<String, ThievingJson> thieving)
+    {
+        return transform(pages, itemInfo, spawns, wiki, combatOverlay, typeOverlay, monsters,
+            versionImages, thieving, Collections.emptyMap());
+    }
+
+    /**
+     * @param recipes every {{Recipe}} on the item pages, by page, as {@link WikiRecipes#extract}
+     *                reads them; the ones that break something down become PROCESS sources
+     */
+    public static List<OutputSource> transform(Map<String, DropPageJson> pages,
+        Map<String, ItemInfoJson> itemInfo, Map<Integer, List<OutputSpawn>> spawns,
+        Map<String, WikiCombatJson> wiki, Map<Integer, CombatOverlayJson> combatOverlay,
+        Map<String, String> typeOverlay, Map<Integer, MonsterJson> monsters,
+        Map<String, List<String>> versionImages, Map<String, ThievingJson> thieving,
+        Map<String, List<RecipeJson>> recipes)
+    {
         List<Bucket> buckets = new ArrayList<>();
         if (pages != null)
         {
@@ -151,13 +199,27 @@ public final class SourceTransform
                 buckets.addAll(bucketsForPage(page, itemInfo, typeOverlay, wiki));
             }
         }
+        if (recipes != null)
+        {
+            buckets.addAll(processBuckets(recipes, itemInfo));
+        }
 
         assignIds(buckets);
 
         List<OutputSource> out = new ArrayList<>();
         for (Bucket b : buckets)
         {
-            out.add(finish(b, spawns, wiki, combatOverlay, monsters));
+            OutputSource source = finish(b, spawns, wiki, combatOverlay, monsters, versionImages);
+            if ("PICKPOCKET".equals(b.type) && thieving != null && b.pageTitle != null)
+            {
+                ThievingJson row = thievingRow(thieving, b.pageTitle);
+                if (row != null)
+                {
+                    source.thievingLevel = row.level;
+                    source.thievingXp = row.xp;
+                }
+            }
+            out.add(source);
         }
         out.sort(Comparator
             .comparing((OutputSource s) -> s.name, String.CASE_INSENSITIVE_ORDER)
@@ -216,29 +278,82 @@ public final class SourceTransform
             }
             result.add(b);
         }
-        return splitVersions(result, page, wiki);
+        return splitVersions(result, page);
+    }
+
+    /**
+     * One PROCESS source per item that is broken down into others: a sacred eel yields Zulrah's
+     * scales, a leaping sturgeon caviar and offcuts, a tanzanite fang scales. The source is named
+     * for the material, and every breakdown recipe with that material contributes its outputs.
+     */
+    private static List<Bucket> processBuckets(Map<String, List<RecipeJson>> recipes,
+        Map<String, ItemInfoJson> itemInfo)
+    {
+        Map<String, Bucket> byMaterial = new LinkedHashMap<>();
+        for (List<RecipeJson> pageRecipes : recipes.values())
+        {
+            for (RecipeJson r : pageRecipes)
+            {
+                if (!WikiRecipes.isBreakdown(r))
+                {
+                    continue;
+                }
+                String material = r.materials.get(0);
+                Bucket b = byMaterial.computeIfAbsent(material, m ->
+                {
+                    Bucket fresh = new Bucket();
+                    fresh.pageTitle = m;
+                    fresh.name = m;
+                    fresh.type = "PROCESS";
+                    fresh.combatLevel = 0;
+                    fresh.npcIds = new ArrayList<>();
+                    fresh.drops = new ArrayList<>();
+                    return fresh;
+                });
+                for (RecipeJson.Output o : r.outputs)
+                {
+                    boolean listed = false;
+                    for (OutputDrop existing : b.drops)
+                    {
+                        listed |= existing.itemName.equalsIgnoreCase(o.name);
+                    }
+                    if (listed)
+                    {
+                        continue;
+                    }
+                    ItemInfoJson info = itemInfo == null ? null : itemInfo.get(o.name);
+                    int itemId = info != null && info.id != null ? info.id : -1;
+                    // a fixed yield is certain; one the wiki has to explain has no rate to give
+                    boolean variable = WikiRecipes.isVariable(o);
+                    b.drops.add(new OutputDrop(itemId, o.name, variable ? 0 : 1.0,
+                        WikiRecipes.fixedQuantity(o), false, !variable));
+                }
+            }
+        }
+        return new ArrayList<>(byMaterial.values());
     }
 
     /**
      * Splits a page that describes several monsters into one source per distinct version.
      *
-     * <p>Killerwatt is Idle (470, stab) and Attacking (469, crush) sharing a drop table; merging
-     * them dropped the crush and told the player the thing fighting them stabs. Versions are
-     * grouped by what actually distinguishes them — combat level and how they fight — so the 36
-     * near-identical Barbarian versions do not each become a search result. A group is named
-     * after its first version ("Killerwatt (Attacking)"), and the shared drop table belongs to
-     * every version, since any of them drops it.
+     * <p>What makes a version its own monster is its combat level: Ankou comes at 75, 82 and
+     * 86, and a player hunting one wants the one they can fight. Versions at the same level are
+     * one monster in different poses or outfits — Killerwatt's Idle and Attacking are the same
+     * spark, and one id turns into the other when it notices you — so they share a source, with
+     * every id and every attack any of them has. That also keeps the 36 near-identical Barbarian
+     * versions from each becoming a search result. A lone version keeps the wiki's label for it
+     * ("Steel dragon (Level 274)"); a merged group is named for the level its members share,
+     * since the first member's label would describe only that one. The shared drop table belongs
+     * to every version, since any of them drops it.
      */
-    private static List<Bucket> splitVersions(List<Bucket> buckets, DropPageJson page,
-        Map<String, WikiCombatJson> wiki)
+    private static List<Bucket> splitVersions(List<Bucket> buckets, DropPageJson page)
     {
         if (page.versions == null || page.versions.size() < 2)
         {
             return buckets;
         }
-        WikiCombatJson combat = wiki == null ? null : wiki.get(page.pageTitle);
 
-        // group version indexes by combat level plus the attacks they parse to
+        // group version indexes by combat level
         Map<String, List<Integer>> groups = new LinkedHashMap<>();
         for (int i = 0; i < page.versions.size(); i++)
         {
@@ -247,11 +362,21 @@ public final class SourceTransform
             {
                 continue; // a version with no id of its own cannot be told apart in game
             }
-            groups.computeIfAbsent(signature(v, combat, i), k -> new ArrayList<>()).add(i);
+            String level = v.combatLevel == null ? "" : v.combatLevel.trim();
+            groups.computeIfAbsent(level, k -> new ArrayList<>()).add(i);
         }
         if (groups.size() < 2)
         {
-            return buckets; // every version fights the same: one monster after all
+            // every version is the same level: one monster after all, standing for all of them
+            for (Bucket b : buckets)
+            {
+                if ("KILL".equals(b.type) && !groups.isEmpty())
+                {
+                    b.versions = groups.values().iterator().next();
+                    b.pageVersions = page.versions;
+                }
+            }
+            return buckets;
         }
 
         List<Bucket> out = new ArrayList<>();
@@ -262,12 +387,14 @@ public final class SourceTransform
                 out.add(b); // only a fought monster has versions worth telling apart
                 continue;
             }
-            for (List<Integer> group : groups.values())
+            for (Map.Entry<String, List<Integer>> e : groups.entrySet())
             {
+                List<Integer> group = e.getValue();
                 VersionJson first = page.versions.get(group.get(0));
                 Bucket split = new Bucket();
                 split.pageTitle = b.pageTitle;
-                split.name = b.name + " (" + first.label + ")";
+                split.pageVersions = page.versions;
+                split.name = b.name + " (" + groupLabel(page, group, e.getKey()) + ")";
                 split.type = b.type;
                 split.combatLevel = parseIntOr(first.combatLevel, b.combatLevel);
                 split.npcIds = new ArrayList<>();
@@ -285,28 +412,67 @@ public final class SourceTransform
                 split.mapX = b.mapX;
                 split.mapY = b.mapY;
                 split.mapPlane = b.mapPlane;
-                split.version = group.get(0);
+                split.versions = group;
                 out.add(split);
             }
         }
         return out;
     }
 
-    /** What tells two versions apart: their combat level and how they fight. */
-    private static String signature(VersionJson v, WikiCombatJson combat, int index)
+    /**
+     * The Thieving table's row for a page: by its title, else by its title without the place in
+     * brackets — "Farmer (Kastori)" is robbed like any Farmer, and the table has one row for all
+     * of them.
+     */
+    private static ThievingJson thievingRow(Map<String, ThievingJson> thieving, String pageTitle)
     {
-        StringBuilder sig = new StringBuilder(v.combatLevel == null ? "" : v.combatLevel.trim());
-        for (OutputAttack a : WikiCombat.toAttacks(combat, index).attacks)
+        String title = pageTitle.trim().toLowerCase(Locale.ROOT);
+        ThievingJson row = thieving.get(title);
+        if (row == null && title.endsWith(")") && title.contains(" ("))
         {
-            sig.append('|').append(a.style).append(':').append(a.prayStyle)
-                .append(':').append(a.maxHit).append('-').append(a.maxHitMax)
-                .append(':').append(a.speed).append('-').append(a.speedMax);
+            row = thieving.get(title.substring(0, title.lastIndexOf(" (")).trim());
         }
-        return sig.toString();
+        return row;
+    }
+
+    // a wiki label's trailing counter: "God Wars Dungeon (2)", "Melee, 3", "Level 79 (1)"
+    private static final Pattern LABEL_COUNTER = Pattern.compile("\\s*(?:\\(\\d+\\)|,\\s*\\d+)$");
+
+    /**
+     * What to call a group of versions: a lone version's own label; for several, the label they
+     * all share once the wiki's counters come off ("God Wars Dungeon (1)" and "(2)" are the God
+     * Wars Dungeon werewolves), and failing that the level they share, which is the one thing
+     * known to be true of all of them.
+     */
+    private static String groupLabel(DropPageJson page, List<Integer> group, String level)
+    {
+        String shared = null;
+        for (int i : group)
+        {
+            String label = page.versions.get(i).label;
+            String bare = label == null ? "" : LABEL_COUNTER.matcher(label.trim()).replaceFirst("");
+            if (shared == null)
+            {
+                shared = bare;
+            }
+            else if (!shared.equals(bare))
+            {
+                shared = level.isEmpty() ? bare : "Level " + level;
+                break;
+            }
+        }
+        return shared;
     }
 
     private static String inferType(String infobox, DropTableJson table)
     {
+        // something the player takes part in — Golem crafting, a minigame — rather than a thing
+        // they kill, open, rob, or gather from. Its rewards are earned, so it is not a container
+        // even when the wiki marks the lines as rewards.
+        if ("Activity".equals(infobox))
+        {
+            return "ACTIVITY";
+        }
         for (DropLineJson line : table.lines)
         {
             if (line != null && line.reward)
@@ -463,13 +629,13 @@ public final class SourceTransform
      * <p>Matched on the bucket's own npc ids rather than the page's, so a page split into versions
      * ("Hellhound (Level 122)") picks up the levels of the version it describes.
      */
-    private static MonsterJson monsterFor(Bucket b, Map<Integer, MonsterJson> monsters)
+    private static MonsterJson monsterFor(List<Integer> npcIds, Map<Integer, MonsterJson> monsters)
     {
-        if (monsters == null || monsters.isEmpty() || b.npcIds == null)
+        if (monsters == null || monsters.isEmpty() || npcIds == null)
         {
             return null;
         }
-        for (Integer id : b.npcIds)
+        for (Integer id : npcIds)
         {
             MonsterJson m = monsters.get(id);
             if (m != null)
@@ -482,7 +648,7 @@ public final class SourceTransform
 
     private static OutputSource finish(Bucket b, Map<Integer, List<OutputSpawn>> spawns,
         Map<String, WikiCombatJson> wiki, Map<Integer, CombatOverlayJson> combatOverlay,
-        Map<Integer, MonsterJson> monsters)
+        Map<Integer, MonsterJson> monsters, Map<String, List<String>> versionImages)
     {
         List<OutputSpawn> spawnPoints;
         Integer x = null;
@@ -506,52 +672,22 @@ public final class SourceTransform
 
         OutputCombat combat = null;
         boolean combatGap = false;
+        List<OutputPhase> phases = null;
         if ("KILL".equals(b.type))
         {
-            CombatParser.ParsedCombat pc = WikiCombat.toAttacks(
-                wiki == null ? null : wiki.get(b.pageTitle), b.version);
-            // judged here, on the version this source is built from: a page read whole can be
+            boolean[] gap = new boolean[1];
+            combat = combatFor(b.pageTitle != null ? b.pageTitle : b.name, b.npcIds, b.id,
+                b.versions, -1, wiki, combatOverlay, monsters, gap);
+            // judged here, on the versions this source is built from: a page read whole can be
             // ambiguous (two styles, one max hit) while each of its versions is perfectly clear
-            combatGap = pc.gap;
-            // the wiki infobox publishes defence bonuses and max hits but not levels, so the
-            // levels come from the monster dump, joined on npc id
-            MonsterJson m = monsterFor(b, monsters);
-            combat = m == null
-                ? new OutputCombat(0, 0, 0, 0, 0, 0, pc.attacks)
-                : new OutputCombat(m.attackLevel, m.strengthLevel, m.defenceLevel, m.magicLevel,
-                    m.rangedLevel, m.hitpoints, pc.attacks);
-            if (combatOverlay != null && combatOverlay.containsKey(b.id))
-            {
-                combat = MonsterTransform.applyCombatOverlay(combat, combatOverlay.get(b.id));
-            }
-            // by page, not display name: a split renames the source "Steel dragon (Level 246)",
-            // which is not a metallic dragon by any name the check knows
-            combat.attacks = MonsterTransform.relabelMetallicDragonfire(
-                b.pageTitle != null ? b.pageTitle : b.name, combat.attacks);
-            // the wiki records poison per monster, not per attack, so it seeds every attack and
-            // the curator narrows it to the one that actually applies it
-            WikiCombatJson record = wiki == null ? null : wiki.get(b.pageTitle);
-            // what to bring: the styles it defends worst against, and the spell school it burns to
-            List<String> weak = Weakness.weakestOf(record);
-            combat.weakTo = weak.isEmpty() ? null : weak;
-            combat.elementalWeakness = Weakness.elementOf(record);
-            combat.elementalWeaknessPercent = Weakness.elementPercentOf(record);
-            List<String> poison = AttackEffects.fromPoisonous(record == null ? null : record.poisonous);
-            if (!poison.isEmpty())
-            {
-                for (OutputAttack a : combat.attacks)
-                {
-                    if (a.effects == null || a.effects.isEmpty())
-                    {
-                        a.effects = new ArrayList<>(poison);
-                    }
-                }
-            }
+            combatGap = gap[0];
+            phases = phasesFor(b, wiki, combatOverlay, monsters, versionImages);
         }
 
         OutputSource source = new OutputSource(b.id, b.npcIds, b.name, b.combatLevel, null,
             spawnPoints, b.drops, combat, b.type, x, y, plane);
         source.combatGap = combatGap;
+        source.phases = phases;
         // only worth carrying when the two differ: the client fetches the image by page title, and
         // a split or a pickpocket variant no longer answers to its own display name
         if (b.pageTitle != null && !b.pageTitle.equals(b.name))
@@ -559,6 +695,129 @@ public final class SourceTransform
             source.wikiPage = b.pageTitle;
         }
         return source;
+    }
+
+    /**
+     * How a monster fights, from every source the generator has: the wiki's attack fields for the
+     * given versions of its page (all of them when null), levels from the monster dump under its
+     * npc ids, the curator's write-up under any of those ids, and the page's own weakness and
+     * poison. Serves the source itself and each of its phases alike; a phase asks for its one
+     * version and its own defence row ({@code weaknessVersion}), the source asks for the fold
+     * and the plain row (-1). {@code gapOut[0]} receives whether the wiki read was ambiguous.
+     */
+    private static OutputCombat combatFor(String pageTitle, List<Integer> npcIds, int syntheticId,
+        List<Integer> versions, int weaknessVersion, Map<String, WikiCombatJson> wiki,
+        Map<Integer, CombatOverlayJson> combatOverlay, Map<Integer, MonsterJson> monsters,
+        boolean[] gapOut)
+    {
+        WikiCombatJson record = wiki == null ? null : wiki.get(pageTitle);
+        CombatParser.ParsedCombat pc = WikiCombat.toAttacks(record, versions);
+        gapOut[0] = pc.gap;
+        // the wiki infobox publishes defence bonuses and max hits but not levels, so the
+        // levels come from the monster dump, joined on npc id
+        MonsterJson m = monsterFor(npcIds, monsters);
+        OutputCombat combat = m == null
+            ? new OutputCombat(0, 0, 0, 0, 0, 0, pc.attacks)
+            : new OutputCombat(m.attackLevel, m.strengthLevel, m.defenceLevel, m.magicLevel,
+                m.rangedLevel, m.hitpoints, pc.attacks);
+        if (combatOverlay != null)
+        {
+            // under every id the source answers to: a version merged in may have been
+            // curated on its own while it was a source of its own
+            List<CombatOverlayJson> curated = new ArrayList<>();
+            for (Integer id : npcIds.isEmpty() ? Collections.singletonList(syntheticId) : npcIds)
+            {
+                if (combatOverlay.containsKey(id))
+                {
+                    curated.add(combatOverlay.get(id));
+                }
+            }
+            combat = MonsterTransform.applyCombatOverlays(combat, curated);
+        }
+        // by page, not display name: a split renames the source "Steel dragon (Level 246)",
+        // which is not a metallic dragon by any name the check knows
+        combat.attacks = MonsterTransform.relabelMetallicDragonfire(pageTitle, combat.attacks);
+        // what to bring: the styles it defends worst against, and the spell school it burns to
+        List<String> weak = weaknessVersion >= 0
+            ? Weakness.weakestOf(record, weaknessVersion) : Weakness.weakestOf(record);
+        combat.weakTo = weak.isEmpty() ? null : weak;
+        combat.elementalWeakness = Weakness.elementOf(record);
+        combat.elementalWeaknessPercent = Weakness.elementPercentOf(record);
+        Map<String, String> statuses = Statuses.of(record, weaknessVersion);
+        combat.statuses = statuses.isEmpty() ? null : statuses;
+        // the wiki records poison per monster, not per attack, so it seeds every attack and
+        // the curator narrows it to the one that actually applies it
+        List<String> poison = AttackEffects.fromPoisonous(record == null ? null : record.poisonous);
+        if (!poison.isEmpty())
+        {
+            for (OutputAttack a : combat.attacks)
+            {
+                if (a.effects == null || a.effects.isEmpty())
+                {
+                    a.effects = new ArrayList<>(poison);
+                }
+            }
+        }
+        return combat;
+    }
+
+    /**
+     * The versions a source stands for, each with its own picture and its own combat, when there
+     * are at least two worth telling apart. Versions that look and fight alike are one phase —
+     * twenty Canifis werewolves are one werewolf — and a source left with one phase carries none.
+     */
+    private static List<OutputPhase> phasesFor(Bucket b, Map<String, WikiCombatJson> wiki,
+        Map<Integer, CombatOverlayJson> combatOverlay, Map<Integer, MonsterJson> monsters,
+        Map<String, List<String>> versionImages)
+    {
+        if (b.versions == null || b.versions.size() < 2 || b.pageVersions == null)
+        {
+            return null;
+        }
+        List<String> images = versionImages == null ? null : versionImages.get(b.pageTitle);
+        List<OutputPhase> phases = new ArrayList<>();
+        Set<String> seen = new HashSet<>();
+        for (int i : b.versions)
+        {
+            VersionJson v = b.pageVersions.get(i);
+            OutputCombat combat = combatFor(b.pageTitle, parseNpcIds(v.npcIds), b.id,
+                Collections.singletonList(i), i, wiki, combatOverlay, monsters, new boolean[1]);
+            String image = images != null && i < images.size() ? images.get(i) : null;
+            OutputPhase phase = new OutputPhase(v.label, image, combat);
+            if (seen.add(phaseKey(phase)))
+            {
+                phases.add(phase);
+            }
+        }
+        return phases.size() >= 2 ? phases : null;
+    }
+
+    // everything the client would show for a phase, so two that read the same are one
+    private static String phaseKey(OutputPhase p)
+    {
+        StringBuilder key = new StringBuilder(String.valueOf(p.image));
+        OutputCombat c = p.combat;
+        key.append('|').append(c.attackLevel).append(',').append(c.strengthLevel).append(',')
+            .append(c.defenceLevel).append(',').append(c.magicLevel).append(',')
+            .append(c.rangedLevel).append(',').append(c.hitpoints)
+            .append('|').append(c.weakTo).append('|').append(c.elementalWeakness)
+            .append('|').append(c.elementalWeaknessPercent).append('|').append(c.statuses);
+        for (OutputAttack a : c.attacks)
+        {
+            key.append('|').append(a.style).append(':').append(a.prayStyle).append(':')
+                .append(a.maxHit).append('-').append(a.maxHitMax).append(':')
+                .append(a.speed).append('-').append(a.speedMax).append(':')
+                .append(a.notes).append(':').append(a.effects);
+            if (a.variants != null)
+            {
+                for (OutputVariant variant : a.variants)
+                {
+                    key.append(':').append(variant.label).append('=').append(variant.maxHit)
+                        .append('-').append(variant.maxHitMax);
+                }
+            }
+        }
+        return key.toString();
     }
 
     /**
@@ -605,7 +864,10 @@ public final class SourceTransform
         Integer mapY;
         Integer mapPlane;
         int id;
-        // index into the page's versionN list, or -1 when the page describes one monster
-        int version = -1;
+        // indexes into the page's versionN list that this source is built from, or null when it
+        // is built from the whole page
+        List<Integer> versions;
+        // the page's versionN list itself, for naming and picturing the phases
+        List<VersionJson> pageVersions;
     }
 }

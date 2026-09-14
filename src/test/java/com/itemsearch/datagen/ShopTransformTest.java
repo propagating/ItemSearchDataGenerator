@@ -82,6 +82,23 @@ public class ShopTransformTest
         return i;
     }
 
+    /** The shopkeeper rides along, so the client can join the shop to the NPC it belongs to. */
+    @Test
+    public void theOwnerCarriesOntoEveryShopOfThePage()
+    {
+        Map<String, ShopPageJson> pages = new TreeMap<>();
+        ShopPageJson p = page("Zaff's Superior Staffs", "Varrock",
+            table(null, "1000", line("Staff", "5", "100", null)),
+            table("Tokkul", "1000", line("Staff", "5", "100", null)));
+        p.owner = "Zaff";
+        pages.put(p.pageTitle, p);
+        List<OutputShop> shops = ShopTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap());
+        assertEquals(2, shops.size());
+        assertEquals("Zaff", shops.get(0).owner);
+        assertEquals("Zaff", shops.get(1).owner);
+    }
+
     @Test
     public void transformsValuesStockRestockAndDerivedPrice()
     {
