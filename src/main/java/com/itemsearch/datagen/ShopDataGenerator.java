@@ -47,12 +47,14 @@ import com.itemsearch.datagen.source.MonsterJson;
 import com.itemsearch.datagen.source.ShopPageJson;
 import com.itemsearch.datagen.source.ShopTableJson;
 import com.itemsearch.datagen.source.ShopLineJson;
+import com.itemsearch.datagen.source.ThievingJson;
 
 public final class ShopDataGenerator
 {
     private static final String DEFAULT_MONSTERS = "monsters-complete.json";
     private static final String DEFAULT_SHOPS_SNAPSHOT = "wiki-shops.json";
     private static final String DEFAULT_ITEMS_SNAPSHOT = "wiki-items.json";
+    private static final String DEFAULT_THIEVING = "wiki-thieving.json";
     // same sibling-repo layout as DropDataGenerator.DEFAULT_OUTPUT: the ItemSearch
     // plugin checkout lives at ../../JAVA/ItemSearch relative to this repo
     private static final String DEFAULT_OUTPUT =
@@ -140,7 +142,25 @@ public final class ShopDataGenerator
             }
         }
 
-        List<OutputShop> shops = ShopTransform.transform(pages, itemInfo, fallback);
+        // the Thieving tables, when the source generator has fetched them, tell which shops are
+        // the fronts of stalls the player can rob
+        Map<String, ThievingJson> thieving = Collections.emptyMap();
+        if (Files.exists(Paths.get(DEFAULT_THIEVING)))
+        {
+            thieving = readSnapshot(gson, Paths.get(DEFAULT_THIEVING),
+                new TypeToken<Map<String, ThievingJson>>()
+                {
+                }.getType());
+        }
+        else
+        {
+            System.out.println("No " + DEFAULT_THIEVING + "; run the source generator with "
+                + "--refresh-thieving to mark the shops that are stalls");
+        }
+
+        List<OutputShop> shops = ShopTransform.transform(pages, itemInfo, fallback, thieving);
+        long stalls = shops.stream().filter(s -> s.stall != null).count();
+        System.out.println(stalls + " shops are the fronts of thieving stalls");
         Files.write(output, (gson.toJson(shops) + "\n").getBytes(StandardCharsets.UTF_8));
         long unresolved = shops.stream().flatMap(s -> s.items.stream())
             .filter(i -> i.itemId < 0).count();

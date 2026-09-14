@@ -52,6 +52,10 @@ public class WikiThievingFetchTest
         + "|-\n"
         + "|{{plinkt|Guard|pic=Thief Guard}}\n"
         + "|40 || 46.8 || 95 || 2\n"
+        + "|-\n"
+        + "|{{chatlp|Digsite workman|pic=Digsite workman (1) chathead}} || [[Digsite workman]]\n"
+        + "|25 || 10.4 || ''Unknown'' || 1\n"
+        + "|Pickpocketing workmen is twice as slow.\n"
         + "|}\n"
         + "\n== Something else ==\n{| class=\"wikitable\"\n|-\n| not this\n|}\n";
 
@@ -69,7 +73,10 @@ public class WikiThievingFetchTest
         assertEquals(Integer.valueOf(38), rows.get("master farmer").level);
         assertEquals(Double.valueOf(43), rows.get("master farmer").xp);
         assertEquals(Double.valueOf(46.8), rows.get("guard").xp);
-        assertEquals("the header row and the other table are not NPCs", 6, rows.size());
+        assertEquals("a picture in a cell of its own does not push the name out of the name column",
+            Integer.valueOf(25), rows.get("digsite workman").level);
+        assertEquals(Double.valueOf(10.4), rows.get("digsite workman").xp);
+        assertEquals("the header row and the other table are not NPCs", 7, rows.size());
     }
 
     @Test
@@ -78,5 +85,86 @@ public class WikiThievingFetchTest
         assertTrue(WikiThievingFetch.parse("just prose").isEmpty());
         assertTrue(WikiThievingFetch.parse(null).isEmpty());
         assertNull(WikiThievingFetch.parse(TABLE).get("gielinor"));
+    }
+
+    // the stalls table writes one cell per line, with an Items column before Location
+    private static final String STALLS = "{| class=\"wikitable sortable\"\n"
+        + "! colspan=2 | Stall\n"
+        + "!{{SCP|Thieving}}Level\n"
+        + "!Exp.\n"
+        + "!Items\n"
+        + "!Location\n"
+        + "!Respawn Time\n"
+        + "! Max XP/Hr <!--Calculated-->\n"
+        + "|-\n"
+        + "|{{plinkt|Bakery stall|pic=Bread}}\n"
+        + "|5\n"
+        + "|16\n"
+        + "|[[Cake]], [[chocolate slice]] or [[bread]]\n"
+        + "|[[East Ardougne]], [[Keldagrim]], [[Great Kourend]], [[Civitas illa Fortis]]\n"
+        + "|2.4 seconds (9.6 seconds in [[Keldagrim]])\n"
+        + "| 24,000 (6,000 in [[Keldagrim]])\n"
+        + "|-\n"
+        + "|[{{plinkt|Silk stall|pic=Silk}}\n"
+        + "|20\n"
+        + "|24\n"
+        + "|[[Silk]]\n"
+        + "|[[East Ardougne]], [[Prifddinas Silk Stall|Prifddinas]]\n"
+        + "|4.8 seconds\n"
+        + "| 18,000\n"
+        + "|-\n"
+        + "|{{plinkt|Gem stall (Port Roberts)|pic=Sapphire}}\n"
+        + "|75\n"
+        + "|129.5\n"
+        + "||[[Sapphire|Cut]] or [[uncut sapphire]]\n"
+        + "|[[Port Roberts]]\n"
+        + "|2.4 seconds\n"
+        + "|194,250<ref name=\"marketplace-thieving\"/>\n"
+        + "|}\n\n{{Reflist}}\n";
+
+    /** A stall's row says what it takes, and where the stall stands. */
+    @Test
+    public void aStallRowCarriesItsLevelXpPageAndPlaces()
+    {
+        Map<String, ThievingJson> rows = WikiThievingFetch.parseStalls(STALLS);
+        ThievingJson bakery = rows.get("bakery stall");
+        assertEquals(Integer.valueOf(5), bakery.level);
+        assertEquals(Double.valueOf(16), bakery.xp);
+        assertEquals("Bakery stall", bakery.page);
+        assertEquals(java.util.Arrays.asList("East Ardougne", "Keldagrim", "Great Kourend", "Civitas illa Fortis"),
+            bakery.locations);
+        assertEquals("a stray bracket before the template is not part of the name",
+            Integer.valueOf(20), rows.get("silk stall").level);
+        assertEquals("a place shown under a piped link is the place shown, not the shop linked",
+            java.util.Arrays.asList("East Ardougne", "Prifddinas"), rows.get("silk stall").locations);
+        assertEquals("an empty cell does not shift the columns after it",
+            java.util.Collections.singletonList("Port Roberts"), rows.get("gem stall (port roberts)").locations);
+        assertEquals(Double.valueOf(129.5), rows.get("gem stall (port roberts)").xp);
+        assertEquals("the items are not places or names", 3, rows.size());
+    }
+
+    // the chests table writes a row to a line, and its places are the fourth column
+    private static final String CHESTS = "== Chests ==\n===Thievable chests===\n''Loot is on their pages.''\n"
+        + "{| class=\"wikitable sortable align-center-1\"\n"
+        + "! colspan=2 |Chest!!{{SCP|Thieving}} Level!![[Experience]]!!Location(s)!!Respawn Time\n"
+        + "|-\n"
+        + "|{{plinkt|Chest (10 coins)|pic=Coins|txt=10 coin chest}}||13||7.8||[[East Ardougne]], [[Rellekka]]||3.5 seconds\n"
+        + "|-\n"
+        + "|{{plinkt|Chest (nature runes)|pic=Nature rune}}{{Refn|Disabled in [[Deadman Mode|seasonal]].|group=t}}||28||25||[[East Ardougne]]||8 seconds\n"
+        + "|}\n";
+
+    @Test
+    public void theThievingPageGivesPickpocketsAndChestsTogether()
+    {
+        Map<String, ThievingJson> rows = WikiThievingFetch.parse(TABLE + CHESTS);
+        assertEquals(Integer.valueOf(38), rows.get("master farmer").level);
+        assertNull("a pickpocket row has no places", rows.get("master farmer").locations);
+        ThievingJson coins = rows.get("chest (10 coins)");
+        assertEquals(Integer.valueOf(13), coins.level);
+        assertEquals(Double.valueOf(7.8), coins.xp);
+        assertEquals(java.util.Arrays.asList("East Ardougne", "Rellekka"), coins.locations);
+        assertEquals("a footnote's link is not a name", Integer.valueOf(28), rows.get("chest (nature runes)").level);
+        assertNull(rows.get("seasonal"));
+        assertNull(rows.get("deadman mode"));
     }
 }

@@ -210,14 +210,11 @@ public final class SourceTransform
         for (Bucket b : buckets)
         {
             OutputSource source = finish(b, spawns, wiki, combatOverlay, monsters, versionImages);
-            if ("PICKPOCKET".equals(b.type) && thieving != null && b.pageTitle != null)
+            ThievingJson row = thieving == null ? null : thievingRow(thieving, b.pageTitle, b.type);
+            if (row != null)
             {
-                ThievingJson row = thievingRow(thieving, b.pageTitle);
-                if (row != null)
-                {
-                    source.thievingLevel = row.level;
-                    source.thievingXp = row.xp;
-                }
+                source.thievingLevel = row.level;
+                source.thievingXp = row.xp;
             }
             out.add(source);
         }
@@ -420,19 +417,34 @@ public final class SourceTransform
     }
 
     /**
-     * The Thieving table's row for a page: by its title, else by its title without the place in
-     * brackets — "Farmer (Kastori)" is robbed like any Farmer, and the table has one row for all
-     * of them.
+     * The Thieving tables' row for a page, or null. A pickpocket is found by its title, else by
+     * its title without the place in brackets — "Farmer (Kastori)" is robbed like any Farmer, and
+     * the table has one row for all of them. A stall or a chest is found by its title alone: the
+     * stalls of Port Roberts have rows of their own, and a chest that is not in the table is not
+     * picked. Monsters and the rest are not robbed at all.
      */
-    private static ThievingJson thievingRow(Map<String, ThievingJson> thieving, String pageTitle)
+    private static ThievingJson thievingRow(Map<String, ThievingJson> thieving, String pageTitle,
+        String type)
     {
-        String title = pageTitle.trim().toLowerCase(Locale.ROOT);
-        ThievingJson row = thieving.get(title);
-        if (row == null && title.endsWith(")") && title.contains(" ("))
+        if (pageTitle == null)
         {
-            row = thieving.get(title.substring(0, title.lastIndexOf(" (")).trim());
+            return null;
         }
-        return row;
+        String title = pageTitle.trim().toLowerCase(Locale.ROOT);
+        if ("PICKPOCKET".equals(type))
+        {
+            ThievingJson row = thieving.get(title);
+            if (row == null && title.endsWith(")") && title.contains(" ("))
+            {
+                row = thieving.get(title.substring(0, title.lastIndexOf(" (")).trim());
+            }
+            return row;
+        }
+        if ("GATHER".equals(type) || "REWARD".equals(type))
+        {
+            return thieving.get(title);
+        }
+        return null;
     }
 
     // a wiki label's trailing counter: "God Wars Dungeon (2)", "Melee, 3", "Level 79 (1)"

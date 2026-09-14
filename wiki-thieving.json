@@ -1,122 +1,556 @@
 {
   "al kharid warrior": {
     "level": 25,
-    "xp": 26.0
+    "xp": 26.0,
+    "page": "Warrior (Thieving)"
+  },
+  "bakery stall": {
+    "level": 5,
+    "xp": 16.0,
+    "page": "Bakery stall",
+    "locations": [
+      "East Ardougne",
+      "Keldagrim",
+      "Great Kourend",
+      "Civitas illa Fortis"
+    ]
   },
   "bandit (bandit camp)": {
     "level": 53,
-    "xp": 79.4
+    "xp": 79.4,
+    "page": "Bandit (Bandit Camp)"
   },
   "bandit (pollnivneach)": {
     "level": 55,
-    "xp": 84.3
+    "xp": 84.3,
+    "page": "Bandit (Pollnivneach)"
   },
   "bearded pollnivnian bandit": {
     "level": 45,
-    "xp": 65.0
+    "xp": 65.0,
+    "page": "Bearded Pollnivnian Bandit"
+  },
+  "cannonball stall": {
+    "level": 87,
+    "xp": 223.0,
+    "page": "Cannonball stall",
+    "locations": [
+      "Port Roberts"
+    ]
   },
   "cave goblin (dorgesh-kaan)": {
     "level": 36,
-    "xp": 40.0
+    "xp": 40.0,
+    "page": "Cave goblin (Dorgesh-Kaan)"
+  },
+  "chest (10 coins)": {
+    "level": 13,
+    "xp": 7.8,
+    "page": "Chest (10 coins)",
+    "locations": [
+      "East Ardougne",
+      "Magic axe hut",
+      "Pirates' Hideout",
+      "Rellekka",
+      "Rogues' Den"
+    ]
+  },
+  "chest (50 coins)": {
+    "level": 43,
+    "xp": 125.0,
+    "page": "Chest (50 coins)",
+    "locations": [
+      "Ardougne",
+      "Mourner Tunnels",
+      "Pirates' Hideout"
+    ]
+  },
+  "chest (aldarin villas)": {
+    "level": 36,
+    "xp": 200.0,
+    "page": "Chest (Aldarin Villas)",
+    "locations": [
+      "Aldarin"
+    ]
+  },
+  "chest (ardougne castle)": {
+    "level": 72,
+    "xp": 500.0,
+    "page": "Chest (Ardougne Castle)",
+    "locations": [
+      "Ardougne Castle"
+    ]
+  },
+  "chest (blood runes)": {
+    "level": 59,
+    "xp": 250.0,
+    "page": "Chest (blood runes)",
+    "locations": [
+      "Chaos Druid Tower"
+    ]
+  },
+  "chest (dorgesh-kaan average)": {
+    "level": 52,
+    "xp": 200.0,
+    "page": "Chest (Dorgesh-Kaan Average)",
+    "locations": [
+      "Dorgesh-Kaan"
+    ]
+  },
+  "chest (dorgesh-kaan rich)": {
+    "level": 78,
+    "xp": 650.0,
+    "page": "Chest (Dorgesh-Kaan Rich)",
+    "locations": [
+      "Dorgesh-Kaan"
+    ]
+  },
+  "chest (isle of souls dungeon)": {
+    "level": 28,
+    "xp": 150.0,
+    "page": "Chest (Isle of Souls Dungeon)",
+    "locations": [
+      "Isle of Souls Dungeon"
+    ]
+  },
+  "chest (nature runes)": {
+    "level": 28,
+    "xp": 25.0,
+    "page": "Chest (nature runes)",
+    "locations": [
+      "East Ardougne",
+      "Pirates' Hideout",
+      "Rellekka"
+    ]
+  },
+  "chest (rogues' castle)": {
+    "level": 84,
+    "xp": 701.7,
+    "page": "Chest (Rogues' Castle)",
+    "locations": [
+      "Rogues' Castle"
+    ]
+  },
+  "chest (steel arrowtips)": {
+    "level": 47,
+    "xp": 150.0,
+    "page": "Chest (steel arrowtips)",
+    "locations": [
+      "Hemenster",
+      "Rellekka",
+      "Mourner Tunnels"
+    ]
+  },
+  "chest (underwater)": {
+    "level": 1,
+    "xp": 4.5,
+    "page": "Chest (Underwater)",
+    "locations": [
+      "Underwater"
+    ]
   },
   "citizen": {
     "level": 1,
-    "xp": 8.0
+    "xp": 8.0,
+    "page": "Man"
   },
   "citizen (civitas illa fortis)": {
     "level": 1,
-    "xp": 8.0
+    "xp": 8.0,
+    "page": "Man"
+  },
+  "counter (gu'tanoth)": {
+    "level": 15,
+    "xp": 6.4,
+    "page": "Counter (Gu'Tanoth)",
+    "locations": [
+      "Gu'Tanoth"
+    ]
+  },
+  "crafting stall": {
+    "level": 5,
+    "xp": 20.0,
+    "page": "Crafting stall",
+    "locations": [
+      "Ape Atoll",
+      "Keldagrim"
+    ]
+  },
+  "crossbow stall": {
+    "level": 49,
+    "xp": 52.0,
+    "page": "Crossbow stall",
+    "locations": [
+      "Keldagrim"
+    ]
   },
   "digsite workman": {
     "level": 25,
-    "xp": 10.4
+    "xp": 10.4,
+    "page": "Digsite workman"
   },
   "elf (thieving)": {
     "level": 85,
-    "xp": 353.3
+    "xp": 353.3,
+    "page": "Elf (Thieving)"
   },
   "farmer": {
     "level": 10,
-    "xp": 14.5
+    "xp": 14.5,
+    "page": "Farmer"
+  },
+  "fish stall": {
+    "level": 42,
+    "xp": 42.0,
+    "page": "Fish stall",
+    "locations": [
+      "Etceteria",
+      "Miscellania",
+      "Rellekka",
+      "The Warrens"
+    ]
+  },
+  "fish stall (port roberts)": {
+    "level": 42,
+    "xp": 49.0,
+    "page": "Fish stall (Port Roberts)",
+    "locations": [
+      "Port Roberts"
+    ]
+  },
+  "food stall": {
+    "level": 5,
+    "xp": 16.0,
+    "page": "Food Stall",
+    "locations": [
+      "Ape Atoll"
+    ]
   },
   "fremennik citizen": {
     "level": 45,
-    "xp": 65.0
+    "xp": 65.0,
+    "page": "Fremennik Citizen"
+  },
+  "fruit stall": {
+    "level": 25,
+    "xp": 28.5,
+    "page": "Fruit Stall",
+    "locations": [
+      "Great Kourend"
+    ]
+  },
+  "fur stall": {
+    "level": 35,
+    "xp": 45.0,
+    "page": "Fur stall",
+    "locations": [
+      "East Ardougne",
+      "Rellekka",
+      "Civitas illa Fortis"
+    ]
+  },
+  "fur stall (port roberts)": {
+    "level": 35,
+    "xp": 38.5,
+    "page": "Fur stall (Port Roberts)",
+    "locations": [
+      "Port Roberts"
+    ]
+  },
+  "gem stall": {
+    "level": 75,
+    "xp": 408.0,
+    "page": "Gem stall",
+    "locations": [
+      "East Ardougne",
+      "Keldagrim",
+      "Great Kourend",
+      "Prifddinas",
+      "Civitas illa Fortis"
+    ]
+  },
+  "gem stall (mor ul rek)": {
+    "level": 75,
+    "xp": 408.0,
+    "page": "Gem stall (Mor Ul Rek)",
+    "locations": [
+      "Mor Ul Rek"
+    ]
+  },
+  "gem stall (port roberts)": {
+    "level": 75,
+    "xp": 129.5,
+    "page": "Gem stall (Port Roberts)",
+    "locations": [
+      "Port Roberts"
+    ]
   },
   "gnome": {
     "level": 75,
-    "xp": 133.3
+    "xp": 133.3,
+    "page": "Gnome"
   },
   "guard": {
     "level": 40,
-    "xp": 46.8
+    "xp": 46.8,
+    "page": "Guard"
   },
   "h.a.m. member": {
     "level": 15,
-    "xp": 22.2
+    "xp": 22.2,
+    "page": "H.A.M. Member"
   },
   "hero": {
     "level": 80,
-    "xp": 163.3
+    "xp": 163.3,
+    "page": "Hero"
   },
   "knight of ardougne": {
     "level": 55,
-    "xp": 84.3
+    "xp": 84.3,
+    "page": "Knight of Ardougne"
   },
   "knight of varlamore": {
     "level": 55,
-    "xp": 84.3
+    "xp": 84.3,
+    "page": "Knight of Ardougne"
+  },
+  "magic stall": {
+    "level": 65,
+    "xp": 90.0,
+    "page": "Magic stall",
+    "locations": [
+      "Ape Atoll"
+    ]
   },
   "man": {
     "level": 1,
-    "xp": 8.0
+    "xp": 8.0,
+    "page": "Man"
   },
   "master farmer": {
     "level": 38,
-    "xp": 43.0
+    "xp": 43.0,
+    "page": "Master Farmer"
   },
   "menaphite thug": {
     "level": 65,
-    "xp": 137.5
+    "xp": 137.5,
+    "page": "Menaphite Thug"
+  },
+  "monkey general stall": {
+    "level": 5,
+    "xp": 25.0,
+    "page": "Monkey general stall",
+    "locations": [
+      "Ape Atoll"
+    ]
+  },
+  "ore stall (mor ul rek)": {
+    "level": 82,
+    "xp": 350.0,
+    "page": "Ore stall (Mor Ul Rek)",
+    "locations": [
+      "Mor Ul Rek"
+    ]
+  },
+  "ore stall (port roberts)": {
+    "level": 82,
+    "xp": 191.0,
+    "page": "Ore stall (Port Roberts)",
+    "locations": [
+      "Port Roberts"
+    ]
   },
   "paladin": {
     "level": 70,
-    "xp": 131.8
+    "xp": 131.8,
+    "page": "Paladin"
   },
   "pirate (thieving)": {
     "level": 60,
-    "xp": 72.0
+    "xp": 72.0,
+    "page": "Pirate (Thieving)"
+  },
+  "reinforced chest": {
+    "level": 76,
+    "xp": 182.5,
+    "page": "Reinforced chest",
+    "locations": [
+      "Ynysdail",
+      "Brittle Isle"
+    ]
   },
   "rogue": {
     "level": 32,
-    "xp": 36.5
+    "xp": 36.5,
+    "page": "Rogue"
+  },
+  "rusty chest": {
+    "level": 33,
+    "xp": 90.0,
+    "page": "Rusty chest",
+    "locations": [
+      "Dognose Island",
+      "Vatrachos Island"
+    ]
+  },
+  "scimitar stall": {
+    "level": 65,
+    "xp": 210.0,
+    "page": "Scimitar stall",
+    "locations": [
+      "Ape Atoll"
+    ]
+  },
+  "seed stall": {
+    "level": 27,
+    "xp": 10.0,
+    "page": "Seed stall",
+    "locations": [
+      "Draynor Village"
+    ]
+  },
+  "silk stall": {
+    "level": 20,
+    "xp": 24.0,
+    "page": "Silk stall",
+    "locations": [
+      "East Ardougne",
+      "Great Kourend",
+      "Prifddinas",
+      "Civitas illa Fortis"
+    ]
+  },
+  "silk stall (port roberts)": {
+    "level": 20,
+    "xp": 24.0,
+    "page": "Silk stall (Port Roberts)",
+    "locations": [
+      "Port Roberts"
+    ]
+  },
+  "silver stall": {
+    "level": 50,
+    "xp": 205.0,
+    "page": "Silver stall",
+    "locations": [
+      "East Ardougne",
+      "Keldagrim",
+      "Great Kourend",
+      "Prifddinas"
+    ]
+  },
+  "silver stall (port roberts)": {
+    "level": 50,
+    "xp": 80.0,
+    "page": "Silver stall (Port Roberts)",
+    "locations": [
+      "Port Roberts"
+    ]
+  },
+  "spice stall": {
+    "level": 65,
+    "xp": 92.0,
+    "page": "Spice stall",
+    "locations": [
+      "East Ardougne",
+      "Prifddinas",
+      "Civitas illa Fortis"
+    ]
+  },
+  "spice stall (port roberts)": {
+    "level": 65,
+    "xp": 110.0,
+    "page": "Spice stall (Port Roberts)",
+    "locations": [
+      "Port Roberts"
+    ]
+  },
+  "stone chest": {
+    "level": 64,
+    "xp": 280.0,
+    "page": "Stone chest",
+    "locations": [
+      "Lizardman Temple"
+    ]
+  },
+  "tarnished chest": {
+    "level": 54,
+    "xp": 122.5,
+    "page": "Tarnished chest",
+    "locations": [
+      "The Crown Jewel",
+      "Shimmering Atoll"
+    ]
+  },
+  "tea stall": {
+    "level": 5,
+    "xp": 16.0,
+    "page": "Tea stall",
+    "locations": [
+      "Varrock",
+      "Great Kourend"
+    ]
   },
   "tzhaar-hur": {
     "level": 90,
-    "xp": 103.4
+    "xp": 103.4,
+    "page": "TzHaar-Hur"
+  },
+  "veg stall (port roberts)": {
+    "level": 2,
+    "xp": 5.0,
+    "page": "Veg stall (Port Roberts)",
+    "locations": [
+      "Port Roberts"
+    ]
+  },
+  "vegetable stall": {
+    "level": 2,
+    "xp": 10.0,
+    "page": "Vegetable stall",
+    "locations": [
+      "Miscellania",
+      "Etceteria"
+    ]
   },
   "villager": {
     "level": 30,
-    "xp": 8.0
+    "xp": 8.0,
+    "page": "Villager"
   },
   "vyre (thieving)": {
     "level": 82,
-    "xp": 306.9
+    "xp": 306.9,
+    "page": "Vyre (Thieving)"
   },
   "warrior (thieving)": {
     "level": 25,
-    "xp": 26.0
+    "xp": 26.0,
+    "page": "Warrior (Thieving)"
   },
   "watchman (yanille)": {
     "level": 65,
-    "xp": 137.5
+    "xp": 137.5,
+    "page": "Watchman (Yanille)"
   },
   "wealthy citizen": {
     "level": 50,
-    "xp": 96.0
+    "xp": 96.0,
+    "page": "Wealthy citizen"
+  },
+  "wine stall": {
+    "level": 22,
+    "xp": 27.0,
+    "page": "Wine stall",
+    "locations": [
+      "Draynor Village"
+    ]
   },
   "woman": {
     "level": 1,
-    "xp": 8.0
+    "xp": 8.0,
+    "page": "Man"
   }
 }

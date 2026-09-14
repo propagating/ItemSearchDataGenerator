@@ -24,11 +24,22 @@
  */
 package com.itemsearch.datagen.source;
 
-/** One row of the wiki's Pickpocketing table: what it takes to rob an NPC and what it pays. */
+import java.util.List;
+
+/**
+ * One row of the wiki's Thieving tables: what it takes to rob an NPC, a stall, or a chest, and
+ * what it pays.
+ */
 public class ThievingJson
 {
     public Integer level;
     public Double xp;
+    // the page the row links to, as the table writes it ("Bakery stall", "Chest (10 coins)");
+    // null in rows written before this was recorded
+    public String page;
+    // where the stall or chest stands, as the table's Location column names the places; null
+    // when the table has no such column (pickpockets)
+    public List<String> locations;
 
     public ThievingJson()
     {
@@ -38,5 +49,13 @@ public class ThievingJson
     {
         this.level = level;
         this.xp = xp;
+    }
+
+    public ThievingJson(Integer level, Double xp, String page, List<String> locations)
+    {
+        this.level = level;
+        this.xp = xp;
+        this.page = page;
+        this.locations = locations;
     }
 }

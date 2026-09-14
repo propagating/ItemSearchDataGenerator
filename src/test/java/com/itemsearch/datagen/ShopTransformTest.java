@@ -34,6 +34,7 @@ import com.itemsearch.datagen.source.ItemInfoJson;
 import com.itemsearch.datagen.source.ShopLineJson;
 import com.itemsearch.datagen.source.ShopPageJson;
 import com.itemsearch.datagen.source.ShopTableJson;
+import com.itemsearch.datagen.source.ThievingJson;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -201,5 +202,59 @@ public class ShopTransformTest
         assertEquals("Zeta", shops.get(1).name);
         assertEquals("Zeta (2)", shops.get(2).name);
         assertEquals("Tokkul", shops.get(2).currency);
+    }
+
+    private static Map<String, ThievingJson> stalls()
+    {
+        Map<String, ThievingJson> rows = new HashMap<>();
+        rows.put("bakery stall", new ThievingJson(5, 16.0, "Bakery stall",
+            java.util.Arrays.asList("East Ardougne", "Keldagrim", "Great Kourend", "Civitas illa Fortis")));
+        rows.put("fish stall", new ThievingJson(42, 42.0, "Fish stall",
+            java.util.Arrays.asList("Etceteria", "Rellekka")));
+        rows.put("fish stall (port roberts)", new ThievingJson(42, 49.0, "Fish stall (Port Roberts)",
+            java.util.Collections.singletonList("Port Roberts")));
+        rows.put("master farmer", new ThievingJson(38, 43.0, "Master Farmer", null));
+        return rows;
+    }
+
+    private static OutputShop stallShop(String title, String location, String owner)
+    {
+        Map<String, ShopPageJson> pages = new TreeMap<>();
+        ShopPageJson p = page(title, location, table(null, "1000", line("Bread", "10", "100", null)));
+        p.owner = owner;
+        pages.put(title, p);
+        return ShopTransform.transform(pages, Collections.emptyMap(), Collections.emptyMap(), stalls()).get(0);
+    }
+
+    /**
+     * The wiki keeps a stall's shop page and its Thieving page apart. A shop whose name ends in
+     * a kind of stall, in a place where the stalls table puts such a stall, is that stall.
+     */
+    @Test
+    public void aShopThatIsAStallIsMarkedWithTheStall()
+    {
+        assertEquals("Bakery stall", stallShop("Ardougne Baker's Stall.", "East Ardougne", "Baker").stall);
+        assertEquals("Kourend Castle is in Great Kourend",
+            "Bakery stall", stallShop("Kourend Castle Baker's Stall", "Kourend Castle", "Baker").stall);
+        assertEquals("the stalls of Port Roberts have rows of their own",
+            "Fish stall (Port Roberts)", stallShop("Port Roberts Fish Stall", "Port Roberts", "Gregory").stall);
+        assertEquals("with no place given, the shop's name says where it is",
+            "Fish stall (Port Roberts)", stallShop("Port Roberts Fish Stall", null, null).stall);
+        assertEquals("the owner still rides along", "Baker",
+            stallShop("Ardougne Baker's Stall.", "East Ardougne", "Baker").owner);
+    }
+
+    @Test
+    public void aShopThatOnlySoundsLikeAStallIsNot()
+    {
+        assertNull("no Bakery stall stands in Sophanem",
+            stallShop("Nathifa's Bake Stall", "Sophanem", "Nathifa").stall);
+        assertNull("a fishing supplies stall is not a fish stall anywhere the fish stalls are",
+            stallShop("Elder Krill's Fishing Stall", "The Summer Shore", "Elder Krill").stall);
+        assertNull("not a stall at all", stallShop("Zaff's Superior Staffs", "Varrock", "Zaff").stall);
+        assertNull("without the tables nothing is a stall",
+            ShopTransform.transform(Collections.singletonMap("Ardougne Baker's Stall",
+                page("Ardougne Baker's Stall", "East Ardougne", table(null, "1000", line("Bread", "1", "1", null)))),
+                Collections.emptyMap(), Collections.emptyMap()).get(0).stall);
     }
 }

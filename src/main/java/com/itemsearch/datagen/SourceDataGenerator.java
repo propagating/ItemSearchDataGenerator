@@ -272,7 +272,7 @@ public final class SourceDataGenerator
             Map<String, ThievingJson> rows = WikiThievingFetch.fetch(gson);
             Files.write(thievingPath,
                 (gson.toJson(new TreeMap<>(rows)) + "\n").getBytes(StandardCharsets.UTF_8));
-            System.out.println("Wrote " + rows.size() + " pickpocket rows to " + thievingPath);
+            System.out.println("Wrote " + rows.size() + " thieving rows to " + thievingPath);
         }
         Map<String, ThievingJson> thieving = gson.fromJson(readIfPresent(thievingPath),
             new TypeToken<Map<String, ThievingJson>>()
@@ -281,7 +281,7 @@ public final class SourceDataGenerator
         if (thieving == null)
         {
             thieving = Collections.emptyMap();
-            System.out.println("No pickpocket table in " + thievingPath + "; run with --refresh-thieving to fetch it");
+            System.out.println("No thieving tables in " + thievingPath + "; run with --refresh-thieving to fetch them");
         }
 
         Map<String, List<RecipeJson>> recipes = gson.fromJson(readIfPresent(Paths.get(DEFAULT_RECIPES)),

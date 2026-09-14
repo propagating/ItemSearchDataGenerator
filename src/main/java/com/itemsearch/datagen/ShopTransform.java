@@ -25,6 +25,7 @@
 package com.itemsearch.datagen;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -38,6 +39,7 @@ import com.itemsearch.datagen.source.MonsterJson;
 import com.itemsearch.datagen.source.ShopLineJson;
 import com.itemsearch.datagen.source.ShopPageJson;
 import com.itemsearch.datagen.source.ShopTableJson;
+import com.itemsearch.datagen.source.ThievingJson;
 
 /** Joins the wiki shop + item snapshots into the client's shops.json shape. */
 public final class ShopTransform
@@ -48,6 +50,18 @@ public final class ShopTransform
 
     public static List<OutputShop> transform(Map<String, ShopPageJson> pages,
         Map<String, ItemInfoJson> itemInfo, Map<String, Integer> fallbackIds)
+    {
+        return transform(pages, itemInfo, fallbackIds, Collections.emptyMap());
+    }
+
+    /**
+     * @param thieving the wiki's Thieving tables by lower-cased name, as
+     *                 {@link WikiThievingFetch#fetch} reads them; a shop that is the front of a
+     *                 stall in them is marked with that stall
+     */
+    public static List<OutputShop> transform(Map<String, ShopPageJson> pages,
+        Map<String, ItemInfoJson> itemInfo, Map<String, Integer> fallbackIds,
+        Map<String, ThievingJson> thieving)
     {
         List<OutputShop> out = new ArrayList<>();
         for (ShopPageJson page : pages.values())
@@ -61,6 +75,7 @@ public final class ShopTransform
                 shop.name = t == 0 ? baseName : baseName + " (" + (t + 1) + ")";
                 shop.location = page.location;
                 shop.owner = page.owner;
+                shop.stall = StallShops.stallFor(baseName, page.location, thieving);
                 shop.currency = table.currency == null || table.currency.isEmpty()
                     ? "Coins" : table.currency;
                 Integer mapX = parseInt(page.mapX);

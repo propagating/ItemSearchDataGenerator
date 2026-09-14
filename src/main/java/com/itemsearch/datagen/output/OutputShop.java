@@ -34,6 +34,9 @@ public class OutputShop
     // the NPC who runs the shop, when the wiki names one; the client joins this to a pickpocket
     // source of the same name so both sides of the NPC share a page
     public String owner;
+    // the thieving stall this shop is the front of, by the name its source goes by ("Bakery
+    // stall", "Fish stall (Port Roberts)"), when it is one; the client gives both one page
+    public String stall;
     public String currency;
     // world-map coordinates from the shop infobox's {{Map}} template; all null when the
     // page has none. plane is 0 (ground) whenever coordinates are present but unstated.
