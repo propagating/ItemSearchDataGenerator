@@ -1357,28 +1357,28 @@
       {
         "style": "melee",
         "maxHit": 28,
-        "maxHitMax": 71,
+        "maxHitMax": 48,
         "speed": 4,
         "speedMax": 4
       },
       {
         "style": "ranged",
         "maxHit": 30,
-        "maxHitMax": 67,
+        "maxHitMax": 45,
         "speed": 4,
         "speedMax": 4
       },
       {
         "style": "magic",
         "maxHit": 23,
-        "maxHitMax": 34,
+        "maxHitMax": 23,
         "speed": 4,
         "speedMax": 4
       },
       {
         "style": "stomp",
         "maxHit": 72,
-        "maxHitMax": 106,
+        "maxHitMax": 72,
         "speed": 4,
         "speedMax": 4
       }
@@ -1440,6 +1440,25 @@
     "needsReview": true
   },
   "7584": {
+    "attacks": [
+      {
+        "style": "ranged",
+        "maxHit": 0,
+        "maxHitMax": 0,
+        "speed": 3,
+        "speedMax": 3
+      },
+      {
+        "style": "magic",
+        "maxHit": 0,
+        "maxHitMax": 0,
+        "speed": 3,
+        "speedMax": 3
+      }
+    ],
+    "needsReview": true
+  },
+  "7585": {
     "attacks": [
       {
         "style": "ranged",
