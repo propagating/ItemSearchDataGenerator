@@ -151,6 +151,65 @@ public class SourceTransformTest
     }
 
     /**
+     * Nylocas Vasilias is level 800 in Normal mode and in Hard mode, hitting 70 in one and 105
+     * in the other. The level rule folded them into one "(Level 800)" source; a mode is a
+     * different fight and gets a source of its own, as the Entry version always did.
+     */
+    @Test
+    public void versionsInAHarderModeAreADifferentMonster()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        DropPageJson p = page("Nylocas Vasilias", "Monster", Arrays.asList("10786", "8354", "10807"),
+            "800", table("Drops", "Drops", line(false, "Bones", "1", "Always", null)));
+        p.versions.add(version("Entry", "301", "10786"));
+        p.versions.add(version("Normal", "800", "8354"));
+        p.versions.add(version("Hard", "800", "10807"));
+        pages.put("Nylocas Vasilias", p);
+
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap(),
+            Collections.emptyMap());
+
+        assertEquals(3, out.size());
+        assertEquals(Arrays.asList(8354), byName(out, "Nylocas Vasilias (Normal)").npcIds);
+        assertEquals(Arrays.asList(10807), byName(out, "Nylocas Vasilias (Hard)").npcIds);
+        assertEquals(Arrays.asList(10786), byName(out, "Nylocas Vasilias (Entry)").npcIds);
+    }
+
+    /**
+     * Tekton's four versions are two fights of two phases each: Normal and Enraged, in the
+     * ordinary raid and in Challenge Mode. The ordinary fight keeps the page's own name, since
+     * it is what the page is about; the mode is named, and its phases drop the mode they share.
+     */
+    @Test
+    public void aChallengeModeIsASecondMonsterUnderThePagesName()
+    {
+        Map<String, DropPageJson> pages = new TreeMap<>();
+        DropPageJson p = page("Tekton", "Monster", Arrays.asList("7540", "7541", "7542", "7543"),
+            "", table("Drops", "Drops", line(false, "Bones", "1", "Always", null)));
+        p.versions.add(version("Normal", "", "7540"));
+        p.versions.add(version("Enraged", "", "7541"));
+        p.versions.add(version("Normal (Challenge Mode)", "", "7542"));
+        p.versions.add(version("Enraged (Challenge Mode)", "", "7543"));
+        pages.put("Tekton", p);
+
+        List<OutputSource> out = SourceTransform.transform(pages, Collections.emptyMap(),
+            Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap(),
+            Collections.emptyMap());
+
+        assertEquals(2, out.size());
+        assertEquals(Arrays.asList(7540, 7541), byName(out, "Tekton").npcIds);
+        assertEquals(Arrays.asList(7542, 7543), byName(out, "Tekton (Challenge Mode)").npcIds);
+        assertEquals("Normal", SourceTransform.withoutMode("Normal (Challenge Mode)"));
+        assertEquals("Hard", SourceTransform.withoutMode("Hard"));
+        // the Nightmare Zone's bosses: a mode is read whole, and a phase inside it comes out clean
+        assertEquals("Hard Mode", SourceTransform.modeOf("First form (Hard Mode)"));
+        assertEquals("First form", SourceTransform.withoutMode("First form (Hard Mode)"));
+        assertEquals("", SourceTransform.modeOf("Normal"));
+        assertEquals("Normal Mode", SourceTransform.modeOf("Normal Mode"));
+    }
+
+    /**
      * Killerwatt's Idle (470) and Attacking (469) versions are the same level 55 monster in two
      * poses: one id becomes the other when it turns to fight. Splitting on their attack styles
      * gave the player two search results for one monster, and neither was a page on the wiki.

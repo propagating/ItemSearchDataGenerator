@@ -34,6 +34,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.Set;
 import com.itemsearch.datagen.output.OutputAttack;
@@ -350,8 +351,11 @@ public final class SourceTransform
             return buckets;
         }
 
-        // group version indexes by combat level
-        Map<String, List<Integer>> groups = new LinkedHashMap<>();
+        // group version indexes by difficulty mode, then by combat level within the mode. A mode
+        // is a different fight whatever the level says: Nylocas Vasilias is level 800 in Normal
+        // and in Hard, hitting 70 in one and 105 in the other.
+        Map<String, Map<String, List<Integer>>> modes = new LinkedHashMap<>();
+        int groupCount = 0;
         for (int i = 0; i < page.versions.size(); i++)
         {
             VersionJson v = page.versions.get(i);
@@ -360,16 +364,22 @@ public final class SourceTransform
                 continue; // a version with no id of its own cannot be told apart in game
             }
             String level = v.combatLevel == null ? "" : v.combatLevel.trim();
-            groups.computeIfAbsent(level, k -> new ArrayList<>()).add(i);
+            Map<String, List<Integer>> levels = modes.computeIfAbsent(modeOf(v.label),
+                k -> new LinkedHashMap<>());
+            if (levels.computeIfAbsent(level, k -> new ArrayList<>()).isEmpty())
+            {
+                groupCount++;
+            }
+            levels.get(level).add(i);
         }
-        if (groups.size() < 2)
+        if (groupCount < 2)
         {
             // every version is the same level: one monster after all, standing for all of them
             for (Bucket b : buckets)
             {
-                if ("KILL".equals(b.type) && !groups.isEmpty())
+                if ("KILL".equals(b.type) && groupCount == 1)
                 {
-                    b.versions = groups.values().iterator().next();
+                    b.versions = modes.values().iterator().next().values().iterator().next();
                     b.pageVersions = page.versions;
                 }
             }
@@ -384,14 +394,17 @@ public final class SourceTransform
                 out.add(b); // only a fought monster has versions worth telling apart
                 continue;
             }
-            for (Map.Entry<String, List<Integer>> e : groups.entrySet())
+            for (Map.Entry<String, Map<String, List<Integer>>> m : modes.entrySet())
             {
-                List<Integer> group = e.getValue();
-                VersionJson first = page.versions.get(group.get(0));
-                Bucket split = new Bucket();
-                split.pageTitle = b.pageTitle;
-                split.pageVersions = page.versions;
-                split.name = b.name + " (" + groupLabel(page, group, e.getKey()) + ")";
+                for (Map.Entry<String, List<Integer>> e : m.getValue().entrySet())
+                {
+                    List<Integer> group = e.getValue();
+                    VersionJson first = page.versions.get(group.get(0));
+                    Bucket split = new Bucket();
+                    split.pageTitle = b.pageTitle;
+                    split.pageVersions = page.versions;
+                    split.name = b.name + suffixFor(page, group, e.getKey(), m.getKey(),
+                        m.getValue().size() > 1);
                 split.type = b.type;
                 split.combatLevel = parseIntOr(first.combatLevel, b.combatLevel);
                 split.npcIds = new ArrayList<>();
@@ -405,15 +418,67 @@ public final class SourceTransform
                         }
                     }
                 }
-                split.drops = b.drops;
-                split.mapX = b.mapX;
-                split.mapY = b.mapY;
-                split.mapPlane = b.mapPlane;
-                split.versions = group;
-                out.add(split);
+                    split.drops = b.drops;
+                    split.mapX = b.mapX;
+                    split.mapY = b.mapY;
+                    split.mapPlane = b.mapPlane;
+                    split.versions = group;
+                    out.add(split);
+                }
             }
         }
         return out;
+    }
+
+    // the difficulty modes the wiki names in a version label: Hard at the Theatre of Blood,
+    // Challenge Mode at the Chambers of Xeric, Normal Mode and Hard Mode in the Nightmare Zone.
+    // A bare "Normal" is not one — the wiki calls the plain version of anything Normal, enraged
+    // or not — and "Enraged" is a phase of the same fight. Longest phrase first, so "Hard Mode"
+    // is kept whole and the name reads as the wiki wrote it.
+    private static final Pattern MODE =
+        Pattern.compile("\\b(Normal Mode|Hard Mode|Challenge Mode|Hard)\\b");
+
+    /** The mode a version label names, or "" for the ordinary fight. */
+    static String modeOf(String label)
+    {
+        if (label == null)
+        {
+            return "";
+        }
+        Matcher m = MODE.matcher(label);
+        return m.find() ? m.group(1) : "";
+    }
+
+    /** The label with its mode taken off: "Normal (Challenge Mode)" is the Normal phase. */
+    static String withoutMode(String label)
+    {
+        if (label == null)
+        {
+            return null;
+        }
+        String bare = MODE.matcher(label).replaceAll("").replaceAll("\\(\\s*\\)", "").trim();
+        return bare.isEmpty() ? label : bare;
+    }
+
+    /**
+     * What a split source adds to its page's name: " (Hard)" for the only group of a mode,
+     * " (Level 800)" for one of several at the ordinary difficulty, and both when a mode has
+     * several levels of its own. The ordinary fight with one level adds nothing, so the pages
+     * that only gained a mode group keep the name they had.
+     */
+    private static String suffixFor(DropPageJson page, List<Integer> group, String level,
+        String mode, boolean severalLevels)
+    {
+        List<String> parts = new ArrayList<>();
+        if (!mode.isEmpty())
+        {
+            parts.add(mode);
+        }
+        if (severalLevels)
+        {
+            parts.add(groupLabel(page, group, level));
+        }
+        return parts.isEmpty() ? "" : " (" + String.join(", ", parts) + ")";
     }
 
     /**
@@ -461,7 +526,7 @@ public final class SourceTransform
         String shared = null;
         for (int i : group)
         {
-            String label = page.versions.get(i).label;
+            String label = withoutMode(page.versions.get(i).label);
             String bare = label == null ? "" : LABEL_COUNTER.matcher(label.trim()).replaceFirst("");
             if (shared == null)
             {
@@ -795,7 +860,8 @@ public final class SourceTransform
             OutputCombat combat = combatFor(b.pageTitle, parseNpcIds(v.npcIds), b.id,
                 Collections.singletonList(i), i, wiki, combatOverlay, monsters, new boolean[1]);
             String image = images != null && i < images.size() ? images.get(i) : null;
-            OutputPhase phase = new OutputPhase(v.label, image, combat);
+            // the mode is in the source's name already; the phase says what is left
+            OutputPhase phase = new OutputPhase(withoutMode(v.label), image, combat);
             if (seen.add(phaseKey(phase)))
             {
                 phases.add(phase);
